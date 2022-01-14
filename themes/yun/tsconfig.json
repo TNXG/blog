@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "ESNext",
+    "lib": ["DOM", "ESNext"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "paths": {
+      "~/*": ["docs/.vitepress/*"]
+    },
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["vite-plugin-pwa/client"]
+  },
+  "include": ["docs/.vitepress/**/*"]
+}

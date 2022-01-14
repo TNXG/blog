@@ -1,0 +1,257 @@
+# 主站公告
+notice:
+  enable: true
+  content: "总而言之，WordPress新写的文章没有备份，找不回来了"
+
+# 头像
+avatar:
+  enable: true
+  url: "https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640"
+  rounded: true
+  opacity: 1
+  mickey_mouse: true
+  status:
+    enable: true
+    emoji: "🤔"
+    message: "细细思索"
+
+# 导航
+menu:
+  home:
+    path: /
+    icon: icon-home-4-line
+  list:
+    - type: archives
+      path: /archives/
+      icon: icon-archive-line
+    - type: categories
+      path: /categories/
+      icon: icon-folder-2-line
+    - type: tags
+      path: /tags/
+      icon: icon-price-tag-3-line
+  custom:
+    title: "洛圄网络"
+    path: https://www.loyunet.cn
+    icon: icon-settings-line
+
+pages:
+  - name: 我的小伙伴们
+    url: /links/
+    icon: icon-genderless-line
+    color: dodgerblue
+
+  - name: 喜欢的女孩子们
+    url: /girls/
+    icon: icon-women-line
+    color: hotpink
+
+
+#背景图
+bg_image:
+  enable: true
+  url: "https://api.cyfan.top/acg?type=bg"
+  dark: "https://api.cyfan.top/acg?type=bg"
+  # blur: 30px # 设置背景模糊程度
+  opacity: 0.8
+
+colors:
+  primary: "#6200ee"
+  selection_bg: "#8e71c1"
+
+# 头部引用
+head:
+  css:
+    master: /assets/css/master.css
+    fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.css
+  js:
+    async:
+      iconfont: https://at.alicdn.com/t/font_1140697_dxory92pb0h.js
+
+favicon: /assets/images/master.css
+
+# 静态资源
+cdn:
+  pre: https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest
+
+# 字体
+font:
+  serif:
+    family: "'HarmonyOS_Sans'"
+    weight: 900
+  sans_serif:
+    family: "'HarmonyOS_Sans'"
+    weight: 400
+  monospace:
+    family: "'HarmonyOS_Sans'"
+
+# 关于我
+social:
+  - name: QQ
+    link: https://wpa.qq.com/msgrd?v=3&uin=2271225249&site=qq&menu=yes
+    icon: icon-qq-line
+    color: "#12B7F5"
+
+  - name: GitHub
+    link: https://github.com/TNXG
+    icon: icon-github-line
+    color: "#181717"
+
+  - name: E-Mail
+    link: mailto:mcminecraftmc@126.com
+    icon: icon-mail-line
+    color: "#8E71C1"
+
+  - name: 网易云音乐
+    link: https://music.163.com/user/home?id=515522946
+    icon: icon-netease-cloud-music-line
+    color: "#EE0000"
+
+  - name: 哔哩哔哩
+    link: https://space.bilibili.com/175424674
+    icon: icon-bilibili-line
+    color: "#FF8EB3"
+
+  - name: RSS
+    link: /rss.xml
+    icon: icon-rss-line
+    color: "#FFA500"
+
+# Banner设置
+banner:
+  enable: true
+  title: 天翔的博客
+  src: /js/ui/banner.js
+  border: true
+  cloud:
+    enable: true
+    color: "white"
+  go_down:
+    enable: true
+    icon: icon-arrow-down-s-line
+
+mode: time
+
+# 烟花
+fireworks:
+  enable: true
+  colors:
+    - "102, 167, 221"
+    - "62, 131, 225"
+    - "33, 78, 194"
+
+# 首页卡片与文章内部图片的滚动浮现效果
+scrollreveal:
+  enable: true
+  targets:
+    - .post-card
+    - .post-content img
+
+# 鼠标指针
+cursor:
+  enable: true
+  default: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/pointer.cur
+  pointer: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur
+  text: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/text.cur
+
+# 信息（显示文字、创建时间、更新时间、种类、标签）
+post_meta:
+  item_text: false
+  created_at: true
+  updated_at: true
+  categories: true
+  tags: true
+
+# 页面修改
+post_edit:
+  enable: true
+  url: https://github.com/YunYouJun/yunyoujun.github.io/tree/hexo/source/
+
+# 代码高亮
+codeblock:
+  copy_btn: true
+  prismjs:
+    light: default
+    dark: tomorrow
+
+# 许可证
+creative_commons:
+  license: by-nc-sa
+  post: true
+  language: deed.zh
+  clipboard: true
+
+# 图片懒加载
+lazyload:
+  enable: true
+# 赞助
+reward:
+  enable: true
+  icon: icon-hand-coin-line
+  comment: "我很可爱，请给我钱。I'm so cute. Please give me money."
+  methods:
+    - name: 支付宝
+      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
+      color: "#00A3EE"
+      icon: icon-alipay-line
+    - name: QQ 支付
+      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
+      color: "#12B7F5"
+      icon: icon-qq-line
+    - name: 微信支付
+      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
+      color: "#2DC100"
+      icon: icon-wechat-pay-line
+
+# 页脚
+footer:
+  since: 2019
+  icon:
+    name: icon-cloud-line
+    animated: true
+    color: "#0078E7"
+    url: /copyright.html
+    title: 本博客基于Hexo and Theme Yun
+  powered:
+    enable: false
+  live_time:
+    enable: true
+    prefix: 本博客已在风雨中艰难运行了
+    suffix: 😢
+    start_time: "2019-08-12T12:00:00"
+  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a> .All rights reserved.</p>'
+
+# 一言
+say:
+  enable: true
+  api: /assets/data/yiyan.json
+  src: /js/say.js
+  hitokoto:
+    enable: false
+    api: https://v1.hitokoto.cn
+
+# 默哀
+mourn:
+  enable: true
+  days:
+    - "12-23"
+    - "9-18"
+    - "7-7"
+
+# 搜索
+local_search:
+  enable: true
+  src: /js/search/local-search.js
+
+# twikoo评论系统
+twikoo:
+  enable: true
+  envId: "https://twikoo-nu-flax.vercel.app/"
+
+baidu_push: true
+
+# 字数统计
+wordcount:
+  enable: true
+  count: true
+  time: true

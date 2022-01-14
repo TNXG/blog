@@ -1,0 +1,42 @@
+{
+  "name": "hexo-theme-yun",
+  "version": "1.7.0",
+  "description": "☁️ A fast & light & lovely theme for Hexo.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YunYouJun/hexo-theme-yun.git"
+  },
+  "author": "YunYouJun <me@yunyoujun.cn>",
+  "license": "SATA",
+  "homepage": "https://yun.yunyoujun.cn",
+  "bugs": {
+    "url": "https://github.com/YunYouJun/hexo-theme-yun/issues"
+  },
+  "keywords": [
+    "hexo",
+    "theme",
+    "yun",
+    "starry",
+    "docs"
+  ],
+  "scripts": {
+    "build": "pnpm docs:build",
+    "dev": "pnpm docs:dev",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:serve": "vitepress serve docs",
+    "generate:demo-sites": "esno docs/.vitepress/scripts/index.ts",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.15.0",
+    "@types/node": "^17.0.8",
+    "eslint": "^8.6.0",
+    "esno": "^0.13.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.7"
+  },
+  "lint-staged": {
+    "sites.json": "npm run generate:demo-sites"
+  }
+}
