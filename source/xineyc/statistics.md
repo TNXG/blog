@@ -1,14 +1,16 @@
+---
+layout: false
+---
 <!DOCTYPE HTML>
 <html>
-
 <head>
-	<title>首页||星语XineYc</title>
+	<title>数据统计||星语XineYc</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="./assets/css/main.css" />
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 	<script src="./assets/js/hello.js"></script>
-	<div id="lolijump"><img src="https://cdn.jsdelivr.net/gh/baomihuahua/boxmoeimg@aa712b4f29f35874eef43475423901f8da4d68ce/2021/09/15/1047dd767c7caf91b8e7da3ea8e991fe.png" height="88" width="64"></div>
+    <div id="lolijump"><img src="https://cdn.jsdelivr.net/gh/baomihuahua/boxmoeimg@aa712b4f29f35874eef43475423901f8da4d68ce/2021/09/15/1047dd767c7caf91b8e7da3ea8e991fe.png" height="88" width="64"></div>
 </head>
 
 <body class="is-preload">
@@ -41,63 +43,22 @@
 			<div class="inner">
 				<div class="logo"><img src="http://q1.qlogo.cn/g?b=qq&nk=517074647&s=0" height="250" width="250"></div>
 				<h2>星语XineYc</h2>
-				<p>
-					<script>var rtn = hello(); document.write(rtn)</script>
-				</p>
+				<p><script>var rtn = hello(); document.write(rtn)</script></p>
 			</div>
 		</section>
 		<section id="wrapper">
 			<section id="one" class="wrapper spotlight style1">
-				<a href="./guide.html">
 					<div class="inner">
 						<div class="content">
-							<h2 class="major"><p align="right">用户手册</p></h2>
-							<h3><p align="right">帮助文档，之前在洛圄官网的所有文档内容</p></h3>
+							<h1 class="major"><p align="left">页面搭建中.....</p></h2>
 						</div>
 					</div>
-				<a>
-			</section>
-		</section>
-		<section id="wrapper">
-			<section id="two" class="wrapper alt spotlight style2">
-				<a href="./agreement.html">
-					<div class="inner">
-						<div class="content">
-							<h2 class="major"><p align="left">用户协议</p></h2>
-							<h3><p align="left">在使用前你必须同意该协议中所有条款</p></h3>
-						</div>
-					</div>
-				<a>
 			</section>
 			</section>
-			<section id="wrapper">
-				<section id="one" class="wrapper spotlight style1">
-					<a href="./statistics.html">
-						<div class="inner">
-							<div class="content">
-								<h2 class="major"><p align="right">数据统计</p></h2>
-								<h3><p align="right">星语部分功能的统计信息</p></h3>
-							</div>
-						</div>
-					<a>
-				</section>
-			</section>
-		<section id="wrapper">
-			<section id="two" class="wrapper alt spotlight style2">
-				<a href="./todo.html">
-					<div class="inner">
-						<div class="content">
-							<h2 class="major"><p align="left">TODO</p></h2>
-							<h3><p align="left">未来的更新企划</p></h3>
-						</div>
-					</div>
-				<a>
-			</section>
-			</section>
-			<section id="wrapper">
-				<section id="one" class="wrapper spotlight style1">
-				</section>
-			</section>
+            <section id="wrapper">
+				<section id="two" class="wrapper alt spotlight style2">
+                </section>
+                </section>
 		<section id="four" class="wrapper alt style1">
 			<div class="inner">
 				<h2 class="major">关于我们</h2>

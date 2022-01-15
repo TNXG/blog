@@ -1,7 +1,10 @@
+---
+layout: false
+---
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>用户协议||星语XineYc</title>
+	<title>用户手册||星语XineYc</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="./assets/css/main.css" />
@@ -47,21 +50,7 @@
 			<section id="one" class="wrapper spotlight style1">
 					<div class="inner">
 						<div class="content">
-							<h2 class="major"><p align="left">用户协议</p></h2>
-                            <h3><p align="left">在使用前你必须同意该协议中所有条款</p></h3>
-                            <h2><p align="left">制作组简叙</p></h2>
-                            <li align="left">星语可能因不可抗力暂停运行。<a class="heimu">我们会努力维持星语的运营的</a></li>
-                            <li align="left">星语的运营费用完全由制作组承担，所以使用者无需承担任何费用。<a class="heimu">目前接收捐赠</a></li>
-                            <li align="left">星语不会在任何群里发布任何形式的恰饭广告</li>
-                            <li align="left">星语管理组不会接受任何形式的群发类广告</li>
-                            <br>
-                            <h2><p align="left">注意事项</p></h2>
-                            <li align="left">禁止拉星语进xx捡漏群，xx红包群。</li>
-                            <li align="left">禁止私聊星语谈论不健康信息。<a class="heimu">之前那群老婆老婆叫的我可都看见了doge</a></li>
-                            <li align="left">请勿将星语随意踢出群聊，这会增加账号被封禁的风险。</li>
-                            <li align="left">星语管理组不保证内容版权的正确性，通过使用该内容随之而来的风险与星语管理组无关。</li>
-                            <li align="left">如果您邀请星语加入群聊，则默认您已阅读并同意该协议，或因未完全阅读该协议而造成的任何非星语管理组损失，星语管理组概不负责。如牵涉到星语管理组则将会追究连带责任。</li>
-                            <li align="left">星语所有言论均与国家、政治、人民无关，请有心人不要摘抄碎言片语来装饰自己的观点！</li>
+							<h1 class="major"><p align="left">页面搭建中.....</p></h2>
 						</div>
 					</div>
 			</section>

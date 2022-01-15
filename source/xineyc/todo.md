@@ -1,11 +1,14 @@
+---
+layout: false
+---
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>数据统计||星语XineYc</title>
+	<title>更新计划||星语XineYc</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="./assets/css/main.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
 	<script src="./assets/js/hello.js"></script>
     <div id="lolijump"><img src="https://cdn.jsdelivr.net/gh/baomihuahua/boxmoeimg@aa712b4f29f35874eef43475423901f8da4d68ce/2021/09/15/1047dd767c7caf91b8e7da3ea8e991fe.png" height="88" width="64"></div>
 </head>
@@ -47,7 +50,30 @@
 			<section id="one" class="wrapper spotlight style1">
 					<div class="inner">
 						<div class="content">
-							<h1 class="major"><p align="left">页面搭建中.....</p></h2>
+							<h2 class="major"><p align="left">TODO</p></h2>
+                            <p align="left">图标含义</p>
+                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>已完成|
+                                <i class="fa fa-close" style="font-size:20px;color:black;"></i>计划取消|
+                                <i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>未完成|
+                                <i class="fa fa-clock-o" style="font-size:20px;color:black;"></i>等待后续填补功能
+                            </p>
+                            <h2><p align="left">以下为星语功能的代办表</p></h2>
+                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>签到</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>查询货币数量</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>转账给群友</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟单次寻访</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟十连寻访</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟干员立绘查询</p>
+                            <p align="left"><i class="fa fa-clock-o" style="font-size:20px;color:black;"></i>方舟干员语音查询</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟干员tag查询</p>
+                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>在线测试</p>
+                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>随机图片</p>
+                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>报时</p>
+                            <p align="left"><i class="fa fa-clock-o" style="font-size:20px;color:black;"></i>自动回复</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>数据统计</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟猜干员</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟查专精、精英材料</p>
+                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟查材料</p>
 						</div>
 					</div>
 			</section>

@@ -1,12 +1,14 @@
-
+---
+layout: false
+---
 <!DOCTYPE HTML>
 <html>
 <head>
-	<title>更新计划||星语XineYc</title>
+	<title>用户协议||星语XineYc</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="./assets/css/main.css" />
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
 	<script src="./assets/js/hello.js"></script>
     <div id="lolijump"><img src="https://cdn.jsdelivr.net/gh/baomihuahua/boxmoeimg@aa712b4f29f35874eef43475423901f8da4d68ce/2021/09/15/1047dd767c7caf91b8e7da3ea8e991fe.png" height="88" width="64"></div>
 </head>
@@ -48,30 +50,21 @@
 			<section id="one" class="wrapper spotlight style1">
 					<div class="inner">
 						<div class="content">
-							<h2 class="major"><p align="left">TODO</p></h2>
-                            <p align="left">图标含义</p>
-                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>已完成|
-                                <i class="fa fa-close" style="font-size:20px;color:black;"></i>计划取消|
-                                <i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>未完成|
-                                <i class="fa fa-clock-o" style="font-size:20px;color:black;"></i>等待后续填补功能
-                            </p>
-                            <h2><p align="left">以下为星语功能的代办表</p></h2>
-                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>签到</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>查询货币数量</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>转账给群友</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟单次寻访</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟十连寻访</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟干员立绘查询</p>
-                            <p align="left"><i class="fa fa-clock-o" style="font-size:20px;color:black;"></i>方舟干员语音查询</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟干员tag查询</p>
-                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>在线测试</p>
-                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>随机图片</p>
-                            <p align="left"><i class="fa fa-check-circle-o" style="font-size:20px;color:black;"></i>报时</p>
-                            <p align="left"><i class="fa fa-clock-o" style="font-size:20px;color:black;"></i>自动回复</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>数据统计</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟猜干员</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟查专精、精英材料</p>
-                            <p align="left"><i class="fa fa-circle-o" style="font-size:20px;color:black;"></i>方舟查材料</p>
+							<h2 class="major"><p align="left">用户协议</p></h2>
+                            <h3><p align="left">在使用前你必须同意该协议中所有条款</p></h3>
+                            <h2><p align="left">制作组简叙</p></h2>
+                            <li align="left">星语可能因不可抗力暂停运行。<a class="heimu">我们会努力维持星语的运营的</a></li>
+                            <li align="left">星语的运营费用完全由制作组承担，所以使用者无需承担任何费用。<a class="heimu">目前接收捐赠</a></li>
+                            <li align="left">星语不会在任何群里发布任何形式的恰饭广告</li>
+                            <li align="left">星语管理组不会接受任何形式的群发类广告</li>
+                            <br>
+                            <h2><p align="left">注意事项</p></h2>
+                            <li align="left">禁止拉星语进xx捡漏群，xx红包群。</li>
+                            <li align="left">禁止私聊星语谈论不健康信息。<a class="heimu">之前那群老婆老婆叫的我可都看见了doge</a></li>
+                            <li align="left">请勿将星语随意踢出群聊，这会增加账号被封禁的风险。</li>
+                            <li align="left">星语管理组不保证内容版权的正确性，通过使用该内容随之而来的风险与星语管理组无关。</li>
+                            <li align="left">如果您邀请星语加入群聊，则默认您已阅读并同意该协议，或因未完全阅读该协议而造成的任何非星语管理组损失，星语管理组概不负责。如牵涉到星语管理组则将会追究连带责任。</li>
+                            <li align="left">星语所有言论均与国家、政治、人民无关，请有心人不要摘抄碎言片语来装饰自己的观点！</li>
 						</div>
 					</div>
 			</section>

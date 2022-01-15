@@ -21,15 +21,18 @@ menu:
     path: /
     icon: icon-home-4-line
   list:
-    - type: archives
+    - type: 存档
       path: /archives/
-      icon: icon-archive-line
-    - type: categories
-      path: /categories/
-      icon: icon-folder-2-line
-    - type: tags
+      icon: ri-archive-line ri-lg
+    - type: 标签
       path: /tags/
-      icon: icon-price-tag-3-line
+      icon: ri-bookmark-line ri-lg
+    - type: shuoshuo
+      path: /shuoshuo/
+      icon: ri-message-2-line ri-lg
+    - type: 相册
+      path: /albums/
+      icon: ri-album-line ri-lg
   custom:
     title: "洛圄网络"
     path: https://www.loyunet.cn
@@ -52,8 +55,6 @@ bg_image:
   enable: true
   url: "https://api.cyfan.top/acg?type=bg"
   dark: "https://api.cyfan.top/acg?type=bg"
-  # blur: 30px # 设置背景模糊程度
-  opacity: 0.8
 
 colors:
   primary: "#6200ee"
@@ -62,13 +63,18 @@ colors:
 # 头部引用
 head:
   css:
-    master: /assets/css/master.css
-    fontawesome: https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.css
+    master: "/assets/css/master.css"
+    fontawesome: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.css"
+    RemixIcon: "https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
   js:
+    base:
     async:
-      iconfont: https://at.alicdn.com/t/font_1140697_dxory92pb0h.js
+      # 默认引入的图标资源，使用 iconfont
+      iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
+    defer:
+      getblogeractive: "https://hpp.loyunet.cn/hpp/api/getblogeractive"
 
-favicon: /assets/images/master.css
+# favicon: /assets/images/master.css
 
 # 静态资源
 cdn:
@@ -184,11 +190,12 @@ creative_commons:
 # 图片懒加载
 lazyload:
   enable: true
+
 # 赞助
 reward:
   enable: true
   icon: icon-hand-coin-line
-  comment: "我很可爱，请给我钱。I'm so cute. Please give me money."
+  comment: "我很可爱，请给我钱。<br>I'm so cute. Please give me money."
   methods:
     - name: 支付宝
       path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
@@ -219,7 +226,7 @@ footer:
     prefix: 本博客已在风雨中艰难运行了
     suffix: 😢
     start_time: "2019-08-12T12:00:00"
-  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a> .All rights reserved.</p>'
+  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a> .All rights reserved.😊|😊<span id="bloggeractivetime">加载中。。</span>😊|😊<a href="https://hpp.loyunet.cn/hpp/admin/login">HexoPlusPlus</a></p>'
 
 # 一言
 say:
@@ -255,3 +262,8 @@ wordcount:
   enable: true
   count: true
   time: true
+
+girls:
+  enable: true
+albums:
+  enable: true
