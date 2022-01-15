@@ -171,7 +171,7 @@ post_meta:
 # 页面修改
 post_edit:
   enable: true
-  url: https://github.com/YunYouJun/yunyoujun.github.io/tree/hexo/source/
+  url: https://github.com/TNXG/tnxg.github.io/blob/master/source/
 
 # 代码高亮
 codeblock:
