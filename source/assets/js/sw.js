@@ -214,7 +214,7 @@ const handle = async (req) => {
 }
 
 //缓存控制:离线化缓存
-/* const handle = async (req) => {
+const handle = async (req) => {
     return fetch(req.url).then(function (res) {
         if (!res) { throw 'error' } //1
         return caches.open(CACHE_NAME).then(function (cache) {
@@ -227,7 +227,7 @@ const handle = async (req) => {
             return resp || caches.match(new Request('/offline.html')) //2
         })
     })
-} */
+}
 
 const generate_uuid = () => {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
