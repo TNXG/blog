@@ -72,7 +72,7 @@ head:
       # 默认引入的图标资源，使用 iconfont
       iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
     defer:
-      getblogeractive: "https://hpp.loyunet.cn/hpp/api/getblogeractive"
+      getblogeractive: "/assets/js/hpp_getblogeractive.js"
 
 # favicon: /assets/images/master.css
 
@@ -212,6 +212,9 @@ reward:
 
 # 页脚
 footer:
+  scripts:
+    sw:
+      enable: true
   since: 2019
   icon:
     name: icon-cloud-line
@@ -226,7 +229,14 @@ footer:
     prefix: 本博客已在风雨中艰难运行了
     suffix: 😢
     start_time: "2019-08-12T12:00:00"
-  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a> .All rights reserved.😊|😊<span id="bloggeractivetime">加载中。。</span>😊|😊<a href="https://hpp.loyunet.cn/hpp/admin/login">HexoPlusPlus</a></p>'
+  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a> .All rights reserved.😊|😊<span id="bloggeractivetime">加载中。。</span>😊|😊<a href="https://hpp.loyunet.cn/hpp/admin/login">HexoPlusPlus</a></p><p>
+          <b>
+          当前在线用户: <span id="user_count">【未知】</span> |
+          你的ip: <span id="ip">【未知】</span> |
+          你的所在国家/地区: <span id="loc">【未知】 </span> |
+          统计服务器通讯延迟：<span id="delay">【未知】</span>
+        </b>
+        </p>'
 
 # 一言
 say:
