@@ -156,9 +156,9 @@ scrollreveal:
 # 鼠标指针
 cursor:
   enable: true
-  default: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/pointer.cur
-  pointer: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur
-  text: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/text.cur
+  default: https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/cursors/pointer.ani
+  pointer: https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/cursors/link.ani
+  text: https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/cursors/text.ani
 
 # 信息（显示文字、创建时间、更新时间、种类、标签）
 post_meta:
@@ -229,14 +229,7 @@ footer:
     prefix: 本博客已在风雨中艰难运行了
     suffix: 😢
     start_time: "2019-08-12T12:00:00"
-  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a> .All rights reserved.😊|😊<span id="bloggeractivetime">加载中。。</span>😊|😊<a href="https://hpp.loyunet.cn/hpp/admin/login">HexoPlusPlus</a></p><p>
-          <b>
-          当前在线用户: <span id="user_count">【未知】</span> |
-          你的ip: <span id="ip">【未知】</span> |
-          你的所在国家/地区: <span id="loc">【未知】 </span> |
-          统计服务器通讯延迟：<span id="delay">【未知】</span>
-        </b>
-        </p>'
+  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a> .All rights reserved.😊|😊<span id="bloggeractivetime">加载中。。</span>😊|😊<a href="https://hpp.loyunet.cn/hpp/admin/login">HexoPlusPlus</a><br>本网站由<a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img src="/assets/images/youpailogo.png" height="16" width="16">又拍云</a>提供部分云储存服务</p>'
 
 # 一言
 say:
