@@ -1,6 +1,6 @@
 <script>
     window.addEventListener('load', async () => {
-        navigator.serviceWorker.register(`/assets/js/sw.js?time=${new Date().getTime()}`)
+        navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)
             .then(async reg => {
                 //安装成功，建议此处强刷新以立刻执行SW
                 setTimeout(() => {
