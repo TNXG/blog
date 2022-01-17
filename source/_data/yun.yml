@@ -41,13 +41,18 @@ menu:
 pages:
   - name: 我的小伙伴们
     url: /links/
-    icon: icon-genderless-line
+    icon: ri-men-line ri-lg
     color: dodgerblue
 
   - name: 喜欢的女孩子们
     url: /girls/
-    icon: icon-women-line
+    icon: ri-women-line ri-lg
     color: hotpink
+
+  - name: 鸣谢名单
+    url: /thanks/
+    icon: ri-vip-diamond-line ri-lg
+    color: orange
 
 
 #背景图
