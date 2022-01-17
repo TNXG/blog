@@ -34,7 +34,9 @@ self.db = {
 
 //预缓存网址
 let cachelist = [
-    '/404.html'
+    '/404.html',
+    '/index.html',
+    '/offline.html'
 ];
 
 //监听sw安装时开启此缓存空间
@@ -228,107 +230,3 @@ const handle = async (req) => {
         })
     })
 }
-
-const generate_uuid = () => {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-        var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
-        return v.toString(16);
-    });
-}
-
-self.ws_sw = (config) => {
-    switch (config.type) {
-        case 'init':
-            self.wsc = new WebSocket(config.url)
-            break;
-        case 'send':
-            wsc.send(config.data)
-            break;
-        default:
-            break
-    }
-}
-
-self.addEventListener('install', async function (installEvent) {
-    self.skipWaiting();
-    ws_sw({ type: "init", url: "wss://119.91.80.151:50404" })
-
-    wsc.onclose = () => {
-        setTimeout(() => {
-            ws_sw({ type: "init", url: "wss://119.91.80.151:50404" })
-        }, 1000);
-    }
-
-    installEvent.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(async function (cache) {
-                if (!await db.read('uuid')) {
-                    await db.write('uuid', generate_uuid())
-                }
-                return cache.addAll(cachelist);
-            })
-    );
-});
-self.addEventListener('fetch', async event => {
-    try {
-
-        event.respondWith(handle(event.request))
-    } catch (msg) {
-        event.respondWith(handleerr(event.request, msg))
-    }
-});
-(async () => {
-    try {
-        self.broadcast = new BroadcastChannel('count-channel');
-
-        broadcast.onmessage = async (event) => {
-            switch (event.data.type) {
-                case 'upload':
-                    ws_sw({
-                        type: "send",
-                        data: JSON.stringify({
-                            type: 'info',
-                            data: event.data.data,
-                            uuid: await db.read('uuid')
-                        })
-                    });
-                    wsc.addEventListener('message', (event) => {
-                        const data = JSON.parse(event.data)
-                        broadcast.postMessage({
-                            ip: data.data.ip,
-                            addr: data.data.addr,
-                            user: data.data.user,
-                            delay: new Date().getTime() - data.data.time,
-                        })
-
-                    })
-
-                    break;
-                default:
-                    if (await db.read('sw_install') == 'true') {
-                        broadcast.postMessage({ ok: true })
-                    } else {
-                        await db.write('sw_install', 'true')
-                        broadcast.postMessage({ ok: false })
-
-                    }
-
-                    break;
-                //event.postMessage({ ok:true})
-            }
-        }
-    } catch (e) {
-        console.log("Broadcast无法建立，原因:" + e)
-        ws_sw({
-            type: "send",
-            data: JSON.stringify({
-                type: 'info',
-                data: {
-                    error: true,
-                    msg: e
-                },
-                uuid: await db.read('uuid')
-            })
-        })
-    }
-})()
