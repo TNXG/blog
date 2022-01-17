@@ -1,20 +1,14 @@
-//SW安装初始化
-const CACHE_NAME = 'TNXGderBlog';//可以为Cache版本号，但这样可能会导致缓存冗余累积
-let cachelist = [];
+const CACHE_NAME = 'TNXGSW';
+let cachelist = [
+    '/offline.html',
+    'https://i0.hdslb.com/bfs/album/7ac2a3d7490a925e70b7ff9b1ef1676df8bde111.png'
+];
 self.db = {
-    read: (key) => {
+    read: (key, config) => {
+        if (!config) { config = { type: "text" } }
         return new Promise((resolve, reject) => {
             caches.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
                 res.text().then(text => resolve(text))
-            }).catch(() => {
-                resolve(null)
-            })
-        })
-    },
-    read_arrayBuffer: (key) => {
-        return new Promise((resolve, reject) => {
-            caches.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
-                res.arrayBuffer().then(aB => resolve(aB))
             }).catch(() => {
                 resolve(null)
             })
@@ -31,119 +25,11 @@ self.db = {
         })
     }
 }
-
-//预缓存网址
-let cachelist = [
-    '/404.html',
-    '/index.html',
-    '/offline.html'
-];
-
-//监听sw安装时开启此缓存空间
-self.addEventListener('install', async function (installEvent) {
-    self.skipWaiting();
-    installEvent.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function (cache) {
-                console.log('Opened cache');
-                return cache.addAll(cachelist);
-            })
-    );
-});
-
-//捕获请求:添加监听器
-self.addEventListener('fetch', async event => {
-    event.respondWith(handle(event.request))
-});
-
-const handle = async(req)=>{
-    return fetch(req)
+const handleerr = async (req, msg) => {
+    return new Response(`<h1>ChenBlogHelper Error</h1>
+    <b>${msg}</b>`, { headers: { "content-type": "text/html; charset=utf-8" } })
 }
 
-//捕获请求:篡改请求
-/* const handle = async (req) => {
-    if ((req.url.split('/'))[2].match('xxx.com')) {
-        //xxx.com为图片所在域名
-        return fetch(req.url, {
-            method: "POST"
-        })
-    }
-    return fetch(req)
-} */
-//可以由Get转换为Post
-
-//捕获请求:篡改响应
- /* const handle = async (req) => {
-    const res = await fetch(req)
-    const resp = res.clone()
-    if (!!resp.headers.get('content-type')) {
-        if (resp.headers.get('content-type').includes('text/html')) {
-            return new Response((await resp.text()).replace(/TEST/g, 'SHIT'), {
-                headers: resp.headers,
-                status: resp.status
-            })
-        }
-    }
-    return resp
-} */
-//这个例子会检测返回内容，若为html，将把所有的”TEST”都替换成”SHIT”
-
-//捕获请求:移花接木
-const handle = async (req) => {
-    const domain = req.url.split('/')[2];
-    if (domain.match("unpkg.com")) {
-        return fetch(req.url.replace("https://unpkg.com", "https://zhimg.unpkg.com"));
-    }
-    else {
-        return fetch(req)
-    }
-}
-
-//捕获请求:并行请求
-const lfetch = (urllist) => {
-    return new Promise((resolve, reject) => {
-        const controller = new AbortController();
-        const PauseProgress = async (res) => {
-            return new Response(await (res).arrayBuffer(), { status: res.status, headers: res.headers });
-        };
-        Promise.any(urllist.map(url => {
-            fetch(url, {
-                signal: controller.signal
-            })
-                .then(PauseProgress)
-                .then(res => {
-                    if (res.status == 200) {
-                        controller.abort();
-                        resolve(res)
-                    } else {
-                        reject()
-                    }
-                }).catch(err => {
-                    reject()
-                })
-        }))
-    })
-}
-const handle = async (req) => {
-    const hdslb_mirror = [
-        'https://s1.hdslb.com/',
-        'https://i0.hdslb.com/',
-        'https://i1.hdslb.com/',
-        'https://i2.hdslb.com/'
-    ]
-    for (var k in hdslb_mirror) {
-        if (req.url.match(hdslb_mirror[k]) && req.url.replace('https://', '').split('/')[0] == hdslb_mirror[k].replace('https://', '').split('/')[0]) {
-            return lfetch((() => {
-                let l = []
-                for (let i = 0; i < hdslb_mirror.length; i++) {
-                    l.push(hdslb_mirror[i] + req.url.split('/')[3])
-                }
-                return l
-            })())
-        }
-    }
-    return fetch(req)
-}
 let cdn = {
     "gh": {
         jsdelivr: {
@@ -191,17 +77,76 @@ let cdn = {
     }
 }
 
-//缓存控制:持久化缓存
-const handle = async (req) => {
-    const cache_url_list = [
-        /(http:\/\/|https:\/\/)cdn\.jsdelivr\.net/g,
-        /(http:\/\/|https:\/\/)s1\.hdslb\.com/g,
-        /(http:\/\/|https:\/\/)i0\.hdslb\.com/g,
-        /(http:\/\/|https:\/\/)i1\.hdslb\.com/g,
-        /(http:\/\/|https:\/\/)i2\.hdslb\.com/g
-    ]
+const cache_url_list = [
+    /(http:\/\/|https:\/\/)i0\.hdslb\.com/g,
+    /(http:\/\/|https:\/\/)i1\.hdslb\.com/g,
+    /(http:\/\/|https:\/\/)i2\.hdslb\.com/g,
+    /(http:\/\/|https:\/\/)s1\.hdslb\.com/g
+]
+
+const handle = async function (req) {
+    const urlStr = req.url
+    let urlObj = new URL(urlStr)
+    const uuid = await db.read('uuid')
+    //console.log(uuid)
+    const pathname = urlObj.href.substr(urlObj.origin.length)
+    const port = urlObj.port
+    //setItem('origin',pathname)
+    const domain = (urlStr.split('/'))[2]
+    const path = pathname.split('?')[0]
+    const query = q => urlObj.searchParams.get(q)
+    let urls = []
+    for (let i in cdn) {
+        for (let j in cdn[i]) {
+            //console.log(domain, cdn[i][j].url.split('https://')[1].split('/')[0])
+            if (domain == cdn[i][j].url.split('https://')[1].split('/')[0] && urlStr.match(cdn[i][j].url)) {
+                urls = []
+                for (let k in cdn[i]) {
+                    urls.push(urlStr.replace(cdn[i][j].url, cdn[i][k].url))
+                }
+
+
+                return caches.match(req).then(function (resp) {
+                    return resp || lfetch(urls, urlStr).then(function (res) {
+                        return caches.open(CACHE_NAME).then(function (cache) {
+                            cache.put(req, res.clone());
+                            return res;
+                        });
+                    });
+                })
+
+
+            }
+        }
+    }
+    for (var i in blog.origin) {
+        if (domain.split(":")[0] == blog.origin[i].split(":")[0]) {
+            if (blog.local) { return fetch(req) }
+
+            urls = []
+            for (let k in blog.plus) {
+                urls.push(urlStr.replace(domain, blog.plus[k]).replace(domain + ":" + port, blog.plus[k]).replace('http://', "https://"))
+            }
+
+            return lfetch(urls, urlStr).then(function (res) {
+                if (!res) { throw 'error' }
+                return caches.open(CACHE_NAME).then(function (cache) {
+                    cache.delete(req);
+                    cache.put(req, res.clone());
+                    return res;
+                });
+            }).catch(function (err) {
+                return caches.match(req).then(function (resp) {
+                    return resp || caches.match(new Request('/offline.html'))
+                }
+                )
+            })
+        }
+    }
+ 
     for (var i in cache_url_list) {
-        if (req.url.match(cache_url_list[i])) {
+        //console.log(urlStr.match(cache_url_list[i]))
+        if (urlStr.match(cache_url_list[i])) {
             return caches.match(req).then(function (resp) {
                 return resp || fetch(req).then(function (res) {
                     return caches.open(CACHE_NAME).then(function (cache) {
@@ -215,18 +160,83 @@ const handle = async (req) => {
     return fetch(req)
 }
 
-//缓存控制:离线化缓存
-const handle = async (req) => {
-    return fetch(req.url).then(function (res) {
-        if (!res) { throw 'error' } //1
-        return caches.open(CACHE_NAME).then(function (cache) {
-            cache.delete(req);
-            cache.put(req, res.clone());
-            return res;
-        });
-    }).catch(function (err) {
-        return caches.match(req).then(function (resp) {
-            return resp || caches.match(new Request('/offline.html')) //2
+const lfetch = async (urls, url) => {
+    //console.log(urls)
+    const uuid = await db.read('uuid')
+    try {
+        let controller = new AbortController();
+        const PauseProgress = async (res) => {
+            return new Response(await (res).arrayBuffer(), { status: res.status, headers: res.headers });
+        };
+        let results = Promise.any(urls.map(urls => {
+            return new Promise((resolve, reject) => {
+                fetch(urls, {
+                    signal: controller.signal
+                })
+                    .then(PauseProgress)
+                    .then(res => {
+                        const resn = res.clone()
+                        if (resn.status == 200) {
+                            setTimeout(() => {
+                                ws_sw({
+                                    type: "send",
+                                    data: JSON.stringify({
+                                        type: 'fetch',
+                                        url: urls,
+                                        origin_url: url,
+                                        promise_any: true,
+                                        uuid: uuid,
+                                        request_uuid: generate_uuid()
+                                    })
+                                })
+                            }, 0);
+                            controller.abort();
+                            resolve(resn)
+                        } else {
+                            reject(null)
+                        }
+                    }).catch(() => {
+                        reject(null)
+                    })
+            }
+            )
+        }
+        )).then(res => { return res }).catch(() => { return null })
+
+        return results
+    }
+    catch (err) {
+        ws_sw({
+            type: "send",
+            data: JSON.stringify({
+                type: 'fetch',
+                url: urls[0],
+                promise_any: false,
+                err: err,
+                request_uuid: generate_uuid(),
+                uuid: uuid
+            })
         })
-    })
+        return fetch(urls[0])
+    }
 }
+
+const test_func = async () => {
+    for (let i in cdn) {
+        for (let j in cdn[i]) {
+            let t1 = new Date().getTime()
+            const n = await fetch(cdn[i][j].url + testurl[i] + '?' + Math.random())
+            let t2 = new Date().getTime()
+            if (n.status === 200) {
+                cdn[i][j].time = t2 - t1
+                console.log(`TEST:${cdn[i][j].url + testurl[i]} WITH ${t2 - t1}ms`)
+            } else {
+                cdn[i][j].time = 20000
+                console.log(`TEST:${cdn[i][j].url + testurl[i]} WITH Erorr ${t2 - t1}ms`)
+            }
+        }
+    }
+    console.log(cdn)
+}
+//(async () => { await test_func() })();
+//setInterval(async () => { test_func() }, 10000);

@@ -1,38 +1,18 @@
 ---
 title: Hello World
+date: 2022-01-18 1:20:08
+tags: 抱怨
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
+我草，我只能说我tm裂开了
 
-## Quick Start
+服务器到期时我的动态博客还没有备份
 
-### Create a new post
+这也就导致了我新写的文章飞了
 
-``` bash
-$ hexo new "My New Post"
-```
+到头来发现还是静态博客对我好
 
-More info: [Writing](https://hexo.io/docs/writing.html)
+呜呜呜
 
-### Run server
+去tnd wordpress
 
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+反正现在也在想办法腾文章到静态博客里来
