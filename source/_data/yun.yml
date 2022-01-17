@@ -38,6 +38,11 @@ menu:
     path: https://www.loyunet.cn
     icon: icon-settings-line
 
+girls:
+  enable: true
+albums:
+  enable: true
+
 pages:
   - name: 我的小伙伴们
     url: /links/
@@ -54,16 +59,25 @@ pages:
     icon: ri-vip-diamond-line ri-lg
     color: orange
 
+anonymous_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
 
-#背景图
+# 背景图
+sidebar:
+  src: /js/sidebar.js
+  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
+  dark_bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp
+  bg_position: bottom 1rem center
+
 bg_image:
   enable: true
-  url: "https://api.cyfan.top/acg?type=bg"
-  dark: "https://api.cyfan.top/acg?type=bg"
+  url: https://api.cyfan.top/acg?type=bg # recomend image related to your mode
+  dark: https://images.weserv.nl/?url=https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg&blur=2&q=100
+  # blur: 30px
+  opacity: 1
 
-colors:
-  primary: "#6200ee"
-  selection_bg: "#8e71c1"
+tagcloud:
+    enable: false
+    amount: 20
 
 # 头部引用
 head:
@@ -79,11 +93,11 @@ head:
     defer:
       getblogeractive: "/assets/js/hpp_getblogeractive.js"
 
-# favicon: /assets/images/master.css
+favicon: /assets/images/favicon.png
 
 # 静态资源
 cdn:
-  pre: https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io@latest
+  pre: https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages
 
 # 字体
 font:
@@ -249,7 +263,6 @@ say:
 mourn:
   enable: true
   days:
-    - "12-23"
     - "9-18"
     - "7-7"
 
@@ -271,7 +284,17 @@ wordcount:
   count: true
   time: true
 
-girls:
+# 不算子
+busuanzi:
+  enable: false
+  site_uv: true
+  site_uv_icon: icon-user-line
+  site_pv: true
+  site_pv_icon: icon-eye-line
+  page_pv: true
+  page_pv_icon: icon-eye-line
+
+# 词云
+wordcloud:
   enable: true
-albums:
-  enable: true
+  height: 350
