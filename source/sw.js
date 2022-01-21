@@ -88,7 +88,7 @@ const handle = async function (req) {
     const urlStr = req.url
     let urlObj = new URL(urlStr)
     const uuid = await db.read('uuid')
-    //console.log(uuid)
+    console.log(uuid)
     const pathname = urlObj.href.substr(urlObj.origin.length)
     const port = urlObj.port
     //setItem('origin',pathname)
@@ -98,7 +98,7 @@ const handle = async function (req) {
     let urls = []
     for (let i in cdn) {
         for (let j in cdn[i]) {
-            //console.log(domain, cdn[i][j].url.split('https://')[1].split('/')[0])
+            console.log(domain, cdn[i][j].url.split('https://')[1].split('/')[0])
             if (domain == cdn[i][j].url.split('https://')[1].split('/')[0] && urlStr.match(cdn[i][j].url)) {
                 urls = []
                 for (let k in cdn[i]) {
@@ -145,7 +145,7 @@ const handle = async function (req) {
     }
  
     for (var i in cache_url_list) {
-        //console.log(urlStr.match(cache_url_list[i]))
+        console.log(urlStr.match(cache_url_list[i]))
         if (urlStr.match(cache_url_list[i])) {
             return caches.match(req).then(function (resp) {
                 return resp || fetch(req).then(function (res) {
@@ -161,7 +161,7 @@ const handle = async function (req) {
 }
 
 const lfetch = async (urls, url) => {
-    //console.log(urls)
+    console.log(urls)
     const uuid = await db.read('uuid')
     try {
         let controller = new AbortController();

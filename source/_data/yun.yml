@@ -70,7 +70,7 @@ sidebar:
 
 bg_image:
   enable: true
-  url: https://api.cyfan.top/acg?type=bg # recomend image related to your mode
+  url: https://arknights.asia/api/img/arknights/wallpaper/?type=cdn # recomend image related to your mode
   dark: https://images.weserv.nl/?url=https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg&blur=2&q=100
   # blur: 30px
   opacity: 1
