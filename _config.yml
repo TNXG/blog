@@ -106,8 +106,8 @@ deploy:
 
 feed:
   enable: true
-  type: rss2
-  path: rss.xml
+  type: atom
+  path: atom.xml
   limit: 0
 
 # Live2D
