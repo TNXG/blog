@@ -13,7 +13,7 @@ banner: <meta name="referrer" content="no-referrer"/>
 <script>
   // 全局变量声明区域
   var fdata = {
-    apiurl: 'https://hexo-friendcircle-api.vercel.app/api',
+    apiurl: 'https://friendcircle-api-gilt.vercel.app/api',
     initnumber: 20, //【可选】页面初始化展示文章数量
     stepnumber: 10,//【可选】每次加载增加的篇数
     error_img: '/image/404.gif' //【可选】头像加载失败时默认显示的头像
