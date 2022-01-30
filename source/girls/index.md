@@ -4,7 +4,7 @@ title: Lovely Girls
 date: 2019-08-12 13:20:09
 icon: icon-women-line
 banner: <span title="我全都要！">大家都是我的天使！</span><meta name="referrer" content="no-referrer"/>
-girls: https://cdn.jsdelivr.net/gh/TNXG/TNXG/data/girls.json
+girls: https://cdn.jsdelivr.net/gh/TNXG/TNXG/data/blog/girls.json
 random: true
 ---
 我喜欢她们，兄弟。虽然我知道可能会很奇怪，但我就是喜欢她们。这种爱是跨越空间的，是跨越世纪的，是跨越生与死的边界的

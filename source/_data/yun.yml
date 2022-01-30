@@ -95,6 +95,7 @@ head:
     async:
       # 默认引入的图标资源，使用 iconfont
       iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
+      vue: "https://cdn.jsdelivr.net/npm/vue@2"
     defer:
       getblogeractive: "/assets/js/hpp_getblogeractive.js"
 
