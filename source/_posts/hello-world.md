@@ -1,7 +1,10 @@
 ---
 title: Hello World
 date: 2022-01-18 1:20:08
+updated: 2022-02-07 0:20:30
 tags: 抱怨
+categories:
+  - 随笔
 ---
 我草，我只能说我tm裂开了
 

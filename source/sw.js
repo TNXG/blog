@@ -164,3 +164,120 @@ const lfetch = async (urls, url) => {
         })
     }))
 }
+
+const blog = {
+    local: 0,
+    origin: [
+        "tnxg.loyunet.cn",
+        "tnxg-github-io.vercel.app"
+    ],
+    plus: [
+        "tnxg.github.io"
+    ]
+};
+const handle = async function (req) {
+    const urlStr = req.url
+    let urlObj = new URL(urlStr)
+    const uuid = await db.read('uuid')
+    //console.log(uuid)
+    const pathname = urlObj.href.substr(urlObj.origin.length)
+    const port = urlObj.port
+    const domain = (urlStr.split('/'))[2]
+    const path = pathname.split('?')[0]
+    const query = q => urlObj.searchParams.get(q)
+    let urls = []
+    for (let i in cdn) {
+        for (let j in cdn[i]) {
+            //console.log(domain, cdn[i][j].url.split('https://')[1].split('/')[0])
+            if (domain == cdn[i][j].url.split('https://')[1].split('/')[0] && urlStr.match(cdn[i][j].url)) {
+                urls = []
+                for (let k in cdn[i]) {
+                    urls.push(urlStr.replace(cdn[i][j].url, cdn[i][k].url))
+                }
+                return caches.match(req).then(function (resp) {
+                    return resp || lfetch(urls, urlStr).then(function (res) {
+                        return caches.open(CACHE_NAME).then(function (cache) {
+                            cache.put(req, res.clone());
+                            return res;
+                        });
+                    });
+                })
+
+
+            }
+        }
+    }
+    for (var i in blog.origin) {
+        if (domain.split(":")[0] == blog.origin[i].split(":")[0]) {
+            if (blog.local) { return fetch(req) }
+
+            urls = []
+            for (let k in blog.plus) {
+                urls.push(urlStr.replace(domain, blog.plus[k]).replace(domain + ":" + port, blog.plus[k]).replace('http://', "https://"))
+            }
+
+            return lfetch(urls, urlStr).then(function (res) {
+                if (!res) { throw 'error' }
+                return caches.open(CACHE_NAME).then(function (cache) {
+                    cache.delete(req);
+                    cache.put(req, res.clone());
+                    return res;
+                });
+            }).catch(function (err) {
+                return caches.match(req).then(function (resp) {
+                    return resp || caches.match(new Request('/offline.html'))
+                }
+                )
+            })
+        }
+    }
+    for (var i in cache_url_list) {
+        if (urlStr.match(cache_url_list[i])) {
+            return caches.match(req).then(function (resp) {
+                return resp || fetch(req).then(function (res) {
+                    return caches.open(CACHE_NAME).then(function (cache) {
+                        cache.put(req, res.clone());
+                        return res;
+                    });
+                });
+            })
+        }
+    }
+    return fetch(req)
+}
+
+
+self.addEventListener("message", async event => {
+    const data = event.data;
+    if (!!data) {
+        switch (data.type) {
+            case 'INIT':
+                self.ClientPort = event.ports[0];
+                break;
+            default:
+                const event_data = event.data.id
+                ws_sw({
+                    type: "send",
+                    data: JSON.stringify({
+                        type: 'info',
+                        data: event.data.data,
+                        uuid: await db.read('uuid')
+                    })
+                });
+                wsc.addEventListener('message', (event) => {
+                    const data = JSON.parse(event.data)
+                    self.ClientPort.postMessage({
+                        id: event_data,
+                        data: {
+                            ip: data.data.ip,
+                            addr: data.data.addr,
+                            user: data.data.user,
+                            delay: new Date().getTime() - data.data.time,
+                        }
+                    })
+
+                })
+                break;
+        }
+    }
+})

@@ -2,7 +2,6 @@
 title: 相册集
 date: 2022-1-15 22:00:00
 updated: 2022-1-15 22:00:00
-banner: <meta name="referrer" content="no-referrer"/>
 type: albums
 albums:
   - caption: 二次元
