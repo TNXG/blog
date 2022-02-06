@@ -105,7 +105,7 @@ favicon: /assets/images/favicon.png
 
 # 静态资源
 cdn:
-  pre: https://cdn1.tianli0.top/gh/TNXG/tnxg.github.io@gh_pages
+  pre: https://fastly.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages
 
 # 字体
 font:
