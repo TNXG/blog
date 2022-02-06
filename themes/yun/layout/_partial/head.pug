@@ -5,6 +5,8 @@ link(rel='icon', type=faviconType, href=url_for(favicon))
 //- Safari
 link(rel="mask-icon", href=url_for(favicon), color=theme.colors.primary)
 
+include ../header_referrer.ejs
+
 //- not use cdn.pre in dev
 if process.env.NODE_ENV === 'development'
   - theme.cdn.pre = ''
@@ -82,6 +84,3 @@ if page.photos
 if page.photos
   - page.photos = page_photos
 
-//- no-referer
-if page.type === 'albums' || page.layout === 'gallery'
-  meta(name="referrer" content="no-referrer")
