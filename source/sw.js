@@ -168,11 +168,12 @@ const lfetch = async (urls, url) => {
 const blog = {
     local: 0,
     origin: [
-        "tnxg.loyunet.cn",
-        "tnxg-github-io.vercel.app"
+        "tnxg.loyunet.cn"
     ],
     plus: [
-        "tnxg.github.io"
+        "tnxg.github.io",
+        "tnxg-github-io.vercel.app",
+        "tnxg-github-io.pages.dev"
     ]
 };
 const handle = async function (req) {

@@ -1,7 +1,7 @@
 # 主站公告
 notice:
   enable: true
-  content: "总而言之，WordPress新写的文章没有备份，找不回来了"
+  content: "Welcome to TNXGのHexoBlog"
 
 # 头像
 avatar:
@@ -34,8 +34,8 @@ menu:
       path: /albums/
       icon: ri-album-line ri-lg
   custom:
-    title: "洛圄网络"
-    path: https://www.loyunet.cn
+    title: "HEXOPLUSPLUS"
+    path: https://hpp.loyunet.cn/hpp/admin/login
     icon: icon-settings-line
 
 girls:
@@ -104,8 +104,8 @@ head:
 favicon: /assets/images/favicon.png
 
 # 静态资源
-cdn:
-  pre: https://fastly.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages
+##cdn:
+##  pre: https://fastly.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages
 
 # 字体
 font:
@@ -198,7 +198,7 @@ post_meta:
 # 页面修改
 post_edit:
   enable: true
-  url: https://github.com/TNXG/tnxg.github.io/blob/master/source/
+  url: https://github.com/TNXG/blog/blob/master/source/
 
 # 代码高亮
 codeblock:
@@ -256,7 +256,7 @@ footer:
     prefix: 本博客已在风雨中艰难运行了
     suffix: 😢
     start_time: "2019-08-12T12:00:00"
-  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a>😊|😊<span id="bloggeractivetime">加载中。。</span>😊|😊<a href="https://hpp.loyunet.cn/hpp/admin/login">HexoPlusPlus</a>'
+  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a>😊|😊<span id="bloggeractivetime">加载中。。</span>'
 
 # 一言
 say:
@@ -282,7 +282,7 @@ local_search:
 # twikoo评论系统
 twikoo:
   enable: true
-  envId: "https://twikoo-nu-flax.vercel.app/"
+  envId: "https://twikoo-tnxg.vercel.app/"
 
 baidu_push: true
 

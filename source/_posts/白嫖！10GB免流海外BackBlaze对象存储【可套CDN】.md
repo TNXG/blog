@@ -1,17 +1,13 @@
 ---
 title: 白嫖！10GB免流海外BackBlaze对象存储【可套CDN】
-tags:
-  - 白嫖
-  - 文件储存
-categories:
-  - 技术
-  - 转载
+tags: [白嫖, 文件储存]
+categories: [技术, 转载]
 date: 2021-01-02 19:01:58
 updated: 2022-02-07 0:20:30
-index_img: 'https://rmt.dogedoge.com/fetch/hi-c-oss/storage/2020-07-09%20110742.jpg'
-banner_img: 'https://rmt.dogedoge.com/fetch/hi-c-oss/storage/2020-07-09%20110742.jpg'
 ---
 腾讯云的COS就是个暗坑，进去的时候大肆宣扬用户前六个月免费，但实际上免费仅针对于存储于国内的bucket，而存储于国外的阶梯定价又极不合理，我的COS在一个月走了流量1.6GB。按照官方定价
+
+<!-- more -->
 
 ![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20094557.jpg)
 
