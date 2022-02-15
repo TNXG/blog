@@ -84,3 +84,6 @@ if page.photos
 if page.photos
   - page.photos = page_photos
 
+//- no-referer
+if page.type === 'albums' || page.layout === 'gallery'
+  meta(name="referrer" content="no-referrer")

@@ -110,20 +110,21 @@ feed:
   path: atom.xml
   limit: 0
 
-# Live2D
+## Live2D
 live2d:
-  enable: true
-  scriptFrom: local 
-  pluginRootPath: live2dw/ 
-  pluginJsPath: lib/ 
-  pluginModelPath: assets/ 
-  tagMode: false
-  model:
-    use: ./assets/live2d/hk416_3401/index.json
-  display:
-    position: right
-    width: 200
-    height: 400
+  enable: false
+#  enable: true
+#  scriptFrom: local 
+#  pluginRootPath: live2dw/ 
+#  pluginJsPath: lib/ 
+#  pluginModelPath: assets/ 
+#  tagMode: false
+#  model:
+#    use: ./assets/live2d/hk416_3401/index.json
+#  display:
+#    position: right
+#    width: 200
+#    height: 400
 
 # Security
 encrypt: # hexo-blog-encrypt

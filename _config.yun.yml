@@ -92,31 +92,31 @@ head:
     RemixIcon: "https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
   js:
     base:
+      ecode: 'https://fastly.jsdelivr.net/gh/TNXG/resource@master/e/ecode.js'
+      e-html: 'https://fastly.jsdelivr.net/gh/TNXG/resource@master/e/e-html.js'
     async:
       # 默认引入的图标资源，使用 iconfont
       iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
-      vue: "https://cdn.jsdelivr.net/npm/vue@2"
     defer:
-      getblogeractive: "/assets/js/hpp_getblogeractive.js"
-  meta: "name=\"referrer\" content=\"no-referrer\"/"
+      getblogeractive: "/assets/js/hpp_getblogeractive.js"    
 
 
 favicon: /assets/images/favicon.png
 
 # 静态资源
-##cdn:
-##  pre: https://fastly.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages
+cdn:
+  pre: https://fastly.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages
 
 # 字体
 font:
   serif:
-    family: "'HarmonyOS_Sans'"
+    family: 'HarmonyOS_Sans'
     weight: 900
   sans_serif:
-    family: "'HarmonyOS_Sans'"
+    family: 'HarmonyOS_Sans'
     weight: 400
   monospace:
-    family: "'HarmonyOS_Sans'"
+    family: 'HarmonyOS_Sans'
 
 # 关于我
 social:
@@ -247,7 +247,7 @@ footer:
     name: icon-cloud-line
     animated: true
     color: "#0078E7"
-    url: /copyright.html
+    url: /thanks/
     title: 本博客基于Hexo and Theme Yun
   powered:
     enable: false
@@ -291,16 +291,6 @@ wordcount:
   enable: true
   count: true
   time: true
-
-# 不算子
-busuanzi:
-  enable: false
-  site_uv: true
-  site_uv_icon: icon-user-line
-  site_pv: true
-  site_pv_icon: icon-eye-line
-  page_pv: true
-  page_pv_icon: icon-eye-line
 
 # 词云
 wordcloud:
