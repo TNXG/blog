@@ -240,8 +240,7 @@ reward:
 # 页脚
 footer:
   scripts:
-    sw:
-      enable: true
+    enable: true
   since: 2019
   icon:
     name: icon-cloud-line
