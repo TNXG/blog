@@ -5,11 +5,11 @@ link(rel='icon', type=faviconType, href=url_for(favicon))
 //- Safari
 link(rel="mask-icon", href=url_for(favicon), color=theme.colors.primary)
 
-include ../header_referrer.ejs
-
 //- not use cdn.pre in dev
 if process.env.NODE_ENV === 'development'
   - theme.cdn.pre = ''
+
+include ../_header.ejs
 
 //- preload
 if is_home()

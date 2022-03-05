@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "vitepress build .",
+    "dev": "vitepress dev . --host"
+  },
+  "devDependencies": {
+    "@unocss/preset-icons": "^0.24.3",
+    "@vueuse/core": "^7.6.1",
+    "sass": "^1.49.7",
+    "vite-plugin-pwa": "^0.11.13",
+    "vitepress": "^0.22.0"
+  },
+  "dependencies": {
+    "@iconify-json/ri": "^1.0.2",
+    "dayjs": "^1.10.7",
+    "vitepress-theme-you": "^0.0.33"
+  }
+}

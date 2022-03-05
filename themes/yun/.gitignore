@@ -17,5 +17,4 @@ dist/
 .temp
 
 # dev esbuild
-
-# About Bat
+source/js/

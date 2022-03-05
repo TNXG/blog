@@ -120,7 +120,6 @@ anonymous_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
 albums:
   enable: false
   icon: icon-gallery-line
-  src: /js/gallery-decrypt.js
 
 girls:
   enable: false
@@ -315,11 +314,11 @@ font:
 fireworks:
   enable: true
   colors:
-    - "102, 167, 221"
-    - "62, 131, 225"
-    - "33, 78, 194"
-    # - '3, 28, 95'
-    # - '0, 8, 55'
+    # - "102, 167, 221"
+    # - "62, 131, 225"
+    # - "33, 78, 194"
+    # - "3, 28, 95"
+    # - "0, 8, 55"
 
 # https://github.com/qrohlf/trianglify
 trianglify:
@@ -623,7 +622,7 @@ comment:
   enable: true
   icon: icon-chat-3-line
   tips:
-    - 要不要和我说些什么？
+    # - 要不要和我说些什么？
   # candidates:
   #   - valine
   #   - utterances
