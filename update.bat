@@ -1,3 +1,3 @@
 git add .
-git commit -m "修改壁纸api地址"
+git commit -m "LovelyGirls新增"
 git push https://github.com/TNXG/blog.git
