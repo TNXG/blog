@@ -75,7 +75,7 @@ sidebar:
 
 bg_image:
   enable: true
-  url: https://arknights.asia/api/img/wallpaper/?type=cdn
+  url: https://arknights.asia/api/img/wallpaper/?type=cdn&source=tianli
   dark: https://images.weserv.nl/?url=https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg&blur=2&q=100
   # blur: 30px
   opacity: 1
@@ -92,8 +92,6 @@ head:
     RemixIcon: "https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
   js:
     base:
-      ecode: 'https://fastly.jsdelivr.net/gh/TNXG/resource@master/e/ecode.js'
-      e-html: 'https://fastly.jsdelivr.net/gh/TNXG/resource@master/e/e-html.js'
     async:
       # 默认引入的图标资源，使用 iconfont
       iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
@@ -282,6 +280,12 @@ local_search:
 twikoo:
   enable: true
   envId: "https://twikoo-tnxg.vercel.app"
+comment:
+  enable: true
+  tips:
+    - 说些什么？注意遵守当地的法律法规哦！
+  candidates:
+    - twikoo
 
 baidu_push: true
 

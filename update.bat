@@ -1,3 +1,3 @@
 git add .
-git commit -m "Éı¼¶ÒÀÀµ"
+git commit -m "ĞŞ¸´Twikoo"
 git push https://github.com/TNXG/blog.git
