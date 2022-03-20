@@ -298,5 +298,5 @@ wordcloud:
 
 # pjax
 pjax:
-  enable: false
+  enable: true
   src: "/js/pjax.js"
