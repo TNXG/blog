@@ -281,7 +281,7 @@ local_search:
 # twikoo评论系统
 twikoo:
   enable: true
-  envId: "https://twikoo-tnxg.vercel.app/"
+  envId: "https://twikoo-tnxg.vercel.app"
 
 baidu_push: true
 
@@ -295,3 +295,8 @@ wordcount:
 wordcloud:
   enable: true
   height: 350
+
+# pjax
+pjax:
+  enable: false
+  src: "/js/pjax.js"

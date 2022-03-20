@@ -1,1 +1,1 @@
-import{d as n}from"../chunk-MOAR7EDJ.js";import"../chunk-TTX6TVTO.js";function e(){n(window.CONFIG.waline.cdn,()=>{new window.Waline(window.CONFIG.waline.config)},window.Waline)}document.addEventListener("DOMContentLoaded",e);document.addEventListener("pjax:success",e);
+import{d as n}from"../chunk-NYO46L6P.js";import"../chunk-3EC4DL6A.js";function e(){n(window.CONFIG.waline.cdn,()=>{new window.Waline(window.CONFIG.waline.config)},window.Waline)}document.addEventListener("DOMContentLoaded",e);document.addEventListener("pjax:success",e);

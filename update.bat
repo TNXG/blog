@@ -1,3 +1,3 @@
 git add .
-git commit -m "LovelyGirls新增"
+git commit -m "升级主题"
 git push https://github.com/TNXG/blog.git
