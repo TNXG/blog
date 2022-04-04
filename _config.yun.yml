@@ -302,5 +302,4 @@ wordcloud:
 
 # pjax
 pjax:
-  enable: true
-  src: "/js/pjax.js"
+  enable: false

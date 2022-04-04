@@ -1,3 +1,3 @@
 git add .
-git commit -m "增加感谢、修改签名"
+git commit -m "升级主题，升级依赖"
 git push https://github.com/TNXG/blog.git
