@@ -266,7 +266,7 @@ say:
 
 # 默哀
 mourn:
-  enable: true
+  enable: false
   days:
     - "9-18"
     - "7-7"
