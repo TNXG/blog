@@ -1,3 +1,3 @@
 git add .
-git commit -m "补充内容"
+git commit -m "修复About页面排版问题"
 git push https://github.com/TNXG/blog.git

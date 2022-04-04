@@ -69,8 +69,8 @@ TARS天翔
 > ## About Site
 >来看看站点的发展历史？
 >本站编年史
-<details>
 
+<details>
 <summary>2022</summary>
 
 ### 2022-3-26
@@ -92,9 +92,9 @@ TARS天翔
 ### 2022-1-15
 静态博客部署
 
-### 2021-8
-天翔开始学习易语言和php
-
+天翔开始简单学习Pyhton
+</details>
+<details>
 <summary>2021</summary>
 
 ### 2021-8
@@ -105,11 +105,10 @@ TARS天翔
 
 MurlAPI更名为Arknights.Asia
 
-### 2021-5-9
 注册域名<a href="https://www.loyunet.cn">loyunet.cn</a>
 
 洛圄网络主域名更换
-
+</details>
 <summary>2020</summary>
 
 期间大大小小发生了一些事情，比如CoolQ的消逝
@@ -119,7 +118,8 @@ MisakaNetwork.ML改组，建立LoYuNetwork，购买域名<a href="https://loyune
 MurlAPI初步建立
 
 ~~有点记不太清了~~
-
+</details>
+<details>
 <summary>2019</summary>
 
 ### 2019-8-12
