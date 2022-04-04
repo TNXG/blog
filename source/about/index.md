@@ -109,6 +109,7 @@ MurlAPI更名为Arknights.Asia
 
 洛圄网络主域名更换
 </details>
+<details>
 <summary>2020</summary>
 
 期间大大小小发生了一些事情，比如CoolQ的消逝
