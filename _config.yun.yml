@@ -75,7 +75,7 @@ sidebar:
 
 bg_image:
   enable: true
-  url: https://arknights.asia/api/img/wallpaper/?type=cdn&source=tianli
+  url: https://prts.top/api/img/wallpaper/?type=cdn
   dark: https://images.weserv.nl/?url=https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg&blur=2&q=100
   # blur: 30px
   opacity: 1
@@ -103,7 +103,7 @@ favicon: /assets/images/favicon.png
 
 # 静态资源
 cdn:
-  pre: https://fastly.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages
+  pre: https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages
 
 # 字体
 font:

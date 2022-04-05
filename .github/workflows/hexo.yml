@@ -18,8 +18,11 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - name: Install & Build
         run: |
-          npm install -g hexo-cli
-          npm i
+          npm install -g yarn
+          yarn global add hexo-cli
+          yarn install
+          cd themes/yun && yarn run build
+          cd ../
           hexo g
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
