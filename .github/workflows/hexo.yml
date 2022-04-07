@@ -1,6 +1,12 @@
 name: TNXGのHexoBlogBuild
-'on':
-  - workflow_dispatch
+
+on: 
+  push:
+    branches: 
+     - master
+  watch:
+    types: [started]
+
 jobs:
   buildstatic:
     runs-on: ubuntu-latest

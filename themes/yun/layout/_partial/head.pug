@@ -86,5 +86,5 @@ if page.photos
   - page.photos = page_photos
 
 //- no-referer
-if page.type === 'albums' || page.layout === 'gallery'
+if page.type === 'albums' || page.layout === 'gallery' || page.type === 'video'
   meta(name="referrer" content="no-referrer")

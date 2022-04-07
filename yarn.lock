@@ -45,7 +45,7 @@
     "@antfu/eslint-config-ts" "0.19.4"
     "eslint-plugin-vue" "^8.5.0"
 
-"@antfu/eslint-config@^0.19.2":
+"@antfu/eslint-config@^0.20.2":
   "integrity" "sha512-Bg9FGWJrK0mfLm7Xt0WVE8rzC1QqZd/sfyao51zAiA86r4d05wBhmjvAr13HYB5rNYu+mduNY3dOze8rdhHcYA=="
   "resolved" "https://registry.npmmirror.com/@antfu/eslint-config/-/eslint-config-0.19.4.tgz"
   "version" "0.19.4"
