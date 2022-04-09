@@ -1,7 +1,7 @@
 ---
 title: 相册集
-date: 2022-1-15 22:00:00
-updated: 2022-1-15 22:00:00
+date: 2022-01-15 22:00:00
+updated: 2022-01-15 22:00:00
 type: albums
 albums:
   - caption: 二次元

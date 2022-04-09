@@ -1,7 +1,7 @@
 ---
 title: 视频集
-date: 2022-4-8 02:00:00
-updated: 2022-4-8 02:00:00
+date: 2022-04-08 02:00:00
+updated: 2022-04-09 02:00:00
 type: albums
 albums:
   - caption: Ambience Synesthesia 音律联觉

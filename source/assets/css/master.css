@@ -34,22 +34,22 @@ a:active
 
 /* 字体 */
 @font-face {
-    src: url("https://cdn.jsdelivr.net/gh/TNXG/resource@master/typeface/HarmonyOS_Sans.ttf");
+    src: url("https://cdn.jsdelivr.net/gh/tianxiang-tester/resource@master/typeface/HarmonyOS_Sans.ttf");
     font-family: "HarmonyOS_Sans";
 }
 
 @font-face {
-    src: url("https://cdn.jsdelivr.net/gh/TNXG/resource@master/typeface/ysbth.ttf");
+    src: url("https://cdn.jsdelivr.net/gh/tianxiang-tester/resource@master/typeface/ysbth.ttf");
     font-family: "ysbth";
 }
 
 @font-face {
-    src: url("https://cdn.jsdelivr.net/gh/TNXG/resource@master/typeface/CtrlAstr.ttf"); 
+    src: url("https://cdn.jsdelivr.net/gh/tianxiang-tester/resource@master/typeface/CtrlAstr.ttf"); 
     font-family: "CtrlAstr";
 }
 
 @font-face {
-    src: url("https://cdn.jsdelivr.net/gh/TNXG/resource@master/typeface/JetBrainsMono.ttf");
+    src: url("https://cdn.jsdelivr.net/gh/tianxiang-tester/resource@master/typeface/JetBrainsMono.ttf");
     font-family: "JetBrainsMono";
 }
 

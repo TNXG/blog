@@ -1,7 +1,7 @@
 ---
 title: 二次元
-date: 2022-1-15 22:00:00
-updated: 2022-1-15 22:00:00
+date: 2022-01-15 22:00:00
+updated: 2022-01-15 22:00:00
 layout: gallery
 photos:
   - src: https://i0.hdslb.com/bfs/album/8b4f3587678175b171949626eb778035298d377a.png

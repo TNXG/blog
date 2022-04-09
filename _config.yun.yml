@@ -34,8 +34,8 @@ menu:
       path: /albums/
       icon: ri-album-line ri-lg
   custom:
-    title: "HEXOPLUSPLUS"
-    path: https://hpp.loyunet.cn/hpp/admin/login
+    title: "后台"
+    path: https://dash.wexa.top/dash?page=signin&type=check&endpoint=wexa.prts.top
     icon: icon-settings-line
 
 girls:
@@ -76,7 +76,7 @@ sidebar:
 bg_image:
   enable: true
   url: https://prts.top/api/img/wallpaper/?type=cdn
-  dark: https://images.weserv.nl/?url=https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg&blur=2&q=100
+  dark: https://images.weserv.nl/?blur=2&q=100&url=https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
   # blur: 30px
   opacity: 1
 
@@ -181,9 +181,9 @@ scrollreveal:
 # 鼠标指针
 cursor:
   enable: true
-  default: https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/cursors/pointer.ani
-  pointer: https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/cursors/link.ani
-  text: https://cdn.jsdelivr.net/gh/TNXG/tnxg.github.io@gh_pages/assets/cursors/text.ani
+  default: https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/pointer.ani
+  pointer: https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/link.ani
+  text: https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/text.ani
 
 # 信息（显示文字、创建时间、更新时间、种类、标签）
 post_meta:
