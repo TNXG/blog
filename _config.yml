@@ -11,6 +11,12 @@ author: '天翔TNXG'
 language: 'zh-CN'
 timezone:
 
+#ImagesUrl
+images:
+  enable: true
+  markdowm: true
+  domain: https://npm.elemecdn.com/tnxg-oss@latest
+
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://tnxg.loyunet.cn/
@@ -135,3 +141,16 @@ encrypt: # hexo-blog-encrypt
   - {name: tagName, password: 密码B}
   wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
   wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
+
+# enable: 开启/关闭 推送
+# count: 每次提交最新的10篇文章
+# https://github.com/lete114/hexo-seo-autopush
+hexo_seo_autopush:
+  baidu:
+    enable: true
+    count: 100
+  bing:
+    enable: true
+    count: 100
+  google:
+    enable: false

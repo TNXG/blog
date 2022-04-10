@@ -10,5 +10,5 @@ hexo.on('generateBefore', () => {
 
 hexo.on('ready', () => {
   const { version } = require('../../package.json')
-  hexo.log.info(`Yun version ${version}. Guide: ${pkg.homepage}`)
+  hexo.log.info(`Yun version ${version}. Guide: ${pkg.homepage} 经过天翔TNXG多次魔改`)
 })

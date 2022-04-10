@@ -7,7 +7,7 @@ updated: 2022-02-07 14:50:30
 ---
 
 
-![1](https://assets.prts.top/images/article/2022/04/20220406001853.png)白诺的博客
+{% imagesurl /images/article/2022/04/20220406001853.png %}
 
 就QQ机器人8-2事件后，搞崩了多少基于晨风、酷Q、契约、OQ机器人、QR机器人、MYPC、乾坤、华景机器人、ONO机器人、MIRAI、NANBOT等的私人QBot。
 
