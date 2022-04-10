@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N/F]添加一个插件、修改主题模板"
+git commit -m "[N]新增Ackee统计"
 git push https://github.com/TNXG/blog.git
