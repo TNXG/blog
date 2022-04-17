@@ -3,7 +3,7 @@ layout: girls
 title: Lovely Girls
 date: 2019-08-12 13:20:09
 icon: icon-women-line
-banner: <span title="我全都要！">大家都是我的天使！</span><meta name="referrer" content="no-referrer"/>
+banner: <span title="我全都要！">大家都是我的天使！</span>
 girls: https://cdn.jsdelivr.net/gh/TNXG/TNXG/data/blog/girls.json
 random: true
 ---

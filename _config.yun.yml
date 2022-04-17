@@ -1,7 +1,7 @@
 # 主站公告
 notice:
   enable: true
-  content: "Welcome to TNXGのHexoBlog"
+  content: "Welcome to TNXGのHexoBlog<br>您在阅读博文时视为同意使用条款"
 
 # 头像
 avatar:
@@ -63,6 +63,11 @@ pages:
     url: /thanks/
     icon: ri-vip-diamond-line ri-lg
     color: orange
+
+  - name: 使用条款
+    url: /policy/
+    icon: ri-file-text-line ri-lg
+    color: black
 
 anonymous_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
 

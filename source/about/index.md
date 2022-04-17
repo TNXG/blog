@@ -6,7 +6,7 @@ updated: 2022-04-04 21:50:35
 aplayer: true
 ---
 
-> ## About Me
+## About Me
 >hey，看过来！快看看这只沙雕+废物！！快快快！！！
 >
 
@@ -21,53 +21,12 @@ aplayer: true
 
 很高兴能够在此与你相遇，愿这份友谊永不消逝！
 
-### 感谢
 
-[跳转到我们的鸣谢名单！](../thanks/)
+## About Site
+>来看看站点的构成？（白嫖大王.jpg）
 
+{% imagesurl /images/article/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png %}
 
-### 其他
-
-<details>
-
-<summary>About Game</summary>
-
-### 明日方舟
-
-997437387
-
-月霜夕#4422
-
-### 我的世界Minecraft
- 
-Java: TARS_TNXG
-BE: tian xiang zax6
-
-### 少女前线
-
-1516432
-
-TARS天翔
-
-### 崩坏3
-
-260574680
-
-天翔
-
-### 原神
-
-142617967
-
-天翔TNXG
-
-
-</details>
-
-
-
-> ## About Site
->来看看站点的发展历史？
 >本站编年史
 
 <details>
@@ -131,4 +90,45 @@ MurlAPI初步建立
 
 ### 2019-6-27
 在机缘巧合下，我注册了我的第一个域名<a href="http://misakanetwork.ml">misakanetwork.ml</a>，这将我带入了web的世界中来。不过那时候还是对着百度写一些简单的网页
+</details>
+
+## 感谢
+
+[跳转到我们的鸣谢名单！](../thanks/)
+
+## 其他
+
+<details>
+
+<summary>About Game</summary>
+
+### 明日方舟
+
+997437387
+
+月霜夕#4422
+
+### 我的世界Minecraft
+ 
+Java: TARS_TNXG
+BE: tian xiang zax6
+
+### 少女前线
+
+1516432
+
+TARS天翔
+
+### 崩坏3
+
+260574680
+
+天翔
+
+### 原神
+
+142617967
+
+天翔TNXG
+
 </details>
