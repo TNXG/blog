@@ -64,10 +64,15 @@ pages:
     icon: ri-vip-diamond-line ri-lg
     color: orange
 
+  - name: 开往
+    url: https://travellings.link/
+    icon: ri-train-line ri-lg
+    color: black
+
   - name: 使用条款
     url: /policy/
     icon: ri-file-text-line ri-lg
-    color: black
+    color: purple
 
 anonymous_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
 
@@ -101,8 +106,6 @@ head:
       # 默认引入的图标资源，使用 iconfont
       iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
     defer:
-      getblogeractive: "/assets/js/hpp_getblogeractive.js"    
-
 
 favicon: /assets/images/favicon.png
 
@@ -258,7 +261,7 @@ footer:
     prefix: 本博客已在风雨中艰难运行了
     suffix: 😢
     start_time: "2019-08-12T12:00:00"
-  custom_text: '<br><p>© 2019-2022 by <a href="https://www.loyunet.cn/">LoYuNetwork</a>😊|😊<span id="bloggeractivetime">加载中。。</span>'
+  custom_text: '<br><a href="https://travellings.link/"><img src="https://travellings.link/assets/logo.svg" width="10%"></a>'
 
 # 一言
 say:
