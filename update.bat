@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复友链朋友圈出现的问题"
+git commit -m "[M]修改黑幕样式"
 git push https://github.com/TNXG/blog.git

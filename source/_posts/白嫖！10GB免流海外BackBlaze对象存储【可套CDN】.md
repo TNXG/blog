@@ -4,6 +4,7 @@ tags: [白嫖, 文件储存]
 categories: [技术, 转载]
 date: 2021-01-02 19:01:58
 updated: 2022-02-07 0:20:30
+author: ChenYFan
 ---
 腾讯云的COS就是个暗坑，进去的时候大肆宣扬用户前六个月免费，但实际上免费仅针对于存储于国内的bucket，而存储于国外的阶梯定价又极不合理，我的COS在一个月走了流量1.6GB。按照官方定价
 
@@ -149,4 +150,5 @@ https://img.cyfan.top/pic/postpic/2020-07-09%20102255.jpg
 ---
 
 溜了溜了，作业还没写完呢![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/邪魅一笑.jpg)
+
 <p>原文链接：<a href="https://blog.cyfan.top/p/ce240368.html" rel="nofollow">https://blog.cyfan.top/p/ce240368.html</a></p>

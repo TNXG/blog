@@ -1,35 +1,45 @@
 /* 黑幕 */
-.heimu,
-.heimu a,
-a .heimu,
-.heimu a.new {
-    background-color: #252525;
+.heimus,
+.heimus rt {
+    background-color: #252525
+}
+
+span.heimus a.external,
+span.heimus a.external:visited,
+span.heimus a.extiw,
+span.heimus a.extiw:visited {
+    color: #252525
+}
+
+.heimus,
+.heimus a,
+a .heimus,
+.heimus a.new {
     color: #252525;
-    text-shadow: none;
+    text-shadow: none
 }
-.heimu:hover,
-.heimu:active,
-.heimu:hover 
-.heimu,
-.heimu:active 
-.heimu {
-    color: black !important;
+
+body:not(.heimus_toggle_on) .heimus:hover,
+body:not(.heimus_toggle_on) .heimus:active,
+body:not(.heimus_toggle_on) .heimus.off {
+    transition: color .13s linear;
+    color: white
 }
-.heimu:hover a,
-a:hover .heimu,
-.heimu:active a,
-a:active 
-.heimu {
-    color: lightblue !important;
+
+body:not(.heimus_toggle_on) .heimus:hover a,
+body:not(.heimus_toggle_on) a:hover .heimus,
+body:not(.heimus_toggle_on) .heimus.off a,
+body:not(.heimus_toggle_on) a:hover .heimus.off {
+    transition: color .13s linear;
+    color: lightblue
 }
-.heimu:hover .new,
-.heimu .new:hover,
-.new:hover .heimu,
-.heimu:active .new,
-.heimu .new:active,
-.new:active 
-.heimu {
-    color: #BA0000 !important;
+
+body:not(.heimus_toggle_on) .heimus.off .new,
+body:not(.heimus_toggle_on) .heimus.off .new:hover,
+body:not(.heimus_toggle_on) .new:hover .heimus.off,
+body:not(.heimus_toggle_on) .heimus:hover .new {
+    transition: color .13s linear;
+    color: #FCC
 }
 
 /* 字体 */
