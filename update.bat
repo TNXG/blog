@@ -1,3 +1,3 @@
 git add .
-git commit -m "[M]修改黑幕样式"
+git commit -m "[N]新文章"
 git push https://github.com/TNXG/blog.git

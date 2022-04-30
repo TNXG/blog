@@ -215,7 +215,7 @@ codeblock:
 
 # 许可证
 creative_commons:
-  license: by-nc-sa
+  license: by-nc
   post: true
   language: deed.zh
   clipboard: true
@@ -311,3 +311,4 @@ wordcloud:
 # pjax
 pjax:
   enable: false
+

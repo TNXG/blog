@@ -16,6 +16,7 @@ images:
   enable: true
   markdowm: true
   domain: https://npm.elemecdn.com/tnxg-oss@latest
+  #domain: https://assets.prts.top
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -49,66 +50,33 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+
 highlight:
-  enable: true
-  line_number: true
-  auto_detect: false
-  tab_replace: ''
-  wrap: true
-  hljs: false
-prismjs:
   enable: false
+
+prismjs:
+  enable: true
   preprocess: true
   line_number: true
-  tab_replace: ''
 
-# Home page setting
-# path: Root path for your blogs index page. (default = '')
-# per_page: Posts displayed per page. (0 = disable pagination)
-# order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
   per_page: 15
   order_by: -date
 
-# Category & Tag
 default_category: uncategorized
-category_map:
-tag_map:
 
-# Metadata elements
-## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
 
-# Date / Time format
-## Hexo uses Moment.js to parse and display date
-## You can customize the date format as defined in
-## http://momentjs.com/docs/#/displaying/format/
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
-## updated_option supports 'mtime', 'date', 'empty'
+
 updated_option: 'mtime'
 
-# Pagination
-## Set per_page to 0 to disable pagination
 per_page: 10
 pagination_dir: page
 
-# Include / Exclude file(s)
-## include:/exclude: options only apply to the 'source/' folder
-include:
-exclude:
-ignore:
-
-# Extensions
-## Plugins: https://hexo.io/plugins/
-## Themes: https://hexo.io/themes/
 theme: yun
-
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: ''
 
 feed:
   enable: true
@@ -116,24 +84,8 @@ feed:
   path: atom.xml
   limit: 0
 
-## Live2D
-live2d:
-  enable: false
-#  enable: true
-#  scriptFrom: local 
-#  pluginRootPath: live2dw/ 
-#  pluginJsPath: lib/ 
-#  pluginModelPath: assets/ 
-#  tagMode: false
-#  model:
-#    use: ./assets/live2d/hk416_3401/index.json
-#  display:
-#    position: right
-#    width: 200
-#    height: 400
 
-# Security
-encrypt: # hexo-blog-encrypt
+encrypt:
   abstract: 有东西被加密了, 请输入密码查看.
   message: 您好, 这里需要密码.
   tags:
@@ -142,9 +94,7 @@ encrypt: # hexo-blog-encrypt
   wrong_pass_message: 抱歉, 这个密码看着不太对, 请再试试.
   wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
 
-# enable: 开启/关闭 推送
-# count: 每次提交最新的10篇文章
-# https://github.com/lete114/hexo-seo-autopush
+
 hexo_seo_autopush:
   baidu:
     enable: true
