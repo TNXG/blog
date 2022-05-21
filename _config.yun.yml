@@ -74,19 +74,19 @@ pages:
     icon: ri-file-text-line ri-lg
     color: purple
 
-anonymous_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
+anonymous_image: https://gcore.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
 
 # 背景图
 sidebar:
   src: /js/sidebar.js
-  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
-  dark_bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp
+  bg_image: https://gcore.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
+  dark_bg_image: https://gcore.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp
   bg_position: bottom 1rem center
 
 bg_image:
   enable: true
   url: https://prts.top/api/img/wallpaper/?type=cdn
-  dark: https://images.weserv.nl/?blur=2&q=100&url=https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
+  dark: https://images.weserv.nl/?blur=2&q=100&url=https://gcore.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
   # blur: 30px
   opacity: 1
 
@@ -98,8 +98,8 @@ tagcloud:
 head:
   css:
     master: "/assets/css/master.css"
-    fontawesome: "https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.css"
-    RemixIcon: "https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+    fontawesome: "https://gcore.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.css"
+    RemixIcon: "https://gcore.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
   js:
     base:
     async:
@@ -111,7 +111,7 @@ favicon: /assets/images/favicon.png
 
 # 静态资源
 cdn:
-  pre: https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages
+  pre: https://gcore.jsdelivr.net/gh/TNXG/blog@gh_pages
 
 # 字体
 font:
@@ -189,9 +189,9 @@ scrollreveal:
 # 鼠标指针
 cursor:
   enable: true
-  default: https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/pointer.ani
-  pointer: https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/link.ani
-  text: https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/text.ani
+  default: https://gcore.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/pointer.ani
+  pointer: https://gcore.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/link.ani
+  text: https://gcore.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/cursors/text.ani
 
 # 信息（显示文字、创建时间、更新时间、种类、标签）
 post_meta:
@@ -231,15 +231,15 @@ reward:
   comment: "我很可爱，请给我钱。<br>I'm so cute. Please give me money."
   methods:
     - name: 支付宝
-      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
+      path: https://gcore.jsdelivr.net/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
       color: "#00A3EE"
       icon: icon-alipay-line
     - name: QQ 支付
-      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
+      path: https://gcore.jsdelivr.net/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
       color: "#12B7F5"
       icon: icon-qq-line
     - name: 微信支付
-      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
+      path: https://gcore.jsdelivr.net/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
       color: "#2DC100"
       icon: icon-wechat-pay-line
 
