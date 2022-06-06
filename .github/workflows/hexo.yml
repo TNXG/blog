@@ -1,9 +1,9 @@
 name: TNXGのHexoBlogBuild
 
-on: 
+on:
   push:
-    branches: 
-     - master
+    branches:
+      - master
   watch:
     types: [started]
 
@@ -11,17 +11,21 @@ jobs:
   buildstatic:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v2
+
       - name: Setup node
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
+
       - name: Cache node modules
         uses: actions/cache@v1
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
       - name: Install & Build
         run: |
           npm install -g yarn
@@ -30,8 +34,22 @@ jobs:
           cd themes/yun && yarn run build
           cd ../
           hexo g
+
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh_pages
+          
+      - name: set nowtime
+        run: echo "nowtime=$(date + %Y.%m.%d.%H.%M.%S)" >> $GITHUB_ENV
+      - name: set package.json
+        run: 'echo {"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"} >> $GITHUB_ENV'
+
+      - name: publish
+        run: |
+          echo "${{ env.package }}" > package.json
+          npm publish
+
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}

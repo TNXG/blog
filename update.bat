@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]尝试将gh_pages分支内的内容推送到npm"
+git commit -m "[F]修改推送NPM的方式"
 git push https://github.com/TNXG/blog.git
