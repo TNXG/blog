@@ -34,12 +34,14 @@ jobs:
           cd ../
           hexo g
 
-      - name: set nowtime
-        run: |
-          echo "nowtime=$(date + %Y-%m-%d-%H-%M-%S)" >> $GITHUB_ENV
-          echo ${{ env.nowtime }}
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=today::$(date +'%Y-%m-%d-%s')"
       - name: set package.json
-        run: echo 'package=$({"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"})' >> $GITHUB_ENV
+        id: package
+        run: |
+          echo "::set-output name=string::'{"name":"tnxg-img","version":"${{ steps.package.outputs.string }}","author":"TNXG","license":"TSO-BY"}'"
+          echo ${{ steps.package.outputs.string }}
 
       - name: publish
         run: |
