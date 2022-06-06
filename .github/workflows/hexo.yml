@@ -36,16 +36,18 @@ jobs:
 
       - name: Get current date
         id: date
-        run: echo "::set-output name=today::$(date +'%Y-%m-%d-%s')"
+        run: |
+          echo "::set-output name=today::$(date +'%Y-%m-%d-%H-%M-%S')"
+          echo ${{ steps.date.outputs.today }}
       - name: set package.json
         id: package
         run: |
-          echo "::set-output name=string::'{"name":"tnxg-img","version":"${{ steps.package.outputs.string }}","author":"TNXG","license":"TSO-BY"}'"
+          echo "::set-output name=string::'{"name":"tnxg-img","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}'"
           echo ${{ steps.package.outputs.string }}
 
       - name: publish
         run: |
-          echo "${{ env.package }}" > package.json
+          echo "${{ steps.package.outputs.string }}" > package.json
           npm publish
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
