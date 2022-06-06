@@ -12,11 +12,11 @@
     "version": "6.1.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^0.20.2",
-    "@types/node": "^17.0.25",
-    "eslint": "^8.12.0",
-    "esno": "^0.14.1",
-    "hexo": "^6.1.0",
+    "@antfu/eslint-config": "^0.25.0",
+    "@types/node": "^17.0.38",
+    "eslint": "^8.16.0",
+    "esno": "^0.16.3",
+    "hexo": "^6.2.0",
     "hexo-blog-encrypt": "^3.1.6",
     "hexo-browsersync": "^0.3.0",
     "hexo-generator-archive": "^1.0.0",
@@ -25,20 +25,20 @@
     "hexo-generator-index": "^2.0.0",
     "hexo-generator-search": "^2.4.3",
     "hexo-generator-tag": "^1.0.0",
+    "hexo-helper-live2d": "^3.1.1",
     "hexo-migrator-wordpress": "^2.1.2",
     "hexo-renderer-ejs": "^2.0.0",
     "hexo-renderer-marked": "^5.0.0",
     "hexo-renderer-pug": "^3.0.0",
-    "hexo-renderer-stylus": "^2.0.0",
+    "hexo-renderer-stylus": "^2.1.0",
     "hexo-seo-autopush": "^2.1.0",
     "hexo-server": "^3.0.0",
     "hexo-tag-dplayer": "^0.3.3",
     "hexo-theme-landscape": "^0.0.3",
     "hexo-wordcount": "^6.0.1",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.3.8",
-    "tsup": "^5.12.4",
-    "typescript": "^4.6.3",
-    "yarn": "^1.22.18"
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.0",
+    "tsup": "^6.0.1",
+    "typescript": "^4.7.2"
   }
 }

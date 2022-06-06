@@ -69,7 +69,17 @@ let cdn = {
         tianli: {
             "url": "https://cdn1.tianli0.top/npm"
         }
-
+    },
+    "assets": {
+        eleme: {
+            "url": "https://npm.elemecdn.com/tnxg-oss@latest"
+        },
+        dogecloud: {
+            "url": "https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com"
+        },
+        b2: {
+            "url": "https://assets.prts.top"
+        }
     }
 }
 const handle = async function (req) {

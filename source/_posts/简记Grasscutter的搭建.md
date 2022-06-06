@@ -5,7 +5,7 @@ update: 2022-05-01 00:15:17
 tags: [原神, 私服, 抓包, 教程]
 categories: [游戏, 原创, 教程]
 ---
-{% imagesurl /images/article/2022/05/20220501000338.jpeg %}
+{% imagesurl /images/article/2022/05/20220501000338.jpg %}
 
 # 前言
 
