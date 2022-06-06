@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复构建流程11"
+git commit -m "[F]修复构建流程12"
 git push https://github.com/TNXG/blog.git

@@ -42,7 +42,7 @@ jobs:
       - name: set package.json
         id: package
         run: |
-          echo "::set-output name=string::{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","author": "TNXG","license":"TSO-BY"}"
+          echo "::set-output name=string::{\"name\":\"tnxg-blog\",\"version\":\"${{ steps.date.outputs.today }}\",\"author\":\"TNXG\",\"license\":\"TSO-BY\"}"
           echo ${{ steps.package.outputs.string }}
 
       - name: publish
