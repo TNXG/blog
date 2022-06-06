@@ -34,21 +34,22 @@ jobs:
           cd ../
           hexo g
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh_pages
-          
       - name: set nowtime
-        run: echo "nowtime=$(date + %Y.%m.%d.%H.%M.%S)" >> $GITHUB_ENV
+        run: |
+          echo "nowtime=$(date + %Y.%m.%d.%H.%M.%S)" >> $GITHUB_ENV
+          echo ${{ env.nowtime }}
       - name: set package.json
-        run: echo 'package=${"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"}' >> $GITHUB_ENV
+        run: echo 'package=$({"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"})' >> $GITHUB_ENV
 
       - name: publish
         run: |
           echo "${{ env.package }}" > package.json
           npm publish
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh_pages
 
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
