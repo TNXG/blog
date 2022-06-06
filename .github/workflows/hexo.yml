@@ -8,7 +8,7 @@ on:
     types: [started]
 
 jobs:
-  buildstatic:
+  HexoBlogBuild:
     runs-on: ubuntu-latest
     steps:
 
@@ -43,7 +43,7 @@ jobs:
       - name: set nowtime
         run: echo "nowtime=$(date + %Y.%m.%d.%H.%M.%S)" >> $GITHUB_ENV
       - name: set package.json
-        run: echo 'nowtime={"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"}' >> $GITHUB_ENV
+        run: echo 'package=${"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"}' >> $GITHUB_ENV
 
       - name: publish
         run: |
