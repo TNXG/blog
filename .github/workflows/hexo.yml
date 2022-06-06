@@ -43,7 +43,7 @@ jobs:
       - name: set nowtime
         run: echo "nowtime=$(date + %Y.%m.%d.%H.%M.%S)" >> $GITHUB_ENV
       - name: set package.json
-        run: echo '{"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"}' >> $GITHUB_ENV
+        run: echo 'nowtime={"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"}' >> $GITHUB_ENV
 
       - name: publish
         run: |
