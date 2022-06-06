@@ -98,8 +98,8 @@ tagcloud:
 head:
   css:
     master: "/assets/css/master.css"
-    fontawesome: "https://gcore.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.css"
-    RemixIcon: "https://gcore.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+    fontawesome: "https://npm.elemecdn.com/fontawesome-free@latest/css/all.css"
+    RemixIcon: "https://npm.elemecdn.com/remixicon@latest/fonts/remixicon.css"
   js:
     base:
     async:

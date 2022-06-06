@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复页面配置，修订部分过时内容"
+git commit -m "[N]尝试将gh_pages分支内的内容推送到npm"
 git push https://github.com/TNXG/blog.git

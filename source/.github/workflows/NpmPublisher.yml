@@ -1,0 +1,25 @@
+name: TNXGのBlogNpmPublisher
+on:
+  push:
+    branches:
+      - gh_pages
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+      - name: set nowtime
+        run: echo "nowtime=$(date + %Y.%m.%d.%H.%M.%S)" >> $GITHUB_ENV
+      - name: set package.json
+        run: 'echo {"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"} >> $GITHUB_ENV'
+
+      - name: publish
+        run: |
+          echo "${{ env.package }}" > package.json
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
