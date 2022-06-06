@@ -37,12 +37,12 @@ jobs:
       - name: Get current date
         id: date
         run: |
-          echo "::set-output name=today::$(date +'%Y-%m-%d-%H-%M-%S')"
+          echo "::set-output name=today::$(date +'%Y.%m.%d.%H.%M.%S')"
           echo ${{ steps.date.outputs.today }}
       - name: set package.json
         id: package
         run: |
-          echo "::set-output name=string::'{"name":"tnxg-img","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}'"
+          echo "::set-output name=string::'{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","description":"","main":"index.js","scripts":{"test":"echo \"Error: no test specified\" && exit 1"},"repository":{"type": "git","url": "git+https://github.com/TNXG/blog.git"},"author": "TNXG","license": "TSO-BY","bugs": {"url": "https://github.com/TNXG/blog"},"homepage": "https://github.com/TNXG/blog#readme"}'"
           echo ${{ steps.package.outputs.string }}
 
       - name: publish
