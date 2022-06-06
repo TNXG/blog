@@ -28,10 +28,9 @@ jobs:
 
       - name: Install & Build
         run: |
-          npm install -g yarn
-          yarn global add hexo-cli
-          yarn install
-          cd themes/yun && yarn run build
+          npm install -g hexo-cli
+          npm install
+          cd themes/yun && npm run build
           cd ../
           hexo g
 
@@ -44,7 +43,7 @@ jobs:
       - name: set nowtime
         run: echo "nowtime=$(date + %Y.%m.%d.%H.%M.%S)" >> $GITHUB_ENV
       - name: set package.json
-        run: 'echo {"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"} >> $GITHUB_ENV'
+        run: echo '{"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"}' >> $GITHUB_ENV
 
       - name: publish
         run: |

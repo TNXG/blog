@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改推送NPM的方式"
+git commit -m "[F]修复构建流程"
 git push https://github.com/TNXG/blog.git
