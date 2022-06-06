@@ -36,7 +36,7 @@ jobs:
 
       - name: set nowtime
         run: |
-          echo "nowtime=$(date + %Y.%m.%d.%H.%M.%S)" >> $GITHUB_ENV
+          echo "nowtime=$(date + %Y-%m-%d-%H-%M-%S)" >> $GITHUB_ENV
           echo ${{ env.nowtime }}
       - name: set package.json
         run: echo 'package=$({"name":"tnxg-img","version":"${{ env.nowtime }}","author":"TNXG","license":"TSO-BY"})' >> $GITHUB_ENV
