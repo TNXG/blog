@@ -25,8 +25,14 @@ jobs:
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+      
+      - name: Get current date
+        id: date
+        run: |
+          echo "::set-output name=today::$(date +'%Y.%m.%d.%H.%M.%S')"
+          echo ${{ steps.date.outputs.today }}
 
-      - name: Install & Build
+      - name: Install & Build & Publish
         run: |
           npm install -g hexo-cli
           npm install
@@ -36,17 +42,10 @@ jobs:
           cd ../
           cd ./
           hexo g
-
-      - name: Get current date
-        id: date
-        run: |
-          echo "::set-output name=today::$(date +'%Y.%m.%d.%H.%M.%S')"
-          echo ${{ steps.date.outputs.today }}
-
-      - name: publish
-        run: |
+          cd public
           echo '{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}' > package.json
           npm publish
+          cd ./
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
@@ -54,4 +53,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
           publish_branch: gh_pages
