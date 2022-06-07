@@ -47,11 +47,11 @@ jobs:
         run: |
           echo '{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}' > package.json
           npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh_pages
-
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
