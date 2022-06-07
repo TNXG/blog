@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复资源引用错误的代码"
+git commit -m "[F]解决jsd在国内被dns污染的问题"
 git push https://github.com/TNXG/blog.git
