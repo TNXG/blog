@@ -47,7 +47,7 @@ jobs:
 
       - name: publish
         run: |
-          echo {\"name\":\"tnxg-blog\",\"version\":\"${{ steps.date.outputs.today }}\",\"author\":\"TNXG\",\"license\":\"TSO-BY\"} > package.json
+          echo echo '{"name":"tnxg-blog","version":"${{ steps.package.outputs.string }}","author":"TNXG","license":"TSO-BY"}' > package.json > package.json
           npm publish
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
