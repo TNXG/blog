@@ -40,7 +40,6 @@ jobs:
           npm install
           npm run build
           cd ../
-          cd ./
           hexo g
           cd public
           echo '{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}' > package.json
