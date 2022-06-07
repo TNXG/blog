@@ -1,3 +1,3 @@
 git add .
-git commit -m "[U]尝试升级主题"
+git commit -m "[U]尝试升级主题2"
 git push https://github.com/TNXG/blog.git
