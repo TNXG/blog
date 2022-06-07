@@ -25,8 +25,8 @@ favicon: /yun.svg
 
 # Posts / Categories / Tags in sidebar.
 sidebar:
-  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
-  # dark_bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp
+  bg_image: https://cdn.yunyoujun.cn/img/bg/alpha-stars-timing-1.webp
+  # dark_bg_image: https://cdn.yunyoujun.cn/img/bg/dark-alpha-stars-timing-1.webp
   bg_position: bottom 1rem center
   tagcloud:
     enable: false
@@ -41,66 +41,61 @@ toc:
 
 # Social Links.
 social:
-  # - name: RSS
-  #   # set rss in your root config
-  #   # https://github.com/hexojs/hexo-generator-feed
-  #   link: /atom.xml # config.feed.path
-  #   icon: icon-rss-line
-  #   color: orange
-  # - name: QQ 群 1050458482
-  #   # https://isux.tencent.com/wp-content/uploads/2016/05/20160512101222609.pdf
-  #   link: https://qm.qq.com/cgi-bin/qm/qr?k=kZJzggTTCf4SpvEQ8lXWoi5ZjhAx0ILZ&jump_from=webapi
-  #   icon: icon-qq-line
-  #   color: "#12B7F5"
-  # - name: GitHub
-  #   link: https://github.com/YunYouJun
-  #   icon: icon-github-line
-  #   color: "#6e5494"
-  # - name: 微博
-  #   link: https://weibo.com/jizhideyunyoujun
-  #   icon: icon-weibo-line
-  #   color: "#E6162D"
-  # - name: 豆瓣
-  #   link: https://www.douban.com/people/yunyoujun/
-  #   icon: icon-douban-line
-  #   color: "#007722"
-  # - name: 网易云音乐
-  #   link: https://music.163.com/#/user/home?id=247102977
-  #   icon: icon-netease-cloud-music-line
-  #   color: "#C20C0C"
-  # - name: 知乎
-  #   link: https://www.zhihu.com/people/yunyoujun/
-  #   icon: icon-zhihu-line
-  #   color: "#0084FF"
-  # - name: 哔哩哔哩
-  #   link: https://space.bilibili.com/1579790
-  #   icon: icon-bilibili-line
-  #   color: "#FF8EB3"
-  # - name: 微信公众号
-  #   link: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/about/white-qrcode-and-search.jpg
-  #   icon: icon-wechat-2-line
-  #   color: "#1AAD19"
-  # - name: Twitter
-  #   link: https://twitter.com/YunYouJun
-  #   icon: icon-twitter-line
-  #   color: "#1da1f2"
-  # # - name: Telegram
-  # #   link: https://t.me/yunyoujun_group
-  # #   icon: icon-telegram-line
-  # #   color: "#0088CC"
-  # - name: Telegram Channel
-  #   link: https://t.me/elpsycn
-  #   # icon: icon-telegram-fill
-  #   icon: icon-telegram-line
-  #   color: "#0088CC"
-  # - name: E-Mail
-  #   link: mailto:me@yunyoujun.cn
-  #   icon: icon-mail-line
-  #   color: "#8E71C1"
-  # - name: Travelling
-  #   link: https://travellings.link
-  #   icon: icon-train-line
-  #   color: black
+# - name: RSS
+#   # set rss in your root config
+#   # https://github.com/hexojs/hexo-generator-feed
+#   link: /atom.xml # config.feed.path
+#   icon: ri:rss-line
+#   color: orange
+# - name: GitHub
+#   link: https://github.com/YunYouJun
+#   icon: ri:github-line
+#   color: "#6e5494"
+# - name: 微博
+#   link: https://weibo.com/jizhideyunyoujun
+#   icon: ri:weibo-line
+#   color: "#E6162D"
+# - name: 豆瓣
+#   link: https://www.douban.com/people/yunyoujun/
+#   icon: ri:douban-line
+#   color: "#007722"
+# - name: 网易云音乐
+#   link: https://music.163.com/#/user/home?id=247102977
+#   icon: ri:netease-cloud-music-line
+#   color: "#C20C0C"
+# - name: 知乎
+#   link: https://www.zhihu.com/people/yunyoujun/
+#   icon: ri:zhihu-line
+#   color: "#0084FF"
+# - name: 哔哩哔哩
+#   link: https://space.bilibili.com/1579790
+#   icon: ri:bilibili-line
+#   color: "#FF8EB3"
+# - name: 微信公众号
+#   link: https://cdn.yunyoujun.cn/img/about/white-qrcode-and-search.jpg
+#   icon: ri:wechat-2-line
+#   color: "#1AAD19"
+# - name: Twitter
+#   link: https://twitter.com/YunYouJun
+#   icon: ri:twitter-line
+#   color: "#1da1f2"
+# # - name: Telegram
+# #   link: https://t.me/yunyoujun_group
+# #   icon: ri:telegram-line
+# #   color: "#0088CC"
+# - name: Telegram Channel
+#   link: https://t.me/elpsycn
+#   # icon: ri:telegram-fill
+#   icon: ri:telegram-line
+#   color: "#0088CC"
+# - name: E-Mail
+#   link: mailto:me@yunyoujun.cn
+#   icon: ri:mail-line
+#   color: "#8E71C1"
+# - name: Travelling
+#   link: https://travellings.link
+#   icon: ri:train-line
+#   color: black
 
 codeblock:
   copy_btn: true
@@ -109,17 +104,17 @@ codeblock:
 pages:
   - name: 我的小伙伴们
     url: /links/
-    icon: icon-genderless-line
+    icon: ri:genderless-line
     color: dodgerblue
 
 # pages
 # -------
 # friend
-anonymous_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
+anonymous_image: https://cdn.yunyoujun.cn/img/avatar/none.jpg
 
 albums:
   enable: false
-  icon: icon-gallery-line
+  icon: ri:gallery-line
 
 girls:
   enable: false
@@ -142,21 +137,21 @@ avatar:
 menu:
   home:
     path: /
-    icon: icon-home-4-line
+    icon: ri:home-4-line
   list:
     - type: archives
       path: /archives/
-      icon: icon-archive-line
+      icon: ri:archive-line
     - type: categories
       path: /categories/
-      icon: icon-folder-2-line
+      icon: ri:folder-2-line
     - type: tags
       path: /tags/
-      icon: icon-price-tag-3-line
+      icon: ri:price-tag-3-line
   custom:
     title: 文档
     path: https://yun.yunyoujun.cn
-    icon: icon-settings-line
+    icon: ri:settings-line
 
 # archive
 archive:
@@ -188,37 +183,37 @@ categories:
 types:
   link:
     color: blue
-    icon: icon-external-link-line
+    icon: ri:external-link-line
   bilibili:
     color: "#FF8EB3"
-    icon: icon-bilibili-line
+    icon: ri:bilibili-line
   douban:
     color: "#007722"
-    icon: icon-douban-line
+    icon: ri:douban-line
   github:
     color: black
-    icon: icon-github-line
+    icon: ri:github-line
   netease-cloud-music:
     color: "#C10D0C"
-    icon: icon-netease-cloud-music-line
+    icon: ri:netease-cloud-music-line
   notion:
     color: black
-    icon: icon-notion
+    icon: ri:notion
   twitter:
     color: "#1da1f2"
-    icon: icon-twitter-line
+    icon: ri:twitter-line
   wechat:
     color: "#1AAD19"
-    icon: icon-wechat-2-line
+    icon: ri:wechat-2-line
   weibo:
     color: "#E6162D"
-    icon: icon-weibo-line
+    icon: ri:weibo-line
   yuque:
     color: "#25b864"
-    icon: icon-yuque
+    icon: ant-design:yuque-outlined
   zhihu:
     color: "#0084FF"
-    icon: icon-zhihu-line
+    icon: ri:zhihu-line
 
 # post_card
 post_card:
@@ -236,7 +231,7 @@ prefetch:
     - /js/sidebar.js
 
 dns_prefetch:
-  # - https://xxx
+# - https://xxx
 
 # do more(TCP handshake...) than dns-fetch
 preconnect:
@@ -270,18 +265,17 @@ cdn:
   pre: ""
   # pre: https://cdn.jsdelivr.net/gh/YunYouJun/yunyoujun.github.io
   css:
-    yun-markdown-css: https://cdn.jsdelivr.net/npm/star-markdown-css@0.2.4/dist/yun/yun-markdown.min.css
-    prism-theme-vars: https://cdn.jsdelivr.net/npm/prism-theme-vars/base.css
-    # github-markdown-css: https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.css
+    yun-markdown-css: "yun_markdown_css"
+    prism-theme-vars: "prism_theme_vars"
   js:
     base:
     async:
-      iconfont: //at.alicdn.com/t/font_1140697_dxory92pb0h.js
     defer:
 
 # cdn for third-party library (alternative include)
 # please see in _vendors.yml
 vendors:
+  host: https://fastly.jsdelivr.net/npm/
 
 # UI
 banner:
@@ -290,10 +284,10 @@ banner:
   border: true
   cloud:
     enable: true
-    color: "white"
+    color: white
   go_down:
     enable: true
-    icon: icon-arrow-down-s-line
+    icon: ri:arrow-down-s-line
 
 # You can import the font you want in the head.
 font:
@@ -314,11 +308,11 @@ font:
 fireworks:
   enable: true
   colors:
-    # - "102, 167, 221"
-    # - "62, 131, 225"
-    # - "33, 78, 194"
-    # - "3, 28, 95"
-    # - "0, 8, 55"
+  # - "102, 167, 221"
+  # - "62, 131, 225"
+  # - "33, 78, 194"
+  # - "3, 28, 95"
+  # - "0, 8, 55"
 
 # https://github.com/qrohlf/trianglify
 trianglify:
@@ -332,11 +326,13 @@ trianglify:
 
 cursor:
   enable: false
-  default: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/pointer.cur
-  pointer: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/link.cur
-  text: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/css/md-cursors/text.cur
+  default: https://cdn.yunyoujun.cn/css/md-cursors/pointer.cur
+  pointer: https://cdn.yunyoujun.cn/css/md-cursors/link.cur
+  text: https://cdn.yunyoujun.cn/css/md-cursors/text.cur
 
 smoothScroll: true
+
+medium_zoom: false
 
 # You can see effect in https://scrollrevealjs.org/
 scrollreveal:
@@ -347,8 +343,8 @@ scrollreveal:
 
 bg_image:
   enable: true
-  url: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0-blur-30px.jpg # recomend image related to your mode
-  dark: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/galaxy.jpg
+  url: https://cdn.yunyoujun.cn/img/bg/stars-timing-0-blur-30px.jpg # recomend image related to your mode
+  dark: https://cdn.yunyoujun.cn/img/bg/galaxy.jpg
   # blur: 30px
   opacity: 1
 
@@ -357,27 +353,27 @@ bg_image:
 # You can show or hide reward in a specific page throuth `reward: true | false` in Front Matter.
 reward:
   enable: true
-  icon: icon-hand-coin-line
+  icon: ri:hand-coin-line
   comment: I'm so cute. Please give me money.
   # url: https://github.com/YunYouJun/yunyoujun.github.io/issues/96
   methods:
-    # - name: 支付宝
-    #   path: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg
-    #   color: "#00A3EE"
-    #   icon: icon-alipay-line
-    # - name: QQ 支付
-    #   path: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png
-    #   color: "#12B7F5"
-    #   icon: icon-qq-line
-    # - name: 微信支付
-    #   path: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg
-    #   color: "#2DC100"
-    #   icon: icon-wechat-pay-line
-    # - name: PayPal
-    #   link: https://paypal.me/elpsycn
-    #   path: https://www.paypalobjects.com/images/shared/paypal-logo-129x32.svg
-    #   color: "#2D70B5"
-    #   icon: icon-paypal-line
+  # - name: 支付宝
+  #   path: https://cdn.yunyoujun.cn/img/donate/alipay-qrcode.jpg
+  #   color: "#00A3EE"
+  #   icon: ri:alipay-line
+  # - name: QQ 支付
+  #   path: https://cdn.yunyoujun.cn/img/donate/qqpay-qrcode.png
+  #   color: "#12B7F5"
+  #   icon: ri:qq-line
+  # - name: 微信支付
+  #   path: https://cdn.yunyoujun.cn/img/donate/wechatpay-qrcode.jpg
+  #   color: "#2DC100"
+  #   icon: ri:wechat-pay-line
+  # - name: PayPal
+  #   link: https://paypal.me/elpsycn
+  #   path: https://www.paypalobjects.com/images/shared/paypal-logo-129x32.svg
+  #   color: "#2D70B5"
+  #   icon: ri:paypal-line
 
 # Creative Commons 4.0 International License.
 # https://creativecommons.org/licenses/
@@ -409,7 +405,7 @@ footer:
   # Icon between year and copyright info.
   icon:
     # `heart` is recommended with animation in red (#ff0000).
-    name: icon-cloud-line
+    name: ri:cloud-line
     # If you want to animate the icon, set it to true.
     animated: true
     # Change the color of icon, using Hex Code.
@@ -438,7 +434,7 @@ footer:
   #   enable: true
   #   title: 又拍云
   #   link: https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral
-  #   logo: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/logo/upyun-logo.png
+  #   logo: https://cdn.yunyoujun.cn/img/logo/upyun-logo.png
   #   prefix: 本网站由
   #   suffix: 提供 CDN 加速
   # Any custom text can be defined here.
@@ -460,16 +456,20 @@ notice:
 # third party
 # ----------------
 
+# enable global iconify
+iconify:
+  global: true
+
 # say something
 # https://say.elpsy.cn
 say:
   enable: true
   # api: https://say.elpsy.cn/sentences.json
   # /data/sentences.json
-  api: https://cdn.jsdelivr.net/gh/ElpsyCN/say@gh-pages/sentences.json
+  api: https://el-bot-api.vercel.app/api/words/young
   # https://developer.hitokoto.cn/sentence/
   hitokoto:
-    enable: true
+    enable: false
     api: https://v1.hitokoto.cn
     # api: https://v1.hitokoto.cn?c=a&c=b&c=c&c=d&c=k
 
@@ -483,11 +483,11 @@ say:
 busuanzi:
   enable: false
   site_uv: true
-  site_uv_icon: icon-user-line
+  site_uv_icon: ri:user-line
   site_pv: true
-  site_pv_icon: icon-eye-line
+  site_pv_icon: ri:eye-line
   page_pv: true
-  page_pv_icon: icon-eye-line
+  page_pv_icon: ri:eye-line
 
 # Post wordcount
 # https://github.com/willin/hexo-wordcount
@@ -499,8 +499,8 @@ wordcount:
 # search
 search:
   modal: true
-  bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0-blur-30px.jpg
-  dark_bg_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/mountain-blur-30px.jpg
+  bg_image: https://cdn.yunyoujun.cn/img/bg/stars-timing-0-blur-30px.jpg
+  dark_bg_image: https://cdn.yunyoujun.cn/img/bg/mountain-blur-30px.jpg
   # placeholder: 想要搜些什么？
 
 engine_search:
@@ -510,9 +510,18 @@ engine_search:
   # href: "https://www.bing.com/search?q=site:"
   domain: yunyoujun.cn
 
-# https://github.com/wzpan/hexo-generator-search
+# Dependencies https://github.com/next-theme/hexo-generator-searchdb
 local_search:
   enable: false
+  # If auto, trigger search by changing input.
+  # If manual, trigger search by pressing enter key or search button.
+  trigger: auto
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+  # Unescape html strings to the readable one.
+  unescape: false
+  # Preload the search data when the page loads.
+  preload: false
 
 # https://github.com/oncletom/hexo-algolia
 algolia_search:
@@ -578,8 +587,8 @@ aplayer:
     audio:
       - name: 星宿计时
         artist: 杉田朗/洛天依
-        url: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/audio/star-timer.mp3
-        cover: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0.jpg
+        url: https://cdn.yunyoujun.cn/audio/star-timer.mp3
+        cover: https://cdn.yunyoujun.cn/img/bg/stars-timing-0.jpg
     meting:
       enable: true
       id: 308168565
@@ -591,14 +600,14 @@ mermaid:
   enable: false
   options: # find more api options from https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
     startOnload: true # default true
-  global: false #default true
+  global: false # default true
 
 # special
 mourn:
   enable: false
   days:
-    - "4-4"
-    - "9-18"
+    - 4-4
+    - 9-18
 
 # SEO
 # https://ziyuan.baidu.com/linksubmit/index
@@ -611,7 +620,7 @@ custom:
 # slide
 slide:
   separator: ---
-  separator_vertical: "~~"
+  separator_vertical: ~~
   data_separator_notes: "^Note:"
   theme: white
   config:
@@ -623,9 +632,9 @@ slide:
 # ---------
 comment:
   enable: true
-  icon: icon-chat-3-line
+  icon: ri:chat-3-line
   tips:
-    # - 要不要和我说些什么？
+  # - 要不要和我说些什么？
   # candidates:
   #   - valine
   #   - utterances

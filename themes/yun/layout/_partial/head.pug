@@ -9,8 +9,6 @@ link(rel="mask-icon", href=url_for(favicon), color=theme.colors.primary)
 if process.env.NODE_ENV === 'development'
   - theme.cdn.pre = ''
 
-include ../_header.ejs
-
 //- preload
 if theme.preload
   each items, name in theme.preload
@@ -37,6 +35,9 @@ if theme.preconnect
   each item in theme.preconnect
     if item
       link(rel='preconnect', href=url_for(item), crossorigin)
+
+//- preconnect host
+link(rel='preconnect', href=url_for(theme.vendors.host), crossorigin)
 
 //- config
 !=yun_config()
@@ -86,5 +87,5 @@ if page.photos
   - page.photos = page_photos
 
 //- no-referer
-if page.type === 'albums' || page.layout === 'gallery' || page.type === 'video'
+if page.type === 'albums' || page.layout === 'gallery'
   meta(name="referrer" content="no-referrer")

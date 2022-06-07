@@ -30,8 +30,11 @@ jobs:
         run: |
           npm install -g hexo-cli
           npm install
-          cd themes/yun && npm run build
+          cd themes/yun/build_js
+          npm install
+          npm run build
           cd ../
+          cd ./
           hexo g
 
       - name: Get current date
@@ -47,7 +50,7 @@ jobs:
 
       - name: publish
         run: |
-          echo echo '{"name":"tnxg-blog","version":"${{ steps.package.outputs.string }}","author":"TNXG","license":"TSO-BY"}' > package.json > package.json
+          echo '{"name":"tnxg-blog","version":"${{ steps.package.outputs.string }}","author":"TNXG","license":"TSO-BY"}' > package.json
           npm publish
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

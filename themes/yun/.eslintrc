@@ -1,9 +1,0 @@
-{
-  "extends": ["@antfu"],
-  "globals": {
-    "hexo": "off",
-    "CONFIG": "off",
-    "Yun": "off",
-    "anime": "off"
-  }
-}
