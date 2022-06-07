@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]我也不知道到底这版究竟能不能好"
+git commit -m "[F]修复资源引用错误的代码"
 git push https://github.com/TNXG/blog.git
