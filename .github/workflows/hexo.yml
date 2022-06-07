@@ -11,7 +11,6 @@ jobs:
   HexoBlogBuild:
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -19,6 +18,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
+          registry-url: https://registry.npmjs.org/
 
       - name: Cache node modules
         uses: actions/cache@v1
@@ -44,9 +44,6 @@ jobs:
           echo ${{ steps.date.outputs.today }}
 
       - name: publish
-        with:
-          node-version: 16
-          registry-url: https://registry.npmjs.org/
         run: |
           echo '{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}' > package.json
           npm publish
