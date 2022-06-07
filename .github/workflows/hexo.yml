@@ -39,12 +39,12 @@ jobs:
           cd themes/yun/build_js
           npm install
           npm run build
-          cd ../
+          cd ../ && cd ../ && cd ../
           hexo g
           cd public
           echo '{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}' > package.json
           npm publish
-          cd ./
+          cd ../
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
 
