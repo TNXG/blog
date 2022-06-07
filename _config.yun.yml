@@ -112,11 +112,8 @@ favicon: /assets/images/favicon.png
 # 静态资源
 cdn:
   pre: https://npm.elemecdn.com/tnxg-blog@latest
-
 vendors:
   host: 'https://npm.elemecdn.com/'
-  twikoo:
-    css: 'twikoo@latest/dist/twikoo.all.min.js'
 
 # 字体
 font:
