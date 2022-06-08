@@ -27,10 +27,46 @@ aplayer: true
 
 {% imagesurl /images/article/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png %}
 
+~~图片过时了~~
+
 >本站编年史
 
 <details>
 <summary>2022</summary>
+
+### 2022-6-7
+博客静态资源cdn由JsDelivr更换为ElemeUnpkg镜像，保证基础访问速度
+
+
+### 2022-6-7
+<a href="https://github.com/tianxiang-tester/img">tianxiang-tester/img</a> 更新
+
+将原包进行拆分，分别为arknights(0.x)、genshin(1.x)、others(2.x)
+
+每个包体分版本上传至NPM，壁纸版本号为(10.x)
+
+**博客CDN由CloudFlare更换为腾讯CDN（能用就行）**
+
+### 2022-6-5
+<a href="https://github.com/tianxiang-tester/img">tianxiang-tester/img</a> 更新
+
+将原包进行拆分，分别为arknights(0.x)、genshin(1.x)、others(2.x)
+
+每个包体分版本上传至NPM，壁纸版本号为(10.x)
+
+**博客CDN由CloudFlare更换为腾讯CDN（能用就行）**
+
+### 2022-6-4
+Python开发遇到困难，未知的HTTPX报错，继续使用php开发并使用learncloud提供的数据存储服务
+
+顺便把支付宝实名换成我自己的了，对某些服务商进行实名认证
+
+将保存在本地的明日方舟立绘上传至DogeCloud
+
+### 2022-6-3
+尝试使用php开发Github OAuth登录，将明日方舟的包体解码，立绘存储在本地
+
+开发遇到困难：php没有内置好用的NoSQL数据库（不会用SQL语句查询）后采用Python开发
 
 ### 2022-3-26
 初次部署Wexagonal <a class="heimu" little="HPP的升级版就是HPP+">(hexoplusplus plus)</a>
