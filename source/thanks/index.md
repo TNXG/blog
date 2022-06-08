@@ -3,7 +3,7 @@ title: 鸣谢
 date: 2022-01-18 1:20:08
 updated: 2022-04-09 0:20:30
 ---
-<p align="center"><h1>感谢以下服务商为我们提供了价格低廉的服务</h1></p>
+<p align="center"><h1>感谢以下服务商为我们提供了免费或价格低廉的服务</h1></p>
 <p align="center"><a href="https://hexo.io/">Hexo </a>- 本博客框架</p>
 <p align="center"><a href="https://yun.yunyoujun.cn/">Hexo-Theme-Yun </a>- 本博客主题</p>
 <p align="center"><a href="https://wexa.top/">Wexagonal </a>- 博客后台</p>

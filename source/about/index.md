@@ -37,16 +37,6 @@ aplayer: true
 ### 2022-6-7
 博客静态资源cdn由JsDelivr更换为ElemeUnpkg镜像，保证基础访问速度
 
-
-### 2022-6-7
-<a href="https://github.com/tianxiang-tester/img">tianxiang-tester/img</a> 更新
-
-将原包进行拆分，分别为arknights(0.x)、genshin(1.x)、others(2.x)
-
-每个包体分版本上传至NPM，壁纸版本号为(10.x)
-
-**博客CDN由CloudFlare更换为腾讯CDN（能用就行）**
-
 ### 2022-6-5
 <a href="https://github.com/tianxiang-tester/img">tianxiang-tester/img</a> 更新
 
