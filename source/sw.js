@@ -80,7 +80,7 @@ let cdn = {//镜像列表
     }
 }
 //主控函数
-const handle = async function (req) {
+const handles = async function (req) {
     const urlStr = req.url
     const domain = (urlStr.split('/'))[2]
     let urls = []

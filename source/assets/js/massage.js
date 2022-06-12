@@ -53,25 +53,3 @@ function getnotice() {
         })
     })
 }
-<script>
-    //ChenYFan大佬提供的serviceworker加载方式
-    (async () => {
-        const $ = document.querySelector.bind(document);
-        if ('serviceWorker' in navigator) {
-            if (Number(window.localStorage.getItem('TNXG_ServiceWorker')) < 1) {
-                window.localStorage.setItem('TNXG_ServiceWorker', 1)
-                window.stop()
-                document.body.innerHTML = await (await fetch('https://npm.elemecdn.com/tnxg-resource@0.0.2/pages/swinstall.html')).text()
-            }
-            navigator.serviceWorker.register(`/sw.js?time=${ranN(1, 88888888888888888888)}`).then(async () => {
-                if (Number(window.localStorage.getItem('TNXG_ServiceWorker')) < 2) {
-                    setTimeout(() => {
-                        window.localStorage.setItem('TNXG_ServiceWorker', 2)
-                        window.location.reload()
-                    }, 500)
-                }
-            })
-                .catch(err => console.error(`TNXG_ServiceWorker:${err}`))
-        }
-    })()
-</script>
