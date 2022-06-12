@@ -1,8 +1,7 @@
 <script src="https://npm.elemecdn.com/qexo-static@1.3.0/hexo/statistic/statistic.js"></script>
 <script>
     loadStatistic("https://qexo.prts.top")
-</script>
-<script>
+
         //ChenYFan大佬提供的serviceworker加载方式
         (async () => {
             const $ = document.querySelector.bind(document);
@@ -10,7 +9,7 @@
                 if (Number(window.localStorage.getItem('TNXG_ServiceWorker')) < 1) {
                     window.localStorage.setItem('TNXG_ServiceWorker', 1)
                     window.stop()
-                    document.write('Wait')
+                    document.body.innerHTML = await(await fetch('https://npm.elemecdn.com/tnxg-resource@0.0.2/pages/swinstall.html')).text()
                 }
                 navigator.serviceWorker.register(`/sw.js?time=${ranN(1, 88888888888888888888)}`).then(async () => {
                     if (Number(window.localStorage.getItem('TNXG_ServiceWorker')) < 2) {
@@ -23,9 +22,7 @@
                     .catch(err => console.error(`TNXG_ServiceWorker:${err}`))
             }
         })()
-    document.body.innerHTML = await(await fetch('https://npm.elemecdn.com/tnxg-resource@0.0.2/pages/swinstall.html')).text()
-</script>
-<script>
+
     log.console('妈的我是傻逼')
     //TNXG半原创的代码
     document.getElementById("tnxg_addr").innerHTML = getAddress(getIP());
