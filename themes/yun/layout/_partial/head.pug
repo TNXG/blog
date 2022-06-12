@@ -42,6 +42,8 @@ link(rel='preconnect', href=url_for(theme.vendors.host), crossorigin)
 //- config
 !=yun_config()
 
+include ../_header.ejs
+
 //- base
 if theme.css !== undefined && theme.css.length > 0
   each url in theme.css

@@ -21,7 +21,7 @@ const handleerr = async (req, msg) => {
     return new Response(`<h1>CDN分流器遇到了致命错误</h1>
     <b>${msg}</b>`, { headers: { "content-type": "text/html; charset=utf-8" } })
 }
-let cdn = {
+let cdn = {//镜像列表
     "gh": {
         jsdelivr: {
             "url": "https://cdn.jsdelivr.net/gh"
@@ -32,9 +32,10 @@ let cdn = {
         jsdelivr_gcore: {
             "url": "https://gcore.jsdelivr.net/gh"
         },
-        tianli: {
-            "url": "https://cdn1.tianli0.top/gh"
+        tnxg_dogecloud_cdn: {
+            "url": "https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/gh"
         }
+
     },
     "combine": {
         jsdelivr: {
@@ -46,8 +47,8 @@ let cdn = {
         jsdelivr_gcore: {
             "url": "https://gcore.jsdelivr.net/combine"
         },
-        tianli: {
-            "url": "https://cdn1.tianli0.top/combine"
+        tnxg_dogecloud_cdn: {
+            "url": "https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/combine"
         }
     },
     "npm": {
@@ -60,28 +61,25 @@ let cdn = {
         zhimg: {
             "url": "https://unpkg.zhimg.com"
         },
+        unpkg: {
+            "url": "https://unpkg.com"
+        },
         bdstatic: {
             "url": "https://code.bdstatic.com/npm"
         },
-        pigax_jsd: {
-            "url": "https://u.pigax.cn/npm"
-        },
         tianli: {
             "url": "https://cdn1.tianli0.top/npm"
-        }
-    },
-    "assets": {
-        eleme: {
-            "url": "https://npm.elemecdn.com/tnxg-oss@latest"
         },
-        dogecloud: {
-            "url": "https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com"
+        sourcegcdn: {
+            "url": "https://npm.sourcegcdn.com/npm"
         },
-        b2: {
-            "url": "https://assets.prts.top"
+        tnxg_dogecloud_cdn: {
+            "url": "https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/npm"
         }
+
     }
 }
+//主控函数
 const handle = async function (req) {
     const urlStr = req.url
     const domain = (urlStr.split('/'))[2]
@@ -152,4 +150,92 @@ const lfetch = async (urls, url) => {
                 })
         })
     }))
+}
+
+//chenyfan 提供的全站NPM静态化
+self.addEventListener('fetch', async event => {
+    event.respondWith(handle(event.request))
+});
+const handle = async (req) => {
+    const urlStr = req.url
+    const urlObj = new URL(urlStr);
+    const urlPath = urlObj.pathname;
+    const domain = urlObj.hostname;
+    if (domain === "tnxg.loyunet.cn") {
+        const fullpath = (path) => {
+            path = path.split('?')[0].split('#')[0]
+            if (path.match(/\/$/)) {
+                path += 'index'
+            }
+            if (!path.match(/\.[a-zA-Z]+$/)) {
+                path += '.html'
+            }
+            return path
+        }
+
+        //定义静态资源路径并储存数组
+        const generate_blog_urls = (packagename, blogversion, path) => {
+            const npmmirror = [
+                `https://unpkg.com/${packagename}@${blogversion}`,
+                `https://npm.elemecdn.com/${packagename}@${blogversion}`,
+                `https://cdn.jsdelivr.net/npm/${packagename}@${blogversion}`,
+                `https://npm.sourcegcdn.com/npm/${packagename}@${blogversion}`,
+                `https://cdn1.tianli0.top/npm/${packagename}@${blogversion}`
+            ]
+            for (var i in npmmirror) {
+                npmmirror[i] += path
+            }
+            return npmmirror
+        }
+
+        if (domain === "tnxg.loyunet.cn") {
+            return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
+                .then(res => res.arrayBuffer())
+                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))
+        }
+
+        //从npm registry获取最新version
+        self.db = {
+            read: (key, config) => {
+                if (!config) { config = { type: "text" } }
+                return new Promise((resolve, reject) => {
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
+                            if (!res) resolve(null)
+                            res.text().then(text => resolve(text))
+                        }).catch(() => {
+                            resolve(null)
+                        })
+                    })
+                })
+            },
+            write: (key, value) => {
+                return new Promise((resolve, reject) => {
+                    caches.open(CACHE_NAME).then(function (cache) {
+                        cache.put(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`), new Response(value));
+                        resolve()
+                    }).catch(() => {
+                        reject()
+                    })
+                })
+            }
+        }
+
+        const set_newest_version = async (mirror) => { //改为最新版本写入数据库
+            return lfetch(mirror, mirror[0])
+                .then(res => res.json()) //JSON Parse
+                .then(async res => {
+                    await db.write('blog_version', res.version) //写入
+                    return;
+                })
+        }
+
+        setInterval(async () => {
+            await set_newest_version(mirror) //定时更新,一分钟一次
+        }, 60 * 1000);
+
+        setTimeout(async () => {
+            await set_newest_version(mirror)//打开五秒后更新,避免堵塞
+        }, 5000)
+    }
 }

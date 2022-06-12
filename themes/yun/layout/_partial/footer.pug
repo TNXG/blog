@@ -54,8 +54,8 @@ footer#footer.sidebar-translate
   if theme.busuanzi.enable
     include ../_third-party/analytics/busuanzi.pug
 
-  if theme.footer.custom_text
-    .footer-custom-text!=`${theme.footer.custom_text}`
+  include ../__footer.ejs
+
   if theme.footer.support && theme.footer.support.enable
     .footer-support
       span=theme.footer.support.prefix

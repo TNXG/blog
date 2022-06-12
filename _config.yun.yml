@@ -1,7 +1,7 @@
 # 主站公告
 notice:
   enable: true
-  content: "Welcome to TNXGのHexoBlog<br>您在阅读博文时视为同意使用条款"
+  content: '<span id="tnxg_notice">Loading...</span><br>您在阅读博文时视为同意使用条款'
 
 # 头像
 avatar:
@@ -263,7 +263,7 @@ footer:
     prefix: 本博客已在风雨中艰难运行了
     suffix: 😢
     start_time: "2019-08-12T12:00:00"
-  custom_text: '<br><a href="https://travellings.link/"><img src="https://travellings.link/assets/logo.svg" width="10%"></a>'
+  custom_text: true
 
 # 一言
 say:
