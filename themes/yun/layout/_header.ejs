@@ -1,27 +1,35 @@
-<script>
-    //ChenYFan大佬提供的serviceworker加载方式
-    (async () => {
-        const $ = document.querySelector.bind(document);
-        if ('serviceWorker' in navigator) {
-            if (Number(window.localStorage.getItem('TNXG_ServiceWorker')) < 1) {
-                window.localStorage.setItem('TNXG_ServiceWorker', 1)
-                window.stop()
-                document.body.innerHTML = await (await fetch('https://npm.elemecdn.com/tnxg-resource@0.0.2/pages/swinstall.html')).text()
-            }
-            navigator.serviceWorker.register(`/sw.js?time=${ranN(1, 88888888888888888888)}`).then(async () => {
-                if (Number(window.localStorage.getItem('TNXG_ServiceWorker')) < 2) {
-                    setTimeout(() => {
-                        window.localStorage.setItem('TNXG_ServiceWorker', 2)
-                        window.location.reload()
-                    }, 500)
-                }
-            })
-                .catch(err => console.error(`TNXG_ServiceWorker:${err}`))
-        }
-    })()
-</script>
 <script src="https://npm.elemecdn.com/tnxg-blog/assets/js/massage.js"></script>
 <script src="https://npm.elemecdn.com/qexo-static@1.3.0/hexo/statistic/statistic.js"></script>
 <script>
     loadStatistic("https://qexo.prts.top")
+</script>
+<script>
+    (async () => {//使用匿名函数确保body已载入
+    /*
+    TNXG-ServiceInstallState 存储在LocalStorage中,用于指示sw安装状态
+    0 或不存在 未安装
+    1 已打断
+    2 已安装
+    3 已激活,并且已缓存必要的文件(此处未写出,无需理会)
+    */
+    const $ = document.querySelector.bind(document);//语法糖
+    if ('serviceWorker' in navigator) { //如果支持sw
+        if (Number(window.localStorage.getItem('TNXG-ServiceInstallState')) < 1) {
+            window.localStorage.setItem('TNXG-ServiceInstallState', 1)
+            window.stop()
+            document.body.innerHTML = await (await fetch('https://npm.elemecdn.com/tnxg-resource@0.0.2/pages/swinstall.html')).text()
+        }
+        navigator.serviceWorker.register(`/sw.js?time=${ranN(1, 88888888888888888888)}`)//随机数,强制更新
+            .then(async () => {
+                if (Number(window.localStorage.getItem('TNXG-ServiceInstallState')) < 2) {
+                    setTimeout(() => {
+                        window.localStorage.setItem('TNXG-ServiceInstallState', 2)
+                        //window.location.search = `?time=${ranN(1, 88888888888888888888)}` //已弃用,在等待500ms安装成功后直接刷新没有问题
+                        window.location.reload()//刷新,以载入sw
+                    }, 1000)//安装后等待500ms使其激活
+                }
+            })
+            .catch(err => console.error(`ChenBlogHelperError:${err}`))
+    }
+})()
 </script>
