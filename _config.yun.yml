@@ -35,7 +35,7 @@ menu:
       icon: ri-album-line ri-lg
   custom:
     title: "后台"
-    path: https://dash.wexa.top/dash?page=signin&type=check&endpoint=wexa.prts.top
+    path: https://qexo.prts.top/
     icon: icon-settings-line
 
 girls:
@@ -74,7 +74,7 @@ pages:
     icon: ri-file-text-line ri-lg
     color: purple
 
-anonymous_image: https://gcore.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
+anonymous_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
 
 # 背景图
 sidebar:
@@ -233,15 +233,15 @@ reward:
   comment: "我很可爱，请给我钱。<br>I'm so cute. Please give me money."
   methods:
     - name: 支付宝
-      path: https://gcore.jsdelivr.net/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
+      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
       color: "#00A3EE"
       icon: icon-alipay-line
     - name: QQ 支付
-      path: https://gcore.jsdelivr.net/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
+      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
       color: "#12B7F5"
       icon: icon-qq-line
     - name: 微信支付
-      path: https://gcore.jsdelivr.net/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
+      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
       color: "#2DC100"
       icon: icon-wechat-pay-line
 
@@ -289,7 +289,7 @@ local_search:
 # twikoo评论系统
 twikoo:
   enable: true
-  envId: "https://twikoo-tnxg.vercel.app"
+  envId: "https://api.twikoo.prts.top"
 comment:
   enable: true
   tips:
