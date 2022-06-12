@@ -7,19 +7,3 @@
 </script>
 <script async src="https://ackee.loyunet.cn/tracker.js" data-ackee-server="https://ackee.loyunet.cn"
     data-ackee-domain-id="b15ca41c-3996-4724-a5a7-382d362d3aee"></script>
-<script>
-    window.addEventListener('load', async () => {
-        navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)
-            .then(async reg => {
-                //安装成功，建议此处强刷新以立刻执行SW
-                if (window.localStorage.getItem('install') != 'true') {
-                    window.localStorage.setItem('install', 'true');
-                    setTimeout(() => {
-                        window.location.search = `?time=${new Date().getTime()}`
-                    }, 1000)
-                }
-            }).catch(err => {
-                //安装失败，错误信息会由err传参
-            })
-    });
-</script>

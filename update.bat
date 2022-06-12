@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修订、新增文章内容"
+git commit -m "[D]取消ServiceWorker"
 git push https://github.com/TNXG/blog.git
