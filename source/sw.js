@@ -161,7 +161,9 @@ const handle = async (req) => {
     const urlObj = new URL(urlStr);
     const urlPath = urlObj.pathname;
     const domain = urlObj.hostname;
-    if (domain === "tnxg.loyunet.cn") {
+    //从这里开始
+    if (domain === "tnxg.loyunet.cn") {//这里写你需要拦截的域名
+        //从这里开始处理
         const fullpath = (path) => {
             path = path.split('?')[0].split('#')[0]
             if (path.match(/\/$/)) {
@@ -172,15 +174,13 @@ const handle = async (req) => {
             }
             return path
         }
-
-        //定义静态资源路径并储存数组
         const generate_blog_urls = (packagename, blogversion, path) => {
             const npmmirror = [
-                `https://unpkg.com/${packagename}@${blogversion}`,
-                `https://npm.elemecdn.com/${packagename}@${blogversion}`,
-                `https://cdn.jsdelivr.net/npm/${packagename}@${blogversion}`,
-                `https://npm.sourcegcdn.com/npm/${packagename}@${blogversion}`,
-                `https://cdn1.tianli0.top/npm/${packagename}@${blogversion}`
+                `https://unpkg.com/${packagename}@${blogversion}/public`,
+                `https://npm.elemecdn.com/${packagename}@${blogversion}/public`,
+                `https://cdn.jsdelivr.net/npm/${packagename}@${blogversion}/public`,
+                `https://npm.sourcegcdn.com/npm/${packagename}@${blogversion}/public`,
+                `https://cdn1.tianli0.top/npm/${packagename}@${blogversion}/public`
             ]
             for (var i in npmmirror) {
                 npmmirror[i] += path
@@ -189,13 +189,11 @@ const handle = async (req) => {
         }
 
         if (domain === "tnxg.loyunet.cn") {
-            return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
-                .then(res => res.arrayBuffer())
-                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))
+            return lfetch(generate_blog_urls('tnxg-blog',await db.read('blog_version') || 'latest',fullpath(urlPath)))
+                .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
+                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))//重新定义header
         }
-
-        //从npm registry获取最新version
-        self.db = {
+        self.db = { //全局定义db,只要read和write,看不懂可以略过
             read: (key, config) => {
                 if (!config) { config = { type: "text" } }
                 return new Promise((resolve, reject) => {
@@ -237,5 +235,16 @@ const handle = async (req) => {
         setTimeout(async () => {
             await set_newest_version(mirror)//打开五秒后更新,避免堵塞
         }, 5000)
+
+        const mirror = [
+            `https://registry.npmmirror.com/tnxg-blog/latest`,
+            `https://registry.npmjs.org/tnxg-blog/latest`,
+            `https://mirrors.cloud.tencent.com/npm/tnxg-blog/latest`
+        ]
+        const get_newest_version = async (mirror) => {
+            return lfetch(mirror, mirror[0])
+                .then(res => res.json())
+                .then(res.version)
+        }
     }
 }
