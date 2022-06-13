@@ -221,6 +221,7 @@ const handle = async (req) => {
                 .then(res => res.json())
                 .then(res.version)
         }
+        log.console(res.version)
         self.db = { //全局定义db,只要read和write,看不懂可以略过
             read: (key, config) => {
                 if (!config) { config = { type: "text" } }
