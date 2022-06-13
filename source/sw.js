@@ -203,7 +203,6 @@ const handle = async (req) => {
             }
             return npmmirror
         }
-        console.log(`${packagename}@${blogversion}`)
         if (domain === "tnxg.loyunet.cn") {//这里写你需要拦截的域名
             return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
         }

@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]加入SW加载动画"
+git commit -m "[F]删除一个异常的调试输出"
 git push https://github.com/TNXG/blog.git
