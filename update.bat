@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]Delete log.console(db.read('blog_version'));"
+git commit -m "[F]修改sw6"
 git push https://github.com/TNXG/blog.git
