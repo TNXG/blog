@@ -249,6 +249,14 @@ const handle = async (req) => {
                 })
         }
 
+        log.console(db.read('blog_version'));
+
+        if (domain === "tnxg.loyunet.cn") {
+            return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
+                .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
+                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))//重新定义header
+        }
+
         setInterval(async () => {
             await set_newest_version(mirror) //定时更新,一分钟一次
         }, 60 * 1000);
@@ -257,10 +265,5 @@ const handle = async (req) => {
             await set_newest_version(mirror)//打开五秒后更新,避免堵塞
         }, 5000)
 
-        if (domain === "tnxg.loyunet.cn") {
-            return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
-                .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
-                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))//重新定义header
-        }
     }
 }
