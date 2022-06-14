@@ -203,12 +203,7 @@ const handle = async (req) => {
             }
             return npmmirror
         }
-
-        if (domain === "tnxg.loyunet.cn") {
-            return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
-                .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
-                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))//重新定义header
-        }
+        
         const mirror = [
             `https://registry.npmmirror.com/tnxg-blog/latest`,
             `https://registry.npmjs.org/tnxg-blog/latest`,
@@ -219,32 +214,6 @@ const handle = async (req) => {
                 .then(res => res.json())
                 .then(res.version)
         }
-        const gVer = choose_the_newest_version(res.version, await db.read('blog_version') || 'latest')
-        await db.write('blog_version', gVer)
-
-        const choose_the_newest_version = (g1, g2) => {
-            const spliter = (v) => {
-                const fpart = v.split('.')[0]
-                return [parseInt(fpart), v.replace(fpart + '.', '')]
-            }
-            const compare_npmversion = (v1, v2) => {
-                const [n1, s1] = spliter(v1)
-                const [n2, s2] = spliter(v2)
-                cons.d(`n1:${n1} s1:${s1} n2:${n2} s2:${s2}`)
-                if (n1 > n2) {
-                    return g1
-                } else if (n1 < n2) {
-                    return g2
-                } else if (!s1.match(/\./) && !s2.match(/\./)) {
-                    if (parseInt(s1) > parseInt(s2)) return g1
-                    else return g2
-                } else {
-                    return compare_npmversion(s1, s2)
-                }
-            }
-            return compare_npmversion(g1, g2)
-        }
-
         log.console(res.version)
         self.db = { //全局定义db,只要read和write,看不懂可以略过
             read: (key, config) => {
@@ -272,6 +241,15 @@ const handle = async (req) => {
             }
         }
 
+        const set_newest_version = async (mirror) => { //改为最新版本写入数据库
+            return lfetch(mirror, mirror[0])
+                .then(res => res.json()) //JSON Parse
+                .then(async res => {
+                    await db.write('blog_version', res.version) //写入
+                    return;
+                })
+        }
+
         setInterval(async () => {
             await set_newest_version(mirror) //定时更新,一分钟一次
         }, 60 * 1000);
@@ -279,5 +257,11 @@ const handle = async (req) => {
         setTimeout(async () => {
             await set_newest_version(mirror)//打开五秒后更新,避免堵塞
         }, 5000)
+
+        if (domain === "tnxg.loyunet.cn") {
+            return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
+                .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
+                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))//重新定义header
+        }
     }
 }
