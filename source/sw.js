@@ -214,6 +214,8 @@ const handle = async (req) => {
                 .then(res => res.json())
                 .then(res.version)
         }
+        log.console(`卧槽：：：${generate_blog_urls('tnxg-blog', get_newest_version(mirror) || 'latest', fullpath(urlPath))}`)
+
         self.db = { //全局定义db,只要read和write,看不懂可以略过
             read: (key, config) => {
                 if (!config) { config = { type: "text" } }
@@ -249,7 +251,6 @@ const handle = async (req) => {
                 })
         }
 
-        log.console(`${generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath))}`)
         if (domain === "tnxg.loyunet.cn") {
             return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
                 .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回

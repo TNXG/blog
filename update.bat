@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改sw6"
+git commit -m "[F]测试sw7"
 git push https://github.com/TNXG/blog.git
