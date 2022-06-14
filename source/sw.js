@@ -249,8 +249,6 @@ const handle = async (req) => {
                 })
         }
 
-        log.console(db.read('blog_version'));
-
         if (domain === "tnxg.loyunet.cn") {
             return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
                 .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
