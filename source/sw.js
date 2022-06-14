@@ -1,5 +1,32 @@
 const CACHE_NAME = 'ICDNCache';
 let cachelist = [];
+
+self.db = { //全局定义db,只要read和write,看不懂可以略过
+    read: (key, config) => {
+        if (!config) { config = { type: "text" } }
+        return new Promise((resolve, reject) => {
+            caches.open(CACHE_NAME).then(cache => {
+                cache.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
+                    if (!res) resolve(null)
+                    res.text().then(text => resolve(text))
+                }).catch(() => {
+                    resolve(null)
+                })
+            })
+        })
+    },
+    write: (key, value) => {
+        return new Promise((resolve, reject) => {
+            caches.open(CACHE_NAME).then(function (cache) {
+                cache.put(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`), new Response(value));
+                resolve()
+            }).catch(() => {
+                reject()
+            })
+        })
+    }
+}
+
 self.cons = {
     s: (m) => {
         console.log(`%c[SUCCESS]%c ${m}`, 'color:white;background:green;', '')
@@ -97,7 +124,7 @@ let cdn = {//镜像列表
     }
 }
 //主控函数
-const handles = async function (req) {
+const handle = async function (req) {
     const urlStr = req.url
     const domain = (urlStr.split('/'))[2]
     let urls = []
@@ -203,7 +230,7 @@ const handle = async (req) => {
             }
             return npmmirror
         }
-        
+
         const mirror = [
             `https://registry.npmmirror.com/tnxg-blog/latest`,
             `https://registry.npmjs.org/tnxg-blog/latest`,
@@ -214,32 +241,11 @@ const handle = async (req) => {
                 .then(res => res.json())
                 .then(res.version)
         }
-        log.console(`卧槽：：：${generate_blog_urls('tnxg-blog', get_newest_version(mirror) || 'latest', fullpath(urlPath))}`)
 
-        self.db = { //全局定义db,只要read和write,看不懂可以略过
-            read: (key, config) => {
-                if (!config) { config = { type: "text" } }
-                return new Promise((resolve, reject) => {
-                    caches.open(CACHE_NAME).then(cache => {
-                        cache.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
-                            if (!res) resolve(null)
-                            res.text().then(text => resolve(text))
-                        }).catch(() => {
-                            resolve(null)
-                        })
-                    })
-                })
-            },
-            write: (key, value) => {
-                return new Promise((resolve, reject) => {
-                    caches.open(CACHE_NAME).then(function (cache) {
-                        cache.put(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`), new Response(value));
-                        resolve()
-                    }).catch(() => {
-                        reject()
-                    })
-                })
-            }
+        if (domain === "tnxg.loyunet.cn") {
+            return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
+                .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
+                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))//重新定义header
         }
 
         const set_newest_version = async (mirror) => { //改为最新版本写入数据库
@@ -249,12 +255,6 @@ const handle = async (req) => {
                     await db.write('blog_version', res.version) //写入
                     return;
                 })
-        }
-
-        if (domain === "tnxg.loyunet.cn") {
-            return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
-                .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
-                .then(buffer => new Response(buffer, { headers: { "Content-Type": "text/html;charset=utf-8" } }))//重新定义header
         }
 
         setInterval(async () => {
