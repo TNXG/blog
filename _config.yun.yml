@@ -105,6 +105,7 @@ head:
     async:
       # 默认引入的图标资源，使用 iconfont
       JQuery: 'https://npm.elemecdn.com/jquery@latest/dist/jquery.js'
+      message: './assets/js/message.js'
       iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
     defer:
 
