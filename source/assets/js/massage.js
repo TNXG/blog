@@ -1,7 +1,8 @@
-log.console('妈的我是傻逼');
-document.getElementById("tnxg_addr").innerHTML = getAddress(getIP());
-document.getElementById("tnxg_notice").innerHTML = getnotice();
-log.console(getnotice() + getAddress(getIP()));
+function loadtnxgmassage() {
+    document.getElementById("tnxg_addr").innerHTML = getAddress(getIP());
+    document.getElementById("tnxg_browser").innerHTML = getBrowserName();
+    document.getElementById("tnxg_notice").innerHTML = getnotice();
+}
 
 //获取访问者的ua
 function getUA() {
@@ -27,6 +28,7 @@ function getIP() {
         })
     })
 }
+
 //通过百度api获得ip属地
 function getAddress(ip) {
     return new Promise((resolve, reject) => {
@@ -40,6 +42,7 @@ function getAddress(ip) {
         })
     })
 }
+
 //获取公告信息
 function getnotice() {
     return new Promise((resolve, reject) => {
@@ -52,4 +55,15 @@ function getnotice() {
             }
         })
     })
+}
+
+//根据ua获取浏览器名称
+function getBrowserName() {
+    var ua = navigator.userAgent.toLowerCase();
+    var match = /(msie|firefox|chrome|opera|version).*?([\d.]+)/.exec(ua);
+    var browser = {};
+    if (match && match.length > 2) {
+        browser[match[1]] = match[2];
+    }
+    return browser;
 }
