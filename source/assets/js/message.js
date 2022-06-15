@@ -1,4 +1,4 @@
-function loadtnxgmassage() {
+window.onload = function loadtnxgmassage() {
     document.getElementById("tnxg_addr").innerHTML = getAddress(getIP());
     document.getElementById("tnxg_browser").innerHTML = getBrowserName();
     document.getElementById("tnxg_notice").innerHTML = getnotice();
