@@ -17,7 +17,10 @@ function getUA() {
 }
 
 //获取访问者的ip
+
+
 function getIP() {
+    axios.defaults.withCredentials = true;
     axios.get('https://api.bilibili.com/x/web-interface/zone')
         .then(function (response) {
             var data = response.data.addr;
@@ -31,6 +34,7 @@ function getIP() {
 
 //通过百度api获得ip属地
 function getAddress(ip) {
+    axios.defaults.withCredentials = true;
     axios.get('https://api.amogu.cn/api/ipinfo/?ip=' + ip)
         .then(function (response) {
             var data = response.addr;
@@ -44,6 +48,7 @@ function getAddress(ip) {
 
 //通过qexo获取最新通知
 function getnotice() {
+    axios.defaults.withCredentials = true;
     axios.get('https://qexo.prts.top/pub/get_custom/?key=notice')
         .then(function (response) {
             var data = response.data;
