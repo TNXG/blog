@@ -24,6 +24,7 @@ function getIP() {
     axios.get('https://api.bilibili.com/x/web-interface/zone')
         .then(function (response) {
             var data = response.data.addr;
+            console.log(data);
             return data;
         })
         .catch(function (error) {
@@ -38,6 +39,7 @@ function getAddress(ip) {
     axios.get('https://api.amogu.cn/api/ipinfo/?ip=' + ip)
         .then(function (response) {
             var data = response.addr;
+            console.log(data);
             return data;
         })
         .catch(function (error) {
@@ -52,6 +54,7 @@ function getnotice() {
     axios.get('https://qexo.prts.top/pub/get_custom/?key=notice')
         .then(function (response) {
             var data = response.data;
+            console.log(data);
             return data;
         })
         .catch(function (error) {
