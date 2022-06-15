@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 window.onload = function loadtnxgmassage() {
     document.getElementById("tnxg_addr").innerHTML = getAddress(getIP());
     document.getElementById("tnxg_browser").innerHTML = getUA();
@@ -20,7 +18,6 @@ function getUA() {
 
 //获取访问者的ip
 function getIP() {
-
     axios.get('https://api.bilibili.com/x/web-interface/zone')
         .then(function (response) {
             var data = response.data.addr;

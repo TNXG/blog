@@ -438,13 +438,6 @@ aggregate-error@^3.0.0:
     clean-stack "^2.0.0"
     indent-string "^4.0.0"
 
-ajax@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.npmmirror.com/ajax/-/ajax-0.0.4.tgz#b6f4ce8bd590f5f4ba2dcfde11de789f209f2423"
-  integrity sha512-IEgdnz67DKuv2i8AnytAYtD+sGNTpSlXcwQsZbKWVqdC/O7cuXN0GfwCuhi19fyhpD0Gl22T5amxd2unqj0FAQ==
-  dependencies:
-    underscore ""
-
 ajv@^6.10.0, ajv@^6.12.3, ajv@^6.12.4:
   version "6.12.6"
   resolved "https://registry.npmmirror.com/ajv/-/ajv-6.12.6.tgz"
@@ -705,6 +698,14 @@ axios@0.21.4:
   integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
   dependencies:
     follow-redirects "^1.14.0"
+
+axios@^0.27.2:
+  version "0.27.2"
+  resolved "https://registry.npmmirror.com/axios/-/axios-0.27.2.tgz#207658cc8621606e586c85db4b41a750e756d972"
+  integrity sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==
+  dependencies:
+    follow-redirects "^1.14.9"
+    form-data "^4.0.0"
 
 babel-walk@3.0.0-canary-5:
   version "3.0.0-canary-5"
@@ -2777,6 +2778,11 @@ follow-redirects@^1.0.0, follow-redirects@^1.14.0:
   version "1.14.7"
   resolved "https://registry.npmmirror.com/follow-redirects/download/follow-redirects-1.14.7.tgz"
   integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
+
+follow-redirects@^1.14.9:
+  version "1.15.1"
+  resolved "https://registry.npmmirror.com/follow-redirects/-/follow-redirects-1.15.1.tgz#0ca6a452306c9b276e4d3127483e29575e207ad5"
+  integrity sha512-yLAMQs+k0b2m7cVxpS1VKJVvoz7SS9Td1zss3XRwXj+ZDH00RJgnuLx7E44wx02kQLrdM3aOOy+FpzS7+8OizA==
 
 for-in@^1.0.1, for-in@^1.0.2:
   version "1.0.2"
@@ -6827,11 +6833,6 @@ unbox-primitive@^1.0.2:
     has-bigints "^1.0.2"
     has-symbols "^1.0.3"
     which-boxed-primitive "^1.0.2"
-
-underscore@:
-  version "1.13.4"
-  resolved "https://registry.npmmirror.com/underscore/-/underscore-1.13.4.tgz#7886b46bbdf07f768e0052f1828e1dcab40c0dee"
-  integrity sha512-BQFnUDuAQ4Yf/cYY5LNrK9NCJFKriaRbD9uR1fTeXnBeoa97W0i41qkZfGO9pSo8I5KzjAcSY2XYtdf0oKd7KQ==
 
 union-value@^1.0.0:
   version "1.0.1"
