@@ -8,8 +8,7 @@ function getIP() {
     axios.defaults.withCredentials = true;
     axios.get('https://api.bilibili.com/x/web-interface/zone')
         .then(function (response) {
-            var obj = typeof response == 'string' ? JSON.parse(response) : response;
-            var data = obj["data"]["addr"];
+            var data = response["data"]["addr"];
             console.log(data);
             return data;
         })
@@ -24,8 +23,7 @@ function getAddress(ip) {
     axios.defaults.withCredentials = true;
     axios.get('https://api.amogu.cn/api/ipinfo/?ip=' + ip)
         .then(function (response) {
-            var obj = typeof response == 'string' ? JSON.parse(response) : response;
-            var data = obj["addr"];
+            var data = response["addr"];
             console.log(data);
             return data;
         })
@@ -40,8 +38,7 @@ function getnotice() {
     axios.defaults.withCredentials = true;
     axios.get('https://qexo.prts.top/pub/get_custom/?key=notice')
         .then(function (response) {
-            var obj = typeof response == 'string' ? JSON.parse(response) : response;
-            var data = obj["data"];
+            var data = response["data"];
             console.log(data);
             return data;
         })
