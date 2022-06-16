@@ -38,7 +38,7 @@ function getnotice() {
     axios.defaults.withCredentials = true;
     axios.get('https://qexo.prts.top/pub/get_custom/?key=notice')
         .then(function (response) {
-            var data = response["data"];
+            var data = response.data;
             console.log(data);
             return data;
         })
