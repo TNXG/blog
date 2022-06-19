@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]尝试加入谷歌广告"
+git commit -m "[F]修改sw"
 git push https://github.com/TNXG/blog.git
