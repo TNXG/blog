@@ -242,6 +242,8 @@ const handle = async (req) => {
                 .then(res.version)
         }
 
+        console.log(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
+
         if (domain === "tnxg.loyunet.cn") {
             return lfetch(generate_blog_urls('tnxg-blog', await db.read('blog_version') || 'latest', fullpath(urlPath)))
                 .then(res => res.arrayBuffer())//arrayBuffer最科学也是最快的返回
