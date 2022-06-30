@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]日常维护"
+git commit -m "[F]测试修改massage.js"
 git push https://github.com/TNXG/blog.git
