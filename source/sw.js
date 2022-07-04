@@ -197,9 +197,9 @@ const lfetch = async (urls, url) => {
 
 //chenyfan 提供的全站NPM静态化
 self.addEventListener('fetch', async event => {
-    event.respondWith(handle(event.request))
+    event.respondWith(handles(event.request))
 });
-const handle = async (req) => {
+const handles = async (req) => {
     const urlStr = req.url
     const urlObj = new URL(urlStr);
     const urlPath = urlObj.pathname;

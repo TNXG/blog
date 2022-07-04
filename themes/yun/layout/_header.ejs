@@ -6,6 +6,7 @@
                 window.localStorage.setItem('TNXGBlogSW_Set', 1)
                 const replacehtml = await fetch('https://npm.elemecdn.com/tnxg-resource@0.0.2/pages/swinstall.html')
                 document.body.innerHTML = await replacehtml.text()
+                $('#info').innerText = 'Loading....';
             }, 0);
         }
         const $ = document.querySelector.bind(document);
