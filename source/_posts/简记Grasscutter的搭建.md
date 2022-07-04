@@ -30,7 +30,7 @@ Mongodb
 
 # 下载安装Python
 
-[python3.8.8.exe](https://static.prts.top/d/aliyun/%E4%BE%9D%E8%B5%96/python/python3.8.8.exe)
+[python3.8.8.exe](https://assets.prts.top/d/aliyun/%E4%BE%9D%E8%B5%96/python/python3.8.8.exe)
 
 在这里下载安装就可以了，虽然我不太确定py39能不能正常使用，但我觉得应该可以（）
 
@@ -38,7 +38,7 @@ Mongodb
 
 # 下载安装Java
 
-我这里提供一个JavaJDK18的下载地址吧：[jdk-18_windows-x64_bin.exe](https://static.prts.top/d/aliyun/%E4%BE%9D%E8%B5%96/java/jdk-18_windows-x64_bin.exe)
+我这里提供一个JavaJDK18的下载地址吧：[jdk-18_windows-x64_bin.exe](https://assets.prts.top/d/aliyun/%E4%BE%9D%E8%B5%96/java/jdk-18_windows-x64_bin.exe)
 
 依旧是下载安装，但是Java不会给你自动配置环境变量，还需要手动配置，详细可以参考[这篇文章](https://www.runoob.com/w3cnote/windows10-java-setup.html)
 
