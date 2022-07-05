@@ -1,7 +1,7 @@
 # 主站公告
 notice:
   enable: true
-  content: '<span id="tnxg_notice">Loading...</span><br>您在阅读博文时视为同意使用条款'
+  content: '<script>loadtnxgmassage()</script><span id="tnxg_notice">Loading...</span><br>您在阅读博文时视为同意使用条款'
 
 # 头像
 avatar:
@@ -104,7 +104,6 @@ head:
     base:
     async:
       # 默认引入的图标资源，使用 iconfont
-      axios: 'https://npm.elemecdn.com/axios@latest/dist/axios.js'
       iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
     defer:
 
