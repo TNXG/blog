@@ -1,6 +1,6 @@
 function loadtnxgmessage() {
-    tnxg_addr.innerHTML = getAddress(getIP());
-    tnxg_notice.innerHTML = getnotice();
+    document.getElementById("tnxg_addr").innerHTML = getAddress(getIP());
+    document.getElementById("tnxg_notice").innerHTML = getnotice();
 }
 
 //通过qexo获取最新通知
