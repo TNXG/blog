@@ -1,7 +1,7 @@
 # 主站公告
 notice:
   enable: true
-  content: '<script>loadtnxgmassage()</script><span id="tnxg_notice">Loading...</span><br>您在阅读博文时视为同意使用条款'
+  content: '<span id="tnxg_notice">Loading...</span><br>您在阅读博文时视为同意使用条款'
 
 # 头像
 avatar:
@@ -74,7 +74,7 @@ pages:
     icon: ri-file-text-line ri-lg
     color: purple
 
-anonymous_image: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg
+anonymous_image: https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/gh/YunYouJun/cdn/img/avatar/none.jpg
 
 # 背景图
 sidebar:
@@ -234,15 +234,15 @@ reward:
   comment: "我很可爱，请给我钱。<br>I'm so cute. Please give me money."
   methods:
     - name: 支付宝
-      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
+      path: https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
       color: "#00A3EE"
       icon: icon-alipay-line
     - name: QQ 支付
-      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
+      path: https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
       color: "#12B7F5"
       icon: icon-qq-line
     - name: 微信支付
-      path: https://cdn.jsdelivr.net/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
+      path: https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
       color: "#2DC100"
       icon: icon-wechat-pay-line
 

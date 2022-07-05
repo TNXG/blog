@@ -1,7 +1,6 @@
-function tnxg_notice() {
-    document.getElementById("tnxg_notice").innerHTML = getnotice();
+window.onload = function loadtnxgmassage() {
     document.getElementById("tnxg_addr").innerHTML = getAddress(getIP());
-
+    document.getElementById("tnxg_notice").innerHTML = getnotice();
 }
 
 //通过qexo获取最新通知
