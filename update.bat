@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改message.js"
+git commit -m "[F]修复信息输出错误"
 git push https://github.com/TNXG/blog.git

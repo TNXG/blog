@@ -13,14 +13,14 @@ async function getdata() {
         const noticejson = await replacehtml.text();
         json = JSON.parse(noticejson);
         local = json.local;
-        document.getElementById("tnxg_addr").innerHTML = json.id;
+        document.getElementById("tnxg_addr").innerHTML = local;
     } else {
         const replacehtml = await fetch('https://prts.top/api/data/blog.php');
         const noticejson = await replacehtml.text();
         json = JSON.parse(noticejson);
         local = json.local;
         window.localStorage.setItem('TNXGBlog_UserId', json.id);
-        document.getElementById("tnxg_addr").innerHTML = json.id;
+        document.getElementById("tnxg_addr").innerHTML = local;
     }
 }
 
