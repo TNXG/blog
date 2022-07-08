@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复留言板标签样式错误的问题"
+git commit -m "[F]修改友链由于jsd更新不及时导致的更新异常"
 git push https://github.com/TNXG/blog.git
