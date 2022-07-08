@@ -7,22 +7,10 @@ layout: false
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="mask-icon" href="/assets/images/favicon.png" color="#0078E7">
+    <link rel="stylesheet" type="text/css" href="http://npm.elemecdn.com/tnxg-resource@latest/css/moeicp.css" />
     <style>
-        .page {
-            min-height: 100vh;
-            width: 95%;
-            display: -webkit-box;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-pack: center;
-            -ms-flex-pack: center;
-            justify-content: center;
-            -webkit-box-align: center;
-            -ms-flex-align: center;
-            align-items: center;
-            font-weight: lighter;
-        }
-        .bg {
+        #bg {
             position: fixed;
             top: 0;
             left: 0;
@@ -37,15 +25,19 @@ layout: false
     </style>
     <title>天翔的留言板 | 天翔的博客</title>
 </head>
-
 <body>
     <div class="page">
-        <div class="bg"></div>
-        <script src="https://npm.elemecdn.com/twikoo@1.5.11/dist/twikoo.all.min.js"></script>
-        <script>twikoo.init({
-                envId: "https://api.twikoo.prts.top",
-                el: "#tcomment",
-            })</script>
+        <div id="bg"></div>
+        <div class="container result">
+        <div id="tcomment"></div>
+        <script src="https://npm.elemecdn.com/twikoo@1.5.11/dist/twikoo.min.js"></script>
+        <script>
+            twikoo.init({
+                envId: 'https://api.twikoo.prts.top',
+                el: '#tcomment',
+            })
+        </script>
+    </div>
     </div>
 </body>
 
