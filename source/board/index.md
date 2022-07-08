@@ -8,7 +8,7 @@ layout: false
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="mask-icon" href="/assets/images/favicon.png" color="#0078E7">
-    <link rel="stylesheet" type="text/css" href="https://npm.elemecdn.com/tnxg-resource@latest/css/blog_board.css" />
+    <link rel="stylesheet" type="text/css" href="https://npm.elemecdn.com/tnxg-resource@latest/css/blog_twikoo_board.css" />
     <title>天翔的留言板 | 天翔的博客</title>
 </head>
 
