@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复信息输出错误"
+git commit -m "[N]尝试新增一个留言板"
 git push https://github.com/TNXG/blog.git
