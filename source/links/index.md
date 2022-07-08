@@ -5,7 +5,7 @@ date: 2019-08-12 13:06:06
 keywords: 链接
 description: 大家都是HXD
 comments: true
-links: https://raw.fastgit.org/TNXG/TNXG/master/data/blog/links.json
+links: https://prts.top/api/links/
 random: true
 ---
 
