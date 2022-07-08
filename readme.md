@@ -37,4 +37,4 @@
         "color": "显示在友链页面的文本颜色（推荐使用十六进制颜色代码）"
     }
 ```
-填写好以上资料后将资料直接填写在[我们储存友链的Json内](https://github.com/TNXG/TNXG/blob/master/data/links.json)
+填写好以上资料后将资料直接填写在[我们储存友链的Json内](https://github.com/TNXG/blog/blob/master/source/assets/data/links.json)
