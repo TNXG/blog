@@ -1,0 +1,61 @@
+name: ChenYFan's ClientWorker
+catch_rules: #转换规则
+    - rule: https://tnxg.loyunet.cn
+      transform_rules:
+
+            - search: \#.+
+              type: url
+              replace: ''
+
+            - search: \/google$
+              action: redirect
+              redirect: 
+                url: https://google.com #不替换直接跳转，默认优先级url > to
+                status: 301
+
+            - search: \/\?redirect=(?<==)([^&]*)
+              action: redirect
+              redirect: 
+                url: $1
+                status: 301
+
+            - search: _ 
+              replace:
+                - https://npm.elemecdn.com/tnxg-blog@latest
+                - https://unpkg.com/tnxg-blog@latest
+                - https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/npm/tnxg-blog@latest
+              # 关于引擎
+              # 仅出现多并发时有效，即上方replace为数组且大于1个时有效
+              # 1. classic
+              # 为传统重生成Response，同时并发直到任意一个下载完毕，并且状态码为2XX时才打断其他请求
+              # 可能会造成流量冗余，但可以极大幅度避免假快响应，达到一定会时最快的效果
+              # 2. parallel
+              # 基于响应StatusCode，使用Event函数避免打断自身，其只要满足任意一个请求返回2XX时才打断其他请求（无论是否下载完毕）
+              # 如果部分请求在较快的响应2XX，而提供下载速度很慢时，这会严重拖慢速度
+              action: fetch
+              fetch:
+                status: 200
+                engine: parallel
+                prelight: false
+                timeout: 5
+
+              
+    
+            - search: \.html$ #匹配后缀为.html的请求，修复content-type为text/html
+              header: #只有在fetch之后才能修改Response的header，之前修改的均为Request
+                content-type: text/html;charset=utf-8;ClientWorker
+                ServerProvide: ClientWorker
+              
+    - rule: ^https\:\/\/((cdn|fastly)\.jsdelivr.net\/npm\/|unpkg\.com\/) #修复垃圾Jsdelivr（仅npm）
+      transform_rules:
+          - search: _
+            replace:
+              - https://npm.elemecdn.com
+              - https://unpkg.com
+              - https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/npm
+            header:
+              ServerProvide: ClientWorker
+            action: fetch
+            fetch:
+              engine: classic
+              prelight: false
