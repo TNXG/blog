@@ -38,6 +38,7 @@ i18n_dir: :lang
 skip_render:
   - 'config.yaml'
   - '404.html'
+  - 'blog-cgi/index.html'
 
 # Writing
 new_post_name: :title.md # File name of new posts

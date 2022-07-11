@@ -7,7 +7,7 @@ Last Modified time : 20220326 15:38 by https://immmmm.com
 var fdata = {
     jsonurl: '',
     apiurl: '',
-    apipublieurl: 'https://hexo-circle-of-friends-navy.vercel.app/', //默认公共库
+    apipublieurl: 'https://api.friendcircle.prts.top/',
     initnumber: 5,  //首次加载文章数
     stepnumber: 25,  //更多加载文章数
     article_sort: 'created', //文章排序 updated or created
