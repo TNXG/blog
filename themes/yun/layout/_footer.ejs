@@ -1,29 +1,18 @@
 <!-- 尾部脚本 -->
 <script>
     window.addEventListener('load', async () => {
-        if (window.localStorage.getItem('ClientWorkerInstall') === 'true' && window.localStorage.getItem('ClientWorkerConfig') !== 'true') {
-            await fetch('/cw-cgi/api?type=config').then(res => res.text())
-                .then(res => {
-                    if (res === 'ok') {
-                        window.localStorage.setItem('ClientWorkerConfig', 'true')
-                        window.location.reload()
-                    } else {
-                        console.error(`ClientWorkerConfig Error:${res}`)
-                    }
-                })
-        } else {
-            navigator.serviceWorker.register(`/cw.js?time=${new Date().getTime()}`)
-                .then(async reg => {
-                    if (window.localStorage.getItem('ClientWorkerConfig') === 'true') return;
-                    console.log('ClientWorker Installed,Need to reload page to Config!')
-                    window.localStorage.setItem('ClientWorkerInstall', 'true');
+        navigator.serviceWorker.register(`/sw.js?time=${new Date().getTime()}`)
+            .then(async reg => {
+                //安装成功，建议此处强刷新以立刻执行SW
+                if (window.localStorage.getItem('install') != 'true') {
+                    window.localStorage.setItem('install', 'true');
                     setTimeout(() => {
-                        window.location.search = `?time=${new Date().getTime()}` //#1
-                    }, 200)
-                }).catch(err => {
-                    console.error(`ClientWorker Install Failed:${err}`)
-                })
-        }
+                        window.location.search = `?time=${new Date().getTime()}`
+                    }, 1000)
+                }
+            }).catch(err => {
+                //安装失败，错误信息会由err传参
+            })
     });
 </script>
 <script type="text/javascript">
