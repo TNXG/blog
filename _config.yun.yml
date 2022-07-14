@@ -98,8 +98,8 @@ tagcloud:
 head:
   css:
     master: "/assets/css/master.css"
-    fontawesome: "https://npm.elemecdn.com/fontawesome-free@latest/css/all.css"
-    RemixIcon: "https://npm.elemecdn.com/remixicon@latest/fonts/remixicon.css"
+    fontawesome: "https://unpkg.com/fontawesome-free@latest/css/all.css"
+    RemixIcon: "https://unpkg.com/remixicon@latest/fonts/remixicon.css"
   js:
     base:
     async:
@@ -111,9 +111,9 @@ favicon: /assets/images/favicon.png
 
 # 静态资源
 cdn:
-  pre: https://npm.elemecdn.com/tnxg-blog@latest
+  pre: https://unpkg.com/tnxg-blog@latest
 vendors:
-  host: 'https://npm.elemecdn.com/'
+  host: 'https://unpkg.com/'
 
 # 字体
 font:
@@ -191,9 +191,9 @@ scrollreveal:
 # 鼠标指针
 cursor:
   enable: true
-  default: https://npm.elemecdn.com/tnxg-blog@latest/assets/cursors/pointer.ani
-  pointer: https://npm.elemecdn.com/tnxg-blog@latest/assets/cursors/link.ani
-  text: https://npm.elemecdn.com/tnxg-blog@latest/assets/cursors/text.ani
+  default: https://unpkg.com/tnxg-blog@latest/assets/cursors/pointer.ani
+  pointer: https://unpkg.com/tnxg-blog@latest/assets/cursors/link.ani
+  text: https://unpkg.com/tnxg-blog@latest/assets/cursors/text.ani
 
 # 信息（显示文字、创建时间、更新时间、种类、标签）
 post_meta:

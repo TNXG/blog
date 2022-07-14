@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复blog-cgi FriendCircle状态检测错误的问题"
+git commit -m "[F]修复ElemeCDN嗝屁的问题"
 git push https://github.com/TNXG/blog.git

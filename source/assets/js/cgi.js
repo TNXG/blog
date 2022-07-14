@@ -1,4 +1,3 @@
-
 function cgi_start() {
     userid = window.localStorage.getItem('TNXGBlog_UserId');
     var req = new XMLHttpRequest();
@@ -26,7 +25,6 @@ function cgi_start() {
             document.getElementById("tnxg_cgi_cdnstatus_eleme").innerHTML = 'ElemeCDN:返回异常';
         }
     });
-
 
     fetch('https://cdn.jsdelivr.net/npm/tnxg-blog@latest/index.html').then(function (response) {
         if (response.status == '200' || response.status == '304') {
