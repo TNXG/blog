@@ -15,7 +15,7 @@ timezone:
 images:
   enable: true
   markdowm: true
-  domain: https://npm.elemecdn.com/tnxg-oss@latest
+  domain: https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/npm/tnxg-oss@latest
   #domain: https://assets.prts.top
 
 # URL
