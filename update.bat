@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]进一步修复ElemeCDN嗝屁的问题"
+git commit -m "[?]我博客仓库怎么没了"
 git push https://github.com/TNXG/blog.git

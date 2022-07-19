@@ -1,7 +1,7 @@
 # 主站公告
 notice:
   enable: true
-  content: '<script>loadtnxgmassage()</script><span id="tnxg_notice">Loading...</span><br>您在阅读博文时视为同意使用条款'
+  content: '<span id="tnxg_notice">Loading...</span><br>您在阅读博文时视为同意使用条款'
 
 # 头像
 avatar:
@@ -74,7 +74,7 @@ pages:
     icon: ri-file-text-line ri-lg
     color: purple
 
-anonymous_image: https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/gh/YunYouJun/cdn/img/avatar/none.jpg
+anonymous_image: https://cdn.tnxg.whitenuo.cn/gh/YunYouJun/cdn/img/avatar/none.jpg
 
 # 背景图
 sidebar:
