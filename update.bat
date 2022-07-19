@@ -1,3 +1,3 @@
 git add .
-git commit -m "[?]我博客仓库怎么没了"
+git commit -m "[F]休整更换cdn链接"
 git push https://github.com/TNXG/blog.git
