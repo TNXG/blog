@@ -846,7 +846,7 @@ braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
-braces@^3.0.1, braces@^3.0.2, braces@~3.0.2:
+braces@^3.0.2, braces@~3.0.2:
   version "3.0.2"
   resolved "https://registry.npmmirror.com/braces/download/braces-3.0.2.tgz"
   integrity sha1-NFThpGLujVmeI23zNs2epPiv4Qc=
@@ -3477,21 +3477,7 @@ hexo-util@^0.6.2:
     html-entities "^1.2.0"
     striptags "^2.1.1"
 
-hexo-util@^2.0.0, hexo-util@^2.1.0, hexo-util@^2.5.0:
-  version "2.6.0"
-  resolved "https://registry.npmjs.org/hexo-util/-/hexo-util-2.6.0.tgz"
-  integrity sha512-sLG45foxXMnMgCo3FpP4Sicj5nLD6ezO46+DKP01BWj1CfNq2pYoUdJacfeVbKc+oFtitRcNIGsPNNt3pVbzdg==
-  dependencies:
-    bluebird "^3.5.2"
-    camel-case "^4.0.0"
-    cross-spawn "^7.0.0"
-    deepmerge "^4.2.2"
-    highlight.js "^11.0.1"
-    htmlparser2 "^7.0.0"
-    prismjs "^1.17.1"
-    strip-indent "^3.0.0"
-
-hexo-util@^2.6.1:
+hexo-util@^2.0.0, hexo-util@^2.1.0, hexo-util@^2.5.0, hexo-util@^2.6.1:
   version "2.6.1"
   resolved "https://registry.npmjs.org/hexo-util/-/hexo-util-2.6.1.tgz#19b79a1ec751a735ffe34766b65d8e2039c00519"
   integrity sha512-xj1jUrId2qTe8L/tRizWWRl+j7X1Zzh5rCVtffboOU0p/EfbPomxIxDvntTHT3fcqgvLHsncqJF9V5j7+buOqA==
@@ -3512,7 +3498,7 @@ hexo-wordcount@^6.0.1:
 
 hexo@^6.2.0:
   version "6.2.0"
-  resolved "https://registry.npmjs.org/hexo/-/hexo-6.2.0.tgz#5a62a4c731bf89431d2004326b07af0ec0490242"
+  resolved "https://registry.yarnpkg.com/hexo/-/hexo-6.2.0.tgz#5a62a4c731bf89431d2004326b07af0ec0490242"
   integrity sha512-HOpt3vUOz/T0rWTDb/CtWuBJwYARPwbpvGwsaz0RPu/l5I6AmKE+UA0lJZf14iPS3JIt/HiOcTZ3Qz22A+PE8w==
   dependencies:
     abbrev "^1.1.1"
@@ -4660,15 +4646,7 @@ micromatch@^3.1.10:
     snapdragon "^0.8.1"
     to-regex "^3.0.2"
 
-micromatch@^4.0.2, micromatch@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.npmmirror.com/micromatch/download/micromatch-4.0.4.tgz"
-  integrity sha1-iW1Rnf6dsl/OlM63pQCRm/iB6/k=
-  dependencies:
-    braces "^3.0.1"
-    picomatch "^2.2.3"
-
-micromatch@^4.0.5:
+micromatch@^4.0.2, micromatch@^4.0.4, micromatch@^4.0.5:
   version "4.0.5"
   resolved "https://registry.npmjs.org/micromatch/-/micromatch-4.0.5.tgz#bc8999a7cbbf77cdc89f132f6e467051b49090c6"
   integrity sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA==
@@ -5329,7 +5307,7 @@ picocolors@^1.0.0:
   resolved "https://registry.npmmirror.com/picocolors/download/picocolors-1.0.0.tgz?cache=0&sync_timestamp=1634093437726&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fpicocolors%2Fdownload%2Fpicocolors-1.0.0.tgz"
   integrity sha1-y1vcdP8/UYkiNur3nWi8RFZKuBw=
 
-picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3, picomatch@^2.3.1:
+picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.3.1:
   version "2.3.1"
   resolved "https://registry.npmmirror.com/picomatch/download/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
