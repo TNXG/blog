@@ -79,8 +79,8 @@ anonymous_image: https://cdn.tnxg.whitenuo.cn/gh/YunYouJun/cdn/img/avatar/none.j
 # 背景图
 sidebar:
   src: /js/sidebar.js
-  bg_image: https://images.weserv.nl/?blur=2&q=100&url=https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
-  dark_bg_image: https://images.weserv.nl/?blur=2&q=100&url=https://cdn.jsdelivr.net/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp
+  bg_image: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
+  dark_bg_image: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp
   bg_position: bottom 1rem center
 
 bg_image:
@@ -212,7 +212,7 @@ post_edit:
 codeblock:
   copy_btn: true
   prismjs:
-    light: default
+    light: OKAIDIA
     dark: tomorrow
 
 # 许可证
@@ -297,7 +297,7 @@ comment:
   candidates:
     - twikoo
 
-baidu_push: true
+baidu_push: false
 
 # 字数统计
 wordcount:

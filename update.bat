@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]新建ClientWorker"
+git commit -m "[N]新文章"
 git push https://github.com/TNXG/blog.git
