@@ -67,11 +67,10 @@ catch_rules:
       - search: _
         replace:
           - _ 
-          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
+          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
           - cdn.bilicdn.tk/npm/tnxg-blog@latest
           - unpkg.com/tnxg-blog@latest
-          - cdn-api.vercel.app
 
       - search: \.html$
         header:
