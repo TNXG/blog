@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]新增友链"
+git commit -m "[F]删除友链头像的webp适配"
 git push https://github.com/TNXG/blog.git
