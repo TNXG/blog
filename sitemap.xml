@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tnxg.loyunet.cn/p/438a6dfc5b99.html</loc>
+    
+    <lastmod>2022-07-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://tnxg.loyunet.cn/board/index.html</loc>
     
     <lastmod>2022-07-22</lastmod>
@@ -129,15 +138,6 @@
   
   <url>
     <loc>https://tnxg.loyunet.cn/assets/data/yiyan.json</loc>
-    
-    <lastmod>2022-07-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/p/438a6dfc5b99.html</loc>
     
     <lastmod>2022-07-22</lastmod>
     
