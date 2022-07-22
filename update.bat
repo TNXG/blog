@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]新增了一些小玩意"
+git commit -m "[F]更改配置"
 git push https://github.com/TNXG/blog.git
