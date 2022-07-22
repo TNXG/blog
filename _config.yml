@@ -100,19 +100,19 @@ encrypt:
 
 
 hexo_seo_autopush:
-  cron: 0 8 16 22
+  cron: 0 0,6,12,18,21 * * *
   baidu:
     enable: true
     date: created
-    count: 20
+    count: 50
   bing:
     enable: true
     date: created
-    count: 20
+    count: 50
   google:
     enable: true
     date: created
-    count: 20
+    count: 50
 
 sitemap:
   path: 
