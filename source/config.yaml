@@ -99,7 +99,7 @@ catch_rules:
           preflight: false
           timeout: 5000
           
-  - rule: ^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpg
+  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -107,7 +107,7 @@ catch_rules:
         replace: .jpg/webp
         replacein: url
         replacekey: .jpg
-  - rule: ^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.png
+  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.png$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -115,7 +115,7 @@ catch_rules:
         replace: .png/webp
         replacein: url
         replacekey: .png
-  - rule: ^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpeg
+  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpeg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -123,7 +123,7 @@ catch_rules:
         replace: .jpeg/webp
         replacein: url
         replacekey: .jpeg
-  - rule: ^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.gif
+  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.gif$
     transform_rules:
       - search: image\/webp
         searchin: header
