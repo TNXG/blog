@@ -1,0 +1,99 @@
+/* 黑幕 */
+.heimus,
+.heimus rt {
+    background-color: #252525
+}
+
+span.heimus a.external,
+span.heimus a.external:visited,
+span.heimus a.extiw,
+span.heimus a.extiw:visited {
+    color: #252525
+}
+
+.heimus,
+.heimus a,
+a .heimus,
+.heimus a.new {
+    color: #252525;
+    text-shadow: none
+}
+
+body:not(.heimus_toggle_on) .heimus:hover,
+body:not(.heimus_toggle_on) .heimus:active,
+body:not(.heimus_toggle_on) .heimus.off {
+    transition: color .13s linear;
+    color: white
+}
+
+body:not(.heimus_toggle_on) .heimus:hover a,
+body:not(.heimus_toggle_on) a:hover .heimus,
+body:not(.heimus_toggle_on) .heimus.off a,
+body:not(.heimus_toggle_on) a:hover .heimus.off {
+    transition: color .13s linear;
+    color: lightblue
+}
+
+body:not(.heimus_toggle_on) .heimus.off .new,
+body:not(.heimus_toggle_on) .heimus.off .new:hover,
+body:not(.heimus_toggle_on) .new:hover .heimus.off,
+body:not(.heimus_toggle_on) .heimus:hover .new {
+    transition: color .13s linear;
+    color: #FCC
+}
+
+/* 字体 */
+@font-face {
+    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/HarmonyOS_Sans.ttf");
+    font-family: "HarmonyOS_Sans";
+}
+
+@font-face {
+    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/ysbth.ttf");
+    font-family: "ysbth";
+}
+
+@font-face {
+    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/CtrlAstr.ttf"); 
+    font-family: "CtrlAstr";
+}
+
+@font-face {
+    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/Gsenochian.ttf");
+    font-family: "Gsenochian";
+}
+
+@font-face {
+    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/Tevyat.ttf");
+    font-family: "Tevyat";
+}
+
+@font-face {
+    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/JetBrainsMono.ttf");
+    font-family: "JetBrainsMono";
+}
+
+
+body {
+    font-family: "HarmonyOS_Sans";
+}
+
+.CtrlAstr {
+    font-family: "CtrlAstr";
+}
+
+.ysbth {
+    font-family: "ysbth";
+}
+
+.Gsenochian {
+    font-family: "Gsenochian";
+}
+
+.Tevyat {
+    font-family: "Tevyat";
+}
+
+.JetBrainsMono {
+    font-family: "JetBrainsMono";
+}

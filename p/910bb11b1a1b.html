@@ -1,0 +1,336 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="天翔TNXG"><meta name="copyright" content="天翔TNXG"><meta name="generator" content="Hexo 6.2.0"><meta name="theme" content="hexo-theme-yun"><title>Hexo博客优化？不如尝试ClientWorker | 天翔的博客</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/star-markdown-css@0.3.3/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/prism-theme-vars/base.css"><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><script>if (!!navigator.serviceWorker) {
+        navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+            if (localStorage.getItem('cw_installed') !== 'true') {
+                const conf = () => {
+                    console.log('[CW] Installing Success,Configuring...');
+                    fetch('/cw-cgi/api?type=config')
+                        .then(res => res.text())
+                        .then(text => {
+                            if (text === 'ok') {
+                                console.log('[CW] Installing Success,Configuring Success,Starting...');
+                                localStorage.setItem('cw_installed', 'true');
+                                //如果你不希望重载页面，请移除下面五行
+                                fetch(window.location.href).then(res => res.text()).then(text => {
+                                    document.open()
+                                    document.write(text);
+                                    document.close();
+                                });
+                            } else {
+                                console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                                setTimeout(() => {
+                                    conf()
+                                }, 200);
+                            }
+                        }).catch(err => {
+                            console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                        });
+                }
+                setTimeout(() => {
+                    conf()
+                }, 50);
+            }
+        }).catch(err => {
+            console.error('[CW] Installing Failed,Error: ' + err.message);
+        });
+    } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }</script>
+<script src="https://npm.elemecdn.com/qexo-static@1.3.0/hexo/statistic/statistic.js"></script>
+<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
+<script>
+    loadStatistic("https://qexo.prts.top");
+    getdata();
+    getnotice();
+</script><link rel="icon" type="image/png" href="/assets/images/favicon.png"><link rel="mask-icon" href="/assets/images/favicon.png" color="#0078E7"><link rel="preload" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"tnxg.loyunet.cn","root":"/","title":"天翔的博客","version":"1.10.4","mode":"time","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/images/avatar/none.jpg","say":{"api":"/assets/data/yiyan.json"},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"src":"/js/search/local-search.js"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]},"vendors":{"darken":"https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/css/hexo-theme-yun.css"><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="天翔的博客" type="application/atom+xml"><link rel="stylesheet" href="/assets/css/master.css"><link rel="stylesheet" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/fontawesome-free@latest/css/all.css"><link rel="stylesheet" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/remixicon@latest/fonts/remixicon.css"><script src="https://at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客优化？不如尝试ClientWorker">
+<meta property="og:url" content="https://tnxg.loyunet.cn/p/910bb11b1a1b.html">
+<meta property="og:site_name" content="天翔的博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/images/article/2022/07/70d49e280638dd9c2c13eb318e796bc0.png">
+<meta property="og:image" content="https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/images/article/2022/07/ESVG4TR85H54ERGT8484W.png">
+<meta property="article:published_time" content="2022-07-21T20:22:00.000Z">
+<meta property="article:modified_time" content="2022-07-21T20:22:00.000Z">
+<meta property="article:author" content="天翔TNXG">
+<meta property="article:tag" content="白嫖">
+<meta property="article:tag" content="JS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/images/article/2022/07/70d49e280638dd9c2c13eb318e796bc0.png"><script>(function() {
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/animejs@latest"></script><script defer src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info mickey-mouse"><a class="site-author-avatar" href="/about/" title="天翔TNXG"><img width="96" loading="lazy" src="https://q1.qlogo.cn/g?b=qq&amp;nk=2271225249&amp;s=640" alt="天翔TNXG"><span class="site-author-status" title="细细思索">🤔</span></a><div class="site-author-name"><a href="/about/">天翔TNXG</a></div><span class="site-name">天翔的博客</span><sub class="site-subtitle"></sub><div class="site-description">明日尚未到来，希望凝于心上</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/"><span class="site-state-item-icon"><i class="ri-archive-line ri-lg"></i></span></a></div><div class="site-state-item"><a href="/tags/"><span class="site-state-item-icon"><i class="ri-bookmark-line ri-lg"></i></span></a></div><div class="site-state-item"><a href="/shuoshuo/"><span class="site-state-item-icon"><i class="ri-message-2-line ri-lg"></i></span></a></div><div class="site-state-item"><a href="/albums/"><span class="site-state-item-icon"><i class="ri-album-line ri-lg"></i></span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://qexo.prts.top/" title="后台"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://wpa.qq.com/msgrd?v=3&amp;uin=2271225249&amp;site=qq&amp;menu=yes" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/TNXG" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:mcminecraftmc@126.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/user/home?id=515522946" title="网易云音乐" target="_blank" style="color:#EE0000"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/175424674" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:#FFA500"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><i class="ri-men-line ri-lg"></i></a><a class="links-item hty-icon-button" href="/friendcircle/" title="友链朋友圈" style="color:green"><i class="ri-group-2-line ri-lg"></i></a><a class="links-item hty-icon-button" href="/girls/" title="喜欢的女孩子们" style="color:hotpink"><i class="ri-women-line ri-lg"></i></a><a class="links-item hty-icon-button" href="/thanks/" title="鸣谢名单" style="color:orange"><i class="ri-vip-diamond-line ri-lg"></i></a><a class="links-item hty-icon-button" target="_blank" rel="noopener" href="https://travellings.link/" title="开往" style="color:black"><i class="ri-train-line ri-lg"></i></a><a class="links-item hty-icon-button" href="/policy/" title="使用条款" style="color:purple"><i class="ri-file-text-line ri-lg"></i></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFClientWorker"><span class="toc-number">2.1.</span> <span class="toc-text">什么是ClientWorker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.</span> <span class="toc-text">如何安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.</span> <span class="toc-text">判断是否成功安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEClientWorker"><span class="toc-number">2.4.</span> <span class="toc-text">配置ClientWorker</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:#0078E7;"><link itemprop="mainEntityOfPage" href="https://tnxg.loyunet.cn/p/910bb11b1a1b.html"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="天翔TNXG"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="天翔的博客"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Hexo博客优化？不如尝试ClientWorker<a class="post-edit-link" href="https://github.com/TNXG/blog/blob/master/source/_posts/clientworker.md" target="_blank" title="编辑" rel="noopener"><span class="icon iconify" data-icon="ri:edit-line"></span></a></h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <span class="post-meta-icon-text">发表于</span> <time title="创建时间：2022-07-21 20:22:00" itemprop="dateCreated datePublished" datetime="2022-07-21T20:22:00+00:00">2022-07-21</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">1.4k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">6m</span></span></span><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E5%8E%9F%E5%88%9B/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">原创</span></a></span> > <span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E5%8E%9F%E5%88%9B/%E6%8A%80%E6%9C%AF/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">技术</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E7%99%BD%E5%AB%96/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">白嫖</span></a><a class="tag-item" href="/tags/JS/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">JS</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><img src="https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/images/article/2022/07/70d49e280638dd9c2c13eb318e796bc0.png" alt="Raiden_Aurora" loading="lazy" loading="lazy">
+<span id="more"></span>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2022年7月12日某时，<code>ElemeCDN</code>确认停止回源，仅可访问之前回源过的资源</p>
+<p>至此，几乎所有公开在cn国境内提供免费高速静态资源cdn的厂商的服务全部关闭</p>
+<p>不可否认的是，无论<code>ElemeCDN</code>受到打压，亦或者阿里被薅秃了，这家伙确实也是使用着<code>阿里cdn</code>的，在国内访问速度可观</p>
+<p>反观在年初被吊销ICP许可的<code>Jsdelivr</code>，在国内前前后后被<code>GFW</code>污染了两三次，访问情况不能说是完全访问不了，但速度真的很不乐观</p>
+<p>我们能够依赖的也只有那些愿意做公益的大佬了，虽然回源依旧是<code>Unpkg</code>亦或者<code>Jsdelivr</code>，但最起码部分数据也被国内的cdn缓存了</p>
+<p>目前我遇到的解决方案几乎都有在使用ServiceWorker，就比如<a target="_blank" rel="noopener" href="https://www.imaegoo.com/2021/hexo-free-cdn/">静态博客接入 freecdn 提升访问速度</a>、<a target="_blank" rel="noopener" href="https://blog.cyfan.top/p/c0af86bb.html">欲善其事，必利其器 - 论如何善用ServiceWorker</a>，当然ClientWorker的技术基础也还是ServiceWorker</p>
+<p>ClientWorker的作者CYF对ServiceWorker的评价其实很简单<code>ServiceWorker作为前端革命领袖，毫不夸张地被誉为前端黑科技</code></p>
+<p>但是ServiceWorker作为一种前端技术是有学习及试错成本的，如果单单只为了加速个静态网页而学习ServiceWorker我觉得这肯定是不合理的</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="什么是ClientWorker"><a href="#什么是ClientWorker" class="headerlink" title="什么是ClientWorker"></a>什么是ClientWorker</h2><p>引用原作者CYF的话(来自cw官方文档)</p>
+<blockquote>
+<p>ClientWorker是利用规则全局驱动sw的插件<br>目前涵盖了ServiceWorker的 路由拦截、路由劫持、请求&#x2F;响应（标头、状态、响应主体）修改、缓存调控，允许用户并发（双引擎），并且有一个自定义规则系统，可以自定义规则，拦截请求，修改响应，缓存颗粒化等功能。</p>
+</blockquote>
+<h2 id="如何安装"><a href="#如何安装" class="headerlink" title="如何安装"></a>如何安装</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span>navigator<span class="token punctuation">.</span>serviceWorker<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    navigator<span class="token punctuation">.</span>serviceWorker<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'/cw.js?t='</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">registration</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'cw_installed'</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token string">'true'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">const</span> <span class="token function-variable function">conf</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/cw-cgi/api?type=config'</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">text</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">===</span> <span class="token string">'ok'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Success,Starting...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'cw_installed'</span><span class="token punctuation">,</span> <span class="token string">'true'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token comment">//如果你不希望重载页面，请移除下面五行</span>
+                            <span class="token function">fetch</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">text</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                                document<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                                document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                document<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Failed,Sleeping 200ms...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                                <span class="token function">conf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span>
+                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Error,Exiting...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                <span class="token function">conf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Failed,Error: '</span> <span class="token operator">+</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Failed,Error: Browser not support service worker'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>将以上这串代码安放在<code>&lt;head&gt;</code>里面，越靠前越好，当然<code>navigator.serviceWorker.register</code>是异步函数不会阻塞页面加载。</li>
+<li>进入<a target="_blank" rel="noopener" href="https://github.com/ChenYFan/ClientWorker/releases">ClientWorker Github Release</a>发布页，下载最新版本内容。</li>
+<li>解压，将文件夹中<code>cw.js</code>拷出，放在网页服务器下</li>
+<li>新建<code>config.yml</code>在其中填写配置</li>
+</ol>
+<p>以上内容摘抄至<a target="_blank" rel="noopener" href="https://clientworker.js.org/">ClientWorker官方文档</a></p>
+<h2 id="判断是否成功安装"><a href="#判断是否成功安装" class="headerlink" title="判断是否成功安装"></a>判断是否成功安装</h2><p>这里可以在域名后方加上<code>/cw-cgi</code>查询cw是否正常安装</p>
+<p>如果返回的是<code>Not Found!, Client Worker!</code>则代表cw正常安装</p>
+<h2 id="配置ClientWorker"><a href="#配置ClientWorker" class="headerlink" title="配置ClientWorker"></a>配置ClientWorker</h2><p>这个可以参考<a target="_blank" rel="noopener" href="https://clientworker.js.org/">ClientWorker官方文档</a></p>
+<p>而我的配置则是</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> ClientWorker
+<span class="token key atrule">catch_rules</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> _
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> \<span class="token comment">#.+</span>
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> <span class="token string">""</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
+        <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
+        <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
+          <span class="token key atrule">engine</span><span class="token punctuation">:</span> fetch
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> (^4<span class="token punctuation">|</span>^5)
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> status
+        <span class="token key atrule">action</span><span class="token punctuation">:</span> return
+        <span class="token key atrule">return</span><span class="token punctuation">:</span>
+          <span class="token key atrule">body</span><span class="token punctuation">:</span> The GateWay is down<span class="token tag">!This</span> Page is provided by ClientWorker<span class="token tag">!</span>
+          <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">503</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/(cdn<span class="token punctuation">|</span>fastly<span class="token punctuation">|</span>test1<span class="token punctuation">|</span>gcore)\.jsdelivr\.net\/npm\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn\.oss\.dogecdn\.com\/npm\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/unpkg\.com\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/(cdn<span class="token punctuation">|</span>fastly<span class="token punctuation">|</span>test1<span class="token punctuation">|</span>gcore)\.jsdelivr\.net\/gh\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//gcore.jsdelivr.net/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/gh/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn\.oss\.dogecdn\.com\/gh\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//gcore.jsdelivr.net/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/gh/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> _ 
+          <span class="token punctuation">-</span> s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/tnxg<span class="token punctuation">-</span>blog@latest
+          <span class="token punctuation">-</span> jsd.onmicrosoft.cn/npm/tnxg<span class="token punctuation">-</span>blog@latest
+          <span class="token punctuation">-</span> cdn.bilicdn.tk/npm/tnxg<span class="token punctuation">-</span>blog@latest
+          <span class="token punctuation">-</span> unpkg.com/tnxg<span class="token punctuation">-</span>blog@latest
+          <span class="token punctuation">-</span> cdn<span class="token punctuation">-</span>api.vercel.app
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> \.html$
+        <span class="token key atrule">header</span><span class="token punctuation">:</span>
+          <span class="token key atrule">Content-Type</span><span class="token punctuation">:</span> text/html;charset=UTF<span class="token punctuation">-</span><span class="token number">8</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
+        <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
+        <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
+          <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">200</span>
+          <span class="token key atrule">engine</span><span class="token punctuation">:</span> classic
+          <span class="token key atrule">preflight</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+          <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">5000</span>
+          
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.jpg$</span>
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
+        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .jpg/webp
+        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .jpg
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.png$</span>
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
+        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .png/webp
+        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .png
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.jpeg$</span>
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
+        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .jpeg/webp
+        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .jpeg
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.gif$</span>
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
+        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .gif/webp
+        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .gif
+        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>关于我配置的最新内容都可以在<a href="https://tnxg.loyunet.cn/config.yaml">Config.yaml</a>找到</p>
+<p>后面的那些是我给dogecloud-oss写的webp自适应内容</p>
+<p>当我把这配置发出去的时候CFY就表示</p>
+<img src="https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/images/article/2022/07/ESVG4TR85H54ERGT8484W.png" alt="Raiden_Aurora" loading="lazy" loading="lazy">
+
+<p>我寻思Safari这个玩意还有人用？我眼里(Safari&#x3D;IE)</p>
+<p>咳咳，问题不大，反正我不用Safari我也看不到会出什么bug <del>（掩耳盗铃）</del></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>善待公益项目，每个开发者都是普通人</p>
+<p>jsd反代(回源)</p>
+<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;cdn.bilicdn.tk&#x2F;
+https:&#x2F;&#x2F;jsd.onmicrosoft.cn&#x2F;
+https:&#x2F;&#x2F;jsd.8b9.cn&#x2F;
+https:&#x2F;&#x2F;cdn1.tianli0.top&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我自己写的项目就不放出来了，回源是我自己的服务器，挺慢的</p>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">我很可爱，请给我钱。<br>I'm so cute. Please give me money.</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/alipay-qrcode.png"><img loading="lazy" src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/alipay-qrcode.png" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png"><img loading="lazy" src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png"><img loading="lazy" src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>天翔TNXG</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://tnxg.loyunet.cn/p/910bb11b1a1b.html" title="Hexo博客优化？不如尝试ClientWorker">https://tnxg.loyunet.cn/p/910bb11b1a1b.html</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span></a> 许可协议。</li></ul><script>document.addEventListener('copy', function (event) {
+  const clipboardData = event.clipboardData || window.clipboardData;
+  if (!clipboardData) { return; }
+  const text = window.getSelection().toString();
+  if (text) {
+    event.preventDefault();
+    clipboardData.setData('text/plain', text + '\n\n本文作者：天翔TNXG\n本文链接：https://tnxg.loyunet.cn/p/910bb11b1a1b.html\n版权声明：本博客所有文章除特别声明外，均默认采用 CC BY-NC 4.0 许可协议。');
+  }
+});</script></article><div class="post-nav"><div class="post-nav-item"></div><div class="post-nav-item"><a class="post-nav-next" href="/p/438a6dfc5b99.html" rel="next" title="简记Grasscutter的搭建"><span class="post-nav-text">简记Grasscutter的搭建</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>说些什么？注意遵守当地的法律法规哦！</span><br></div><div id="tcomment"></div><script src="https://npm.elemecdn.com/twikoo@1.5.11/dist/twikoo.min.js"></script><script>twikoo.init({
+  envId: "https://api.twikoo.prts.top",
+  el: "#tcomment",
+})</script></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><a class="with-love" id="animate" href="/thanks/" title="本博客基于Hexo and Theme Yun"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></a><span class="author"> 天翔TNXG</span></div><div class="live-time"><span>本博客已在风雨中艰难运行了</span><span id="display_live_time"></span><span class="moe-text">😢</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2019-08-12T12:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} 天 ${passHour} 小时 ${passMinute} 分 ${passSecond} 秒`;
+}
+blog_live_time();
+</script></div><!-- 尾部信息 -->
+来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！<br>站点访问量:<span
+    id="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span><br><a
+    target="_blank" rel="noopener" href="https://travellings.link/"><img src="https://travellings.link/assets/logo.svg" width="10%"></a><!-- 尾部脚本 -->
+<script type="text/javascript">
+    (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "bdwnhd5bw9");
+</script></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div class="search-result-container"></div></div></body></html>
