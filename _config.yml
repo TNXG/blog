@@ -37,7 +37,6 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - 'config.yaml'
-  - '404.html'
   - 'blog-cgi/index.html'
 
 # Writing
@@ -74,6 +73,8 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 
+ignore_hidden: false
+
 updated_option: 'mtime'
 
 per_page: 10
@@ -106,4 +107,11 @@ hexo_seo_autopush:
     enable: true
     count: 100
   google:
-    enable: false
+    enable: true
+
+sitemap:
+  path: 
+    - sitemap.xml
+  rel: true
+  tags: true
+  categories: true
