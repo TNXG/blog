@@ -2,10 +2,13 @@
 name: Hexo SEO Auto Push
 
 on:
+  push: 
+    branches: 
+      - static
+      
   schedule:
     - cron: 0 4 * * *
-  watch:
-    types: [started]
+
 jobs:
   build:
     runs-on: ubuntu-latest
