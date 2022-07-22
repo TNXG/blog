@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]更改配置"
+git commit -m "[U]升级CW至2.5.2"
 git push https://github.com/TNXG/blog.git
