@@ -1,4 +1,7 @@
-name: ClientWorker
+name: TNXGClientWorker
+hotconfig:
+    - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
+    - https://unpkg.com/tnxg-oss@latest/config.yaml
 catch_rules:
   - rule: _
     transform_rules:
@@ -9,13 +12,24 @@ catch_rules:
         action: fetch
         fetch:
           engine: fetch
-      - search: (^4|^5)
+      - search: (^5)
         searchin: status
         action: return
         return:
           body: The GateWay is down!This Page is provided by ClientWorker!
           status: 503
-
+      - search: (403)
+        searchin: status
+        action: return
+        return:
+          body: 403 Forbidden
+          status: 403
+      - search: (404)
+        searchin: status
+        action: return
+        return:
+          body: 404 Not Found
+          status: 403
       - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/
         replace:
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
@@ -68,8 +82,9 @@ catch_rules:
         replace:
           - _ 
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
-          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
+          - pages.tnxg.loyunet.cn
           - cdn.bilicdn.tk/npm/tnxg-blog@latest
+          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
           - unpkg.com/tnxg-blog@latest
 
       - search: \.html$
