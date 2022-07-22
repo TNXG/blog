@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改工作流"
+git commit -m "[F]修复dplayer错误"
 git push https://github.com/TNXG/blog.git
