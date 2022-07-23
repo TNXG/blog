@@ -74,7 +74,7 @@ layout: false
 				<section id="footer">
 					<div class="inner">
 						<h2 class="major">尝试使用</h2>
-						<p>如果您已经同意了我们的用户协议的话，您可以向星语发送拉群请求(审核速度可能会比较慢)<br><a href="https://wpa.qq.com/msgrd?v=3&uin=517074647&site=qq&menu=yes"
+						<p>如果您已经同意了我们的用户协议的话，您可以向星语发送拉群请求(审核速度可能会比较慢)<br><a href="https://jq.qq.com/?_wv=1027&k=GKtNOPk8"
 							target="_blank">touch me</a><br>希望有会易语言的大佬救救我这只烂泥扶不上墙的fw（划重点）</p>
 						<ul class="copyright">
 							<li>

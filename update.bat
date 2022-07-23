@@ -1,3 +1,3 @@
 git add .
-git commit -m "[U]更新星语介绍页"
+git commit -m "[U]更新cw"
 git push https://github.com/TNXG/blog.git
