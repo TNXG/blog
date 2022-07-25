@@ -44,32 +44,32 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
 
 /* 字体 */
 @font-face {
-    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/HarmonyOS_Sans.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/typeface/HarmonyOS_Sans.ttf");
     font-family: "HarmonyOS_Sans";
 }
 
 @font-face {
-    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/ysbth.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/typeface/ysbth.ttf");
     font-family: "ysbth";
 }
 
 @font-face {
-    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/CtrlAstr.ttf"); 
+    src: url("https://assets.tnxg.whitenuo.cn/typeface/CtrlAstr.ttf"); 
     font-family: "CtrlAstr";
 }
 
 @font-face {
-    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/Gsenochian.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/typeface/Gsenochian.ttf");
     font-family: "Gsenochian";
 }
 
 @font-face {
-    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/Tevyat.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/typeface/Tevyat.ttf");
     font-family: "Tevyat";
 }
 
 @font-face {
-    src: url("https://s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/typeface/JetBrainsMono.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/typeface/JetBrainsMono.ttf");
     font-family: "JetBrainsMono";
 }
 
