@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改图片地址"
+git commit -m "[U]更新cw配置"
 git push https://github.com/TNXG/blog.git
