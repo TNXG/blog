@@ -85,7 +85,6 @@ catch_rules:
           - pages.tnxg.loyunet.cn
           - cdn.bilicdn.tk/npm/tnxg-blog@latest
           - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
-          - unpkg.com/tnxg-blog@latest
 
       - search: \.html$
         header:
@@ -99,7 +98,7 @@ catch_rules:
           preflight: false
           timeout: 5000
           
-  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpg$
+  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -107,7 +106,7 @@ catch_rules:
         replace: .jpg/webp
         replacein: url
         replacekey: .jpg
-  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.png$
+  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.png$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -115,7 +114,7 @@ catch_rules:
         replace: .png/webp
         replacein: url
         replacekey: .png
-  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpeg$
+  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.jpeg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -123,7 +122,7 @@ catch_rules:
         replace: .jpeg/webp
         replacein: url
         replacekey: .jpeg
-  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.gif$
+  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.gif$
     transform_rules:
       - search: image\/webp
         searchin: header
