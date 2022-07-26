@@ -39,6 +39,11 @@ catch_rules:
           - https://cdn.jsdelivr.net/npm/
           - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
 
       - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/
         replace:
@@ -49,6 +54,11 @@ catch_rules:
           - https://cdn.jsdelivr.net/npm/
           - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
 
       - search: ^https:\/\/unpkg\.com\/
         replace:
@@ -59,6 +69,11 @@ catch_rules:
           - https://cdn.jsdelivr.net/npm/
           - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
 
       - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/
         replace:
@@ -68,6 +83,11 @@ catch_rules:
           - https://gcore.jsdelivr.net/gh/
           - https://jsd.8b9.cn/gh/
           - https://cdn1.tianli0.top/gh/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24          
 
       - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/
         replace:
@@ -77,6 +97,11 @@ catch_rules:
           - https://gcore.jsdelivr.net/gh/
           - https://jsd.8b9.cn/gh/
           - https://cdn1.tianli0.top/gh/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
 
       - search: _
         replace:
@@ -85,18 +110,17 @@ catch_rules:
           - pages.tnxg.loyunet.cn
           - cdn.bilicdn.tk/npm/tnxg-blog@latest
           - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
-
-      - search: \.html$
-        header:
-          Content-Type: text/html;charset=UTF-8
-
-      - search: _
         action: fetch
         fetch:
           status: 200
           engine: classic
           preflight: false
           timeout: 5000
+          
+      - search: \.html$
+        header:
+          Content-Type: text/html;charset=UTF-8
+
           
   - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.jpg$
     transform_rules:
