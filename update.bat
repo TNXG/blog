@@ -1,3 +1,3 @@
 git add .
-git commit -m "[U]更新资源url"
+git commit -m "[F]尝试修复cw cdn并发"
 git push https://github.com/TNXG/blog.git
