@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改网页资源引用"
+git commit -m "[F]修改网页静态资源cdn"
 git push https://github.com/TNXG/blog.git
