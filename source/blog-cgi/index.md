@@ -1,15 +1,17 @@
+---
+layout: false
+---
 <!DOCTYPE html>
-<html lang="ZH-CN">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <title>TNXGのBlog-cgi</title>
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-    <link rel="mask-icon" href="/assets/images/favicon.png" color="#0078E7">
     <link rel="stylesheet" href="https://lib.baomitu.com/normalize/5.0.0/normalize.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tnxg-blog@latest/assets/css/cgi.css">
-    <script src="https://tnxg.loyunet.cn/assets/js/cgi.js"></script>
-    <script src="https://unpkg.com/tnxg-blog@latest/assets/js/uamessage.js"></script>
+    <link rel="stylesheet" href="/assets/css/cgi.css">
+    <script src="/assets/js/cgi.js"></script>
+    <script src="/assets/js/uamessage.js"></script>
 </head>
 <body translate="no">
     <div class="app-container">

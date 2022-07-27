@@ -1,14 +1,14 @@
 ---
 layout: false
 ---
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="mask-icon" href="/assets/images/favicon.png" color="#0078E7">
-    <link rel="stylesheet" type="text/css" href="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-resource@latest/css/blog_twikoo_board.css" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+    <link rel="stylesheet" type="text/css" href="/assets/css/twikoo_board.css" />
     <title>天翔的留言板 | 天翔的博客</title>
 </head>
 
