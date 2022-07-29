@@ -43,8 +43,6 @@ layout: false
                             </div>
                         </div>
                     </div>
-
-
                     <div class="project-box-wrapper">
                         <div class="project-box" style="background-color: #d5deff;">
                             <div class="project-box-header">
@@ -70,8 +68,6 @@ layout: false
                             </div>
                         </div>
                     </div>
-
-
                     <div class="project-box-wrapper">
                         <div class="project-box" style="background-color: #d5deff;">
                             <div class="project-box-header">
@@ -91,7 +87,6 @@ layout: false
                             </div>
                             <div class="project-box-footer">
                                 <div class="participants">
-
                                 </div>
                                 <div class="days-left" style="color: #4067f9;">
                                     静态资源站状态信息卡片
@@ -99,7 +94,6 @@ layout: false
                             </div>
                         </div>
                     </div>
-
                     <div class="project-box-wrapper">
                         <div class="project-box" style="background-color: #d5deff;">
                             <div class="project-box-header">
@@ -118,7 +112,6 @@ layout: false
                             </div>
                             <div class="project-box-footer">
                                 <div class="participants">
-
                                 </div>
                                 <div class="days-left" style="color: #4067f9;">
                                     后端API状态信息卡片
@@ -126,8 +119,6 @@ layout: false
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
 </body>

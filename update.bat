@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改网页静态资源cdn"
+git commit -m "[F]修复blog-cgi乱码的问题"
 git push https://github.com/TNXG/blog.git
