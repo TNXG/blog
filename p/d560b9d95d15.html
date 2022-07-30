@@ -5,7 +5,12 @@
 }
 document.addEventListener("DOMContentLoaded", initScrollReveal);
 document.addEventListener("pjax:success", initScrollReveal);
-</script><script>if (!!navigator.serviceWorker) {
+</script><script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if (!window.location.host.startsWith("localhost") || !window.location.host.startsWith("localhost") && (window.location.protocol == "http:"))
+        window.location = window.location.toString().replace(/^http:/, "https:");
+</script>
+<script>if (!!navigator.serviceWorker) {
         navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
             if (localStorage.getItem('cw_installed') !== 'true') {
                 const conf = () => {
@@ -46,10 +51,9 @@ document.addEventListener("pjax:success", initScrollReveal);
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-RLK9KD8ZT6');
 </script>
-<script src="https://npm.elemecdn.com/qexo-static@1.3.0/hexo/statistic/statistic.js"></script>
+<script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/qexo-static@1.4.0/hexo/statistic/statistic.js"></script>
 <script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
 <script>
     loadStatistic("https://qexo.prts.top");
@@ -141,7 +145,7 @@ IconifyProviders = {
     event.preventDefault();
     clipboardData.setData('text/plain', text + '\n\n本文作者：天翔TNXG\n本文链接：https://tnxg.loyunet.cn/p/d560b9d95d15.html\n版权声明：本博客所有文章除特别声明外，均默认采用 CC BY-NC 4.0 许可协议。');
   }
-});</script></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/p/5467bc2c3c13.html" rel="prev" title="明日方舟手书《Satellite》观看有感"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">明日方舟手书《Satellite》观看有感</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/p/3f30fbf1400d.html" rel="next" title="白嫖！10GB免流海外BackBlaze对象存储【可套CDN】"><span class="post-nav-text">白嫖！10GB免流海外BackBlaze对象存储【可套CDN】</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>说些什么？注意遵守当地的法律法规哦！</span><br></div><div id="tcomment"></div><script src="https://npm.elemecdn.com/twikoo@1.5.11/dist/twikoo.min.js"></script><script>twikoo.init({
+});</script></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/p/5467bc2c3c13.html" rel="prev" title="明日方舟手书《Satellite》观看有感"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">明日方舟手书《Satellite》观看有感</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/p/3f30fbf1400d.html" rel="next" title="白嫖！10GB免流海外BackBlaze对象存储【可套CDN】"><span class="post-nav-text">白嫖！10GB免流海外BackBlaze对象存储【可套CDN】</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>说些什么？注意遵守当地的法律法规哦！</span><br></div><div id="tcomment"></div><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/twikoo@1.6.0/dist/twikoo.min.js"></script><script>twikoo.init({
   envId: "https://api.twikoo.prts.top",
   el: "#tcomment",
 })</script></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><a class="with-love" id="animate" href="/thanks/" title="本博客基于Hexo and Theme Yun"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></a><span class="author"> 天翔TNXG</span></div><div class="live-time"><span>本博客已在风雨中艰难运行了</span><span id="display_live_time"></span><span class="moe-text">😢</span><script>function blog_live_time() {

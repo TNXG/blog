@@ -1,111 +1,40 @@
 name: TNXGClientWorker
 hotconfig:
-    - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
-    - https://unpkg.com/tnxg-oss@latest/config.yaml
+  - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
+  - https://unpkg.com/tnxg-oss@latest/config.yaml
 catch_rules:
   - rule: _
     transform_rules:
-      - search: \#.+
-        searchin: url
-        replace: ""
-      - search: _
+      - search: _ #匹配原域，返回原域
         action: fetch
         fetch:
           engine: fetch
-      - search: (^5)
+      - search: (^5) #如果状态为5xx类则返回503
         searchin: status
         action: return
         return:
           body: The GateWay is down!This Page is provided by ClientWorker!
           status: 503
-      - search: (403)
+      - search: (403) #如果状态为403类则返回403
         searchin: status
         action: return
         return:
           body: 403 Forbidden
           status: 403
-      - search: (404)
+      - search: (404) #如果状态为404类则返回404
         searchin: status
         action: return
         return:
           body: 404 Not Found
-          status: 403
-      - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/
+          status: 404
+      - search: \/([^\/.]+)$ #匹配/path，跳为/path/
+        action: redirect
+        redirect:
+          to: /$1/
+          status: 301
+      - search: _ #多cdn并发
         replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-        action: fetch
-        fetch:
-          engine: classic
-          preflight: false
-          expire: 1000*60*60*24
-
-      - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/
-        replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-        action: fetch
-        fetch:
-          engine: classic
-          preflight: false
-          expire: 1000*60*60*24
-
-      - search: ^https:\/\/unpkg\.com\/
-        replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-        action: fetch
-        fetch:
-          engine: classic
-          preflight: false
-          expire: 1000*60*60*24
-
-      - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/
-        replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://jsd.onmicrosoft.cn/gh/
-          - https://gcore.jsdelivr.net/gh/
-          - https://jsd.8b9.cn/gh/
-          - https://cdn1.tianli0.top/gh/
-        action: fetch
-        fetch:
-          engine: classic
-          preflight: false
-          expire: 1000*60*60*24          
-
-      - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/
-        replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://jsd.onmicrosoft.cn/gh/
-          - https://gcore.jsdelivr.net/gh/
-          - https://jsd.8b9.cn/gh/
-          - https://cdn1.tianli0.top/gh/
-        action: fetch
-        fetch:
-          engine: classic
-          preflight: false
-          expire: 1000*60*60*24
-
-      - search: _
-        replace:
-          - _ 
+          - _
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
           - pages.tnxg.loyunet.cn
           - cdn.bilicdn.tk/npm/tnxg-blog@latest
@@ -116,12 +45,113 @@ catch_rules:
           engine: classic
           preflight: false
           timeout: 5000
-          
       - search: \.html$
         header:
           Content-Type: text/html;charset=UTF-8
 
-          
+  - rule: ^https:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
+    transform_rules:
+      - search: _ #多cdn并发
+        replace:
+          - https://i0.hdslb.com
+          - https://i1.hdslb.com
+          - https://i2.hdslb.com
+          - https://i3.hdslb.com
+          - https://s1.hdslb.com
+          - https://s2.hdslb.com
+          - https://s3.hdslb.com
+        action: fetch
+        fetch:
+          status: 200
+          engine: classic
+          preflight: false
+          timeout: 5000
+      - search: _
+        header:
+          Referrer-Policy: no-referrer # 更改引用策略
+
+  - rule: ^https:\/\/q1\.qlogo\.cn # 匹配qlogo
+    transform_rules:
+      - search: _
+        action: skip # 跳过拦截
+
+  - rule: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net # 匹配Jsdelivr
+    transform_rules:
+      - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容
+        replace:
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
+          - https://cdn.bilicdn.tk/npm/
+          - https://jsd.onmicrosoft.cn/npm/
+          - https://unpkg.com/
+          - https://cdn.jsdelivr.net/npm/
+          - https://jsd.8b9.cn/npm/
+          - https://cdn1.tianli0.top/npm/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
+      - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/ # 寻找 x.jsd.net/gh/的内容
+        replace:
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
+          - https://cdn.bilicdn.tk/gh/
+          - https://jsd.onmicrosoft.cn/gh/
+          - https://gcore.jsdelivr.net/gh/
+          - https://jsd.8b9.cn/gh/
+          - https://cdn1.tianli0.top/gh/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
+
+  - rule: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com # 匹配DogeCloud
+    transform_rules:
+      - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/ # 寻找 x.DogeCloud.com/npm/的内容
+        replace:
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
+          - https://cdn.bilicdn.tk/npm/
+          - https://jsd.onmicrosoft.cn/npm/
+          - https://unpkg.com/
+          - https://cdn.jsdelivr.net/npm/
+          - https://jsd.8b9.cn/npm/
+          - https://cdn1.tianli0.top/npm/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
+      - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/ # 寻找 x.DogeCloud.com/gh/的内容
+        replace:
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
+          - https://cdn.bilicdn.tk/gh/
+          - https://jsd.onmicrosoft.cn/gh/
+          - https://gcore.jsdelivr.net/gh/
+          - https://jsd.8b9.cn/gh/
+          - https://cdn1.tianli0.top/gh/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
+
+  - rule: ^https:\/\/unpkg\.com # 匹配Unpkg
+    transform_rules:
+      - search: ^https:\/\/unpkg\.com\/ # 寻找 unpkg.com/的内容
+        replace:
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
+          - https://cdn.bilicdn.tk/npm/
+          - https://jsd.onmicrosoft.cn/npm/
+          - https://unpkg.com/
+          - https://cdn.jsdelivr.net/npm/
+          - https://jsd.8b9.cn/npm/
+          - https://cdn1.tianli0.top/npm/
+        action: fetch
+        fetch:
+          engine: classic
+          preflight: false
+          expire: 1000*60*60*24
+
   - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
@@ -154,4 +184,3 @@ catch_rules:
         replace: .gif/webp
         replacein: url
         replacekey: .gif
-        

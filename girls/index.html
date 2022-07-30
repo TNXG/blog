@@ -5,7 +5,12 @@
 }
 document.addEventListener("DOMContentLoaded", initScrollReveal);
 document.addEventListener("pjax:success", initScrollReveal);
-</script><script>if (!!navigator.serviceWorker) {
+</script><script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if (!window.location.host.startsWith("localhost") || !window.location.host.startsWith("localhost") && (window.location.protocol == "http:"))
+        window.location = window.location.toString().replace(/^http:/, "https:");
+</script>
+<script>if (!!navigator.serviceWorker) {
         navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
             if (localStorage.getItem('cw_installed') !== 'true') {
                 const conf = () => {
@@ -46,10 +51,9 @@ document.addEventListener("pjax:success", initScrollReveal);
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-RLK9KD8ZT6');
 </script>
-<script src="https://npm.elemecdn.com/qexo-static@1.3.0/hexo/statistic/statistic.js"></script>
+<script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/qexo-static@1.4.0/hexo/statistic/statistic.js"></script>
 <script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
 <script>
     loadStatistic("https://qexo.prts.top");
@@ -67,7 +71,7 @@ document.addEventListener("pjax:success", initScrollReveal);
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/meme/i-like-paper-girls.jpg">
 <meta property="article:published_time" content="2019-08-12T13:20:09.000Z">
-<meta property="article:modified_time" content="2022-07-29T09:38:02.994Z">
+<meta property="article:modified_time" content="2022-07-30T17:00:57.588Z">
 <meta property="article:author" content="天翔TNXG">
 <meta property="article:tag" content="天翔, 博客">
 <meta name="twitter:card" content="summary">
@@ -106,7 +110,7 @@ IconifyProviders = {
 <blockquote>
 <p><del>我对普通的三次元女孩子没有兴趣。假如你们当中有纸片人、死宅、喜欢动漫或者一切有趣之事的女孩子，尽管来找我。完毕！</del></p>
 </blockquote>
-</div></section></article></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>说些什么？注意遵守当地的法律法规哦！</span><br></div><div id="tcomment"></div><script src="https://npm.elemecdn.com/twikoo@1.5.11/dist/twikoo.min.js"></script><script>twikoo.init({
+</div></section></article></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>说些什么？注意遵守当地的法律法规哦！</span><br></div><div id="tcomment"></div><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/twikoo@1.6.0/dist/twikoo.min.js"></script><script>twikoo.init({
   envId: "https://api.twikoo.prts.top",
   el: "#tcomment",
 })</script></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><a class="with-love" id="animate" href="/thanks/" title="本博客基于Hexo and Theme Yun"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></a><span class="author"> 天翔TNXG</span></div><div class="live-time"><span>本博客已在风雨中艰难运行了</span><span id="display_live_time"></span><span class="moe-text">😢</span><script>function blog_live_time() {
