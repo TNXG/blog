@@ -225,6 +225,35 @@ catch_rules:
 
 咳咳，问题不大，反正我不用Safari我也看不到会出什么bug ~~（掩耳盗铃）~~
 
+
+
+应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效
+
+```yaml
+  - rule: ^https:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
+    transform_rules:
+      - search: _ #多cdn并发
+        replace:
+          - https://i0.hdslb.com
+          - https://i1.hdslb.com
+          - https://i2.hdslb.com
+          - https://i3.hdslb.com
+          - https://s1.hdslb.com
+          - https://s2.hdslb.com
+          - https://s3.hdslb.com
+        action: fetch
+        fetch:
+          status: 200
+          engine: classic
+          preflight: false
+          timeout: 5000
+      - search: _
+        header:
+          Referrer-Policy: no-referrer # 更改引用策略
+```
+![这张就是b站的图片](https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg)
+
+
 # 结语
 
 善待公益项目，每个开发者都是普通人

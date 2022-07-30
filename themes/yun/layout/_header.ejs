@@ -1,3 +1,8 @@
+<script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if (!window.location.host.startsWith("localhost") || !window.location.host.startsWith("localhost") && (window.location.protocol == "http:"))
+        window.location = window.location.toString().replace(/^http:/, "https:");
+</script>
 <script>if (!!navigator.serviceWorker) {
         navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
             if (localStorage.getItem('cw_installed') !== 'true') {
@@ -39,10 +44,9 @@
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-RLK9KD8ZT6');
 </script>
-<script src="https://npm.elemecdn.com/qexo-static@1.3.0/hexo/statistic/statistic.js"></script>
+<script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/qexo-static@1.4.0/hexo/statistic/statistic.js"></script>
 <script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
 <script>
     loadStatistic("https://qexo.prts.top");

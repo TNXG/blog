@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复blog-cgi乱码的问题"
+git commit -m "[N]新cw功能"
 git push https://github.com/TNXG/blog.git
