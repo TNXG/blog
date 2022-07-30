@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", initScrollReveal);
 document.addEventListener("pjax:success", initScrollReveal);
 </script><script>
     //判断非本机且未使用https 时，强制重定向到https。
-    if (!window.location.host.startsWith("localhost") || !window.location.host.startsWith("localhost") && (window.location.protocol == "http:"))
+    if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
         window.location = window.location.toString().replace(/^http:/, "https:");
 </script>
 <script>if (!!navigator.serviceWorker) {
@@ -70,7 +70,7 @@ document.addEventListener("pjax:success", initScrollReveal);
 <meta property="og:description" content="明日尚未到来，希望凝于心上">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-02-07T14:52:19.000Z">
-<meta property="article:modified_time" content="2022-07-30T17:00:57.584Z">
+<meta property="article:modified_time" content="2022-07-30T17:13:15.776Z">
 <meta property="article:author" content="天翔TNXG">
 <meta property="article:tag" content="天翔, 博客">
 <meta name="twitter:card" content="summary"><script>(function() {

@@ -2,60 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tnxg.loyunet.cn/friendcircle/index.html</loc>
-    
-    <lastmod>2022-07-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/girls/index.html</loc>
-    
-    <lastmod>2022-07-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/links/index.html</loc>
-    
-    <lastmod>2022-07-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/policy/index.html</loc>
-    
-    <lastmod>2022-07-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/tags/index.html</loc>
-    
-    <lastmod>2022-07-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/xineyc/agreement.html</loc>
-    
-    <lastmod>2022-07-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tnxg.loyunet.cn/xineyc/guide.html</loc>
     
     <lastmod>2022-07-30</lastmod>
@@ -110,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/p/438a6dfc5b99.html</loc>
+    <loc>https://tnxg.loyunet.cn/friendcircle/index.html</loc>
     
     <lastmod>2022-07-30</lastmod>
     
@@ -119,7 +65,52 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/404.html</loc>
+    <loc>https://tnxg.loyunet.cn/girls/index.html</loc>
+    
+    <lastmod>2022-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/links/index.html</loc>
+    
+    <lastmod>2022-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/policy/index.html</loc>
+    
+    <lastmod>2022-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/tags/index.html</loc>
+    
+    <lastmod>2022-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/xineyc/agreement.html</loc>
+    
+    <lastmod>2022-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/p/438a6dfc5b99.html</loc>
     
     <lastmod>2022-07-30</lastmod>
     
@@ -147,6 +138,15 @@
   
   <url>
     <loc>https://tnxg.loyunet.cn/assets/data/yiyan.json</loc>
+    
+    <lastmod>2022-07-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/404.html</loc>
     
     <lastmod>2022-07-30</lastmod>
     
