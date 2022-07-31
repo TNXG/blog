@@ -51,4 +51,4 @@ switch ($type) {
 
 详细信息及实现方法已经写在代码注释里了，可以参考着玩一玩（大雾）
 
-!()[https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png]
+![](https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png)
