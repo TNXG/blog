@@ -70,11 +70,6 @@ catch_rules:
         header:
           Referrer-Policy: no-referrer # 更改引用策略
 
-  - rule: ^https:\/\/q1\.qlogo\.cn # 匹配qlogo
-    transform_rules:
-      - search: _
-        action: skip # 跳过拦截
-
   - rule: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net # 匹配Jsdelivr
     transform_rules:
       - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容
@@ -189,3 +184,18 @@ catch_rules:
         replace: .gif/webp
         replacein: url
         replacekey: .gif
+
+  - rule: ^(http|https):\/\/q1\.qlogo\.cn # 匹配qlogo
+    transform_rules:
+      - search: _
+        action: skip # 跳过拦截
+
+  - rule: ^(http|https):\/\/cravatar\.cn # 匹配cravatar.cn
+    transform_rules:
+      - search: _
+        action: skip # 跳过拦截
+
+  - rule: ^(http|https):\/\/api\.twikoo\.prts\.top # 匹配twikooAPI
+    transform_rules:
+      - search: _
+        action: skip # 跳过拦截
