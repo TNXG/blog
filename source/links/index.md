@@ -13,4 +13,4 @@ random: true
 
 每次刷新为随机顺序展示～
 
-现已不支持在评论区中直接申请友链，请前往[这里](https://github.com/TNXG/tnxg.github.io/#friends)～
+现已不支持在评论区中直接申请友链，请前往[这里](https://github.com/TNXG/blog/#friends)～

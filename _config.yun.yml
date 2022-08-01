@@ -59,6 +59,11 @@ pages:
     icon: ri-women-line ri-lg
     color: hotpink
 
+  - name: 丰碑
+    url: /monument/
+    icon: ri-award-fill ri-lg
+    color: red
+
   - name: 鸣谢名单
     url: /thanks/
     icon: ri-vip-diamond-line ri-lg
@@ -100,6 +105,7 @@ head:
     master: "/assets/css/master.css"
     fontawesome: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/fontawesome-free@latest/css/all.css"
     RemixIcon: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/remixicon@latest/fonts/remixicon.css"
+    SimpleIcons: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/simple-icons-font@5.24.0/font/simple-icons.css"
   js:
     base:
     async:
