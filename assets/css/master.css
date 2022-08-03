@@ -54,7 +54,7 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
 }
 
 @font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/CtrlAstr.ttf"); 
+    src: url("https://assets.tnxg.whitenuo.cn/typeface/CtrlAstr.ttf");
     font-family: "CtrlAstr";
 }
 
@@ -96,4 +96,40 @@ body {
 
 .JetBrainsMono {
     font-family: "JetBrainsMono";
+}
+
+/* 舟味鼠标指针 */
+html,
+body {
+    cursor: url("https://ark.theme.yueplus.ink/cursor-inner.png") 3 3, default;
+    position: static;
+}
+
+a,
+button {
+    cursor: url("https://ark.theme.yueplus.ink/cursor-inner.png") 3 3, pointer;
+}
+
+#cursor-outer {
+    z-index: 65536;
+    position: fixed;
+    transform: translate3d(-50%, -50%, 0px);
+    height: 36px;
+    width: 36px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: background-color 0.3s, width 0.3s, height 0.3s;
+}
+
+#cursor-effect {
+    z-index: 65535;
+    position: fixed;
+    transform: translate3d(-50%, -50%, 0px) scale(0);
+    height: 80px;
+    width: 80px;
+    border: 4px solid #ccc;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
 }
