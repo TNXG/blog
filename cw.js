@@ -1,1 +1,1 @@
-importScripts('https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/clientworker@2.8.1/dist/cw.js')
+importScripts('https://lib.baomitu.com/clientworker/3.0.0-beta-3/dist/cw.js')
