@@ -3,6 +3,30 @@ hotconfig:
   - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
   - https://unpkg.com/tnxg-oss@latest/config.yaml
 catch_rules:
+  # - rule: ^(http|https)\:\/\/q1\.qlogo\.cn # 匹配qlogo
+  #   transform_rules:
+  #     - search: _
+  #       action: skip # 跳过拦截
+
+  # - rule: ^(http|https)\:\/\/cravatar\.cn # 匹配cravatar.cn
+  #   transform_rules:
+  #     - search: _
+  #       action: skip # 跳过拦截
+
+  # - rule: ^(http|https)\:\/\/api\.twikoo\.prts\.top # 匹配twikooAPI
+  #   transform_rules:
+  #     - search: _
+  #       action: skip # 跳过拦截
+
+  # - rule: ^(http|https)\:\/\/api\.friendcircle\.prts\.top # 匹配twikooAPI
+  #   transform_rules:
+  #     - search: _
+  #       action: skip # 跳过拦截
+
+  # - rule: ^(http|https)\:\/\/n\.clarity\.ms # 匹配n.clarity.ms
+  #   transform_rules:
+  #     - search: _
+  #       action: skip # 跳过拦截
   - rule: _
     transform_rules:
       - search: _ #匹配原域，返回原域
@@ -168,7 +192,7 @@ catch_rules:
           preflight: false
           expire: 1000*60*60*24    
 
-  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpg$
+  - rule: (?<=^https\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -176,7 +200,7 @@ catch_rules:
         replace: .jpg/webp
         replacein: url
         replacekey: .jpg
-  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.png$
+  - rule: (?<=^https\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.png$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -184,7 +208,7 @@ catch_rules:
         replace: .png/webp
         replacein: url
         replacekey: .png
-  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpeg$
+  - rule: (?<=^https\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpeg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -192,7 +216,7 @@ catch_rules:
         replace: .jpeg/webp
         replacein: url
         replacekey: .jpeg
-  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.gif$
+  - rule: (?<=^https\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.gif$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -200,28 +224,3 @@ catch_rules:
         replace: .gif/webp
         replacein: url
         replacekey: .gif
-
-  - rule: ^(http|https)\:\/\/q1\.qlogo\.cn # 匹配qlogo
-    transform_rules:
-      - search: _
-        action: skip # 跳过拦截
-
-  - rule: ^(http|https)\:\/\/cravatar\.cn # 匹配cravatar.cn
-    transform_rules:
-      - search: _
-        action: skip # 跳过拦截
-
-  - rule: ^(http|https)\:\/\/api\.twikoo\.prts\.top # 匹配twikooAPI
-    transform_rules:
-      - search: _
-        action: skip # 跳过拦截
-
-  - rule: ^(http|https)\:\/\/api\.friendcircle\.prts\.top # 匹配twikooAPI
-    transform_rules:
-      - search: _
-        action: skip # 跳过拦截
-
-  - rule: ^(http|https)\:\/\/n\.clarity\.ms # 匹配n.clarity.ms
-    transform_rules:
-      - search: _
-        action: skip # 跳过拦截
