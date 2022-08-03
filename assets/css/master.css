@@ -101,13 +101,14 @@ body {
 /* 舟味鼠标指针 */
 html,
 body {
-    cursor: url("https://ark.theme.yueplus.ink/cursor-inner.png") 3 3, default;
+    cursor: url("https://assets.tnxg.whitenuo.cn/blog-file/assets/images/cursor.png") 3 3, default;
+    cursor: url("https://assets.tnxg.whitenuo.cn/blog-file/assets/images/cursor.png") 3 3, text;
     position: static;
 }
 
 a,
 button {
-    cursor: url("https://ark.theme.yueplus.ink/cursor-inner.png") 3 3, pointer;
+    cursor: url("https://assets.tnxg.whitenuo.cn/blog-file/assets/images/cursor.png") 3 3, pointer;
 }
 
 #cursor-outer {
