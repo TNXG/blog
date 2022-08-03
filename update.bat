@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]新的页面样式"
+git commit -m "[F]修复页面错位的bug"
 git push https://github.com/TNXG/blog.git
