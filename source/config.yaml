@@ -49,7 +49,7 @@ catch_rules:
         header:
           Content-Type: text/html;charset=UTF-8
 
-  - rule: ^https:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
+  - rule: ^(http|https)\:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
     transform_rules:
       - search: _ #多cdn并发
         replace:
@@ -70,9 +70,9 @@ catch_rules:
         header:
           Referrer-Policy: no-referrer # 更改引用策略
 
-  - rule: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net # 匹配Jsdelivr
+  - rule: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net # 匹配Jsdelivr
     transform_rules:
-      - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容
+      - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容
         replace:
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
           - https://cdn.bilicdn.tk/npm/
@@ -87,7 +87,7 @@ catch_rules:
           status: 200
           preflight: false
           expire: 1000*60*60*24
-      - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/ # 寻找 x.jsd.net/gh/的内容
+      - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/ # 寻找 x.jsd.net/gh/的内容
         replace:
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
           - https://cdn.bilicdn.tk/gh/
@@ -102,9 +102,9 @@ catch_rules:
           preflight: false
           expire: 1000*60*60*24
 
-  - rule: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com # 匹配DogeCloud
+  - rule: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com # 匹配DogeCloud
     transform_rules:
-      - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/ # 寻找 x.DogeCloud.com/npm/的内容
+      - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/ # 寻找 x.DogeCloud.com/npm/的内容
         replace:
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
           - https://cdn.bilicdn.tk/npm/
@@ -119,7 +119,7 @@ catch_rules:
           status: 200
           preflight: false
           expire: 1000*60*60*24
-      - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/ # 寻找 x.DogeCloud.com/gh/的内容
+      - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/ # 寻找 x.DogeCloud.com/gh/的内容
         replace:
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
           - https://cdn.bilicdn.tk/gh/
@@ -134,9 +134,9 @@ catch_rules:
           preflight: false
           expire: 1000*60*60*24
 
-  - rule: ^https:\/\/unpkg\.com # 匹配Unpkg
+  - rule: ^(http|https)\:\/\/unpkg\.com # 匹配Unpkg
     transform_rules:
-      - search: ^https:\/\/unpkg\.com\/ # 寻找 unpkg.com/的内容
+      - search: ^(http|https)\:\/\/unpkg\.com\/ # 寻找 unpkg.com/的内容
         replace:
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
           - https://cdn.bilicdn.tk/npm/
@@ -151,8 +151,24 @@ catch_rules:
           status: 200
           preflight: false
           expire: 1000*60*60*24
+          
+  - rule: ^(http|https)\:\/\/assets\.tnxg\.whitenuo\.cn # 匹配assets.tnxg.whitenuo.cn
+    transform_rules:
+      - search: ^(http|https)\:\/\/assets\.tnxg\.whitenuo\.cn\/blog-file\/ # 寻找 assets.tnxg.whitenuo.cn/blog-file的内容
+        replace:
+          - _
+          - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
+          - cdn1.tianli0.top/npm/tnxg-blog@latest
+          - cdn.bilicdn.tk/npm/tnxg-blog@latest
+          - pages.tnxg.loyunet.cn
+        action: fetch
+        fetch:
+          engine: parallel
+          status: 200
+          preflight: false
+          expire: 1000*60*60*24    
 
-  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.jpg$
+  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -160,7 +176,7 @@ catch_rules:
         replace: .jpg/webp
         replacein: url
         replacekey: .jpg
-  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.png$
+  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.png$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -168,7 +184,7 @@ catch_rules:
         replace: .png/webp
         replacein: url
         replacekey: .png
-  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.jpeg$
+  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpeg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -176,7 +192,7 @@ catch_rules:
         replace: .jpeg/webp
         replacein: url
         replacekey: .jpeg
-  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.gif$
+  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.gif$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -185,17 +201,17 @@ catch_rules:
         replacein: url
         replacekey: .gif
 
-  - rule: ^(http|https):\/\/q1\.qlogo\.cn # 匹配qlogo
+  - rule: ^(http|https)\:\/\/q1\.qlogo\.cn # 匹配qlogo
     transform_rules:
       - search: _
         action: skip # 跳过拦截
 
-  - rule: ^(http|https):\/\/cravatar\.cn # 匹配cravatar.cn
+  - rule: ^(http|https)\:\/\/cravatar\.cn # 匹配cravatar.cn
     transform_rules:
       - search: _
         action: skip # 跳过拦截
 
-  - rule: ^(http|https):\/\/api\.twikoo\.prts\.top # 匹配twikooAPI
+  - rule: ^(http|https)\:\/\/api\.twikoo\.prts\.top # 匹配twikooAPI
     transform_rules:
       - search: _
         action: skip # 跳过拦截
