@@ -134,7 +134,7 @@ html.dark {
   --hty-secondary-text-color: #eee;
   --post-block-bg-color: #1b1f2e;
   --smc-link-color: #3ca1ff;
-  --yun-bg-image: url("https://images.weserv.nl/?blur=2&q=100&url=https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg");
+  --yun-bg-image: url("https://cdn.jsdelivr.net/gh/TNXG/blog@static/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg");
   --banner-line-color: #fff;
   --banner-char-color: #fff;
   --banner-char-bg-color: rgba(0,0,0,0.5);
@@ -142,7 +142,7 @@ html.dark {
   --post-card-bg-color: rgba(27,31,46,0.9);
   --post-card-shadow: 0 1px 8px rgba(27,31,46,0.1);
   --sidebar-bg-color: rgba(27,31,46,0.95);
-  --sidebar-bg-image: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp");
+  --sidebar-bg-image: url("https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp");
   --page-btn-bg-color: rgba(0,0,0,0.5);
   --page-btn-hover-bg-color: rgba(199,228,255,0.9);
   --page-btn-active-bg-color: #0078e7;
@@ -328,19 +328,19 @@ body::before {
   }
 }
 body {
-  cursor: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/pointer.ani"), auto;
+  cursor: url("https://assets.tnxg.whitenuo.cn/cursors/pointer.ani"), auto;
 }
 a {
-  cursor: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/link.ani"), auto;
+  cursor: url("https://assets.tnxg.whitenuo.cn/cursors/link.ani"), auto;
 }
 a:hover {
-  cursor: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/link.ani"), auto;
+  cursor: url("https://assets.tnxg.whitenuo.cn/cursors/link.ani"), auto;
 }
 .hty-icon-button {
-  cursor: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/link.ani"), pointer;
+  cursor: url("https://assets.tnxg.whitenuo.cn/cursors/link.ani"), pointer;
 }
 input {
-  cursor: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/text.ani"), auto;
+  cursor: url("https://assets.tnxg.whitenuo.cn/cursors/text.ani"), auto;
 }
 :root {
   --banner-char-bg-color: rgba(255,255,255,0.5);
@@ -895,7 +895,7 @@ input {
 }
 .wordcloud #wordcloud-canvas,
 .wordcloud #wordcloud-sidebar-canvas {
-  cursor: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/link.ani"), pointer;
+  cursor: url("https://assets.tnxg.whitenuo.cn/cursors/link.ani"), pointer;
 }
 .wordcloud #wordbox {
   pointer-events: none;
@@ -1814,7 +1814,7 @@ input {
   max-height: 10000px;
 }
 :root {
-  --sidebar-bg-image: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp");
+  --sidebar-bg-image: url("https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp");
 }
 #menu-btn {
   display: none;
@@ -2310,7 +2310,7 @@ input {
   position: relative;
   width: 15rem;
   margin: 1.5rem;
-  cursor: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/link.ani"), pointer;
+  cursor: url("https://assets.tnxg.whitenuo.cn/cursors/link.ani"), pointer;
 }
 .photo-list-item img {
   box-sizing: border-box;
