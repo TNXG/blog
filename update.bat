@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复页面错位的bug"
+git commit -m "[U]更新twikoo至1.6.1"
 git push https://github.com/TNXG/blog.git
