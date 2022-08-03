@@ -192,7 +192,7 @@ catch_rules:
           preflight: false
           expire: 1000*60*60*24    
 
-  - rule: (?<=^https:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpg$
+  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -200,7 +200,7 @@ catch_rules:
         replace: .jpg/webp
         replacein: url
         replacekey: .jpg
-  - rule: (?<=^https:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.png$
+  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.png$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -208,7 +208,7 @@ catch_rules:
         replace: .png/webp
         replacein: url
         replacekey: .png
-  - rule: (?<=^https:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpeg$
+  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.jpeg$
     transform_rules:
       - search: image\/webp
         searchin: header
@@ -216,7 +216,7 @@ catch_rules:
         replace: .jpeg/webp
         replacein: url
         replacekey: .jpeg
-  - rule: (?<=^https:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.gif$
+  - rule: (?<=^https\:\/\/assets.tnxg.whitenuo.cn/(.*))\.gif$
     transform_rules:
       - search: image\/webp
         searchin: header
