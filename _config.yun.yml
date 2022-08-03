@@ -84,14 +84,14 @@ anonymous_image: https://assets.tnxg.whitenuo.cn/images/avatar/none.jpg
 # 背景图
 sidebar:
   src: /js/sidebar.js
-  bg_image: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YunYouJun/cdn@master/img/bg/alpha-stars-timing-1.webp
-  dark_bg_image: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YunYouJun/cdn@master/img/bg/dark-alpha-stars-timing-1.webp
+  bg_image: https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp
+  dark_bg_image: https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp
   bg_position: bottom 1rem center
 
 bg_image:
   enable: true
   url: https://prts.top/api/img/wallpaper/?type=cdn
-  dark: https://images.weserv.nl/?blur=2&q=100&url=https://cdn.jsdelivr.net/gh/TNXG/blog@gh_pages/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
+  dark: https://cdn.jsdelivr.net/gh/TNXG/blog@static/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
   # blur: 30px
   opacity: 1
 
@@ -104,6 +104,7 @@ head:
   css:
     master: "/assets/css/master.css"
     fontawesome: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/fontawesome-free@latest/css/all.css"
+    PrismLineNumbers: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/prismjs@latest/plugins/line-numbers/prism-line-numbers.css"
     RemixIcon: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/remixicon@latest/fonts/remixicon.css"
     SimpleIcons: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/simple-icons-font@5.24.0/font/simple-icons.css"
   js:
@@ -118,6 +119,8 @@ favicon: /assets/images/favicon.png
 # 静态资源
 cdn:
   pre: https://assets.tnxg.whitenuo.cn/blog-file
+  css:
+    prism-theme-vars: 'https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/PrismJS/prism-themes@master/themes/prism-vsc-dark-plus.css' # or your css
 vendors:
   host: 'https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/'
 
@@ -197,9 +200,9 @@ scrollreveal:
 # 鼠标指针
 cursor:
   enable: true
-  default: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/pointer.ani
-  pointer: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/link.ani
-  text: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest/assets/cursors/text.ani
+  default: https://assets.tnxg.whitenuo.cn/cursors/pointer.ani
+  pointer: https://assets.tnxg.whitenuo.cn/cursors/link.ani
+  text: https://assets.tnxg.whitenuo.cn/cursors/text.ani
 
 # 信息（显示文字、创建时间、更新时间、种类、标签）
 post_meta:
@@ -217,9 +220,6 @@ post_edit:
 # 代码高亮
 codeblock:
   copy_btn: true
-  prismjs:
-    light: OKAIDIA
-    dark: tomorrow
 
 # 许可证
 creative_commons:
@@ -318,5 +318,9 @@ wordcloud:
 
 # pjax
 pjax:
-  enable: false
+  enable: true
 
+# 谷歌统计
+google_analytics:
+  enable: true
+  id: G-RLK9KD8ZT6
