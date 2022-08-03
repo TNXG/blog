@@ -215,3 +215,13 @@ catch_rules:
     transform_rules:
       - search: _
         action: skip # 跳过拦截
+
+  - rule: ^(http|https)\:\/\/api\.friendcircle\.prts\.top # 匹配twikooAPI
+    transform_rules:
+      - search: _
+        action: skip # 跳过拦截
+
+  - rule: ^(http|https)\:\/\/n\.clarity\.ms # 匹配n.clarity.ms
+    transform_rules:
+      - search: _
+        action: skip # 跳过拦截
