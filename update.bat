@@ -1,3 +1,3 @@
 git add .
-git commit -m "[U]更新twikoo至1.6.1"
+git commit -m "[U]更新twikoo至1.6.4"
 git push https://github.com/TNXG/blog.git

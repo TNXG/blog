@@ -94,6 +94,12 @@ catch_rules:
         header:
           Referrer-Policy: no-referrer # 更改引用策略
 
+  - rule: ^(http|https)\:\/\/bj29-enet\.cn-beijing\.data\.alicloudccp\.com # 匹配阿里云盘资源链接
+    transform_rules:
+      - search: _
+        header:
+          Referrer-Policy: no-referrer # 更改引用策略
+
   - rule: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net # 匹配Jsdelivr
     transform_rules:
       - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容

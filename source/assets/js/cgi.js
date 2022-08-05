@@ -50,7 +50,7 @@ function cgi_start() {
         }
     })
 
-    fetch('https://s-cd-1806-tnxg-oss-jsd.oss.dogecdn.com/npm/tnxg-blog@latest/index.html').then(function (response) {
+    fetch('https://assets.tnxg.whitenuo.cn/blog-file/index.html').then(function (response) {
         if (response.status == '200' || response.status == '304') {
             document.getElementById("tnxg_cgi_cdnstatus_doge").innerHTML = 'DogeCloud_OSS:返回正常';
         } else {
