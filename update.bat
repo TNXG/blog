@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]添加又拍云联盟"
+git commit -m "[F]修改又拍云联盟"
 git push https://github.com/TNXG/blog.git
