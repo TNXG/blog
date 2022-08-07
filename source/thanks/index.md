@@ -13,6 +13,7 @@ updated: 2022-04-09 0:20:30
 <p align="center"><a href="https://github.com/">Github </a>- 代码托管、静态资源储存</p>
 <p align="center"><a href="https://vercel.com/">Vercel </a>- 集成部署、网页托管</p>
 <p align="center"><a href="https://www.dogecloud.com/">DogeCloud </a>- 对象储存</p>
+<p align="center"><a href="https://www.upyun.com/">又拍云 </a>- 对象储存</p>
 <p align="center"><a href="https://www.backblaze.com/">Backblaze </a>- 对象储存</p>
 <p align="center"><a href="https://images.weserv.nl/">Images.weserv.nl </a>- 图片资源缓存、后处理</p>
 <p align="center"><a href="https://blog.cyfan.top/">ChenYFan </a>- 技术支持</p>

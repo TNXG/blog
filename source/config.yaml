@@ -1,7 +1,7 @@
 name: TNXGClientWorker
-hotconfig:
-  - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
-  - https://unpkg.com/tnxg-oss@latest/config.yaml
+# hotconfig:
+#   - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
+#   - https://unpkg.com/tnxg-oss@latest/config.yaml
 catch_rules:
   # - rule: ^(http|https)\:\/\/q1\.qlogo\.cn # 匹配qlogo
   #   transform_rules:
@@ -29,17 +29,24 @@ catch_rules:
   #       action: skip # 跳过拦截
   - rule: _
     transform_rules:
-      - search: _ #匹配原域，返回原域
+      - search: _ # 匹配原域，返回原域
         action: fetch
         fetch:
           engine: fetch
-      - search: (^5) #如果状态为5xx类则返回503
+      - search: \/blog-cgi\/api?type=cwstatus # 匹配/blog-cgi/api?type=cwstatus，返回cw及配置信息
+        action: return
+        return:
+          body: '{"InstallStatus":"OK","ConfigVersion":"2.0.3","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1659877367"}'
+          status: 200
+        header:
+          content-type: text/json;charset=UTF-8
+      - search: (^5) # 如果状态为5xx类则返回503
         searchin: status
         action: return
         return:
           body: The GateWay is down!This Page is provided by ClientWorker!
           status: 503
-      - search: (403) #如果状态为403类则返回403
+      - search: (403) # 如果状态为403类则返回403
         searchin: status
         action: return
         return:
@@ -51,18 +58,20 @@ catch_rules:
         return:
           body: 404 Not Found
           status: 404
-      - search: \/([^\/.]+)$ #匹配/path，跳为/path/
+      - search: \/([^\/.]+)$ # 匹配/path，跳为/path/
         action: redirect
         redirect:
           to: /$1/
           status: 301
-      - search: _ #多cdn并发
+
+      - search: _ # 多cdn并发
         replace:
           - _
-          - https://jsd.onmicrosoft.cn/npm/tnxg-blog@latest
-          - https://pages.tnxg.loyunet.cn
-          - https://cdn.bilicdn.tk/npm/tnxg-blog@latest
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
+          - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
+          - pages.tnxg.loyunet.cn
+          - cdn.bilicdn.tk/npm/tnxg-blog@latest
+          - cdn1.tianli0.top/npm/tnxg-blog@latest
+          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
         action: fetch
         fetch:
           engine: parallel
@@ -75,7 +84,7 @@ catch_rules:
 
   - rule: ^(http|https)\:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
     transform_rules:
-      - search: _ #多cdn并发
+      - search: _ # 多cdn并发
         replace:
           - https://i0.hdslb.com
           - https://i1.hdslb.com
@@ -109,7 +118,6 @@ catch_rules:
           - https://jsd.onmicrosoft.cn/npm/
           - https://unpkg.com/
           - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
         action: fetch
         fetch:
@@ -123,7 +131,6 @@ catch_rules:
           - https://cdn.bilicdn.tk/gh/
           - https://jsd.onmicrosoft.cn/gh/
           - https://gcore.jsdelivr.net/gh/
-          - https://jsd.8b9.cn/gh/
           - https://cdn1.tianli0.top/gh/
         action: fetch
         fetch:
@@ -141,7 +148,6 @@ catch_rules:
           - https://jsd.onmicrosoft.cn/npm/
           - https://unpkg.com/
           - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
         action: fetch
         fetch:
@@ -155,7 +161,6 @@ catch_rules:
           - https://cdn.bilicdn.tk/gh/
           - https://jsd.onmicrosoft.cn/gh/
           - https://gcore.jsdelivr.net/gh/
-          - https://jsd.8b9.cn/gh/
           - https://cdn1.tianli0.top/gh/
         action: fetch
         fetch:
@@ -173,7 +178,6 @@ catch_rules:
           - https://jsd.onmicrosoft.cn/npm/
           - https://unpkg.com/
           - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
         action: fetch
         fetch:
@@ -233,8 +237,8 @@ catch_rules:
         replace:
           - _
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
+          - cdn.bilicdn.tk/npm/tnxg-blog@lates
           - cdn1.tianli0.top/npm/tnxg-blog@latest
-          - cdn.bilicdn.tk/npm/tnxg-blog@latest
           - pages.tnxg.loyunet.cn
         action: fetch
         fetch:

@@ -84,8 +84,8 @@ anonymous_image: https://assets.tnxg.whitenuo.cn/images/avatar/none.jpg
 # 背景图
 sidebar:
   src: /js/sidebar.js
-  bg_image: https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp
-  dark_bg_image: https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp
+  bg_image: https://assets.tnxg.whitenuo.cn/images/icons/arknights/originiums.png
+  dark_bg_image: https://assets.tnxg.whitenuo.cn/images/icons/arknights/amiya_white.png
   bg_position: bottom 1rem center
 
 bg_image:
