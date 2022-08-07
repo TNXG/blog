@@ -142,7 +142,7 @@ html.dark {
   --post-card-bg-color: rgba(27,31,46,0.9);
   --post-card-shadow: 0 1px 8px rgba(27,31,46,0.1);
   --sidebar-bg-color: rgba(27,31,46,0.95);
-  --sidebar-bg-image: url("https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp");
+  --sidebar-bg-image: url("https://assets.tnxg.whitenuo.cn/images/icons/arknights/amiya_white.png");
   --page-btn-bg-color: rgba(0,0,0,0.5);
   --page-btn-hover-bg-color: rgba(199,228,255,0.9);
   --page-btn-active-bg-color: #0078e7;
@@ -1814,7 +1814,7 @@ input {
   max-height: 10000px;
 }
 :root {
-  --sidebar-bg-image: url("https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp");
+  --sidebar-bg-image: url("https://assets.tnxg.whitenuo.cn/images/icons/arknights/originiums.png");
 }
 #menu-btn {
   display: none;

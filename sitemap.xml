@@ -2,34 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tnxg.loyunet.cn/blog-cgi/index.html</loc>
-    
-    <lastmod>2022-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/board/index.html</loc>
-    
-    <lastmod>2022-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/categories/index.html</loc>
-    
-    <lastmod>2022-08-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/friendcircle/index.html</loc>
+    <loc>https://tnxg.loyunet.cn/p/d307b2e57331.html</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -119,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/p/438a6dfc5b99.html</loc>
+    <loc>https://tnxg.loyunet.cn/blog-cgi/index.html</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -128,7 +101,34 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/404.html</loc>
+    <loc>https://tnxg.loyunet.cn/board/index.html</loc>
+    
+    <lastmod>2022-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/categories/index.html</loc>
+    
+    <lastmod>2022-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/friendcircle/index.html</loc>
+    
+    <lastmod>2022-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/p/438a6dfc5b99.html</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -165,6 +165,15 @@
   
   <url>
     <loc>https://tnxg.loyunet.cn/assets/data/yiyan.json</loc>
+    
+    <lastmod>2022-08-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/404.html</loc>
     
     <lastmod>2022-08-07</lastmod>
     
@@ -423,14 +432,21 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/tags/%E5%8E%9F%E5%88%9B/</loc>
+    <loc>https://tnxg.loyunet.cn/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/</loc>
+    <loc>https://tnxg.loyunet.cn/tags/%E9%80%9A%E6%8A%A5/</loc>
+    <lastmod>2022-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/tags/%E5%8E%9F%E5%88%9B/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -516,6 +532,13 @@
   </url>
   
   <url>
+    <loc>https://tnxg.loyunet.cn/categories/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/</loc>
+    <lastmod>2022-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://tnxg.loyunet.cn/categories/%E6%96%87%E7%AB%A0/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -531,6 +554,13 @@
   
   <url>
     <loc>https://tnxg.loyunet.cn/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E5%88%9B/</loc>
+    <lastmod>2022-08-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/categories/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/%E9%80%9A%E6%8A%A5/</loc>
     <lastmod>2022-08-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
