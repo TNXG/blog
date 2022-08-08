@@ -274,7 +274,7 @@ footer:
 # 一言
 say:
   enable: true
-  api: /assets/data/yiyan.json
+  api: /assets/data/hitokoto.json
   src: /js/say.js
   hitokoto:
     enable: false
