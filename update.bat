@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]更新友链捏"
+git commit -m "[F]修改一下友链颜色"
 git push https://github.com/TNXG/blog.git
