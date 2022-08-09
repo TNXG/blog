@@ -20,7 +20,7 @@ layout: false
             <div class>
                 <div class="info">
                     <div id="tcomment"></div>
-                    <script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/twikoo@1.6.4/dist/twikoo.min.js"></script>
+                    <script src="{% twikoocdnurl %}"></script>
                     <script>
                         twikoo.init({
                             envId: 'https://api.twikoo.prts.top',

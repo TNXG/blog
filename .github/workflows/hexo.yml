@@ -34,10 +34,9 @@ jobs:
         run: |
           npm install -g hexo-cli
           npm install
-          cd themes/yun/build_js
+          cd themes/yun
           npm install
-          npm run build
-          cd ../ && cd ../ && cd ../
+          cd ../ && cd ../
           hexo g
           cd public
           echo '{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}' > package.json

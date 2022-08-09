@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改一下友链颜色"
+git commit -m "[U/F]修改大量文件、升级主题"
 git push https://github.com/TNXG/blog.git

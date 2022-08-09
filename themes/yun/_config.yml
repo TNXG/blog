@@ -361,6 +361,7 @@ reward:
   #   path: https://cdn.yunyoujun.cn/img/donate/alipay-qrcode.jpg
   #   color: "#00A3EE"
   #   icon: ri:alipay-line
+  #   link: xxx
   # - name: QQ 支付
   #   path: https://cdn.yunyoujun.cn/img/donate/qqpay-qrcode.png
   #   color: "#12B7F5"
@@ -422,6 +423,10 @@ footer:
   beian:
     enable: false
     # icp: 苏ICP备xxxxxxxx号
+    gongan:
+      enable: false
+      text: 京公网安备 XXXXXXXX 号
+      id: XXXXXXXX
 
   live_time:
     enable: false
@@ -567,6 +572,13 @@ katex:
   # In page katex options are also possible and will be merged
   options: {}
 
+# icons
+icons:
+  back_to_top: ri:arrow-up-s-line
+  category: ri:folder-2-line
+  tag: ri:price-tag-3-line
+  view: ri:eye-line
+
 # plugins
 aplayer:
   global: false
@@ -636,7 +648,7 @@ comment:
   tips:
   # - 要不要和我说些什么？
   # candidates:
-  #   - valine
+  #   - waline
   #   - utterances
 
 # GitHub Issues Link Button
@@ -652,36 +664,6 @@ github_discussions:
   enable: false
   username: YunYouJun
   repository: yunyoujun.github.io
-
-# Valine
-# You can get your appid and appkey from https://leancloud.cn
-# More info available at https://valine.js.org
-# extend: https://github.com/DesertsP/Valine-Admin
-valine:
-  enable: false
-  appId: # your leancloud application appid
-  appKey: # your leancloud application appkey
-  placeholder: Just go go # comment box placeholder
-  avatar: # gravatar style
-  # meta:
-  #   - nick
-  #   - mail
-  #   - link
-  pageSize: 10 # pagination size
-  # lang: zh-CN
-  visitor: false
-  highlight: true
-  recordIP: false
-  # serverURLs:
-  # Emoji See: https://valine.js.org/emoji.html
-  # emojiCDN: //i0.hdslb.com/bfs/emote/
-  # emojiMaps:
-  #   tv_doge: 6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png
-  #   more...
-  enableQQ: true
-  # requiredFields:
-  #   - nick
-  #   - mail
 
 # https://waline.js.org/
 waline:
