@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改一言文件命名标准"
+git commit -m "[N]更新友链捏"
 git push https://github.com/TNXG/blog.git

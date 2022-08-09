@@ -54,5 +54,13 @@
         "blog": "小N同学的博客",
         "desc": "青石落晚巷 故人未还乡",
         "color": "#007ea7"
+    },
+    {
+        "url": "https://tianli-blog.club/",
+        "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/tianli-blog.club.webp",
+        "name": "Tianli",
+        "blog": "Tianli的博客",
+        "desc": "惟其不可能，所以才相信。",
+        "color": "#feecdf"
     }
 ]
