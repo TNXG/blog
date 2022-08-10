@@ -61,7 +61,7 @@ catch_rules:
       - search: \/([^\/.]+)$ # 匹配/path，跳为/path/
         action: redirect
         redirect:
-          to: /$1/
+          to: /$1/?t=1
           status: 301
 
       - search: _ # 多cdn并发
