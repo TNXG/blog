@@ -5,7 +5,7 @@
 }
 document.addEventListener("DOMContentLoaded", initScrollReveal);
 document.addEventListener("pjax:success", initScrollReveal);
-</script><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/pjax@latest/pjax.min.js" defer></script><script src="/js/pjax.js" defer type="module"></script><script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/vue@2.6.14"></script><script>
+</script><script>
     //判断非本机且未使用https 时，强制重定向到https。
     if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
         window.location = window.location.toString().replace(/^http:/, "https:");
@@ -59,16 +59,7 @@ document.addEventListener("pjax:success", initScrollReveal);
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-RLK9KD8ZT6');
-}</script><script>//- only for pjax
-function sendPageView() {
-  if (CONFIG.hostname !== location.hostname) return;
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('event', 'page_view', {
-    page_path: encodeURIComponent(location.pathname),
-  })
-}
-document.addEventListener("pjax:success", sendPageView);</script><meta name="description" content="明日尚未到来，希望凝于心上">
+}</script><meta name="description" content="明日尚未到来，希望凝于心上">
 <meta property="og:type" content="website">
 <meta property="og:title" content="归档">
 <meta property="og:url" content="https://tnxg.loyunet.cn/archives/2020/index.html">
