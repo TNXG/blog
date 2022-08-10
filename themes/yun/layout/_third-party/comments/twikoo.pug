@@ -2,8 +2,8 @@
 //- 装载天下第一无敌强的评论系统
 #tcomment
 script(src=theme.vendors.twikoo)
+- var twikooConfig = JSON.stringify(theme.twikoo)
 script.
-  twikoo.init({
-    envId: "#{theme.twikoo.envId}",
-    el: "#tcomment",
-  })
+    window.twikooConfig = !{ twikooConfig }
+    twikooConfig.el = '#tcomment'
+    twikoo.init(twikooConfig)
