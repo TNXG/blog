@@ -1,7 +1,7 @@
 ---
 title: 用户条款
 date: 2022-02-07 16:00:00
-update: 2022-08-10 01:20:00
+update: 2022-08-14 15:50:00
 ---
 郑重声明：<a style="color:red">「天翔TNXG的空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">Email</a>（<tianxiang@loyunet.cn>)告知删除。
 
@@ -35,7 +35,7 @@ update: 2022-08-10 01:20:00
 *   当本协议更新后，若您仍在浏览本站，代表你已接受本站的新条款。
 *   本站有权利随时修改本协议的任何条款。您应经常访问本页面以了解当前的条款。
 
-隐私条款
+# 隐私条款
 
 *   在访问本站时，我们有权利收集您的网络IP、访问频率、访问时间、行为流、花费的时间、User-Agent、Reffefer等用做我们日后优化用户体验的基本依据。
 *   我们有权利写入cookie、LocalStorage及缓存信息至您的电脑，用作提升您的访问体验及缓解我们服务的压力。

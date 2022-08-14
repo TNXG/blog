@@ -120,10 +120,17 @@ favicon: /assets/images/favicon.png
 cdn:
   pre: https://assets.tnxg.whitenuo.cn/blog-file
   css:
-    prism-theme-vars: 'https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/PrismJS/prism-themes@master/themes/prism-vsc-dark-plus.css' # or your css
+    prism-theme-vars: 'https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css' # or your css
 vendors:
   host: 'https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/'
-  twikoo: 'https://cdn.staticfile.org/twikoo/1.6.4/twikoo.all.min.js'
+  twikoo: 'https://cdn.staticfile.org/twikoo/1.6.4/twikoo.min.js'
+  vue: 'https://cdn.staticfile.org/vue/2.6.14/vue.min.js'
+  anime: 'https://cdn.staticfile.org/animejs/3.2.1/anime.min.js'
+  local_search: 'https://cdn.staticfile.org/hexo-generator-searchdb/1.4.0/search.min.js'
+  aplayer:
+    css: 'https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css'
+    js: 'https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js'
+  pjax: 'https://cdn.staticfile.org/pjax/0.2.8/pjax.js'
 
 # 字体
 font:

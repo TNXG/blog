@@ -39,7 +39,7 @@ catch_rules:
           body: '{"InstallStatus":"OK","ConfigVersion":"2.0.3","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1659877367"}'
           status: 200
         header:
-          content-type: text/json;charset=UTF-8
+          content-type: text/json
       - search: (^5) # 如果状态为5xx类则返回503
         searchin: status
         action: return
@@ -62,6 +62,11 @@ catch_rules:
         action: redirect
         redirect:
           to: /$1/
+          status: 301
+      - search: (?<=\/\?redirect\=)().*$ # 匹配/?redirect=wwww，跳为wwww
+        action: redirect
+        redirect:
+          to: $1
           status: 301
 
       - search: _ # 多cdn并发
@@ -99,12 +104,6 @@ catch_rules:
           status: 200
           preflight: false
           timeout: 5000
-      - search: _
-        header:
-          Referrer-Policy: no-referrer # 更改引用策略
-
-  - rule: ^(http|https)\:\/\/bj29-enet\.cn-beijing\.data\.alicloudccp\.com # 匹配阿里云盘资源链接
-    transform_rules:
       - search: _
         header:
           Referrer-Policy: no-referrer # 更改引用策略
