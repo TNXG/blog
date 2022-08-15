@@ -68,6 +68,11 @@ catch_rules:
         redirect:
           to: $1
           status: 301
+      - search: \/(hexo-admin)$ # 匹配/hexo-admin，跳为https://qexo.prts.top
+        action: redirect
+        redirect:
+          to: https://qexo.prts.top
+          status: 301
 
       - search: _ # 多cdn并发
         replace:

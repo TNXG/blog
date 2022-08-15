@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改README.MD排序样式"
+git commit -m "[F]修改cw配置"
 git push https://github.com/TNXG/blog.git
