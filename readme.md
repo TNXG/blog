@@ -1,8 +1,3 @@
----
-title: 用户条款
-date: 2022-02-07 16:00:00
-update: 2022-04-17 13:00:00
----
 <div align="center">
 
 # 天翔TNXG的空间站
@@ -34,6 +29,7 @@ update: 2022-04-17 13:00:00
 + 确保站点可以以HTTPS访问,允许不强制,可以没有HSTS。
 + 您需要有自己的独立域名，暂且不同意公有子域名或免费域名的友链申请(如github.io, vercel.app, eu.org, js.cool, .tk, .ml, .cf等，py除外)
 + 暂时不同意商业及非个人的网站的友链申请(py除外)。
+</div>
 
 ```json
 ,{
@@ -45,6 +41,9 @@ update: 2022-04-17 13:00:00
         "color": "显示在友链页面的文本颜色（推荐使用十六进制颜色代码）"
     }
 ```
+
+<div align="center">
+
 填写好以上资料后将资料直接填写在[我们储存友链的Json内](https://github.com/TNXG/blog/blob/master/source/assets/data/links.json)
 
 然后PR给我
