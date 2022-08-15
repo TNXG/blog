@@ -1,3 +1,3 @@
 git add .
-git commit -m "[N]新增许可证到仓库"
+git commit -m "[N]修订README.MD"
 git push https://github.com/TNXG/blog.git

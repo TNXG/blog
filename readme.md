@@ -1,7 +1,15 @@
-<h1 align="center">TNXGのHexoBlog</h1>
+---
+title: 用户条款
+date: 2022-02-07 16:00:00
+update: 2022-04-17 13:00:00
+---
 <div align="center">
 
-根本没钱买服务器<br>上一次的博客备份还是去年（2021）10月份的<br>干脆就直接削掉重写了
+# 天翔TNXG的空间站
+
+明日尚未到来，希望凝于心上
+
+![](https://assets.tnxg.whitenuo.cn/images/icons/main/logo.svg)
 
 [![Author](https://img.shields.io/badge/Author-tianxiang-orange)](https://github.com/ChenYFan)
 [![TNXGのHexoBlogBuild](https://github.com/TNXG/blog/actions/workflows/hexo.yml/badge.svg)](https://github.com/TNXG/tnxg.github.io/actions/workflows/hexo.yml)
@@ -10,14 +18,13 @@
 
 这次推的女孩<br>
 [![这次推的女孩](https://unv-shield.librian.net/api/unv_shield?url=https://i0.hdslb.com/bfs/album/2439cd0ecf55e69f1a08fb01d659b0da34d779ac.png&scale=2&txt=%E6%B4%9B%E5%A4%A9%E4%BE%9D)](https://space.bilibili.com/36081646)
-</div>
-
-<h2 align="center"><a href="https://tnxg.loyunet.cn/links/">Friends</a></h2>
 
 
+## <a href="https://tnxg.loyunet.cn/links/">Friends</a>
 
-<div align="center"><font color="#ee000" >申请加入友链时请遵守一下几点</font></div>
 
+
+**申请加入友链时请遵守一下几点**
 + 交换友链时请确保在文件的最后添加新的站点。
 + 请勿随意删除他人的站点。
 + 申请友链时请确保您的站点同时也有我们的站点的友链，若审批通过后移除本站链接，本站也将移除友链，并加入黑名单。
@@ -41,3 +48,5 @@
 填写好以上资料后将资料直接填写在[我们储存友链的Json内](https://github.com/TNXG/blog/blob/master/source/assets/data/links.json)
 
 然后PR给我
+
+</div>
