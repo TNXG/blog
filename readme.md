@@ -4,8 +4,6 @@
 
 明日尚未到来，希望凝于心上
 
-![](https://assets.tnxg.whitenuo.cn/images/icons/main/logo.svg)
-
 [![Author](https://img.shields.io/badge/Author-tianxiang-orange)](https://github.com/ChenYFan)
 [![TNXGのHexoBlogBuild](https://github.com/TNXG/blog/actions/workflows/hexo.yml/badge.svg)](https://github.com/TNXG/tnxg.github.io/actions/workflows/hexo.yml)
 [![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/YunYouJun/yunyoujun.github.io/hexo/hexo?logo=hexo)](https://hexo.io)
@@ -14,9 +12,9 @@
 这次推的女孩<br>
 [![这次推的女孩](https://unv-shield.librian.net/api/unv_shield?url=https://i0.hdslb.com/bfs/album/2439cd0ecf55e69f1a08fb01d659b0da34d779ac.png&scale=2&txt=%E6%B4%9B%E5%A4%A9%E4%BE%9D)](https://space.bilibili.com/36081646)
 
+![](https://assets.tnxg.whitenuo.cn/images/icons/main/logo.svg)
 
 ## <a href="https://tnxg.loyunet.cn/links/">Friends</a>
-
 
 
 **申请加入友链时请遵守一下几点**
