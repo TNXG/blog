@@ -1,7 +1,7 @@
 name: TNXGClientWorker
-# hotconfig:
-#   - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
-#   - https://unpkg.com/tnxg-oss@latest/config.yaml
+hotconfig:
+  - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
+  - https://unpkg.com/tnxg-oss@latest/config.yaml
 catch_rules:
   # - rule: ^(http|https)\:\/\/q1\.qlogo\.cn # 匹配qlogo
   #   transform_rules:
@@ -68,19 +68,15 @@ catch_rules:
         redirect:
           to: $1
           status: 301
-      - search: \/(hexo-admin)$ # 匹配/hexo-admin，跳为https://qexo.prts.top
-        action: redirect
-        redirect:
-          to: https://qexo.prts.top
-          status: 301
 
       - search: _ # 多cdn并发
         replace:
           - _
+          - vercel.tnxg.loyunet.cn
+          - cdn1.tianli0.top/npm/tnxg-blog@latest
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
           - pages.tnxg.loyunet.cn
           - cdn.bilicdn.tk/npm/tnxg-blog@latest
-          - cdn1.tianli0.top/npm/tnxg-blog@latest
           - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
         action: fetch
         fetch:
@@ -247,6 +243,17 @@ catch_rules:
         action: fetch
         fetch:
           engine: parallel
+          status: 200
+          preflight: false
+          expire: 1000*60*60*24 
+
+  - rule: (http|https)\:\/\/(.*)\/prism\/(.*)\/themes\/prism\-prism\-vsc\-dark\-plus.min\.css$ # 匹配xx/prism/xxx/themes/prism-prism-vsc-dark-plus.min.css
+    transform_rules:
+      - search: (http|https)\:\/\/(.*)\/prism\/(.*)\/themes\/prism\-prism\-vsc\-dark\-plus.min\.css$ # 寻找 xx/prism/xxx/themes/prism-prism-vsc-dark-plus.min.css的内容
+        replace: https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css
+        action: fetch
+        fetch:
+          engine: fetch
           status: 200
           preflight: false
           expire: 1000*60*60*24    
