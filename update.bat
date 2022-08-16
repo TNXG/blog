@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改部分文件"
+git commit -m "[F]修改尾部脚本"
 git push https://github.com/TNXG/blog.git

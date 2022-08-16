@@ -5,9 +5,8 @@
 明日尚未到来，希望凝于心上
 
 [![Author](https://img.shields.io/badge/Author-tianxiang-orange)](https://github.com/ChenYFan)
-[![TNXGのHexoBlogBuild](https://github.com/TNXG/blog/actions/workflows/hexo.yml/badge.svg)](https://github.com/TNXG/tnxg.github.io/actions/workflows/hexo.yml)
 [![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/YunYouJun/yunyoujun.github.io/hexo/hexo?logo=hexo)](https://hexo.io)
-[![Yun](https://img.shields.io/badge/Theme-Yun-blue)](https://github.com/YunYouJun/hexo-theme-yun/)
+[![Yun](https://img.shields.io/badge/Theme-Yun-blue)](https://github.com/YunYouJun/hexo-theme-yun/)[![Netlify Status](https://api.netlify.com/api/v1/badges/dc63d659-d2c5-49f2-829b-3d2e25749cf0/deploy-status)](https://app.netlify.com/sites/tnxg-blog/deploys)[![Netlify Status](https://img.shields.io/badge/Vercel%20Deploy-Look%20Right-000000?style=flat-square&logo=Vercel)](https://vercel.com/tnxg/tnxg-blog)[![TNXGのHexoBlogBuild](https://github.com/TNXG/blog/actions/workflows/hexo.yml/badge.svg)](https://github.com/TNXG/tnxg.github.io/actions/workflows/hexo.yml)
 
 ![](https://assets.tnxg.whitenuo.cn/images/icons/main/logo.svg)
 
