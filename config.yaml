@@ -72,12 +72,11 @@ catch_rules:
       - search: _ # 多cdn并发
         replace:
           - _
-          - vercel.tnxg.loyunet.cn
-          - cdn1.tianli0.top/npm/tnxg-blog@latest
-          - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
-          - pages.tnxg.loyunet.cn
-          - cdn.bilicdn.tk/npm/tnxg-blog@latest
-          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
+          - https://vercel.tnxg.loyunet.cn
+          - https://cdn1.tianli0.top/npm/tnxg-blog@latest
+          - https://jsd.onmicrosoft.cn/npm/tnxg-blog@latest
+          - https://cdn.bilicdn.tk/npm/tnxg-blog@latest
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
         action: fetch
         fetch:
           engine: parallel
