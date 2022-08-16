@@ -3,7 +3,8 @@
     if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
         window.location = window.location.toString().replace(/^http:/, "https:");
 </script>
-<script>if (!!navigator.serviceWorker) {
+<script>
+    if (!!navigator.serviceWorker) {
         navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
             if (localStorage.getItem('cw_installed') !== 'true') {
                 const conf = () => {
@@ -37,11 +38,5 @@
         }).catch(err => {
             console.error('[CW] Installing Failed,Error: ' + err.message);
         });
-    } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }</script>
-<script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/qexo-static@1.4.0/hexo/statistic/statistic.js"></script>
-<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
-<script>
-    loadStatistic("https://qexo.prts.top");
-    getdata();
-    getnotice();
+    } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
 </script>

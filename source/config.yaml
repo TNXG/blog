@@ -72,20 +72,25 @@ catch_rules:
       - search: _ # 多cdn并发
         replace:
           - _
-          - https://vercel.tnxg.loyunet.cn
-          - https://cdn1.tianli0.top/npm/tnxg-blog@latest
-          - https://jsd.onmicrosoft.cn/npm/tnxg-blog@latest
-          - https://cdn.bilicdn.tk/npm/tnxg-blog@latest
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
+          - vercel.tnxg.loyunet.cn
+          - cdn1.tianli0.top/npm/tnxg-blog@latest
+          - cdn.prts.top/npm/tnxg-blog@latest
+          - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
+          - npm.onmicrosoft.cn/tnxg-blog@latest
+          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
+          - cdn.bilicdn.tk/npm/tnxg-blog@latest
+          - unpkg.com/tnxg-blog@latest
+          - cdn.jsdelivr.net/npm/tnxg-blog@latest
+      - search: \.html$
+        header:
+          Content-Type: text/html;charset=UTF-8
+      - search: _    
         action: fetch
         fetch:
           engine: parallel
           status: 200
           preflight: false
-          timeout: 5000
-      - search: \.html$
-        header:
-          Content-Type: text/html;charset=UTF-8
+          timeout: 2000
 
   - rule: ^(http|https)\:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
     transform_rules:
@@ -112,12 +117,14 @@ catch_rules:
     transform_rules:
       - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容
         replace:
+          - https://cdn1.tianli0.top/npm/
+          - https://cdn.prts.top/npm/
+          - https://jsd.onmicrosoft.cn/npm/
+          - https://npm.onmicrosoft.cn/
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
           - https://cdn.bilicdn.tk/npm/
-          - https://jsd.onmicrosoft.cn/npm/
           - https://unpkg.com/
           - https://cdn.jsdelivr.net/npm/
-          - https://cdn1.tianli0.top/npm/
         action: fetch
         fetch:
           engine: parallel
@@ -126,11 +133,12 @@ catch_rules:
           expire: 1000*60*60*24
       - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/ # 寻找 x.jsd.net/gh/的内容
         replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://jsd.onmicrosoft.cn/gh/
-          - https://gcore.jsdelivr.net/gh/
           - https://cdn1.tianli0.top/gh/
+          - https://jsd.onmicrosoft.cn/gh/
+          - https://cdn.prts.top/npm/
+          - https://cdn.bilicdn.tk/gh/
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
+          - https://gcore.jsdelivr.net/gh/
         action: fetch
         fetch:
           engine: parallel
@@ -142,12 +150,14 @@ catch_rules:
     transform_rules:
       - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/ # 寻找 x.DogeCloud.com/npm/的内容
         replace:
+          - https://cdn1.tianli0.top/npm/
+          - https://cdn.prts.top/npm/
+          - https://jsd.onmicrosoft.cn/npm/
+          - https://npm.onmicrosoft.cn/
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
           - https://cdn.bilicdn.tk/npm/
-          - https://jsd.onmicrosoft.cn/npm/
           - https://unpkg.com/
           - https://cdn.jsdelivr.net/npm/
-          - https://cdn1.tianli0.top/npm/
         action: fetch
         fetch:
           engine: parallel
@@ -156,11 +166,12 @@ catch_rules:
           expire: 1000*60*60*24
       - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/ # 寻找 x.DogeCloud.com/gh/的内容
         replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://jsd.onmicrosoft.cn/gh/
-          - https://gcore.jsdelivr.net/gh/
           - https://cdn1.tianli0.top/gh/
+          - https://jsd.onmicrosoft.cn/gh/
+          - https://cdn.prts.top/npm/
+          - https://cdn.bilicdn.tk/gh/
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
+          - https://gcore.jsdelivr.net/gh/
         action: fetch
         fetch:
           engine: parallel
@@ -172,12 +183,14 @@ catch_rules:
     transform_rules:
       - search: ^(http|https)\:\/\/unpkg\.com\/ # 寻找 unpkg.com/的内容
         replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
+          - https://cdn1.tianli0.top/npm/
+          - https://npm.onmicrosoft.cn/
           - https://jsd.onmicrosoft.cn/npm/
+          - https://cdn.bilicdn.tk/npm/
+          - https://cdn.prts.top/npm/
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
           - https://unpkg.com/
           - https://cdn.jsdelivr.net/npm/
-          - https://cdn1.tianli0.top/npm/
         action: fetch
         fetch:
           engine: parallel
@@ -237,6 +250,7 @@ catch_rules:
           - _
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
           - cdn.bilicdn.tk/npm/tnxg-blog@lates
+          - cdn.prts.top/npm/tnxg-blog@lates
           - cdn1.tianli0.top/npm/tnxg-blog@latest
           - pages.tnxg.loyunet.cn
         action: fetch
