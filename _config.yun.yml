@@ -123,7 +123,7 @@ cdn:
     prism-theme-vars: 'https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css' # or your css
 vendors:
   host: 'https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/'
-  twikoo: 'https://cdn.staticfile.org/twikoo/1.6.4/twikoo.min.js'
+  twikoo: 'https://cdn.staticfile.org/twikoo/1.6.5/twikoo.min.js'
   vue: 'https://cdn.staticfile.org/vue/2.6.14/vue.min.js'
   anime: 'https://cdn.staticfile.org/animejs/3.2.1/anime.min.js'
   local_search: 'https://cdn.staticfile.org/hexo-generator-searchdb/1.4.0/search.min.js'
