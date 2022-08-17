@@ -109,6 +109,7 @@ head:
     SimpleIcons: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/simple-icons-font@5.24.0/font/simple-icons.css"
   js:
     base:
+      jquery: "https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"
     async:
       # 默认引入的图标资源，使用 iconfont
       iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"

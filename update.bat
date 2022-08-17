@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]更新message.js"
+git commit -m "[F]引入Jquery"
 git push https://github.com/TNXG/blog.git
