@@ -64,7 +64,7 @@ function likeQexoTalk(id, url, domid, limit) {
                                 qexo_talks[i]["liked"] = false;
                             }
                             var html = '<section class="qexot"><div class="qexot-list">';
-                            for (var i = 0; i < qexo_talks.length; i++) {
+                            for (var i = qexo_talks.length - 1; i >= 0; i--) {
                                 html += generateQexoTalkItem(i, qexo_talks[i]['id'], qexo_talks[i]['content'], qexoFormatTime("YYYY-mm-dd", Number(qexo_talks[i]['time'])), qexo_talks[i]['tags'].join(", "), qexo_talks[i]['like'], qexo_talks[i]['liked'], url, domid, limit);
                             }
                             html += '</div></section>';
@@ -99,7 +99,7 @@ function showQexoTalks(id, url) {
     if (more) {
         document.getElementById("qexot-more").innerHTML = "";
     } else {
-        document.getElementById(id).innerHTML = '<div class="qexo_loading"><div class="qexo_part"><div style="display: flex; justify-content: center"><div class="qexo_loader"><div class="qexo_inner one"></div><div class="qexo_inner two"></div><div class="qexo_inner three"></div></div></div></div><p style="text-align: center; display: block">说说加载中...</p></div>';
+        document.getElementById(id).innerHTML = '<div class="qexo_loading"><div class="qexo_part"><div style="display: flex; justify-content: center"><div class="qexo_loader"><div class="qexo_inner one"></div><div class="qexo_inner two"></div><div class="qexo_inner three"></div></div></div></div><p style="text-align: center; display: block">QexoTalks正在加载...</p></div>';
     }
     var uri = url + "/pub/talks/?page=" + talk_page + "&limit=" + limit;
     var ajax;
@@ -126,7 +126,8 @@ function showQexoTalks(id, url) {
                 if (res["status"]) {
                     qexo_talks = qexo_talks.concat(res["data"]);
                     var html = '<section class="qexot"><div class="qexot-list">';
-                    for (var i = 0; i < qexo_talks.length; i++) {
+                    for (var i = qexo_talks.length - 1; i >= 0; i--) {
+                        console.log(qexo_talks);
                         html += generateQexoTalkItem(i, qexo_talks[i]['id'], qexo_talks[i]['content'], qexoFormatTime("YYYY-mm-dd", Number(qexo_talks[i]['time'])), qexo_talks[i]['tags'].join(", "), qexo_talks[i]['like'], qexo_talks[i]['liked'], url, id, limit);
                     }
                     html += '</div></section>';
