@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改Qexo_talks展现方式"
+git commit -m "[F]更新message.js"
 git push https://github.com/TNXG/blog.git
