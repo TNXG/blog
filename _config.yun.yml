@@ -27,8 +27,8 @@ menu:
     - type: 标签
       path: /tags/
       icon: ri-bookmark-line ri-lg
-    - type: shuoshuo
-      path: /shuoshuo/
+    - type: 说说
+      path: /talks/
       icon: ri-message-2-line ri-lg
     - type: 相册
       path: /albums/
