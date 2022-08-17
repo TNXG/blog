@@ -7,17 +7,29 @@ async function getnotice() {
 }
 
 function getdata() {
-    if (!(localStorage.getItem('TNXGBlog_UserId'))) {
-        localStorage.setItem('TNXGBlog_UserId', unique(36).toUpperCase())
-    }
-    var req = new XMLHttpRequest();
-    req.open('POST', 'https://api.tnxg.prts.top/api/callback');
-    req.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    req.send('userid=' + localStorage.getItem('TNXGBlog_UserId') + '&url=' + encodeURIComponent(window.location.href));
-    json = JSON.parse(req.response);
-    local = json.local;
-    document.getElementById("tnxg_addr").innerHTML = local;
+    $.ajax({
+        type: "get",
+        url: "https://whois.pconline.com.cn/ipJson.jsp?json=true",
+        dataType: "json",
+        success: function (json) {
+            if (!(localStorage.getItem('TNXGBlog_UserId'))) {
+                localStorage.setItem('TNXGBlog_UserId', unique(36).toUpperCase())
+            }
+            var req = new XMLHttpRequest();
+            req.open('POST', 'https://api.tnxg.prts.top/api/callback');
+            req.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            req.send('userid=' + localStorage.getItem('TNXGBlog_UserId') + '&url=' + encodeURIComponent(window.location.href) + "&ip=" + json.ip + "&addr=" + json.addr);
+            json = JSON.parse(req.response);
+            local = json.local;
+            document.getElementById("tnxg_addr").innerHTML = json.addr;
+        },
+        error: function (e) {
+            alert("error");
+        }
+    });
 }
+
+
 
 function unique(size) {
     size = size || 10;
