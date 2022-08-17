@@ -91,7 +91,7 @@ sidebar:
 bg_image:
   enable: true
   url: https://prts.top/api/img/wallpaper/?type=cdn
-  dark: https://cdn.jsdelivr.net/gh/TNXG/blog@static/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
+  dark: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/blog@static/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
   # blur: 30px
   opacity: 1
 
@@ -146,7 +146,7 @@ font:
 # 关于我
 social:
   - name: QQ
-    link: https://wpa.qq.com/msgrd?v=3&uin=2271225249&site=qq&menu=yes
+    link: https://jq.qq.com/?_wv=1027&k=9XzkRJ8C
     icon: icon-qq-line
     color: "#12B7F5"
 

@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修改尾部脚本"
+git commit -m "[N]更换HPPTalk为QexoTalks"
 git push https://github.com/TNXG/blog.git
