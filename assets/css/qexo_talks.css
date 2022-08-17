@@ -81,7 +81,7 @@
 }
 
 /* 每条动态 */
-#qexot > section > div > div > div {
+#qexot>section>div>div>div {
   display: flex;
   flex-direction: initial;
   flex-wrap: wrap;
@@ -90,7 +90,7 @@
   margin-top: 12px;
 }
 
-#qexot > section > div > div {
+#qexot>section>div>div {
   box-shadow: -1px 5px 10px 0 rgba(50, 50, 93, 0.1),
     0 0 10px rgba(0, 0, 0, 0.07) !important;
   background-color: rgba(255, 255, 255, 0.05);
@@ -105,22 +105,34 @@
 }
 
 /* 时间 */
-#qexot > section > div > div > div .qexot-datatime {
+#qexot>section>div>div>div .qexot-datatime {
   order: 1;
   font-size: 0.6rem;
 }
 
 /* 标签 */
-#qexot > section > div > div > div .qexot-tags {
+#qexot>section>div>div>div .qexot-tags {
   order: 1;
   font-size: 0.6rem;
+  color: #53a5ce;
   text-align: right;
   width: 83%;
   margin-top: -1%;
 }
 
 /* 内容 */
-#qexot > section > div > div > div .datacont {
+
+#qexot .qexot-floor {
+  border: 5px;
+  right: 0.5rem;
+  font-family: "ysbth";
+  font-size: 2.55rem;
+  line-height: 1.75rem;
+  z-index: 1;
+  font-weight: 400;
+}
+
+#qexot>section>div>div>div .datacont {
   order: 0;
   font-size: 1rem;
   font-weight: bold;
@@ -145,7 +157,7 @@
 #qexot .qexot-top {
   position: absolute;
   justify-content: space-between;
-  width: inherit;
+  width: 75%;
 }
 
 #qexot div.qexot-content {
