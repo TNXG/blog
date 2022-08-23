@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复Message.js引入出错导致的404问题"
+git commit -m "[F]修复说说后端问题导致的排序错误"
 git push https://github.com/TNXG/blog.git

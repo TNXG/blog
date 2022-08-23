@@ -64,7 +64,8 @@ function likeQexoTalk(id, url, domid, limit) {
                                 qexo_talks[i]["liked"] = false;
                             }
                             var html = '<section class="qexot"><div class="qexot-list">';
-                            for (var i = qexo_talks.length - 1; i >= 0; i--) {
+                            // for (var i = qexo_talks.length - 1; i >= 0; i--) {
+                            for (var i = 0; i < qexo_talks.length; i++) {
                                 html += generateQexoTalkItem(i, qexo_talks[i]['id'], qexo_talks[i]['content'], qexoFormatTime("YYYY-mm-dd", Number(qexo_talks[i]['time'])), qexo_talks[i]['tags'].join(", "), qexo_talks[i]['like'], qexo_talks[i]['liked'], url, domid, limit);
                             }
                             html += '</div></section>';
@@ -126,7 +127,8 @@ function showQexoTalks(id, url) {
                 if (res["status"]) {
                     qexo_talks = qexo_talks.concat(res["data"]);
                     var html = '<section class="qexot"><div class="qexot-list">';
-                    for (var i = qexo_talks.length - 1; i >= 0; i--) {
+                    // for (var i = qexo_talks.length - 1; i >= 0; i--) {
+                    for (var i = 0; i < qexo_talks.length; i++) {
                         html += generateQexoTalkItem(i, qexo_talks[i]['id'], qexo_talks[i]['content'], qexoFormatTime("YYYY-mm-dd", Number(qexo_talks[i]['time'])), qexo_talks[i]['tags'].join(", "), qexo_talks[i]['like'], qexo_talks[i]['liked'], url, id, limit);
                     }
                     html += '</div></section>';
