@@ -14,7 +14,7 @@
   "dependencies": {
     "@antfu/eslint-config": "^0.25.0",
     "@types/node": "^18.6.3",
-    "dplayer": "^1.26.0",
+    "dplayer": "^1.27.0",
     "eslint": "^8.21.0",
     "esno": "^0.16.3",
     "hexo": "^6.2.0",
@@ -40,6 +40,7 @@
     "husky": "^8.0.1",
     "lint-staged": "^13.0.0",
     "tsup": "^6.2.1",
-    "typescript": "^4.7.2"
+    "typescript": "^4.7.2",
+    "yarn": "^1.22.19"
   }
 }

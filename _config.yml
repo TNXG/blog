@@ -121,3 +121,9 @@ sitemap:
   rel: true
   tags: true
   categories: true
+
+hexo-tag-dplayer:
+  cdn:
+    - https://cdn.staticfile.org/dplayer/1.27.0/DPlayer.min.js
+    - https://cdn.staticfile.org/hls.js/1.2.1/hls.min.js
+    - https://cdn.staticfile.org/flv.js/1.6.2/flv.min.js

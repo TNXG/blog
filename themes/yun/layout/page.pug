@@ -60,6 +60,16 @@ block content
               img.album-list-cover(src=album.cover, loading="lazy", alt=album.caption, οnlοad="this.src=CONFIG.anonymous_image")
               figcaption='「'+album.caption+'」'
 
+    else if page.type === 'videos'
+      +page_header(page.title, theme.videos.icon)
+      .page-subtitle= _p('总计 '+ page.videos.length + ' 个视频集')
+      .album-list
+        for video in page.videos
+          a.album-list-item(href=url_for(video.url))
+            figure(title=video.desc)
+              img.album-list-cover(src=video.cover, loading="lazy", alt=video.caption, οnlοad="this.src=CONFIG.anonymous_image")
+              figcaption='「'+video.caption+'」'
+
     else
       +page_header(page.title, page.icon)
       div.text-center

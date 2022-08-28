@@ -1,3 +1,3 @@
 git add .
-git commit -m "[F]修复说说后端问题导致的排序错误"
+git commit -m "[N]新数据上传"
 git push https://github.com/TNXG/blog.git

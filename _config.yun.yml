@@ -15,6 +15,10 @@ avatar:
     emoji: "🤔"
     message: "细细思索"
 
+# 页面
+videos: 
+  icon: ri-video-line ri-lg
+
 # 导航
 menu:
   home:
