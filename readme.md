@@ -5,7 +5,7 @@
 明日尚未到来，希望凝于心上
 
 [![Author](https://img.shields.io/badge/Author-tianxiang-orange)](https://github.com/ChenYFan)
-[![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/YunYouJun/yunyoujun.github.io/hexo/hexo?logo=hexo)](https://hexo.io)
+[![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/TNXG/blog/hexo?logo=hexo)](https://hexo.io)
 [![Yun](https://img.shields.io/badge/Theme-Yun-blue)](https://github.com/YunYouJun/hexo-theme-yun/)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dc63d659-d2c5-49f2-829b-3d2e25749cf0/deploy-status)](https://app.netlify.com/sites/tnxg-blog/deploys)

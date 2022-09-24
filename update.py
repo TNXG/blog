@@ -11,7 +11,7 @@ def 获取npm包最新版本(pkgname):
 
 with open('_config.yun.yml', encoding='utf-8') as f:
     oriconfig = f.read()
-oriconfig.replace('[TNXG-Static-CDN]', 'https://npm.elemecdn.com/tnxg-blog@' + 获取npm包最新版本('tnxg-blog') + ' #[TNXG-Static-CDN]')
+oriconfig = oriconfig.replace('[TNXG-Static-CDN]', 'https://npm.elemecdn.com/tnxg-blog@' + 获取npm包最新版本('tnxg-blog') + ' #[TNXG-Static-CDN]')
 with open('_config.yun.yml', 'w', encoding='utf-8') as f:
     f.write(oriconfig)
 

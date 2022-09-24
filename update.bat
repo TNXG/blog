@@ -1,1 +1,1 @@
-python update.py [N]全新的部署方式
+python update.py [F]尝试修复bug
