@@ -1,341 +1,262 @@
-# 主站公告
-notice:
-  enable: true
-  content: '<p align="center"><span id="tnxg_notice">Loading...</span></p>您在阅读博文时视为同意使用条款'
-
-# 头像
-avatar:
-  enable: true
-  url: "https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640"
-  rounded: true
-  opacity: 1
-  mickey_mouse: true
-  status:
-    enable: true
-    emoji: "🤔"
-    message: "细细思索"
-
-# 页面
-videos: 
-  icon: ri-video-line ri-lg
-
-# 导航
-menu:
-  home:
-    path: /
-    icon: icon-home-4-line
-  list:
-    - type: 存档
-      path: /archives/
-      icon: ri-archive-line ri-lg
-    - type: 标签
-      path: /tags/
-      icon: ri-bookmark-line ri-lg
-    - type: 说说
-      path: /talks/
-      icon: ri-message-2-line ri-lg
-    - type: 相册
-      path: /albums/
-      icon: ri-album-line ri-lg
-  custom:
-    title: "后台"
-    path: https://qexo.prts.top/
-    icon: icon-settings-line
-
-girls:
-  enable: true
 albums:
   enable: true
-
-pages:
-  - name: 我的小伙伴们
-    url: /links/
-    icon: ri-men-line ri-lg
-    color: dodgerblue
-
-  - name: 友链朋友圈
-    url: /friendcircle/
-    icon: ri-group-2-line ri-lg
-    color: green
-
-  - name: 喜欢的女孩子们
-    url: /girls/
-    icon: ri-women-line ri-lg
-    color: hotpink
-
-  - name: 丰碑
-    url: /monument/
-    icon: ri-award-fill ri-lg
-    color: red
-
-  - name: 鸣谢名单
-    url: /thanks/
-    icon: ri-vip-diamond-line ri-lg
-    color: orange
-
-  - name: 开往
-    url: https://travellings.link/
-    icon: ri-train-line ri-lg
-    color: black
-
-  - name: 使用条款
-    url: /policy/
-    icon: ri-file-text-line ri-lg
-    color: purple
-
 anonymous_image: https://assets.tnxg.whitenuo.cn/images/avatar/none.jpg
-
-# 背景图
-sidebar:
-  src: /js/sidebar.js
-  bg_image: https://assets.tnxg.whitenuo.cn/images/icons/arknights/originiums.png
-  dark_bg_image: https://assets.tnxg.whitenuo.cn/images/icons/arknights/amiya_white.png
-  bg_position: bottom 1rem center
-
-bg_image:
+avatar:
   enable: true
-  url: https://prts.top/api/img/wallpaper/?type=cdn
-  dark: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/blog@static/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
-  # blur: 30px
+  mickey_mouse: true
   opacity: 1
-
-tagcloud:
+  rounded: true
+  status:
     enable: false
-    amount: 20
-
-# 头部引用
-head:
-  css:
-    master: "/assets/css/master.css"
-    fontawesome: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/fontawesome-free@latest/css/all.css"
-    PrismLineNumbers: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/prismjs@latest/plugins/line-numbers/prism-line-numbers.css"
-    RemixIcon: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/remixicon@latest/fonts/remixicon.css"
-    SimpleIcons: "https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/simple-icons-font@5.24.0/font/simple-icons.css"
-  js:
-    base:
-      jquery: "https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"
-    async:
-      # 默认引入的图标资源，使用 iconfont
-      iconfont: "https://at.alicdn.com/t/font_1140697_dxory92pb0h.js"
-    defer:
-
-favicon: /assets/images/favicon.png
-
-# 静态资源
-cdn:
-  pre: https://assets.tnxg.whitenuo.cn/blog-file
-  css:
-    prism-theme-vars: 'https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css' # or your css
-vendors:
-  host: 'https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/'
-  twikoo: 'https://cdn.staticfile.org/twikoo/1.6.5/twikoo.min.js'
-  vue: 'https://cdn.staticfile.org/vue/2.6.14/vue.min.js'
-  anime: 'https://cdn.staticfile.org/animejs/3.2.1/anime.min.js'
-  local_search: 'https://cdn.staticfile.org/hexo-generator-searchdb/1.4.0/search.min.js'
-  aplayer:
-    css: 'https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css'
-    js: 'https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js'
-  pjax: 'https://cdn.staticfile.org/pjax/0.2.8/pjax.js'
-
-# 字体
-font:
-  serif:
-    family: 'HarmonyOS_Sans'
-    weight: 900
-  sans_serif:
-    family: 'HarmonyOS_Sans'
-    weight: 400
-  monospace:
-    family: 'HarmonyOS_Sans'
-
-# 关于我
-social:
-  - name: QQ
-    link: https://jq.qq.com/?_wv=1027&k=9XzkRJ8C
-    icon: icon-qq-line
-    color: "#12B7F5"
-
-  - name: GitHub
-    link: https://github.com/TNXG
-    icon: icon-github-line
-    color: "#181717"
-
-  - name: E-Mail
-    link: mailto:mcminecraftmc@126.com
-    icon: icon-mail-line
-    color: "#8E71C1"
-
-  - name: 网易云音乐
-    link: https://music.163.com/user/home?id=515522946
-    icon: icon-netease-cloud-music-line
-    color: "#EE0000"
-
-  - name: 哔哩哔哩
-    link: https://space.bilibili.com/175424674
-    icon: icon-bilibili-line
-    color: "#FF8EB3"
-
-  - name: RSS
-    link: /atom.xml
-    icon: icon-rss-line
-    color: "#FFA500"
-
-# Banner设置
+  url: https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640
+baidu_push: false
 banner:
-  enable: true
-  title: 天翔的空间站
-  src: /js/ui/banner.js
   border: true
   cloud:
+    color: white
     enable: true
-    color: "white"
+  enable: true
   go_down:
     enable: true
     icon: icon-arrow-down-s-line
-
-mode: time
-
-# 烟花
-fireworks:
+  src: /js/ui/banner.js
+  title: 天翔的空间站
+bg_image:
+  dark: https://cdn1.tianli0.top/gh/TNXG/blog@static/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg
   enable: true
-  colors:
-    - "102, 167, 221"
-    - "62, 131, 225"
-    - "33, 78, 194"
-
-# 首页卡片与文章内部图片的滚动浮现效果
-scrollreveal:
-  enable: true
-  targets:
-    - .post-card
-    - .post-content img
-
-# 鼠标指针
-cursor:
-  enable: true
-  default: https://assets.tnxg.whitenuo.cn/cursors/pointer.ani
-  pointer: https://assets.tnxg.whitenuo.cn/cursors/link.ani
-  text: https://assets.tnxg.whitenuo.cn/cursors/text.ani
-
-# 信息（显示文字、创建时间、更新时间、种类、标签）
-post_meta:
-  item_text: true
-  created_at: true
-  updated_at: true
-  categories: true
-  tags: true
-
-# 页面修改
-post_edit:
-  enable: true
-  url: https://github.com/TNXG/blog/blob/master/source/
-
-# 代码高亮
+  opacity: 1
+  url: https://prts.top/api/img/wallpaper/?type=cdn
+cdn:
+  css:
+    prism-theme-vars: https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css
+  pre: https://npm.elemecdn.com/tnxg-blog@2022.8.2-8.11.26.52
 codeblock:
   copy_btn: true
-
-# 许可证
+comment:
+  candidates:
+  - twikoo
+  enable: true
+  tips:
+  - 说些什么？注意遵守当地的法律法规哦！
 creative_commons:
+  clipboard: true
+  language: deed.zh
   license: by-nc
   post: true
-  language: deed.zh
-  clipboard: true
-
-# 图片懒加载
-lazyload:
+cursor:
+  default: https://assets.tnxg.whitenuo.cn/cursors/pointer.ani
   enable: true
-
-# 赞助
-reward:
+  pointer: https://assets.tnxg.whitenuo.cn/cursors/link.ani
+  text: https://assets.tnxg.whitenuo.cn/cursors/text.ani
+favicon: /assets/images/favicon.png
+fireworks:
+  colors:
+  - 102, 167, 221
+  - 62, 131, 225
+  - 33, 78, 194
   enable: true
-  icon: icon-hand-coin-line
-  comment: "我很可爱，请给我钱。<br>I'm so cute. Please give me money."
-  methods:
-    - name: 支付宝
-      path: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
-      color: "#00A3EE"
-      icon: icon-alipay-line
-    - name: QQ 支付
-      path: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
-      color: "#12B7F5"
-      icon: icon-qq-line
-    - name: 微信支付
-      path: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
-      color: "#2DC100"
-      icon: icon-wechat-pay-line
-
-# 页脚
+font:
+  monospace:
+    family: HarmonyOS_Sans
+  sans_serif:
+    family: HarmonyOS_Sans
+    weight: 400
+  serif:
+    family: HarmonyOS_Sans
+    weight: 900
 footer:
-  scripts:
-    enable: true
-  since: 2019
+  custom_text: true
   icon:
-    name: icon-cloud-line
     animated: true
-    color: "#0078E7"
-    url: /thanks/
+    color: '#0078E7'
+    name: icon-cloud-line
     title: 本博客基于Hexo and Theme Yun
-  powered:
-    enable: false
+    url: /thanks/
   live_time:
     enable: true
     prefix: 本博客已在风雨中艰难运行了
-    suffix: 😢
-    start_time: "2019-08-12T12:00:00"
-  custom_text: true
-
-# 一言
-say:
-  enable: true
-  api: /assets/data/hitokoto.json
-  src: /js/say.js
-  hitokoto:
+    start_time: '2019-08-12T12:00:00'
+  powered:
     enable: false
-    api: https://v1.hitokoto.cn
-
-# 默哀
-mourn:
-  enable: false
-  days:
-    - "9-18"
-    - "7-7"
-
-# 搜索
-local_search:
+  scripts:
+    enable: true
+  since: 2019
+girls:
   enable: true
-  src: /js/search/local-search.js
-
-# twikoo评论系统
-twikoo:
-  enable: true
-  envId: "https://api.twikoo.prts.top" # 腾讯云环境id
-  region: # 环境地域，默认为 ap-shanghai，如果您的环境地域不是上海，需传此参数
-  option: # 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
-comment:
-  enable: true
-  tips:
-    - 说些什么？注意遵守当地的法律法规哦！
-  candidates:
-    - twikoo
-
-baidu_push: false
-
-# 字数统计
-wordcount:
-  enable: true
-  count: true
-  time: true
-
-# 词云
-wordcloud:
-  enable: true
-  height: 350
-
-# pjax
-pjax:
-  enable: false
-
-# 谷歌统计
 google_analytics:
   enable: true
   id: G-RLK9KD8ZT6
+head:
+  css:
+    PrismLineNumbers: https://npm.elemecdn.com/prismjs@latest/plugins/line-numbers/prism-line-numbers.css
+    RemixIcon: https://npm.elemecdn.com/remixicon@latest/fonts/remixicon.css
+    SimpleIcons: https://npm.elemecdn.com/simple-icons-font@5.24.0/font/simple-icons.css
+    fontawesome: https://npm.elemecdn.com/fontawesome-free@latest/css/all.css
+    master: /assets/css/master.css
+  js:
+    async:
+      iconfont: https://at.alicdn.com/t/font_1140697_dxory92pb0h.js
+    base:
+      jquery: https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js
+    defer: null
+lazyload:
+  enable: true
+local_search:
+  enable: true
+  src: /js/search/local-search.js
+menu:
+  custom:
+    icon: icon-settings-line
+    path: https://qexo.prts.top/
+    title: 后台
+  home:
+    icon: icon-home-4-line
+    path: /
+  list:
+  - icon: ri-archive-line ri-lg
+    path: /archives/
+    type: 存档
+  - icon: ri-bookmark-line ri-lg
+    path: /tags/
+    type: 标签
+  - icon: ri-message-2-line ri-lg
+    path: /talks/
+    type: 说说
+  - icon: ri-album-line ri-lg
+    path: /albums/
+    type: 相册
+mode: time
+mourn:
+  days:
+  - 9-18
+  - 7-7
+  enable: false
+notice:
+  content: <p align="center"><span id="tnxg_notice">Loading...</span></p>您在阅读博文时视为同意使用条款
+  enable: true
+pages:
+- color: dodgerblue
+  icon: ri-men-line ri-lg
+  name: 我的小伙伴们
+  url: /links/
+- color: green
+  icon: ri-group-2-line ri-lg
+  name: 友链朋友圈
+  url: /friendcircle/
+- color: hotpink
+  icon: ri-women-line ri-lg
+  name: 喜欢的女孩子们
+  url: /girls/
+- color: red
+  icon: ri-award-fill ri-lg
+  name: 丰碑
+  url: /monument/
+- color: orange
+  icon: ri-vip-diamond-line ri-lg
+  name: 鸣谢名单
+  url: /thanks/
+- color: black
+  icon: ri-train-line ri-lg
+  name: 开往
+  url: https://travellings.link/
+- color: purple
+  icon: ri-file-text-line ri-lg
+  name: 使用条款
+  url: /policy/
+pjax:
+  enable: false
+post_edit:
+  enable: true
+  url: https://github.com/TNXG/blog/blob/master/source/
+post_meta:
+  categories: true
+  created_at: true
+  item_text: true
+  tags: true
+  updated_at: true
+reward:
+  comment: 我很可爱，请给我钱。<br>I'm so cute. Please give me money.
+  enable: true
+  icon: icon-hand-coin-line
+  methods:
+  - color: '#00A3EE'
+    icon: icon-alipay-line
+    name: 支付宝
+    path: https://cdn1.tianli0.top/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
+  - color: '#12B7F5'
+    icon: icon-qq-line
+    name: QQ 支付
+    path: https://cdn1.tianli0.top/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
+  - color: '#2DC100'
+    icon: icon-wechat-pay-line
+    name: 微信支付
+    path: https://cdn1.tianli0.top/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
+say:
+  api: /assets/data/hitokoto.json
+  enable: true
+  hitokoto:
+    api: https://v1.hitokoto.cn
+    enable: false
+  src: /js/say.js
+scrollreveal:
+  enable: true
+  targets:
+  - .post-card
+  - .post-content img
+sidebar:
+  bg_image: https://assets.tnxg.whitenuo.cn/images/icons/arknights/originiums.png
+  bg_position: bottom 1rem center
+  dark_bg_image: https://assets.tnxg.whitenuo.cn/images/icons/arknights/amiya_white.png
+  src: /js/sidebar.js
+social:
+- color: '#12B7F5'
+  icon: icon-qq-line
+  link: https://jq.qq.com/?_wv=1027&k=1TKzfFUu
+  name: QQ
+- color: '#181717'
+  icon: icon-github-line
+  link: https://github.com/TNXG
+  name: GitHub
+- color: '#8E71C1'
+  icon: icon-mail-line
+  link: mailto:tianxiang_tnxg@outlook.com
+  name: E-Mail
+- color: '#EE0000'
+  icon: icon-netease-cloud-music-line
+  link: https://music.163.com/user/home?id=515522946
+  name: 网易云音乐
+- color: '#FF8EB3'
+  icon: icon-bilibili-line
+  link: https://space.bilibili.com/175424674
+  name: 哔哩哔哩
+- color: '#FFA500'
+  icon: icon-rss-line
+  link: /atom.xml
+  name: RSS
+tagcloud:
+  amount: 20
+  enable: false
+twikoo:
+  enable: true
+  envId: https://api.twikoo.prts.top
+  option: null
+  region: null
+vendors:
+  anime: https://cdn.staticfile.org/animejs/3.2.1/anime.min.js
+  aplayer:
+    css: https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.css
+    js: https://cdn.staticfile.org/aplayer/1.10.1/APlayer.min.js
+  host: https://npm.elemecdn.com/
+  local_search: https://cdn.staticfile.org/hexo-generator-searchdb/1.4.0/search.min.js
+  pjax: https://cdn.staticfile.org/pjax/0.2.8/pjax.js
+  twikoo: https://cdn.staticfile.org/twikoo/1.6.5/twikoo.min.js
+  vue: https://cdn.staticfile.org/vue/2.6.14/vue.min.js
+videos:
+  icon: ri-video-line ri-lg
+wordcloud:
+  enable: true
+  height: 350
+wordcount:
+  count: true
+  enable: true
+  time: true
