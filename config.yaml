@@ -73,7 +73,7 @@ catch_rules:
         replace:
           - _
           - vercel.tnxg.loyunet.cn
-          - npm.elemecdn.com
+          - npm.elemecdn.com/tnxg-blog@latest
           - cdn1.tianli0.top/npm/tnxg-blog@latest
           - cdn.prts.top/npm/tnxg-blog@latest
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
