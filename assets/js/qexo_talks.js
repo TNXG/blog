@@ -65,8 +65,9 @@ function likeQexoTalk(id, url, domid, limit) {
                             }
                             var html = '<section class="qexot"><div class="qexot-list">';
                             // for (var i = qexo_talks.length - 1; i >= 0; i--) {
+                                allnum = qexo_talks.length
                             for (var i = 0; i < qexo_talks.length; i++) {
-                                html += generateQexoTalkItem(i, qexo_talks[i]['id'], qexo_talks[i]['content'], qexoFormatTime("YYYY-mm-dd", Number(qexo_talks[i]['time'])), qexo_talks[i]['tags'].join(", "), qexo_talks[i]['like'], qexo_talks[i]['liked'], url, domid, limit);
+                                html += generateQexoTalkItem(allnum - i - 1, qexo_talks[i]['id'], qexo_talks[i]['content'], qexoFormatTime("YYYY-mm-dd", Number(qexo_talks[i]['time'])), qexo_talks[i]['tags'].join(", "), qexo_talks[i]['like'], qexo_talks[i]['liked'], url, domid, limit);
                             }
                             html += '</div></section>';
                             if (document.getElementById("qexot-more")) {
@@ -128,8 +129,9 @@ function showQexoTalks(id, url) {
                     qexo_talks = qexo_talks.concat(res["data"]);
                     var html = '<section class="qexot"><div class="qexot-list">';
                     // for (var i = qexo_talks.length - 1; i >= 0; i--) {
+                        allnum = qexo_talks.length
                     for (var i = 0; i < qexo_talks.length; i++) {
-                        html += generateQexoTalkItem(i, qexo_talks[i]['id'], qexo_talks[i]['content'], qexoFormatTime("YYYY-mm-dd", Number(qexo_talks[i]['time'])), qexo_talks[i]['tags'].join(", "), qexo_talks[i]['like'], qexo_talks[i]['liked'], url, id, limit);
+                        html += generateQexoTalkItem(allnum - i - 1, qexo_talks[i]['id'], qexo_talks[i]['content'], qexoFormatTime("YYYY-mm-dd", Number(qexo_talks[i]['time'])), qexo_talks[i]['tags'].join(", "), qexo_talks[i]['like'], qexo_talks[i]['liked'], url, id, limit);
                     }
                     html += '</div></section>';
                     if (res["count"] > qexo_talks.length) {
