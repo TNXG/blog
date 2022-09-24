@@ -135,7 +135,7 @@ html.dark {
   --hty-secondary-text-color: #eee;
   --post-block-bg-color: #1b1f2e;
   --smc-link-color: #3ca1ff;
-  --yun-bg-image: url("https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/blog@static/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg");
+  --yun-bg-image: url("https://cdn1.tianli0.top/gh/TNXG/blog@static/assets/images/a08b87d6277f9e2fa10549740f30e924b899f39e.jpg");
   --banner-line-color: #fff;
   --banner-char-color: #fff;
   --banner-char-bg-color: rgba(0,0,0,0.5);
@@ -1968,17 +1968,6 @@ input {
   margin-top: 0;
   margin-bottom: 1rem;
   line-height: 1.5;
-}
-.site-author-status {
-  position: absolute;
-  height: 1.8rem;
-  width: 1.8rem;
-  bottom: 0;
-  right: 0;
-  line-height: 1.8rem;
-  border-radius: 50%;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  background-color: #fff;
 }
 .site-name {
   color: var(--hty-text-color);

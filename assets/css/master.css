@@ -73,6 +73,11 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
     font-family: "JetBrainsMono";
 }
 
+@font-face {
+    src: url("https://assets.tnxg.whitenuo.cn/typeface/AgeFonts001.ttf");
+    font-family: "AgeFonts001";
+}
+
 
 body {
     font-family: "HarmonyOS_Sans";
@@ -96,6 +101,10 @@ body {
 
 .JetBrainsMono {
     font-family: "JetBrainsMono";
+}
+
+.AgeFonts001 {
+    font-family: "AgeFonts001";
 }
 
 /* 鼠标指针 */

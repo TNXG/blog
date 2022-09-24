@@ -124,10 +124,10 @@
 
 #qexot .qexot-floor {
   border: 5px;
-  right: 0.5rem;
-  font-family: "CtrlAstr";
-  font-size: 2.55rem;
-  line-height: 1.75rem;
+  right: 1.5rem;
+  font-family: "AgeFonts001";
+  font-size: 1.75rem;
+  line-height: 2.25rem;
   z-index: 1;
   font-weight: 400;
 }

@@ -36,7 +36,7 @@ catch_rules:
       - search: \/blog-cgi\/api?type=cwstatus # 匹配/blog-cgi/api?type=cwstatus，返回cw及配置信息
         action: return
         return:
-          body: '{"InstallStatus":"OK","ConfigVersion":"2.0.3","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1659877367"}'
+          body: '{"InstallStatus":"OK","ConfigVersion":"2.0.4","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1664004271"}'
           status: 200
         header:
           content-type: text/json
@@ -73,6 +73,7 @@ catch_rules:
         replace:
           - _
           - vercel.tnxg.loyunet.cn
+          - npm.elemecdn.com
           - cdn1.tianli0.top/npm/tnxg-blog@latest
           - cdn.prts.top/npm/tnxg-blog@latest
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
@@ -117,6 +118,7 @@ catch_rules:
     transform_rules:
       - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容
         replace:
+          - https://npm.elemecdn.com/
           - https://cdn1.tianli0.top/npm/
           - https://cdn.prts.top/npm/
           - https://jsd.onmicrosoft.cn/npm/
@@ -135,7 +137,7 @@ catch_rules:
         replace:
           - https://cdn1.tianli0.top/gh/
           - https://jsd.onmicrosoft.cn/gh/
-          - https://cdn.prts.top/npm/
+          - https://cdn.prts.top/gh/
           - https://cdn.bilicdn.tk/gh/
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
           - https://gcore.jsdelivr.net/gh/
@@ -150,6 +152,7 @@ catch_rules:
     transform_rules:
       - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/ # 寻找 x.DogeCloud.com/npm/的内容
         replace:
+          - https://npm.elemecdn.com/
           - https://cdn1.tianli0.top/npm/
           - https://cdn.prts.top/npm/
           - https://jsd.onmicrosoft.cn/npm/
@@ -168,7 +171,7 @@ catch_rules:
         replace:
           - https://cdn1.tianli0.top/gh/
           - https://jsd.onmicrosoft.cn/gh/
-          - https://cdn.prts.top/npm/
+          - https://cdn.prts.top/gh/
           - https://cdn.bilicdn.tk/gh/
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
           - https://gcore.jsdelivr.net/gh/
@@ -183,6 +186,27 @@ catch_rules:
     transform_rules:
       - search: ^(http|https)\:\/\/unpkg\.com\/ # 寻找 unpkg.com/的内容
         replace:
+          - https://npm.elemecdn.com/
+          - https://cdn1.tianli0.top/npm/
+          - https://npm.onmicrosoft.cn/
+          - https://jsd.onmicrosoft.cn/npm/
+          - https://cdn.bilicdn.tk/npm/
+          - https://cdn.prts.top/npm/
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
+          - https://unpkg.com/
+          - https://cdn.jsdelivr.net/npm/
+        action: fetch
+        fetch:
+          engine: parallel
+          status: 200
+          preflight: false
+          expire: 1000*60*60*24
+
+  - rule: ^(http|https)\:\/\/npm\.elemecdn\.com # 匹配Unpkg
+    transform_rules:
+      - search: ^(http|https)\:\/\/npm\.elemecdn\.com # 寻找 npm.elemecdn.com/的内容
+        replace:
+          - https://npm.elemecdn.com/
           - https://cdn1.tianli0.top/npm/
           - https://npm.onmicrosoft.cn/
           - https://jsd.onmicrosoft.cn/npm/
