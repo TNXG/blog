@@ -18,17 +18,16 @@ jobs:
           node-version: 16.x
           registry-url: https://registry.npmjs.org/
 
+      - name: Set up Python
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
       - name: Cache node modules
         uses: actions/cache@v1
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-      
-      - name: Get current date
-        id: date
-        run: |
-          echo "::set-output name=today::$(date +'%Y.%m.%d.%H.%M.%S')"
-          echo ${{ steps.date.outputs.today }}
 
       - name: Install & Build & Publish
         run: |
@@ -38,8 +37,8 @@ jobs:
           npm install
           cd ../ && cd ../
           hexo g
+          python updata2npm.py
           cd public
-          echo '{"name":"tnxg-blog","version":"${{ steps.date.outputs.today }}","author":"TNXG","license":"TSO-BY"}' > package.json
           npm publish
           cd ../
         env:
