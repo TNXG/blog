@@ -1,1 +1,1 @@
-python update.py [F]≥¢ ‘–ﬁ∏¥bug
+python update.py [F]–ﬁ∏¥bug
