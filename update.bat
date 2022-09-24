@@ -1,1 +1,1 @@
-python update.py [F]修复bug
+python update.py [F]修复网页不能访问的问题
