@@ -248,15 +248,15 @@ reward:
   comment: "我很可爱，请给我钱。<br>I'm so cute. Please give me money."
   methods:
     - name: 支付宝
-      path: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
+      path: https://cdn1.tianli0.top/gh/TNXG/TNXG/images/donate/alipay-qrcode.png
       color: "#00A3EE"
       icon: icon-alipay-line
     - name: QQ 支付
-      path: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
+      path: https://cdn1.tianli0.top/gh/TNXG/TNXG/images/donate/qqpay-qrcode.png
       color: "#12B7F5"
       icon: icon-qq-line
     - name: 微信支付
-      path: https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
+      path: https://cdn1.tianli0.top/gh/TNXG/TNXG/images/donate/wechatpay-qrcode.png
       color: "#2DC100"
       icon: icon-wechat-pay-line
 

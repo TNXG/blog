@@ -1,1 +1,1 @@
-python update.py [F]修改鼠标指针样式
+python update.py [U]更新ClientWorker配置
