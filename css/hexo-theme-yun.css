@@ -332,13 +332,13 @@ body {
   cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/cursor.png"), auto;
 }
 a {
-  cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/link.cur"), auto;
+  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
 }
 a:hover {
-  cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/link.cur"), auto;
+  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
 }
 .hty-icon-button {
-  cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/link.cur"), pointer;
+  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
 }
 input {
   cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/text.cur"), auto;
@@ -896,7 +896,7 @@ input {
 }
 .wordcloud #wordcloud-canvas,
 .wordcloud #wordcloud-sidebar-canvas {
-  cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/link.cur"), pointer;
+  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
 }
 .wordcloud #wordbox {
   pointer-events: none;
@@ -2305,7 +2305,7 @@ input {
   position: relative;
   width: 15rem;
   margin: 1.5rem;
-  cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/link.cur"), pointer;
+  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
 }
 .photo-list-item img {
   box-sizing: border-box;
