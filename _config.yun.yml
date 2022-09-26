@@ -121,7 +121,7 @@ favicon: /assets/images/favicon.png
 
 # 静态资源
 cdn:
-  pre: 'https://npm.elemecdn.com/tnxg-blog@2022.9.26-2.43.46' #[TNXG-Static-CDN]
+  pre: 'https://npm.elemecdn.com/tnxg-blog@2022.9.26-2.48.19' #[TNXG-Static-CDN]
   css:
     prism-theme-vars: 'https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css' # or your css
 vendors:
@@ -212,6 +212,7 @@ scrollreveal:
 cursor:
   enable: true
   default: https://assets.tnxg.whitenuo.cn/images/cursor/cursor.png
+  pointer: https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png
   
 # 信息（显示文字、创建时间、更新时间、种类、标签）
 post_meta:

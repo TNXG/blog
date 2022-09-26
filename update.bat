@@ -1,1 +1,1 @@
-python update.py [F]修复脚本错误导致的页面未及时更新问题
+python update.py [N]又一个新的鼠标样式
