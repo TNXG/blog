@@ -182,6 +182,40 @@ catch_rules:
           preflight: false
           expire: 1000*60*60*24
 
+  - rule: ^(http|https)\:\/\/cdn1\.tianli0\.top # 匹配cdn1.tianli0.top
+    transform_rules:
+      - search: ^(http|https)\:\/\/cdn1\.tianli0\.top\/npm\/ # 寻找 cdn1.tianli0.top/npm/的内容
+        replace:
+          - https://npm.elemecdn.com/
+          - https://cdn1.tianli0.top/npm/
+          - https://cdn.prts.top/npm/
+          - https://jsd.onmicrosoft.cn/npm/
+          - https://npm.onmicrosoft.cn/
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
+          - https://cdn.bilicdn.tk/npm/
+          - https://unpkg.com/
+          - https://cdn.jsdelivr.net/npm/
+        action: fetch
+        fetch:
+          engine: parallel
+          status: 200
+          preflight: false
+          expire: 1000*60*60*24
+      - search: ^(http|https)\:\/\/cdn1\.tianli0\.top\/gh\/ # 寻找 cdn1.tianli0.top/gh/的内容
+        replace:
+          - https://jsd.onmicrosoft.cn/gh/
+          - https://cdn1.tianli0.top/gh/
+          - https://cdn.prts.top/gh/
+          - https://cdn.bilicdn.tk/gh/
+          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
+          - https://gcore.jsdelivr.net/gh/
+        action: fetch
+        fetch:
+          engine: parallel
+          status: 200
+          preflight: false
+          expire: 1000*60*60*24
+
   - rule: ^(http|https)\:\/\/unpkg\.com # 匹配Unpkg
     transform_rules:
       - search: ^(http|https)\:\/\/unpkg\.com\/ # 寻找 unpkg.com/的内容
