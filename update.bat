@@ -1,1 +1,1 @@
-python update.py [U]更新ClientWorker配置
+python update.py [F]修改npm包格式
