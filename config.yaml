@@ -36,7 +36,7 @@ catch_rules:
       - search: \/blog-cgi\/api?type=cwstatus # 匹配/blog-cgi/api?type=cwstatus，返回cw及配置信息
         action: return
         return:
-          body: '{"InstallStatus":"OK","ConfigVersion":"2.0.4","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1664004271"}'
+          body: '{"InstallStatus":"OK","ConfigVersion":"2.0.5","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1664004271"}'
           status: 200
         header:
           content-type: text/json
