@@ -1,1 +1,1 @@
-python update.py [F]修改npm包格式
+python update.py [F]修复脚本错误导致的页面未及时更新问题
