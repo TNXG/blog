@@ -30,3 +30,6 @@ random: true
 
 > <span class="Tevyat">don't ask just cause to have tomorrow, ask uneven today also is in in the world.</span>
 > 不要问正义事业有没有明天，先问人间不平今天还在不在。
+
+> <span class="AgeFonts001">We are heading east.</span>
+> 我们正向东行驶。
