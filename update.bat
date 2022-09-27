@@ -1,1 +1,1 @@
-python update.py [N]又一个新的鼠标样式
+python update.py [U]更新cw配置

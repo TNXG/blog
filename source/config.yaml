@@ -36,7 +36,7 @@ catch_rules:
       - search: \/blog-cgi\/api?type=cwstatus # 匹配/blog-cgi/api?type=cwstatus，返回cw及配置信息
         action: return
         return:
-          body: '{"InstallStatus":"OK","ConfigVersion":"2.0.5","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1664004271"}'
+          body: '{"InstallStatus":"OK","ConfigVersion":"2.0.6","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1664004271"}'
           status: 200
         header:
           content-type: text/json
@@ -66,7 +66,7 @@ catch_rules:
       - search: (?<=\/\?redirect\=)().*$ # 匹配/?redirect=wwww，跳为wwww
         action: redirect
         redirect:
-          to: $1
+          to: http://$1
           status: 301
 
       - search: _ # 多cdn并发
@@ -74,6 +74,7 @@ catch_rules:
           - _
           - vercel.tnxg.loyunet.cn
           - npm.elemecdn.com/tnxg-blog@latest
+          - jsd.8b9.cn/npm/tnxg-blog@latest
           - cdn1.tianli0.top/npm/tnxg-blog@latest
           - cdn.prts.top/npm/tnxg-blog@latest
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
@@ -119,6 +120,7 @@ catch_rules:
       - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容
         replace:
           - https://npm.elemecdn.com/
+          - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
           - https://cdn.prts.top/npm/
           - https://jsd.onmicrosoft.cn/npm/
@@ -136,6 +138,7 @@ catch_rules:
       - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/ # 寻找 x.jsd.net/gh/的内容
         replace:
           - https://cdn1.tianli0.top/gh/
+          - https://jsd.8b9.cn/gh/
           - https://jsd.onmicrosoft.cn/gh/
           - https://cdn.prts.top/gh/
           - https://cdn.bilicdn.tk/gh/
@@ -153,6 +156,7 @@ catch_rules:
       - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/ # 寻找 x.DogeCloud.com/npm/的内容
         replace:
           - https://npm.elemecdn.com/
+          - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
           - https://cdn.prts.top/npm/
           - https://jsd.onmicrosoft.cn/npm/
@@ -170,6 +174,7 @@ catch_rules:
       - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/ # 寻找 x.DogeCloud.com/gh/的内容
         replace:
           - https://cdn1.tianli0.top/gh/
+          - https://jsd.8b9.cn/gh/
           - https://jsd.onmicrosoft.cn/gh/
           - https://cdn.prts.top/gh/
           - https://cdn.bilicdn.tk/gh/
@@ -187,6 +192,7 @@ catch_rules:
       - search: ^(http|https)\:\/\/cdn1\.tianli0\.top\/npm\/ # 寻找 cdn1.tianli0.top/npm/的内容
         replace:
           - https://npm.elemecdn.com/
+          - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
           - https://cdn.prts.top/npm/
           - https://jsd.onmicrosoft.cn/npm/
@@ -204,6 +210,7 @@ catch_rules:
       - search: ^(http|https)\:\/\/cdn1\.tianli0\.top\/gh\/ # 寻找 cdn1.tianli0.top/gh/的内容
         replace:
           - https://jsd.onmicrosoft.cn/gh/
+          - https://jsd.8b9.cn/gh/
           - https://cdn1.tianli0.top/gh/
           - https://cdn.prts.top/gh/
           - https://cdn.bilicdn.tk/gh/
@@ -221,6 +228,7 @@ catch_rules:
       - search: ^(http|https)\:\/\/unpkg\.com\/ # 寻找 unpkg.com/的内容
         replace:
           - https://npm.elemecdn.com/
+          - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
           - https://npm.onmicrosoft.cn/
           - https://jsd.onmicrosoft.cn/npm/
@@ -241,6 +249,7 @@ catch_rules:
       - search: ^(http|https)\:\/\/npm\.elemecdn\.com # 寻找 npm.elemecdn.com/的内容
         replace:
           - https://npm.elemecdn.com/
+          - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
           - https://npm.onmicrosoft.cn/
           - https://jsd.onmicrosoft.cn/npm/
