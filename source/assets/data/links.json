@@ -62,5 +62,13 @@
         "blog": "Tianli的博客",
         "desc": "惟其不可能，所以才相信。",
         "color": "#002b75"
+    },
+    {
+        "url": "https://www.594594.xyz/",
+        "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.594594.xyz.jpg",
+        "name": "轻音时雨",
+        "blog": "轻音时雨的博客",
+        "desc": "鹿友のKICO的小主页",
+        "color": "#C2FF71"
     }
 ]

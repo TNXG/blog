@@ -1,1 +1,1 @@
-python update.py [F]пч╦дрЁцФ
+python update.py [N]пбсяа╢

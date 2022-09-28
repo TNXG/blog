@@ -121,7 +121,7 @@ favicon: /assets/images/favicon.png
 
 # 静态资源
 cdn:
-  pre: 'https://npm.elemecdn.com/tnxg-blog@2022.9.27-2.49.30' #[TNXG-Static-CDN]
+  pre: 'https://npm.elemecdn.com/tnxg-blog@2022.9.27-14.35.16' #[TNXG-Static-CDN]
   css:
     prism-theme-vars: 'https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css' # or your css
 vendors:
