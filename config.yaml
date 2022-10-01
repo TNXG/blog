@@ -106,14 +106,13 @@ catch_rules:
           - https://s2.hdslb.com
           - https://s3.hdslb.com
         action: fetch
+        header:
+          referrer: no-referrer # 更改引用策略
         fetch:
           engine: parallel
           status: 200
           preflight: false
           timeout: 5000
-      - search: _
-        header:
-          Referrer-Policy: no-referrer # 更改引用策略
 
   - rule: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net # 匹配Jsdelivr
     transform_rules:
