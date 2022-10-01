@@ -1,1 +1,1 @@
-python update.py [N]–¬”—¡¥
+python update.py [F]≥¢ ‘–ﬁ∏¥cw≈‰÷√Œ Ã‚
