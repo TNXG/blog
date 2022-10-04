@@ -1,1 +1,1 @@
-python update.py [F]尝试修复cw配置问题
+python update.py [F]修改callback接口地址
