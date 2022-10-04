@@ -4,35 +4,6 @@
   
     
     <entry>
-      <title>原神官方通报</title>
-      <link href="//p/aec0233e47dc.html"/>
-      <url>//p/aec0233e47dc.html</url>
-      
-        <content type="html"><![CDATA[<py-env>  - requests</py-env><py-script src="/assets/py/get_genshin_notice.py"></py-script>]]></content>
-      
-      
-      <categories>
-          
-          <category> 原神 </category>
-          
-          <category> 通报 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 原神 </tag>
-            
-            <tag> 通报 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>明日方舟官方通报</title>
       <link href="//p/d307b2e57331.html"/>
       <url>//p/d307b2e57331.html</url>
@@ -51,9 +22,9 @@
       
         <tags>
             
-            <tag> 通报 </tag>
-            
             <tag> 明日方舟 </tag>
+            
+            <tag> 通报 </tag>
             
         </tags>
       

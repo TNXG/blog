@@ -12,7 +12,7 @@ function getdata() {
     }
     ipinfo = getipinfo()
     var req = new XMLHttpRequest();
-    req.open('POST', 'https://api.tnxg.prts.top/api/v1/callback', false);
+    req.open('POST', 'https://api.tnxg.prts.top/api/callback', false);
     req.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     req.send('userid=' + localStorage.getItem('TNXGBlog_UserId') + '&url=' + encodeURIComponent(window.location.href) + "&ip=" + ipinfo.ip + "&loc=" + ipinfo.location);
     json = JSON.parse(req.response);
