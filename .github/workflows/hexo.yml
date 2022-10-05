@@ -33,9 +33,6 @@ jobs:
         run: |
           npm install -g hexo-cli
           npm install
-          cd themes/yun
-          npm install
-          cd ../ && cd ../
           hexo g
           python updata2npm.py
           cd public

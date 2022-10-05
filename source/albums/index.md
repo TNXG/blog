@@ -1,11 +1,6 @@
 ---
 title: 相册集
-date: 2022-01-15 22:00:00
-updated: 2022-01-15 22:00:00
-type: albums
-albums:
-  - caption: 二次元
-    url: /albums/acg.html
-    cover: https://i0.hdslb.com/bfs/album/8166fbcae0cfd987c32837ecdb73a18acb615c40.jpg
-    desc: 我们的妄想，我们的希冀
+date: 2022-10-05 02:00:00
+updated: 2022-10-05 02:00:00
 ---
+这里大抵是时代的眼泪罢，2022年10月5日更换主题后这里就寄了，等以后有时间了再复刻罢

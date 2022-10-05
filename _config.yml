@@ -9,7 +9,7 @@ description: 明日尚未到来，希望凝于心上
 keywords: 天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟
 author: '天翔TNXG'
 language: 'zh-CN'
-timezone:
+timezone: 'Asia/Shanghai'
 
 #ImagesUrl
 images:
@@ -81,7 +81,7 @@ updated_option: 'mtime'
 per_page: 10
 pagination_dir: page
 
-theme: yun
+theme: miracle
 
 feed:
   enable: true

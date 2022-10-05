@@ -1,1 +1,1 @@
-python update.py [F]修改callback接口地址
+python update.py [N]全新主题！
