@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     
-    <link rel="apple-touch-icon" sizes="76x76" href="https://tnxg.loyunet.cn/favicon.png">
-    <link rel="icon" type="image/png" href="https://tnxg.loyunet.cn/favicon.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
     <title>标签 - 原神 | 天翔TNXG的空间站</title>
     
@@ -148,7 +148,7 @@
 
 
     
-<link rel="stylesheet" href="https://assets.tnxg.whitenuo.cn/blog-file/assets/css/master.css">
+<link rel="stylesheet" href="/assets/css/master.css">
 <link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
 
 
@@ -407,6 +407,7 @@ header .header__right .dropdown-menus .dropdown-menu {
     <script src="/js/main.js"></script>
     <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
 	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
     
 <meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
 </head>
@@ -428,8 +429,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 			<div class="navbar-menu">存档</div>
 		</a>
 		
-		<a href="/albums/" class="button">
-			<div class="navbar-menu">相册</div>
+		<a href="/tags/" class="button">
+			<div class="navbar-menu">标签</div>
 		</a>
 		
 		<a href="/talks/" class="button">
@@ -438,6 +439,10 @@ header .header__right .dropdown-menus .dropdown-menu {
 		
 		<a href="/links/" class="button">
 			<div class="navbar-menu">友链</div>
+		</a>
+		
+		<a href="/friendcircle/" class="button">
+			<div class="navbar-menu">友圈</div>
 		</a>
 		
 		<a href="/policy/" class="button">
@@ -491,13 +496,16 @@ header .header__right .dropdown-menus .dropdown-menu {
 		<a href="/archives/" class="dropdown-menu button">存档</a>
 		<br>
 		
-		<a href="/albums/" class="dropdown-menu button">相册</a>
+		<a href="/tags/" class="dropdown-menu button">标签</a>
 		<br>
 		
 		<a href="/talks/" class="dropdown-menu button">说说</a>
 		<br>
 		
 		<a href="/links/" class="dropdown-menu button">友链</a>
+		<br>
+		
+		<a href="/friendcircle/" class="dropdown-menu button">友圈</a>
 		<br>
 		
 		<a href="/policy/" class="dropdown-menu button">条款</a>
@@ -618,11 +626,13 @@ header .header__right .dropdown-menus .dropdown-menu {
       
         
 <script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
-<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
+<script src="/assets/js/message.js"></script>
 
           
             <script>
               loadStatistic("https://qexo.prts.top")
+              getdata();
+              getnotice();
             </script>
         </div>
         <div id="css-loading">
