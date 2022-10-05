@@ -1,13 +1,8 @@
 ---
-layout: girls
 title: Monument丨丰碑
 date: 2022-08-01 20:20:00
-icon: ri-award-fill ri-lg
 banner: <span title="二游玩家应该学会自己找刀子">他们的故事应该时刻被铭记</span>
-girls: https://tnxg.loyunet.cn/assets/data/monument.json
-random: true
 ---
-
 谁又没有被情所伤呢
 
 亲情，爱情，友情
@@ -33,3 +28,37 @@ random: true
 
 > <span class="AgeFonts001">We are heading east.</span>
 > 我们正向东行驶。
+
+# 跳转到 [Lovely Girls](/girls/)
+<div id="girls">
+    <div class="spinner" v-if="!girls.length"></div>
+    <div class="girls-number">{{girls.length}}</div>
+    <div class="girl-banner"><span title="二游玩家应该学会自己找刀子">他们的故事应该时刻被铭记</span></div>
+    <ul class="girl-items">
+        <li class="girl-item" v-for="girl in girls" :id="girl.name"><a class="girl-url"
+                :href="girl.url || 'https://zh.moegirl.org/' + girl.name" :title="girl.reason" alt="portrait"
+                target="_blank" rel="noopener">
+                <figure class="girl-info"><img class="girl-avatar" loading="lazy" :src="girl.avatar" :alt="girl.name"
+                        onerror="this.src=CONFIG.anonymous_image">
+                    <!-- 重构代码时以下原结构不可用 <span class="girl-name">{{ girl.name }}</span> -->
+                    <span class="girl-name" v-html=girl.name></span>
+                    <br>
+                    <span class="girl-from" v-html=girl.from></span>
+                </figure>
+            </a></li>
+    </ul>
+    <script>new Vue({
+            el: "#girls",
+            data: {
+                girls: [],
+            },
+            async mounted() {
+                this.girls = await fetch("/assets/data/monument.json")
+                    .then(res => {
+                        return res.json();
+                    })
+                if (true) {
+                    this.girls.sort(() => Math.random() - 0.5);
+                }
+            }
+        })</script>

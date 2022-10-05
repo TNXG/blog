@@ -2,9 +2,9 @@ global:
   # 导航栏左侧的标题，为空则按 hexo config 中 `title` 显示
   nav_title: "天翔TNXG的空间站"
   # 用于浏览器标签的图标
-  favicon: "https://tnxg.loyunet.cn/favicon.png"
+  favicon: "/favicon.png"
   # 用于苹果设备的图标
-  apple_touch_icon: "https://tnxg.loyunet.cn/favicon.png"
+  apple_touch_icon: "/favicon.png"
   # 强制所有链接升级为 HTTPS（适用于图片等资源出现 HTTP 混入报错）
   force_https: true
   # 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
@@ -24,6 +24,8 @@ global:
   # memorial:
   #    enable: false
   #    date: "7-8"
+  comment: true
+
 # 搜索
 search:
   enable: true
@@ -39,16 +41,13 @@ beian:
 custom:
   js:
     - "https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"
-    - "https://tnxg.loyunet.cn/assets/js/message.js"
+    - "/assets/js/message.js"
 
   css:
-    - "https://assets.tnxg.whitenuo.cn/blog-file/assets/css/master.css"
+    - "/assets/css/master.css"
     - "https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css"
 
-#---------------------------
-# 主页
-# Homepage
-#---------------------------
+
 index:
   # 名称
   name: "天翔TNXG的空间站"
@@ -70,9 +69,10 @@ navbar:
   menu:
     首页: '/'
     存档: '/archives/'
-    相册: '/albums/'
+    标签: '/tags/'
     说说: '/talks/'
     友链: '/links/'
+    友圈: '/friendcircle/'
     条款: '/policy/'
     更多: '/more/'
     关于: '/about/'
@@ -81,7 +81,7 @@ post:
   meta:
     author: true
     date: true
-    date_format: "YYYY-MM-DD-HH-mm"
+    date_format: "YYYY-MM-DD HH:mm"
   wordcount:
     enable: true
     format: "共 {} 字"
@@ -143,10 +143,7 @@ tag:
     end_color: "#454d5d"
 
 links:
-  enable: true
-  json_links:
-    enable: true
-    item_links: "/assets/data/links.json"
+  enable: false
 
 page404:
   enable: true

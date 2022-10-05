@@ -1,1 +1,1 @@
-python update.py [N]全新主题！
+python update.py [F]执行部分页面的修缮
