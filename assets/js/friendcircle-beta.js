@@ -96,7 +96,7 @@ function loadArticleItem(datalist, start, end) {
           <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
           <span class="cf-article-floor">${item.floor}</span>
           <div class="cf-article-avatar no-lightbox flink-item-icon">
-            <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;" loading="lazy">
+            <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
             <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="cf-article-author">${item.author}</span></a>
             <span class="cf-article-time">
               <span class="cf-time-created" style="${sortNow == 'created' ? '' : 'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>
@@ -119,7 +119,7 @@ function loadFcircleShow(userinfo, articledata) {
     var showHtml = `
         <div class="cf-overshow">
           <div class="cf-overshow-head">
-            <img class="cf-img-avatar avatar" src="${userinfo.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;" loading="lazy">
+            <img class="cf-img-avatar avatar" src="${userinfo.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
             <a class="" target="_blank" rel="noopener nofollow" href="${userinfo.link}">${userinfo.author}</a>
           </div>
           <div class="cf-overshow-content">
@@ -169,7 +169,7 @@ function loadNextArticle() {
           <a class="cf-article-title" href="${item.link}" target="_blank" rel="noopener nofollow" data-title="${item.title}">${item.title}</a>
           <span class="cf-article-floor">${item.floor}</span>
           <div class="cf-article-avatar no-lightbox flink-item-icon">
-            <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;" loading="lazy">
+            <img class="cf-img-avatar avatar" src="${item.avatar}" alt="avatar" onerror="this.src='${fdata.error_img}'; this.onerror = null;">
             <a onclick="openMeShow(event)" data-link="${item.link}" class="" target="_blank" rel="noopener nofollow" href="javascript:;"><span class="cf-article-author">${item.author}</span></a>
             <span class="cf-article-time">
               <span class="cf-time-created" style="${sortNow == 'created' ? '' : 'display:none'}"><i class="far fa-calendar-alt">发表于</i>${item.created}</span>

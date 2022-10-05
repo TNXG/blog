@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="https://tnxg.loyunet.cn/favicon.png">
+    <link rel="icon" type="image/png" href="https://tnxg.loyunet.cn/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>Hexo博客优化？不如尝试ClientWorker | 天翔TNXG的空间站</title>
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    
+    <meta name="description" content="&lt;img src=&#34;https://assets.tnxg.whitenuo.cn/images/article/2022/07/70d49e280638dd9c2c13eb318e796bc0.png&#34; alt=&#34;Raiden_Aurora&#34; loading=&#34;lazy&#34;&gt;">
+    <meta name="author" content="天翔TNXG">
+    <meta name="keywords" content="天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟">
+    <meta property="og:title" content="Hexo博客优化？不如尝试ClientWorker"/>
+    <script>
+        //判断非本机且未使用https 时，强制重定向到https。
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
+            window.location = window.location.toString().replace(/^http:/, "https:");
+    </script>
+    <script>
+        if (!!navigator.serviceWorker) {
+            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+                if (localStorage.getItem('cw_installed') !== 'true') {
+                    const conf = () => {
+                        console.log('[CW] Installing Success,Configuring...');
+                        fetch('/cw-cgi/api?type=config')
+                            .then(res => res.text())
+                            .then(text => {
+                                if (text === 'ok') {
+                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
+                                    localStorage.setItem('cw_installed', 'true');
+                                    //如果你不希望重载页面，请移除下面五行
+                                    fetch(window.location.href).then(res => res.text()).then(text => {
+                                        document.open()
+                                        document.write(text);
+                                        document.close();
+                                    });
+                                } else {
+                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                                    setTimeout(() => {
+                                        conf()
+                                    }, 200);
+                                }
+                            }).catch(err => {
+                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                            });
+                    }
+                    setTimeout(() => {
+                        conf()
+                    }, 50);
+                }
+            }).catch(err => {
+                console.error('[CW] Installing Failed,Error: ' + err.message);
+            });
+        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+    </script>
+    <style>
+
+
+    
+    :root{
+        --shadow-color: rgba(0,0,0,0.2);
+        --sec-shadow: rgba(0,0,0,0.03);
+        --shadow-hover-color: rgba(0,0,0,0.28);
+        --first-text-color: #475b6d;
+        --second-text-color: #37475b;
+        --third-text-color: #858585;
+        --default-text-color: #505050;
+        --default-link-color: #007bff;
+        --link-color: #000000;
+        --second-link-color: #4F9BFA;
+        --code-color:rgba(27,31,35,.05);
+        --post-bkg-color: #fff;
+        --page-bkg-color: #f2f5f8;
+        --nav-a-hover-color: #3498db;
+        --post-sec-text-color: #718096;
+        --sec-bkg: #f2f5f8;
+        --color-mode: 'light';
+        --bkg-h: rgba(255,255,255,0.6);
+        --bkg-m: #e1e4e8;
+        --home-title-color: #4169E1;
+        --shadow: 0 4px 10px rgba(0,2,4,0.06),0 0 1px rgba(0,2,4,0.11);
+        --hr-color: #ddd;
+        --bg-t: #f4f4f4;
+        --nav-bkg: rgba(255,255,255,0.6);
+    }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-theme]) {
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+  }
+}
+
+[data-theme='dark'] {
+    --shadow-color: rgba(0,0,0,0.2);
+    --shadow-hover-color: rgba(0,0,0,0.28);
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+}
+
+</style>
+
+
+
+    
+<link rel="stylesheet" href="https://assets.tnxg.whitenuo.cn/blog-file/assets/css/master.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+
+
+<style>
+#page-main,footer,.p-btn{
+    display: none;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: overlay;
+}
+body{
+    background-color: var(--page-bkg-color);
+    color: var(--second-text-color);
+    overflow-y: scroll;
+}
+a {
+    color: var(--default-link-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    color: var(--second-link-color);
+}
+.main-content,.post-card-main{
+    margin: 30px;
+}
+
+
+
+@media (max-width: 410px){
+    .post-card-main{
+        max-width: 350px!important;
+    }
+}
+
+@media (max-width: 980px){
+    .post-card-main{
+        max-width: 520px!important;
+    }
+}
+
+
+@media (min-width: 780px){ 
+    h3{
+        font-size: 1.5rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 1280px){ 
+    h3{
+        font-size: 1.7rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 2096px){ 
+    h3{
+        font-size: 1.8rem;
+        line-height: 1.5em;
+    }
+}
+
+.text-center{
+    text-align: center!important;
+}
+.middle-center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 54px;
+    padding: 0 1.25rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--bkg-m);
+    background-color: var(--nav-bkg);
+}
+header .header__left, header .header__right {
+    display: flex;
+    align-items: center;
+    font-family: rubik,sans-serif,Varela Round;
+}
+header .header__left .logo__text {
+    font-size: 18px;
+    font-weight: 450;
+    padding: 14.5px 10px;
+    border-radius: 5px;
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus {
+    height: 54px;
+    padding: 0 0 0 15px;
+}
+header .header__right .button {
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus .navbar-menu {
+    display: inline-block;
+    align-items: center;
+    height: 54px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 54px;
+}
+header .header__right .dropdown-icon {
+    display: none;
+    height: 54px;
+    padding: 15px 10px;
+    border: 0;
+    background-color: transparent;
+}
+header .header__right .dropdown-menus {
+    line-height: 2rem;
+    animation: slide-in .15s ease 1;
+    display: none;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(54px + 10px);
+    border-radius: 6px;
+    padding: 24px;
+    background-color: var(--page-bkg-color);
+    border: 1px solid var(--bkg-m);
+    z-index: 9999;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header .header__right #btn-search, header .header__right #btn-toggle-dark{
+    display: inline-block;
+    padding:  18px 10px;
+    height: 25px;
+}
+header .header__right #btn-dropdown{
+  display: inline-block;
+  padding:  13.5px 0;
+}
+header .header__right .dropdown-menus .dropdown-menu {
+    padding: 10px;
+    color: var(--second-text-color);
+}
+@media screen and (max-width: 764px){
+.navbar__menus {
+    display: none!important;
+}
+.dropdown-icon {
+    display: inline-block!important;
+}
+}
+.p-btn{
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    contain: layout;
+}
+.toc-btn,.click-btn{
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    align-items: center;
+    margin-top: .5rem;
+    font-size: .75rem;
+    background-color: var(--sec-bkg);
+    display: block;
+    padding: 0.9rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,.15);
+    border: none;
+    border-radius: 0.5rem;
+    line-height: 1;
+    color: var(--first-text-color);
+}
+.toc-link{
+    color: var(--second-text-color);
+}
+
+#css-loading h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    position: fixed;
+    top: 200px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: cssLoad;
+    animation-delay: 0.3s;
+    -webkit-animation: cssLoad;
+    -webkit-animation-delay: 0.3s;
+}
+@keyframes cssLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+
+.memorial {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray;
+}
+
+
+    .post-copyright:after {
+        position: absolute;
+        color: #fff;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+        content: ' ';
+        height: 10rem;
+        width: 10rem;
+        right: -2rem;
+        top: -2rem;
+        opacity: .1;
+    }
+
+</style>
+
+    
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
+    
+    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
+</head>
+
+    <body>
+        <header>
+            
+<div class="header__left">
+	<a href="/" class="button"><span class="logo__text">天翔TNXG的空间站</span></a>
+</div>
+<div class="header__right">
+	<div class="navbar__menus">
+		
+		<a href="/" class="button">
+			<div class="navbar-menu">首页</div>
+		</a>
+		
+		<a href="/archives/" class="button">
+			<div class="navbar-menu">存档</div>
+		</a>
+		
+		<a href="/albums/" class="button">
+			<div class="navbar-menu">相册</div>
+		</a>
+		
+		<a href="/talks/" class="button">
+			<div class="navbar-menu">说说</div>
+		</a>
+		
+		<a href="/links/" class="button">
+			<div class="navbar-menu">友链</div>
+		</a>
+		
+		<a href="/policy/" class="button">
+			<div class="navbar-menu">条款</div>
+		</a>
+		
+		<a href="/more/" class="button">
+			<div class="navbar-menu">更多</div>
+		</a>
+		
+		<a href="/about/" class="button">
+			<div class="navbar-menu">关于</div>
+		</a>
+		
+	</div>
+	
+	<a href="/search/" class="button">
+		<div id="btn-search">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32">
+				<path
+					d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
+				</path>
+			</svg>
+		</div>
+	</a>
+	
+	<a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
+		<div>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+				stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+		</div>
+	</a>
+	<a href="javaScript:void(0);" class="dropdown-icon button">
+		<div id="btn-dropdown">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32" stroke-linecap="round">
+				<path
+					d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
+					fill="currentColor"></path>
+			</svg>
+		</div>
+	</a>
+	<div class="dropdown-menus" id="dropdown-menus">
+		
+		<a href="/" class="dropdown-menu button">首页</a>
+		<br>
+		
+		<a href="/archives/" class="dropdown-menu button">存档</a>
+		<br>
+		
+		<a href="/albums/" class="dropdown-menu button">相册</a>
+		<br>
+		
+		<a href="/talks/" class="dropdown-menu button">说说</a>
+		<br>
+		
+		<a href="/links/" class="dropdown-menu button">友链</a>
+		<br>
+		
+		<a href="/policy/" class="dropdown-menu button">条款</a>
+		<br>
+		
+		<a href="/more/" class="dropdown-menu button">更多</a>
+		<br>
+		
+		<a href="/about/" class="dropdown-menu button">关于</a>
+		<br>
+		
+	</div>
+</div>
+
+        </header>
+        <div id="top"></div>
+        <div id="page-main" class="main-content">
+        <div class="mg-top">
+            
+
+<article class="page">
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>Hexo博客优化？不如尝试ClientWorker</h3>
+    
+      <span class="post-meta-label">
+        天翔TNXG
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2022-07-21 20:22" pubdate>
+          2022-07-21-20-22
+        </time>
+      </span>
+    
+    
+      
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        共 1.5k 字
+      </span>
+    
+    
+    
+  </div>
+  
+</div>
+<div class="article-m">
+  <div class="post-toc">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFClientWorker"><span class="toc-number">2.1.</span> <span class="toc-text">什么是ClientWorker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%85"><span class="toc-number">2.2.</span> <span class="toc-text">如何安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E6%88%90%E5%8A%9F%E5%AE%89%E8%A3%85"><span class="toc-number">2.3.</span> <span class="toc-text">判断是否成功安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEClientWorker"><span class="toc-number">2.4.</span> <span class="toc-text">配置ClientWorker</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AF%AD"><span class="toc-number">3.</span> <span class="toc-text">结语</span></a></li></ol>
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <img src="https://assets.tnxg.whitenuo.cn/images/article/2022/07/70d49e280638dd9c2c13eb318e796bc0.png" alt="Raiden_Aurora" loading="lazy">
+<span id="more"></span>
+<hr>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2022年7月12日某时，<code>ElemeCDN</code>确认停止回源，仅可访问之前回源过的资源</p>
+<p>至此，几乎所有公开在cn国境内提供免费高速静态资源cdn的厂商的服务全部关闭</p>
+<p>不可否认的是，无论<code>ElemeCDN</code>受到打压，亦或者阿里被薅秃了，这家伙确实也是使用着<code>阿里cdn</code>的，在国内访问速度可观</p>
+<p>反观在年初被吊销ICP许可的<code>Jsdelivr</code>，在国内前前后后被<code>GFW</code>污染了两三次，访问情况不能说是完全访问不了，但速度真的很不乐观</p>
+<p>我们能够依赖的也只有那些愿意做公益的大佬了，虽然回源依旧是<code>Unpkg</code>亦或者<code>Jsdelivr</code>，但最起码部分数据也被国内的cdn缓存了</p>
+<p>目前我遇到的解决方案几乎都有在使用ServiceWorker，就比如<a target="_blank" rel="noopener" href="https://www.imaegoo.com/2021/hexo-free-cdn/">静态博客接入 freecdn 提升访问速度</a>、<a target="_blank" rel="noopener" href="https://blog.cyfan.top/p/c0af86bb.html">欲善其事，必利其器 - 论如何善用ServiceWorker</a>，当然ClientWorker的技术基础也还是ServiceWorker</p>
+<p>ClientWorker的作者CYF对ServiceWorker的评价其实很简单<code>ServiceWorker作为前端革命领袖，毫不夸张地被誉为前端黑科技</code></p>
+<p>但是ServiceWorker作为一种前端技术是有学习及试错成本的，如果单单只为了加速个静态网页而学习ServiceWorker我觉得这肯定是不合理的</p>
+<h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="什么是ClientWorker"><a href="#什么是ClientWorker" class="headerlink" title="什么是ClientWorker"></a>什么是ClientWorker</h2><p>引用原作者CYF的话(来自cw官方文档)</p>
+<blockquote>
+<p>ClientWorker是利用规则全局驱动sw的插件<br>目前涵盖了ServiceWorker的 路由拦截、路由劫持、请求&#x2F;响应（标头、状态、响应主体）修改、缓存调控，允许用户并发（双引擎），并且有一个自定义规则系统，可以自定义规则，拦截请求，修改响应，缓存颗粒化等功能。</p>
+</blockquote>
+<h2 id="如何安装"><a href="#如何安装" class="headerlink" title="如何安装"></a>如何安装</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span>navigator<span class="token punctuation">.</span>serviceWorker<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    navigator<span class="token punctuation">.</span>serviceWorker<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'/cw.js?t='</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">registration</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'cw_installed'</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token string">'true'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">const</span> <span class="token function-variable function">conf</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/cw-cgi/api?type=config'</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">text</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                        <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">===</span> <span class="token string">'ok'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Success,Starting...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'cw_installed'</span><span class="token punctuation">,</span> <span class="token string">'true'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token comment">//如果你不希望重载页面，请移除下面五行</span>
+                            <span class="token function">fetch</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">text</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                                document<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                                document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                                document<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Failed,Sleeping 200ms...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                                <span class="token function">conf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                        <span class="token punctuation">&#125;</span>
+                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Error,Exiting...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">&#125;</span>
+            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+                <span class="token function">conf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Failed,Error: '</span> <span class="token operator">+</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Failed,Error: Browser not support service worker'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>将以上这串代码安放在<code>&lt;head&gt;</code>里面，越靠前越好，当然<code>navigator.serviceWorker.register</code>是异步函数不会阻塞页面加载。</li>
+<li>进入<a target="_blank" rel="noopener" href="https://github.com/ChenYFan/ClientWorker/releases">ClientWorker Github Release</a>发布页，下载最新版本内容。</li>
+<li>解压，将文件夹中<code>cw.js</code>拷出，放在网页服务器下</li>
+<li>新建<code>config.yml</code>在其中填写配置</li>
+</ol>
+<p>以上内容摘抄至<a target="_blank" rel="noopener" href="https://clientworker.js.org/">ClientWorker官方文档</a></p>
+<h2 id="判断是否成功安装"><a href="#判断是否成功安装" class="headerlink" title="判断是否成功安装"></a>判断是否成功安装</h2><p>这里可以在域名后方加上<code>/cw-cgi</code>查询cw是否正常安装</p>
+<p>如果返回的是<code>Not Found!, Client Worker!</code>则代表cw正常安装</p>
+<h2 id="配置ClientWorker"><a href="#配置ClientWorker" class="headerlink" title="配置ClientWorker"></a>配置ClientWorker</h2><p>这个可以参考<a target="_blank" rel="noopener" href="https://clientworker.js.org/">ClientWorker官方文档</a></p>
+<p>而我的配置则是</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> ClientWorker
+<span class="token key atrule">catch_rules</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> _
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> \<span class="token comment">#.+</span>
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> <span class="token string">""</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
+        <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
+        <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
+          <span class="token key atrule">engine</span><span class="token punctuation">:</span> fetch
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> (^4<span class="token punctuation">|</span>^5)
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> status
+        <span class="token key atrule">action</span><span class="token punctuation">:</span> return
+        <span class="token key atrule">return</span><span class="token punctuation">:</span>
+          <span class="token key atrule">body</span><span class="token punctuation">:</span> The GateWay is down<span class="token tag">!This</span> Page is provided by ClientWorker<span class="token tag">!</span>
+          <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">503</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/(cdn<span class="token punctuation">|</span>fastly<span class="token punctuation">|</span>test1<span class="token punctuation">|</span>gcore)\.jsdelivr\.net\/npm\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn\.oss\.dogecdn\.com\/npm\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/unpkg\.com\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/(cdn<span class="token punctuation">|</span>fastly<span class="token punctuation">|</span>test1<span class="token punctuation">|</span>gcore)\.jsdelivr\.net\/gh\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//gcore.jsdelivr.net/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/gh/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn\.oss\.dogecdn\.com\/gh\/
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//gcore.jsdelivr.net/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/gh/
+          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/gh/
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+          <span class="token punctuation">-</span> _ 
+          <span class="token punctuation">-</span> s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/tnxg<span class="token punctuation">-</span>blog@latest
+          <span class="token punctuation">-</span> jsd.onmicrosoft.cn/npm/tnxg<span class="token punctuation">-</span>blog@latest
+          <span class="token punctuation">-</span> cdn.bilicdn.tk/npm/tnxg<span class="token punctuation">-</span>blog@latest
+          <span class="token punctuation">-</span> unpkg.com/tnxg<span class="token punctuation">-</span>blog@latest
+          <span class="token punctuation">-</span> cdn<span class="token punctuation">-</span>api.vercel.app
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> \.html$
+        <span class="token key atrule">header</span><span class="token punctuation">:</span>
+          <span class="token key atrule">Content-Type</span><span class="token punctuation">:</span> text/html;charset=UTF<span class="token punctuation">-</span><span class="token number">8</span>
+
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
+        <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
+        <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
+          <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">200</span>
+          <span class="token key atrule">engine</span><span class="token punctuation">:</span> classic
+          <span class="token key atrule">preflight</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+          <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">5000</span>
+          
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.jpg$</span>
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
+        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .jpg/webp
+        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .jpg
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.png$</span>
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
+        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .png/webp
+        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .png
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.jpeg$</span>
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
+        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .jpeg/webp
+        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .jpeg
+  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.gif$</span>
+    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
+        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
+        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
+        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .gif/webp
+        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
+        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .gif
+        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>关于我配置的最新内容都可以在<a href="https://tnxg.loyunet.cn/config.yaml">Config.yaml</a>找到</p>
+<p>后面的那些是我给dogecloud-oss写的webp自适应内容</p>
+<p>当我把这配置发出去的时候CFY就表示</p>
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/07/ESVG4TR85H54ERGT8484W.png" alt="Raiden_Aurora" loading="lazy">
+
+<p>我寻思Safari这个玩意还有人用？我眼里(Safari&#x3D;IE)</p>
+<p>咳咳，问题不大，反正我不用Safari我也看不到会出什么bug <del>（掩耳盗铃）</del></p>
+<p>应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/(i0<span class="token punctuation">|</span>i1<span class="token punctuation">|</span>i2<span class="token punctuation">|</span>i3<span class="token punctuation">|</span>s1<span class="token punctuation">|</span>s2<span class="token punctuation">|</span>s3)\.hdslb\.com <span class="token comment"># 匹配B站资源链接</span>
+  <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _ <span class="token comment">#多cdn并发</span>
+      <span class="token key atrule">replace</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//i0.hdslb.com
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//i1.hdslb.com
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//i2.hdslb.com
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//i3.hdslb.com
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s1.hdslb.com
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s2.hdslb.com
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s3.hdslb.com
+      <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
+      <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
+        <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">200</span>
+        <span class="token key atrule">engine</span><span class="token punctuation">:</span> classic
+        <span class="token key atrule">preflight</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+        <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">5000</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
+      <span class="token key atrule">header</span><span class="token punctuation">:</span>
+        <span class="token key atrule">Referrer-Policy</span><span class="token punctuation">:</span> no<span class="token punctuation">-</span>referrer <span class="token comment"># 更改引用策略</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" alt="这张就是b站的图片"></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>善待公益项目，每个开发者都是普通人</p>
+<p>jsd反代(回源)</p>
+<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;cdn.bilicdn.tk&#x2F;
+https:&#x2F;&#x2F;jsd.onmicrosoft.cn&#x2F;
+https:&#x2F;&#x2F;jsd.8b9.cn&#x2F;
+https:&#x2F;&#x2F;cdn1.tianli0.top&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我自己写的项目就不放出来了，回源是我自己的服务器，挺慢的</p>
+
+      </div>
+    </div>
+</div>
+
+<div class="post-category">
+
+    <div id="p-meta-i">
+        
+              
+                <a class="hover-with-bg" href="/categories/%E5%8E%9F%E5%88%9B/">原创</a>
+              
+                <a class="hover-with-bg" href="/categories/%E5%8E%9F%E5%88%9B/%E6%8A%80%E6%9C%AF/">技术</a>
+              
+          
+          
+              
+                <a class="hover-with-bg" href="/tags/%E7%99%BD%E5%AB%96/"># 白嫖</a>
+              
+                <a class="hover-with-bg" href="/tags/JS/"># JS</a>
+              
+          
+    </div>
+</div>
+
+
+<div class="post-footer">
+  
+  <div class="donate text-center">
+    <span>喜欢这篇文章？为什么不考虑打赏一下作者呢？</span>
+    <div class="donate-way">
+      
+        <a href="/donate/" class="donate-btn button">
+          赞赏
+        </a>
+      
+    </div>
+  </div>
+  
+
+  <div class="post-copyright">
+    <p style="margin: 5px 0;">文章作者：<a href="/">天翔TNXG</a></p>
+    <p style="margin: 5px 0;">文章链接：<a href="https://tnxg.loyunet.cn/p/e813d922e1d1.html">https://tnxg.loyunet.cn/p/e813d922e1d1.html</a></p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，非常感谢。</p>
+  </div>
+  
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    <div id="miracle-comments">
+        <div id="tcomment">
+          <!-- <div style="display: flex;">
+            <a href="javascript:loadTwikoo();" id="loadCommentBtn" style="color:var(--first-text-color);border-radius: 5px;background-color:var(--sec-bkg);font-size: 1.1rem;text-decoration: none;border: none;cursor: pointer;    position: relative;vertical-align: baseline;padding: 10px;margin: 0 auto;">加载评论</a>
+          </div> -->
+          <div style="margin: 0 auto;width: 100%;text-align: center;">
+            <div class="donutSpinner" style="margin: auto;width: 25px;height: 25px;"><div></div></div>
+          </div>
+        </div>
+    </div>
+    <script>
+function loadComment() {
+  // https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js
+    try {
+      loadScriptFile({
+        
+          url: "https://cdn.staticfile.org/twikoo/1.6.7/twikoo.min.js",
+        
+        loadType: "async",
+        cb: () => {
+          twikoo.init({
+            envId: 'https://api.twikoo.prts.top',
+            el: '#tcomment',
+            region: 'ap-shanghai',
+            path: 'window.location.pathname'
+          });
+        }});
+    } catch (e) {
+      document.getElementById("loadCommentBtn").innerText = "无法加载 Twikoo 评论";
+      console.info(e);
+    }
+
+}
+
+function loadTwikoo() {
+  try {
+    loadComment();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+var runningOnBrowser = typeof window !== "undefined";
+
+var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+
+var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        loadTwikoo();
+        observer.disconnect();
+      }
+    }, { threshold: [0] });
+    observer.observe(document.getElementById('miracle-comments'));
+  } else {
+    loadTwikoo();
+  }
+}, 1);
+
+    </script>
+
+
+    </div>
+
+</article>
+
+
+        </div>
+        
+  <footer class="text-center">
+    
+      
+          
+              
+                  
+                    <p>&copy; 
+                        2019 - 
+                            2022&nbsp;&nbsp;&copy;天翔TNXG
+                    </p>
+                    
+                      <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
+                          href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+
+                      <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
+                      <p>站点访问量:<spanid="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
+                      </p>
+                      <p><a target="_blank" rel="noopener" href="https://travellings.link/"><img src="https://travellings.link/assets/logo.svg"
+                            width="10%"></a></p>
+                      <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
+                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+                            height="20%">又拍云</a> 提供CDN加速、云储存服务</p>
+  </footer>
+  
+    <div class="p-btn">
+      
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+        
+          <a href="#top" class="click-btn">
+            <i id="i-up"></i>
+          </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    
+
+
+    <!-- Google Analytics -->
+    <script defer>
+        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+        ga.l = +new Date;
+        ga('create', 'G-RLK9KD8ZT6', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<script>
+    document.getElementById("btn-dropdown").addEventListener('click', () => {
+      toggleClass("#dropdown-menus","display-inline");
+    });
+    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
+
+    
+
+    
+  /* 小彩蛋: 饮茶先啦 */
+  setTimeout(() => {
+    var time = new Date();
+    if (time.getHours() == 15) {
+      let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
+      document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
+    }
+  },1);
+    
+</script>
+
+
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
+
+
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
+
+
+
+
+
+
+
+      
+        
+<script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
+<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
+
+          
+            <script>
+              loadStatistic("https://qexo.prts.top")
+            </script>
+        </div>
+        <div id="css-loading">
+            <h3 class="text-center">加载中...</h3>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="https://tnxg.loyunet.cn/favicon.png">
+    <link rel="icon" type="image/png" href="https://tnxg.loyunet.cn/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>简易文章收录 | 天翔TNXG的空间站</title>
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    
+    <meta name="description" content="&lt;h2 id=&#34;1&#34;&gt;&lt;a href=&#34;#1&#34; class=&#34;headerlink&#34; title=&#34;1&#34;&gt;&lt;/a&gt;1&lt;/h2&gt;&lt;p&gt;很多年后没有了感染者，也没有了矿石病，只有和煦的风吹过破损的舰桥和他的白发 记罗德岛元老干员 ——法华琳&lt;/p&gt;
+&lt;img src=&#34;https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220406000704.png&#34; alt=&#34;Raiden_Aurora&#34; loading=&#34;lazy&#34;&gt;">
+    <meta name="author" content="天翔TNXG">
+    <meta name="keywords" content="天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟">
+    <meta property="og:title" content="简易文章收录"/>
+    <script>
+        //判断非本机且未使用https 时，强制重定向到https。
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
+            window.location = window.location.toString().replace(/^http:/, "https:");
+    </script>
+    <script>
+        if (!!navigator.serviceWorker) {
+            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+                if (localStorage.getItem('cw_installed') !== 'true') {
+                    const conf = () => {
+                        console.log('[CW] Installing Success,Configuring...');
+                        fetch('/cw-cgi/api?type=config')
+                            .then(res => res.text())
+                            .then(text => {
+                                if (text === 'ok') {
+                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
+                                    localStorage.setItem('cw_installed', 'true');
+                                    //如果你不希望重载页面，请移除下面五行
+                                    fetch(window.location.href).then(res => res.text()).then(text => {
+                                        document.open()
+                                        document.write(text);
+                                        document.close();
+                                    });
+                                } else {
+                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                                    setTimeout(() => {
+                                        conf()
+                                    }, 200);
+                                }
+                            }).catch(err => {
+                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                            });
+                    }
+                    setTimeout(() => {
+                        conf()
+                    }, 50);
+                }
+            }).catch(err => {
+                console.error('[CW] Installing Failed,Error: ' + err.message);
+            });
+        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+    </script>
+    <style>
+
+
+    
+    :root{
+        --shadow-color: rgba(0,0,0,0.2);
+        --sec-shadow: rgba(0,0,0,0.03);
+        --shadow-hover-color: rgba(0,0,0,0.28);
+        --first-text-color: #475b6d;
+        --second-text-color: #37475b;
+        --third-text-color: #858585;
+        --default-text-color: #505050;
+        --default-link-color: #007bff;
+        --link-color: #000000;
+        --second-link-color: #4F9BFA;
+        --code-color:rgba(27,31,35,.05);
+        --post-bkg-color: #fff;
+        --page-bkg-color: #f2f5f8;
+        --nav-a-hover-color: #3498db;
+        --post-sec-text-color: #718096;
+        --sec-bkg: #f2f5f8;
+        --color-mode: 'light';
+        --bkg-h: rgba(255,255,255,0.6);
+        --bkg-m: #e1e4e8;
+        --home-title-color: #4169E1;
+        --shadow: 0 4px 10px rgba(0,2,4,0.06),0 0 1px rgba(0,2,4,0.11);
+        --hr-color: #ddd;
+        --bg-t: #f4f4f4;
+        --nav-bkg: rgba(255,255,255,0.6);
+    }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-theme]) {
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+  }
+}
+
+[data-theme='dark'] {
+    --shadow-color: rgba(0,0,0,0.2);
+    --shadow-hover-color: rgba(0,0,0,0.28);
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+}
+
+</style>
+
+
+
+    
+<link rel="stylesheet" href="https://assets.tnxg.whitenuo.cn/blog-file/assets/css/master.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+
+
+<style>
+#page-main,footer,.p-btn{
+    display: none;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: overlay;
+}
+body{
+    background-color: var(--page-bkg-color);
+    color: var(--second-text-color);
+    overflow-y: scroll;
+}
+a {
+    color: var(--default-link-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    color: var(--second-link-color);
+}
+.main-content,.post-card-main{
+    margin: 30px;
+}
+
+
+
+@media (max-width: 410px){
+    .post-card-main{
+        max-width: 350px!important;
+    }
+}
+
+@media (max-width: 980px){
+    .post-card-main{
+        max-width: 520px!important;
+    }
+}
+
+
+@media (min-width: 780px){ 
+    h3{
+        font-size: 1.5rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 1280px){ 
+    h3{
+        font-size: 1.7rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 2096px){ 
+    h3{
+        font-size: 1.8rem;
+        line-height: 1.5em;
+    }
+}
+
+.text-center{
+    text-align: center!important;
+}
+.middle-center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 54px;
+    padding: 0 1.25rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--bkg-m);
+    background-color: var(--nav-bkg);
+}
+header .header__left, header .header__right {
+    display: flex;
+    align-items: center;
+    font-family: rubik,sans-serif,Varela Round;
+}
+header .header__left .logo__text {
+    font-size: 18px;
+    font-weight: 450;
+    padding: 14.5px 10px;
+    border-radius: 5px;
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus {
+    height: 54px;
+    padding: 0 0 0 15px;
+}
+header .header__right .button {
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus .navbar-menu {
+    display: inline-block;
+    align-items: center;
+    height: 54px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 54px;
+}
+header .header__right .dropdown-icon {
+    display: none;
+    height: 54px;
+    padding: 15px 10px;
+    border: 0;
+    background-color: transparent;
+}
+header .header__right .dropdown-menus {
+    line-height: 2rem;
+    animation: slide-in .15s ease 1;
+    display: none;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(54px + 10px);
+    border-radius: 6px;
+    padding: 24px;
+    background-color: var(--page-bkg-color);
+    border: 1px solid var(--bkg-m);
+    z-index: 9999;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header .header__right #btn-search, header .header__right #btn-toggle-dark{
+    display: inline-block;
+    padding:  18px 10px;
+    height: 25px;
+}
+header .header__right #btn-dropdown{
+  display: inline-block;
+  padding:  13.5px 0;
+}
+header .header__right .dropdown-menus .dropdown-menu {
+    padding: 10px;
+    color: var(--second-text-color);
+}
+@media screen and (max-width: 764px){
+.navbar__menus {
+    display: none!important;
+}
+.dropdown-icon {
+    display: inline-block!important;
+}
+}
+.p-btn{
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    contain: layout;
+}
+.toc-btn,.click-btn{
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    align-items: center;
+    margin-top: .5rem;
+    font-size: .75rem;
+    background-color: var(--sec-bkg);
+    display: block;
+    padding: 0.9rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,.15);
+    border: none;
+    border-radius: 0.5rem;
+    line-height: 1;
+    color: var(--first-text-color);
+}
+.toc-link{
+    color: var(--second-text-color);
+}
+
+#css-loading h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    position: fixed;
+    top: 200px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: cssLoad;
+    animation-delay: 0.3s;
+    -webkit-animation: cssLoad;
+    -webkit-animation-delay: 0.3s;
+}
+@keyframes cssLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+
+.memorial {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray;
+}
+
+
+    .post-copyright:after {
+        position: absolute;
+        color: #fff;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+        content: ' ';
+        height: 10rem;
+        width: 10rem;
+        right: -2rem;
+        top: -2rem;
+        opacity: .1;
+    }
+
+</style>
+
+    
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
+    
+    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
+</head>
+
+    <body>
+        <header>
+            
+<div class="header__left">
+	<a href="/" class="button"><span class="logo__text">天翔TNXG的空间站</span></a>
+</div>
+<div class="header__right">
+	<div class="navbar__menus">
+		
+		<a href="/" class="button">
+			<div class="navbar-menu">首页</div>
+		</a>
+		
+		<a href="/archives/" class="button">
+			<div class="navbar-menu">存档</div>
+		</a>
+		
+		<a href="/albums/" class="button">
+			<div class="navbar-menu">相册</div>
+		</a>
+		
+		<a href="/talks/" class="button">
+			<div class="navbar-menu">说说</div>
+		</a>
+		
+		<a href="/links/" class="button">
+			<div class="navbar-menu">友链</div>
+		</a>
+		
+		<a href="/policy/" class="button">
+			<div class="navbar-menu">条款</div>
+		</a>
+		
+		<a href="/more/" class="button">
+			<div class="navbar-menu">更多</div>
+		</a>
+		
+		<a href="/about/" class="button">
+			<div class="navbar-menu">关于</div>
+		</a>
+		
+	</div>
+	
+	<a href="/search/" class="button">
+		<div id="btn-search">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32">
+				<path
+					d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
+				</path>
+			</svg>
+		</div>
+	</a>
+	
+	<a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
+		<div>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+				stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+		</div>
+	</a>
+	<a href="javaScript:void(0);" class="dropdown-icon button">
+		<div id="btn-dropdown">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32" stroke-linecap="round">
+				<path
+					d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
+					fill="currentColor"></path>
+			</svg>
+		</div>
+	</a>
+	<div class="dropdown-menus" id="dropdown-menus">
+		
+		<a href="/" class="dropdown-menu button">首页</a>
+		<br>
+		
+		<a href="/archives/" class="dropdown-menu button">存档</a>
+		<br>
+		
+		<a href="/albums/" class="dropdown-menu button">相册</a>
+		<br>
+		
+		<a href="/talks/" class="dropdown-menu button">说说</a>
+		<br>
+		
+		<a href="/links/" class="dropdown-menu button">友链</a>
+		<br>
+		
+		<a href="/policy/" class="dropdown-menu button">条款</a>
+		<br>
+		
+		<a href="/more/" class="dropdown-menu button">更多</a>
+		<br>
+		
+		<a href="/about/" class="dropdown-menu button">关于</a>
+		<br>
+		
+	</div>
+</div>
+
+        </header>
+        <div id="top"></div>
+        <div id="page-main" class="main-content">
+        <div class="mg-top">
+            
+
+<article class="page">
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>简易文章收录</h3>
+    
+      <span class="post-meta-label">
+        天翔TNXG
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2021-01-21 14:01" pubdate>
+          2021-01-21-14-01
+        </time>
+      </span>
+    
+    
+      
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        共 763 字
+      </span>
+    
+    
+    
+  </div>
+  
+</div>
+<div class="article-m">
+  <div class="post-toc">
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-number">1.</span> <span class="toc-text">1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-number">2.</span> <span class="toc-text">2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3"><span class="toc-number">3.</span> <span class="toc-text">3</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4"><span class="toc-number">4.</span> <span class="toc-text">4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5"><span class="toc-number">5.</span> <span class="toc-text">5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6"><span class="toc-number">6.</span> <span class="toc-text">6</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7"><span class="toc-number">7.</span> <span class="toc-text">7</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8"><span class="toc-number">8.</span> <span class="toc-text">8</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9"><span class="toc-number">9.</span> <span class="toc-text">9</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10"><span class="toc-number">10.</span> <span class="toc-text">10</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11"><span class="toc-number">11.</span> <span class="toc-text">11</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12"><span class="toc-number">12.</span> <span class="toc-text">12</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13"><span class="toc-number">13.</span> <span class="toc-text">13</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14"><span class="toc-number">14.</span> <span class="toc-text">14</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15"><span class="toc-number">15.</span> <span class="toc-text">15</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16"><span class="toc-number">16.</span> <span class="toc-text">16</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17"><span class="toc-number">17.</span> <span class="toc-text">17</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18"><span class="toc-number">18.</span> <span class="toc-text">18</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19"><span class="toc-number">19.</span> <span class="toc-text">19</span></a></li></ol>
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p>很多年后没有了感染者，也没有了矿石病，只有和煦的风吹过破损的舰桥和他的白发 记罗德岛元老干员 ——法华琳</p>
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220406000704.png" alt="Raiden_Aurora" loading="lazy">
+
+<span id="more"></span>
+
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p>万物皆有裂痕，那将是光照进来的地方。</p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p>在月夜明朗的月光下，是众多离乡的旅人遥望家乡的场景</p>
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220406000845.png" alt="Raiden_Aurora" loading="lazy">
+
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p>不要仰望别人，自己亦是风景</p>
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220406001034.png" alt="Raiden_Aurora" loading="lazy">
+
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p>在时空的乱流当中，就算再美好的回忆也会在转瞬之间变得面目全非。胜地不常，欢宴难再，就在这个春秋多故的世界，希望我能尽力陪你走到最后。</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p>保护者，必然也是施暴者。人们总是认为自己所守护的正义，是需要保护的。而对于与相较于自己的正义所相反的正义，则施予加害。</p>
+<h2 id="7"><a href="#7" class="headerlink" title="7"></a>7</h2><p>她在强烈的控诉着世界的同时，以她最大的热情歌颂着一些美好的事物。</p>
+<h2 id="8"><a href="#8" class="headerlink" title="8"></a>8</h2><p>“退一步海阔天空！”<br>别忘了，你身后可是是万丈深渊啊<br>那么，你愿意用自己的生命换取海阔天空吗？</p>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><p>心情，是一种感情状态，拥有了好心情，也就拥有了自信，继而拥有了年轻和健康。就拥有了对未来生活的向往，充满期待，让我们拥有一份好心情吧，因为生活着就是幸运和快乐。</p>
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220406001130.png" alt="Raiden_Aurora" loading="lazy">
+
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><p>善良是一种修养，善待他人就是善待自己，要想得到别人的爱，首先要学会爱别人，一个善良的人一定是温暖的人，乐于助人的人，懂得珍惜和感恩的人。</p>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><p>我终于相信，每一条走上来的路，都有它不得不那样跋涉的理由。每一条要走下去的路，都有它不得不那样选择的方向。</p>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p>指引前路的圣月光，在蒙达鲁克硫斯博古比奇巴勒城</p>
+<h2 id="13"><a href="#13" class="headerlink" title="13"></a>13</h2><p>2019既已然过去，何不以新姿态迎接2020</p>
+<p>2020既已然过去，何不以新姿态迎接2021</p>
+<p>2021既已然过去，何不以新姿态迎接2022</p>
+<h2 id="14"><a href="#14" class="headerlink" title="14"></a>14</h2><p>人和事物，物物变迁，我也很无奈，网络孤独，现实骨感。</p>
+<h2 id="15"><a href="#15" class="headerlink" title="15"></a>15</h2><p>因为缺少珍惜，才有失之交臂的遗憾。把它作为陌不相识的两个人一秒间的擦肩而过吧</p>
+<h2 id="16"><a href="#16" class="headerlink" title="16"></a>16</h2><p>那些能让你变好的事，最开始也许不容易，但只要坚持，就能成长。</p>
+<h2 id="17"><a href="#17" class="headerlink" title="17"></a>17</h2><p>不是每一段励志语录都能成为传奇，也不是每次努力都能获得回收。可这些，并不足以撼动我们对梦想的追求。</p>
+<h2 id="18"><a href="#18" class="headerlink" title="18"></a>18</h2><p>就像飞蛾扑火，<br>就像虫子扎进深坑。<br>但飞蛾并不觉得灰暗，至少它享受了短暂的光明。<br>且小虫并不觉得悲伤，至少它享受了片刻的安稳。</p>
+<h2 id="19"><a href="#19" class="headerlink" title="19"></a>19</h2><p>或许就像现在这样，孤独、寂寞。但我们依旧有着美好的明天</p>
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/b907fc8f57bd545f53282d9a19386e3feccf44f2.png" alt="Raiden_Aurora" loading="lazy"> 
+
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/a92607c8e961f423b953d0036c97c5f774f2e8d8.png" alt="Raiden_Aurora" loading="lazy"> 
+
+<p>% imagesurl &#x2F;images&#x2F;article&#x2F;2022&#x2F;04&#x2F;2ba653b915d2aad7df82e2943cd9b73f6e0213f0.png %}</p>
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/6675873b7b40be9d89cb6550ccd231c9dcdbb533.png" alt="Raiden_Aurora" loading="lazy"> 
+
+<img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/28e0760f29100d7ae08cd11acc843b4ad2c6f4fa.png" alt="Raiden_Aurora" loading="lazy">
+      </div>
+    </div>
+</div>
+
+<div class="post-category">
+
+    <div id="p-meta-i">
+        
+              
+                <a class="hover-with-bg" href="/categories/%E6%96%87%E7%AB%A0/">文章</a>
+              
+          
+          
+              
+                <a class="hover-with-bg" href="/tags/%E6%96%87%E7%AB%A0/"># 文章</a>
+              
+                <a class="hover-with-bg" href="/tags/%E5%8E%9F%E5%88%9B/"># 原创</a>
+              
+          
+    </div>
+</div>
+
+
+<div class="post-footer">
+  
+  <div class="donate text-center">
+    <span>喜欢这篇文章？为什么不考虑打赏一下作者呢？</span>
+    <div class="donate-way">
+      
+        <a href="/donate/" class="donate-btn button">
+          赞赏
+        </a>
+      
+    </div>
+  </div>
+  
+
+  <div class="post-copyright">
+    <p style="margin: 5px 0;">文章作者：<a href="/">天翔TNXG</a></p>
+    <p style="margin: 5px 0;">文章链接：<a href="https://tnxg.loyunet.cn/p/21a3d72a1e9f.html">https://tnxg.loyunet.cn/p/21a3d72a1e9f.html</a></p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，非常感谢。</p>
+  </div>
+  
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    <div id="miracle-comments">
+        <div id="tcomment">
+          <!-- <div style="display: flex;">
+            <a href="javascript:loadTwikoo();" id="loadCommentBtn" style="color:var(--first-text-color);border-radius: 5px;background-color:var(--sec-bkg);font-size: 1.1rem;text-decoration: none;border: none;cursor: pointer;    position: relative;vertical-align: baseline;padding: 10px;margin: 0 auto;">加载评论</a>
+          </div> -->
+          <div style="margin: 0 auto;width: 100%;text-align: center;">
+            <div class="donutSpinner" style="margin: auto;width: 25px;height: 25px;"><div></div></div>
+          </div>
+        </div>
+    </div>
+    <script>
+function loadComment() {
+  // https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js
+    try {
+      loadScriptFile({
+        
+          url: "https://cdn.staticfile.org/twikoo/1.6.7/twikoo.min.js",
+        
+        loadType: "async",
+        cb: () => {
+          twikoo.init({
+            envId: 'https://api.twikoo.prts.top',
+            el: '#tcomment',
+            region: 'ap-shanghai',
+            path: 'window.location.pathname'
+          });
+        }});
+    } catch (e) {
+      document.getElementById("loadCommentBtn").innerText = "无法加载 Twikoo 评论";
+      console.info(e);
+    }
+
+}
+
+function loadTwikoo() {
+  try {
+    loadComment();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+var runningOnBrowser = typeof window !== "undefined";
+
+var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+
+var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        loadTwikoo();
+        observer.disconnect();
+      }
+    }, { threshold: [0] });
+    observer.observe(document.getElementById('miracle-comments'));
+  } else {
+    loadTwikoo();
+  }
+}, 1);
+
+    </script>
+
+
+    </div>
+
+</article>
+
+
+        </div>
+        
+  <footer class="text-center">
+    
+      
+          
+              
+                  
+                    <p>&copy; 
+                        2019 - 
+                            2022&nbsp;&nbsp;&copy;天翔TNXG
+                    </p>
+                    
+                      <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
+                          href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+
+                      <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
+                      <p>站点访问量:<spanid="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
+                      </p>
+                      <p><a target="_blank" rel="noopener" href="https://travellings.link/"><img src="https://travellings.link/assets/logo.svg"
+                            width="10%"></a></p>
+                      <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
+                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+                            height="20%">又拍云</a> 提供CDN加速、云储存服务</p>
+  </footer>
+  
+    <div class="p-btn">
+      
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+        
+          <a href="#top" class="click-btn">
+            <i id="i-up"></i>
+          </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    
+
+
+    <!-- Google Analytics -->
+    <script defer>
+        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+        ga.l = +new Date;
+        ga('create', 'G-RLK9KD8ZT6', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<script>
+    document.getElementById("btn-dropdown").addEventListener('click', () => {
+      toggleClass("#dropdown-menus","display-inline");
+    });
+    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
+
+    
+
+    
+  /* 小彩蛋: 饮茶先啦 */
+  setTimeout(() => {
+    var time = new Date();
+    if (time.getHours() == 15) {
+      let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
+      document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
+    }
+  },1);
+    
+</script>
+
+
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
+
+
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
+
+
+
+
+
+
+
+      
+        
+<script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
+<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
+
+          
+            <script>
+              loadStatistic("https://qexo.prts.top")
+            </script>
+        </div>
+        <div id="css-loading">
+            <h3 class="text-center">加载中...</h3>
+        </div>
+        
+    </body>
+</html>

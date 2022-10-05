@@ -1,139 +1,634 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="天翔TNXG"><meta name="copyright" content="天翔TNXG"><meta name="generator" content="Hexo 6.2.0"><meta name="theme" content="hexo-theme-yun"><title>分类 - 原创 | 天翔TNXG的空间站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/star-markdown-css@0.3.3/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css"><script src="https://npm.elemecdn.com/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
-  [".post-card",".markdown-body img",".post-content img"].forEach((target)=> {
-    ScrollReveal().reveal(target);
-  })
-}
-document.addEventListener("DOMContentLoaded", initScrollReveal);
-document.addEventListener("pjax:success", initScrollReveal);
-</script><script>
-    //判断非本机且未使用https 时，强制重定向到https。
-    if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
-        window.location = window.location.toString().replace(/^http:/, "https:");
-</script>
-<script>
-    if (!!navigator.serviceWorker) {
-        navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-            if (localStorage.getItem('cw_installed') !== 'true') {
-                const conf = () => {
-                    console.log('[CW] Installing Success,Configuring...');
-                    fetch('/cw-cgi/api?type=config')
-                        .then(res => res.text())
-                        .then(text => {
-                            if (text === 'ok') {
-                                console.log('[CW] Installing Success,Configuring Success,Starting...');
-                                localStorage.setItem('cw_installed', 'true');
-                                //如果你不希望重载页面，请移除下面五行
-                                fetch(window.location.href).then(res => res.text()).then(text => {
-                                    document.open()
-                                    document.write(text);
-                                    document.close();
-                                });
-                            } else {
-                                console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                                setTimeout(() => {
-                                    conf()
-                                }, 200);
-                            }
-                        }).catch(err => {
-                            console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                        });
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="https://tnxg.loyunet.cn/favicon.png">
+    <link rel="icon" type="image/png" href="https://tnxg.loyunet.cn/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>分类 - 原创 | 天翔TNXG的空间站</title>
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    
+    <meta name="description" content="明日尚未到来，希望凝于心上">
+    <meta name="author" content="天翔TNXG">
+    <meta name="keywords" content="天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟">
+    <meta property="og:title" content="分类 - 原创"/>
+    <script>
+        //判断非本机且未使用https 时，强制重定向到https。
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
+            window.location = window.location.toString().replace(/^http:/, "https:");
+    </script>
+    <script>
+        if (!!navigator.serviceWorker) {
+            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+                if (localStorage.getItem('cw_installed') !== 'true') {
+                    const conf = () => {
+                        console.log('[CW] Installing Success,Configuring...');
+                        fetch('/cw-cgi/api?type=config')
+                            .then(res => res.text())
+                            .then(text => {
+                                if (text === 'ok') {
+                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
+                                    localStorage.setItem('cw_installed', 'true');
+                                    //如果你不希望重载页面，请移除下面五行
+                                    fetch(window.location.href).then(res => res.text()).then(text => {
+                                        document.open()
+                                        document.write(text);
+                                        document.close();
+                                    });
+                                } else {
+                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                                    setTimeout(() => {
+                                        conf()
+                                    }, 200);
+                                }
+                            }).catch(err => {
+                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                            });
+                    }
+                    setTimeout(() => {
+                        conf()
+                    }, 50);
                 }
-                setTimeout(() => {
-                    conf()
-                }, 50);
-            }
-        }).catch(err => {
-            console.error('[CW] Installing Failed,Error: ' + err.message);
-        });
-    } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-</script><link rel="icon" type="image/png" href="/assets/images/favicon.png"><link rel="mask-icon" href="/assets/images/favicon.png" color="#0078E7"><link rel="preload" href="https://npm.elemecdn.com/tnxg-blog@2022.9.28-9.4.23/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="https://npm.elemecdn.com/tnxg-blog@2022.9.28-9.4.23/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://npm.elemecdn.com/" crossorigin><script id="yun-config">
-    window.Yun = {}
-    window.CONFIG = {"hostname":"tnxg.loyunet.cn","root":"/","title":"天翔的空间站","version":"1.10.6","mode":"time","copycode":true,"page":{"isPost":false},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://assets.tnxg.whitenuo.cn/images/avatar/none.jpg","say":{"api":"/assets/data/hitokoto.json"},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false,"src":"/js/search/local-search.js"},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]},"vendors":{"host":"https://npm.elemecdn.com/","darken":"https://npm.elemecdn.com/darken@1.5.0"}};
-  </script><link rel="stylesheet" href="https://npm.elemecdn.com/tnxg-blog@2022.9.28-9.4.23/css/hexo-theme-yun.css"><script src="https://npm.elemecdn.com/tnxg-blog@2022.9.28-9.4.23/js/hexo-theme-yun.js" type="module"></script><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml"><link rel="stylesheet" href="/assets/css/master.css"><link rel="stylesheet" href="https://npm.elemecdn.com/fontawesome-free@latest/css/all.css"><link rel="stylesheet" href="https://npm.elemecdn.com/prismjs@latest/plugins/line-numbers/prism-line-numbers.css"><link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@latest/fonts/remixicon.css"><link rel="stylesheet" href="https://npm.elemecdn.com/simple-icons-font@5.24.0/font/simple-icons.css"><script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script><script src="https://at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-RLK9KD8ZT6"></script><script>if (CONFIG.hostname === location.hostname) {
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-RLK9KD8ZT6');
-}</script><meta name="description" content="明日尚未到来，希望凝于心上">
-<meta property="og:type" content="website">
-<meta property="og:title" content="分类 - 原创">
-<meta property="og:url" content="https://tnxg.loyunet.cn/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E5%88%9B/index.html">
-<meta property="og:site_name" content="天翔TNXG的空间站">
-<meta property="og:description" content="明日尚未到来，希望凝于心上">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="天翔TNXG">
-<meta property="article:tag" content="天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟">
-<meta name="twitter:card" content="summary"><script>(function() {
-  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const setting = localStorage.getItem('darken-mode') || 'auto'
-  if (setting === 'dark' || (prefersDark && setting !== 'light'))
-    document.documentElement.classList.toggle('dark', true)
-})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
-IconifyProviders = {
-  // Empty prefix: overwrite default API provider configuration
-  '': {
-    // Use custom API first, use Iconify public API as backup
-    resources: [
-        'https://api.iconify.design',
-    ],
-    // Wait for 1 second before switching API hosts
-    rotate: 1000,
-  },
-};</script><script defer src="https://cdn.staticfile.org/animejs/3.2.1/anime.min.js"></script><script defer src="https://npm.elemecdn.com/tnxg-blog@2022.9.28-9.4.23/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="https://npm.elemecdn.com/tnxg-blog@2022.9.28-9.4.23/js/sidebar.js" type="module"></script><div class="sidebar-panel sidebar-panel-active" id="site-overview-wrap"><div class="site-info"><a class="site-author-avatar" href="/about/" title="天翔TNXG"><img width="96" loading="lazy" src="https://q1.qlogo.cn/g?b=qq&amp;nk=2271225249&amp;s=640" alt="天翔TNXG"></a><div class="site-author-name"><a href="/about/">天翔TNXG</a></div><span class="site-name">天翔TNXG的空间站</span><sub class="site-subtitle"></sub><div class="site-description">明日尚未到来，希望凝于心上</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/"><span class="site-state-item-icon"><i class="ri-archive-line ri-lg"></i></span></a></div><div class="site-state-item"><a href="/tags/"><span class="site-state-item-icon"><i class="ri-bookmark-line ri-lg"></i></span></a></div><div class="site-state-item"><a href="/talks/"><span class="site-state-item-icon"><i class="ri-message-2-line ri-lg"></i></span></a></div><div class="site-state-item"><a href="/albums/"><span class="site-state-item-icon"><i class="ri-album-line ri-lg"></i></span></a></div><a class="site-state-item hty-icon-button" target="_blank" rel="noopener" href="https://qexo.prts.top/" title="后台"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-settings-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://jq.qq.com/?_wv=1027&amp;k=9XzkRJ8C" title="QQ" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/TNXG" title="GitHub" target="_blank" style="color:#181717"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:mcminecraftmc@126.com" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/user/home?id=515522946" title="网易云音乐" target="_blank" style="color:#EE0000"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/175424674" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:#FFA500"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><i class="ri-men-line ri-lg"></i></a><a class="links-item hty-icon-button" href="/friendcircle/" title="友链朋友圈" style="color:green"><i class="ri-group-2-line ri-lg"></i></a><a class="links-item hty-icon-button" href="/girls/" title="喜欢的女孩子们" style="color:hotpink"><i class="ri-women-line ri-lg"></i></a><a class="links-item hty-icon-button" href="/monument/" title="丰碑" style="color:red"><i class="ri-award-fill ri-lg"></i></a><a class="links-item hty-icon-button" href="/thanks/" title="鸣谢名单" style="color:orange"><i class="ri-vip-diamond-line ri-lg"></i></a><a class="links-item hty-icon-button" target="_blank" rel="noopener" href="https://travellings.link/" title="开往" style="color:black"><i class="ri-train-line ri-lg"></i></a><a class="links-item hty-icon-button" href="/policy/" title="使用条款" style="color:purple"><i class="ri-file-text-line ri-lg"></i></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div></aside><main class="sidebar-translate" id="content"><div class="hty-card" id="category"><header class="post-header"><h1 class="post-title" itemprop="name headline"><span class="icon iconify" data-icon="ri:folder-2-line"></span>原创</h1></header><div class="post-collapse"><div class="collection-title"><h2 class="archive-year" id="archive-year-2022">2022</h2></div><article class="post-item" itemscope itemtype="https://schema.org/Article"><header class="post-header"><div class="post-meta"><time class="post-time" itemprop="dateCreated" datetime="2022-04-11T00:50:17+00:00" content="2022-04-11">04-11</time></div><h2 class="post-title" itemprop="name headline"><a class="post-title-link" itemprop="url" href="/p/c4c0f5894c2c.html">关于图片储存的那些事</a></h2></header></article></div><h5 class="last-word text-center">没有更多的黑历史了_(:з」∠)_</h5></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2019 – 2022 </span><a class="with-love" id="animate" href="/thanks/" title="本博客基于Hexo and Theme Yun"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></a><span class="author"> 天翔TNXG</span></div><div class="live-time"><span>本博客已在风雨中艰难运行了</span><span id="display_live_time"></span><span class="moe-text">(●'◡'●)</span><script>function blog_live_time() {
-  setTimeout(blog_live_time, 1000);
-  const start = new Date('2019-08-12T12:00:00');
-  const now = new Date();
-  const timeDiff = (now.getTime() - start.getTime());
-  const msPerMinute = 60 * 1000;
-  const msPerHour = 60 * msPerMinute;
-  const msPerDay = 24 * msPerHour;
-  const passDay = Math.floor(timeDiff / msPerDay);
-  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
-  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
-  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
-  display_live_time.innerHTML = ` ${passDay} 天 ${passHour} 小时 ${passMinute} 分 ${passSecond} 秒`;
-}
-blog_live_time();
-</script></div><!-- 尾部信息 -->
-来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！<br>站点访问量:<span id="qexo-site-pv">Loading...</span>丨页面访问量:<span
-    id="qexo-page-pv">Loading...</span><br><a target="_blank" rel="noopener" href="https://travellings.link/"><img
-        src="https://travellings.link/assets/logo.svg" width="10%"></a><br>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
-        src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%" height="20%">又拍云</a> 提供CDN加速、云储存服务<!-- 尾部脚本 -->
-<script type="text/javascript">
-    (function (c, l, a, r, i, t, y) {
-        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-        t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-    })(window, document, "clarity", "script", "bdwnhd5bw9");
-</script>
-<script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/qexo-static@1.4.0/hexo/statistic/statistic.js"></script>
-<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
-<script>
-    loadStatistic("https://qexo.prts.top");
-    getdata();
-    getnotice();
-</script></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
-  // Handle and trigger popup window
-  document.querySelector(".popup-trigger").addEventListener("click", () => {
-    document.querySelector(".popup").classList.add("show");
-    setTimeout(() => {
-      document.querySelector(".search-input").focus();
-    }, 100);
-  });
+            }).catch(err => {
+                console.error('[CW] Installing Failed,Error: ' + err.message);
+            });
+        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+    </script>
+    <style>
 
-  // Monitor main search box
-  const onPopupClose = () => {
-    document.querySelector(".popup").classList.remove("show");
-  };
 
-  document.querySelector(".popup-btn-close").addEventListener("click", () => {
-    onPopupClose();
-  });
-
-  window.addEventListener("keyup", event => {
-    if (event.key === "Escape") {
-      onPopupClose();
+    
+    :root{
+        --shadow-color: rgba(0,0,0,0.2);
+        --sec-shadow: rgba(0,0,0,0.03);
+        --shadow-hover-color: rgba(0,0,0,0.28);
+        --first-text-color: #475b6d;
+        --second-text-color: #37475b;
+        --third-text-color: #858585;
+        --default-text-color: #505050;
+        --default-link-color: #007bff;
+        --link-color: #000000;
+        --second-link-color: #4F9BFA;
+        --code-color:rgba(27,31,35,.05);
+        --post-bkg-color: #fff;
+        --page-bkg-color: #f2f5f8;
+        --nav-a-hover-color: #3498db;
+        --post-sec-text-color: #718096;
+        --sec-bkg: #f2f5f8;
+        --color-mode: 'light';
+        --bkg-h: rgba(255,255,255,0.6);
+        --bkg-m: #e1e4e8;
+        --home-title-color: #4169E1;
+        --shadow: 0 4px 10px rgba(0,2,4,0.06),0 0 1px rgba(0,2,4,0.11);
+        --hr-color: #ddd;
+        --bg-t: #f4f4f4;
+        --nav-bkg: rgba(255,255,255,0.6);
     }
-  });
-});
-</script><script src="https://cdn.staticfile.org/hexo-generator-searchdb/1.4.0/search.min.js"></script><script src="https://npm.elemecdn.com/tnxg-blog@2022.9.28-9.4.23/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div class="search-result-container"></div></div></body></html>
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-theme]) {
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+  }
+}
+
+[data-theme='dark'] {
+    --shadow-color: rgba(0,0,0,0.2);
+    --shadow-hover-color: rgba(0,0,0,0.28);
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+}
+
+</style>
+
+
+
+    
+<link rel="stylesheet" href="https://assets.tnxg.whitenuo.cn/blog-file/assets/css/master.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+
+
+<style>
+#page-main,footer,.p-btn{
+    display: none;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: overlay;
+}
+body{
+    background-color: var(--page-bkg-color);
+    color: var(--second-text-color);
+    overflow-y: scroll;
+}
+a {
+    color: var(--default-link-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    color: var(--second-link-color);
+}
+.main-content,.post-card-main{
+    margin: 30px;
+}
+
+
+
+@media (max-width: 410px){
+    .post-card-main{
+        max-width: 350px!important;
+    }
+}
+
+@media (max-width: 980px){
+    .post-card-main{
+        max-width: 520px!important;
+    }
+}
+
+
+@media (min-width: 780px){ 
+    h3{
+        font-size: 1.5rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 1280px){ 
+    h3{
+        font-size: 1.7rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 2096px){ 
+    h3{
+        font-size: 1.8rem;
+        line-height: 1.5em;
+    }
+}
+
+.text-center{
+    text-align: center!important;
+}
+.middle-center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 54px;
+    padding: 0 1.25rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--bkg-m);
+    background-color: var(--nav-bkg);
+}
+header .header__left, header .header__right {
+    display: flex;
+    align-items: center;
+    font-family: rubik,sans-serif,Varela Round;
+}
+header .header__left .logo__text {
+    font-size: 18px;
+    font-weight: 450;
+    padding: 14.5px 10px;
+    border-radius: 5px;
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus {
+    height: 54px;
+    padding: 0 0 0 15px;
+}
+header .header__right .button {
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus .navbar-menu {
+    display: inline-block;
+    align-items: center;
+    height: 54px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 54px;
+}
+header .header__right .dropdown-icon {
+    display: none;
+    height: 54px;
+    padding: 15px 10px;
+    border: 0;
+    background-color: transparent;
+}
+header .header__right .dropdown-menus {
+    line-height: 2rem;
+    animation: slide-in .15s ease 1;
+    display: none;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(54px + 10px);
+    border-radius: 6px;
+    padding: 24px;
+    background-color: var(--page-bkg-color);
+    border: 1px solid var(--bkg-m);
+    z-index: 9999;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header .header__right #btn-search, header .header__right #btn-toggle-dark{
+    display: inline-block;
+    padding:  18px 10px;
+    height: 25px;
+}
+header .header__right #btn-dropdown{
+  display: inline-block;
+  padding:  13.5px 0;
+}
+header .header__right .dropdown-menus .dropdown-menu {
+    padding: 10px;
+    color: var(--second-text-color);
+}
+@media screen and (max-width: 764px){
+.navbar__menus {
+    display: none!important;
+}
+.dropdown-icon {
+    display: inline-block!important;
+}
+}
+.p-btn{
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    contain: layout;
+}
+.toc-btn,.click-btn{
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    align-items: center;
+    margin-top: .5rem;
+    font-size: .75rem;
+    background-color: var(--sec-bkg);
+    display: block;
+    padding: 0.9rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,.15);
+    border: none;
+    border-radius: 0.5rem;
+    line-height: 1;
+    color: var(--first-text-color);
+}
+.toc-link{
+    color: var(--second-text-color);
+}
+
+#css-loading h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    position: fixed;
+    top: 200px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: cssLoad;
+    animation-delay: 0.3s;
+    -webkit-animation: cssLoad;
+    -webkit-animation-delay: 0.3s;
+}
+@keyframes cssLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+
+.memorial {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray;
+}
+
+
+    .post-copyright:after {
+        position: absolute;
+        color: #fff;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+        content: ' ';
+        height: 10rem;
+        width: 10rem;
+        right: -2rem;
+        top: -2rem;
+        opacity: .1;
+    }
+
+</style>
+
+    
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
+    
+    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
+</head>
+
+    <body>
+        <header>
+            
+<div class="header__left">
+	<a href="/" class="button"><span class="logo__text">天翔TNXG的空间站</span></a>
+</div>
+<div class="header__right">
+	<div class="navbar__menus">
+		
+		<a href="/" class="button">
+			<div class="navbar-menu">首页</div>
+		</a>
+		
+		<a href="/archives/" class="button">
+			<div class="navbar-menu">存档</div>
+		</a>
+		
+		<a href="/albums/" class="button">
+			<div class="navbar-menu">相册</div>
+		</a>
+		
+		<a href="/talks/" class="button">
+			<div class="navbar-menu">说说</div>
+		</a>
+		
+		<a href="/links/" class="button">
+			<div class="navbar-menu">友链</div>
+		</a>
+		
+		<a href="/policy/" class="button">
+			<div class="navbar-menu">条款</div>
+		</a>
+		
+		<a href="/more/" class="button">
+			<div class="navbar-menu">更多</div>
+		</a>
+		
+		<a href="/about/" class="button">
+			<div class="navbar-menu">关于</div>
+		</a>
+		
+	</div>
+	
+	<a href="/search/" class="button">
+		<div id="btn-search">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32">
+				<path
+					d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
+				</path>
+			</svg>
+		</div>
+	</a>
+	
+	<a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
+		<div>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+				stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+		</div>
+	</a>
+	<a href="javaScript:void(0);" class="dropdown-icon button">
+		<div id="btn-dropdown">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32" stroke-linecap="round">
+				<path
+					d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
+					fill="currentColor"></path>
+			</svg>
+		</div>
+	</a>
+	<div class="dropdown-menus" id="dropdown-menus">
+		
+		<a href="/" class="dropdown-menu button">首页</a>
+		<br>
+		
+		<a href="/archives/" class="dropdown-menu button">存档</a>
+		<br>
+		
+		<a href="/albums/" class="dropdown-menu button">相册</a>
+		<br>
+		
+		<a href="/talks/" class="dropdown-menu button">说说</a>
+		<br>
+		
+		<a href="/links/" class="dropdown-menu button">友链</a>
+		<br>
+		
+		<a href="/policy/" class="dropdown-menu button">条款</a>
+		<br>
+		
+		<a href="/more/" class="dropdown-menu button">更多</a>
+		<br>
+		
+		<a href="/about/" class="dropdown-menu button">关于</a>
+		<br>
+		
+	</div>
+</div>
+
+        </header>
+        <div id="top"></div>
+        <div id="page-main" class="main-content">
+        <div class="mg-top">
+            
+
+
+<article class="page">
+  <div class="archive-list">
+    <p class="h4">共计 2 篇文章</p>
+    <hr>
+    
+    
+      
+        
+        <p class="h5">2022</p>
+      
+      <a href="/p/0cace299bdc7.html" class="list-group-item list-group-item-action">
+        <span class="archive-post-title">关于图片储存的那些事</span>
+        <time style="float: right;">04-11</time>
+      </a>
+    
+
+</div>
+</article>
+        </div>
+        
+  <footer class="text-center">
+    
+      
+          
+              
+                  
+                    <p>&copy; 
+                        2019 - 
+                            2022&nbsp;&nbsp;&copy;天翔TNXG
+                    </p>
+                    
+                      <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
+                          href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+
+                      <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
+                      <p>站点访问量:<spanid="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
+                      </p>
+                      <p><a target="_blank" rel="noopener" href="https://travellings.link/"><img src="https://travellings.link/assets/logo.svg"
+                            width="10%"></a></p>
+                      <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
+                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+                            height="20%">又拍云</a> 提供CDN加速、云储存服务</p>
+  </footer>
+  
+    <div class="p-btn">
+      
+          <a href="#top" class="click-btn">
+            <i id="i-up"></i>
+          </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    
+
+
+    <!-- Google Analytics -->
+    <script defer>
+        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+        ga.l = +new Date;
+        ga('create', 'G-RLK9KD8ZT6', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<script>
+    document.getElementById("btn-dropdown").addEventListener('click', () => {
+      toggleClass("#dropdown-menus","display-inline");
+    });
+    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
+
+    
+
+    
+  /* 小彩蛋: 饮茶先啦 */
+  setTimeout(() => {
+    var time = new Date();
+    if (time.getHours() == 15) {
+      let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
+      document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
+    }
+  },1);
+    
+</script>
+
+
+
+
+
+
+
+
+
+
+
+      
+        
+<script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
+<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
+
+          
+            <script>
+              loadStatistic("https://qexo.prts.top")
+            </script>
+        </div>
+        <div id="css-loading">
+            <h3 class="text-center">加载中...</h3>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="https://tnxg.loyunet.cn/favicon.png">
+    <link rel="icon" type="image/png" href="https://tnxg.loyunet.cn/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>白嫖！10GB免流海外BackBlaze对象存储【可套CDN】 | 天翔TNXG的空间站</title>
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    
+    <meta name="description" content="&lt;p&gt;腾讯云的COS就是个暗坑，进去的时候大肆宣扬用户前六个月免费，但实际上免费仅针对于存储于国内的bucket，而存储于国外的阶梯定价又极不合理，我的COS在一个月走了流量1.6GB。按照官方定价&lt;/p&gt;">
+    <meta name="author" content="ChenYFan">
+    <meta name="keywords" content="天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟">
+    <meta property="og:title" content="白嫖！10GB免流海外BackBlaze对象存储【可套CDN】"/>
+    <script>
+        //判断非本机且未使用https 时，强制重定向到https。
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
+            window.location = window.location.toString().replace(/^http:/, "https:");
+    </script>
+    <script>
+        if (!!navigator.serviceWorker) {
+            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+                if (localStorage.getItem('cw_installed') !== 'true') {
+                    const conf = () => {
+                        console.log('[CW] Installing Success,Configuring...');
+                        fetch('/cw-cgi/api?type=config')
+                            .then(res => res.text())
+                            .then(text => {
+                                if (text === 'ok') {
+                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
+                                    localStorage.setItem('cw_installed', 'true');
+                                    //如果你不希望重载页面，请移除下面五行
+                                    fetch(window.location.href).then(res => res.text()).then(text => {
+                                        document.open()
+                                        document.write(text);
+                                        document.close();
+                                    });
+                                } else {
+                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                                    setTimeout(() => {
+                                        conf()
+                                    }, 200);
+                                }
+                            }).catch(err => {
+                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                            });
+                    }
+                    setTimeout(() => {
+                        conf()
+                    }, 50);
+                }
+            }).catch(err => {
+                console.error('[CW] Installing Failed,Error: ' + err.message);
+            });
+        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+    </script>
+    <style>
+
+
+    
+    :root{
+        --shadow-color: rgba(0,0,0,0.2);
+        --sec-shadow: rgba(0,0,0,0.03);
+        --shadow-hover-color: rgba(0,0,0,0.28);
+        --first-text-color: #475b6d;
+        --second-text-color: #37475b;
+        --third-text-color: #858585;
+        --default-text-color: #505050;
+        --default-link-color: #007bff;
+        --link-color: #000000;
+        --second-link-color: #4F9BFA;
+        --code-color:rgba(27,31,35,.05);
+        --post-bkg-color: #fff;
+        --page-bkg-color: #f2f5f8;
+        --nav-a-hover-color: #3498db;
+        --post-sec-text-color: #718096;
+        --sec-bkg: #f2f5f8;
+        --color-mode: 'light';
+        --bkg-h: rgba(255,255,255,0.6);
+        --bkg-m: #e1e4e8;
+        --home-title-color: #4169E1;
+        --shadow: 0 4px 10px rgba(0,2,4,0.06),0 0 1px rgba(0,2,4,0.11);
+        --hr-color: #ddd;
+        --bg-t: #f4f4f4;
+        --nav-bkg: rgba(255,255,255,0.6);
+    }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-theme]) {
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+  }
+}
+
+[data-theme='dark'] {
+    --shadow-color: rgba(0,0,0,0.2);
+    --shadow-hover-color: rgba(0,0,0,0.28);
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+}
+
+</style>
+
+
+
+    
+<link rel="stylesheet" href="https://assets.tnxg.whitenuo.cn/blog-file/assets/css/master.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+
+
+<style>
+#page-main,footer,.p-btn{
+    display: none;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: overlay;
+}
+body{
+    background-color: var(--page-bkg-color);
+    color: var(--second-text-color);
+    overflow-y: scroll;
+}
+a {
+    color: var(--default-link-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    color: var(--second-link-color);
+}
+.main-content,.post-card-main{
+    margin: 30px;
+}
+
+
+
+@media (max-width: 410px){
+    .post-card-main{
+        max-width: 350px!important;
+    }
+}
+
+@media (max-width: 980px){
+    .post-card-main{
+        max-width: 520px!important;
+    }
+}
+
+
+@media (min-width: 780px){ 
+    h3{
+        font-size: 1.5rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 1280px){ 
+    h3{
+        font-size: 1.7rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 2096px){ 
+    h3{
+        font-size: 1.8rem;
+        line-height: 1.5em;
+    }
+}
+
+.text-center{
+    text-align: center!important;
+}
+.middle-center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 54px;
+    padding: 0 1.25rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--bkg-m);
+    background-color: var(--nav-bkg);
+}
+header .header__left, header .header__right {
+    display: flex;
+    align-items: center;
+    font-family: rubik,sans-serif,Varela Round;
+}
+header .header__left .logo__text {
+    font-size: 18px;
+    font-weight: 450;
+    padding: 14.5px 10px;
+    border-radius: 5px;
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus {
+    height: 54px;
+    padding: 0 0 0 15px;
+}
+header .header__right .button {
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus .navbar-menu {
+    display: inline-block;
+    align-items: center;
+    height: 54px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 54px;
+}
+header .header__right .dropdown-icon {
+    display: none;
+    height: 54px;
+    padding: 15px 10px;
+    border: 0;
+    background-color: transparent;
+}
+header .header__right .dropdown-menus {
+    line-height: 2rem;
+    animation: slide-in .15s ease 1;
+    display: none;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(54px + 10px);
+    border-radius: 6px;
+    padding: 24px;
+    background-color: var(--page-bkg-color);
+    border: 1px solid var(--bkg-m);
+    z-index: 9999;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header .header__right #btn-search, header .header__right #btn-toggle-dark{
+    display: inline-block;
+    padding:  18px 10px;
+    height: 25px;
+}
+header .header__right #btn-dropdown{
+  display: inline-block;
+  padding:  13.5px 0;
+}
+header .header__right .dropdown-menus .dropdown-menu {
+    padding: 10px;
+    color: var(--second-text-color);
+}
+@media screen and (max-width: 764px){
+.navbar__menus {
+    display: none!important;
+}
+.dropdown-icon {
+    display: inline-block!important;
+}
+}
+.p-btn{
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    contain: layout;
+}
+.toc-btn,.click-btn{
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    align-items: center;
+    margin-top: .5rem;
+    font-size: .75rem;
+    background-color: var(--sec-bkg);
+    display: block;
+    padding: 0.9rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,.15);
+    border: none;
+    border-radius: 0.5rem;
+    line-height: 1;
+    color: var(--first-text-color);
+}
+.toc-link{
+    color: var(--second-text-color);
+}
+
+#css-loading h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    position: fixed;
+    top: 200px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: cssLoad;
+    animation-delay: 0.3s;
+    -webkit-animation: cssLoad;
+    -webkit-animation-delay: 0.3s;
+}
+@keyframes cssLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+
+.memorial {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray;
+}
+
+
+    .post-copyright:after {
+        position: absolute;
+        color: #fff;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+        content: ' ';
+        height: 10rem;
+        width: 10rem;
+        right: -2rem;
+        top: -2rem;
+        opacity: .1;
+    }
+
+</style>
+
+    
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
+    
+    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
+</head>
+
+    <body>
+        <header>
+            
+<div class="header__left">
+	<a href="/" class="button"><span class="logo__text">天翔TNXG的空间站</span></a>
+</div>
+<div class="header__right">
+	<div class="navbar__menus">
+		
+		<a href="/" class="button">
+			<div class="navbar-menu">首页</div>
+		</a>
+		
+		<a href="/archives/" class="button">
+			<div class="navbar-menu">存档</div>
+		</a>
+		
+		<a href="/albums/" class="button">
+			<div class="navbar-menu">相册</div>
+		</a>
+		
+		<a href="/talks/" class="button">
+			<div class="navbar-menu">说说</div>
+		</a>
+		
+		<a href="/links/" class="button">
+			<div class="navbar-menu">友链</div>
+		</a>
+		
+		<a href="/policy/" class="button">
+			<div class="navbar-menu">条款</div>
+		</a>
+		
+		<a href="/more/" class="button">
+			<div class="navbar-menu">更多</div>
+		</a>
+		
+		<a href="/about/" class="button">
+			<div class="navbar-menu">关于</div>
+		</a>
+		
+	</div>
+	
+	<a href="/search/" class="button">
+		<div id="btn-search">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32">
+				<path
+					d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
+				</path>
+			</svg>
+		</div>
+	</a>
+	
+	<a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
+		<div>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+				stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+		</div>
+	</a>
+	<a href="javaScript:void(0);" class="dropdown-icon button">
+		<div id="btn-dropdown">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32" stroke-linecap="round">
+				<path
+					d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
+					fill="currentColor"></path>
+			</svg>
+		</div>
+	</a>
+	<div class="dropdown-menus" id="dropdown-menus">
+		
+		<a href="/" class="dropdown-menu button">首页</a>
+		<br>
+		
+		<a href="/archives/" class="dropdown-menu button">存档</a>
+		<br>
+		
+		<a href="/albums/" class="dropdown-menu button">相册</a>
+		<br>
+		
+		<a href="/talks/" class="dropdown-menu button">说说</a>
+		<br>
+		
+		<a href="/links/" class="dropdown-menu button">友链</a>
+		<br>
+		
+		<a href="/policy/" class="dropdown-menu button">条款</a>
+		<br>
+		
+		<a href="/more/" class="dropdown-menu button">更多</a>
+		<br>
+		
+		<a href="/about/" class="dropdown-menu button">关于</a>
+		<br>
+		
+	</div>
+</div>
+
+        </header>
+        <div id="top"></div>
+        <div id="page-main" class="main-content">
+        <div class="mg-top">
+            
+
+<article class="page">
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>白嫖！10GB免流海外BackBlaze对象存储【可套CDN】</h3>
+    
+      <span class="post-meta-label">
+        ChenYFan
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2021-01-02 19:01" pubdate>
+          2021-01-02-19-01
+        </time>
+      </span>
+    
+    
+      
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        共 1.5k 字
+      </span>
+    
+    
+    
+  </div>
+  
+</div>
+<div class="article-m">
+  <div class="post-toc">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Backblaze"><span class="toc-number">1.</span> <span class="toc-text">Backblaze</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E5%86%8C%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">注册：</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D"><span class="toc-number">3.</span> <span class="toc-text">自定义域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BC%A9%E7%9F%AD%E9%93%BE%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">缩短链接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%80%E5%90%AFCORS-%E5%8A%A0%E9%95%BF%E7%BC%93%E5%AD%98%E6%97%B6%E9%97%B4"><span class="toc-number">5.</span> <span class="toc-text">开启CORS|加长缓存时间</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E6%B5%8B"><span class="toc-number">6.</span> <span class="toc-text">实测</span></a></li></ol>
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <p>腾讯云的COS就是个暗坑，进去的时候大肆宣扬用户前六个月免费，但实际上免费仅针对于存储于国内的bucket，而存储于国外的阶梯定价又极不合理，我的COS在一个月走了流量1.6GB。按照官方定价</p>
+<span id="more"></span>
+
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20094557.jpg"></p>
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20094840.jpg"></p>
+<p>大概就是0.7左右。</p>
+<p>但是，腾讯云从来就是不满1GB按1GB计算的jier，我瞟了一下账单：</p>
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20095520.jpg"></p>
+<p>不是吧啊Sir，一个月一块多，那我为什么要用你的东西啊<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90.png">！</p>
+<p>很难让人理解，我CDN设置为一个月的超长缓存，但腾讯还是给我计价1GB，和回源没什么区别。</p>
+<p>后来F12看了一下，腾讯悄悄地在header里添加max-cache为43200s，12个小时强制清除缓存。Asir，赚钱不带这么玩吧。<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E4%B8%AD%E6%9E%AA.png"></p>
+<p>最让我憋屈的是，<code>cyfan.top</code> 是没有备案的，使用国内的bucket就不给绑定域名，害的我只能用香港，但是香港的绑定域名是不给SSL的，偏要套一层CDN才行。可***腾讯云默认CDN是亚马逊的，速度渣的很，用来用去还是用回CloudFlare。可是，既然有CloudFlare，那我为什么不用免费的Github服务啊！<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%93%AD%E6%B3%A3.png"></p>
+<p>这就是逼着我要换一个图床啊么<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/qgbf.png">。</p>
+<p>后来twitter上有人发推推荐 <code>backblaze</code> 的海外存储，使用了一下，发现完全满足需求。<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/stick_27.png"></p>
+<h1 id="Backblaze"><a href="#Backblaze" class="headerlink" title="Backblaze"></a>Backblaze</h1><p>2015年9月，Backblaze推出了新产品B2 Cloud Storage。作为基础架构即服务（IaaS），它的目标是软件集成（尽管也提供Web前端和API）。它直接与类似服务Amazon S3，Microsoft Azure和Google Cloud竞争。在2018年4月，Backblaze宣布了云计算合作伙伴关系，它将直接将Backblaze的数据中心与其合作伙伴Packet和ServerCentral连接起来，为存储在B2 Cloud Storage中的数据提供高性能的云计算，而无需支付任何费用。</p>
+<p>B2 Cloud Storage非常客气，有以下优点：</p>
+<ul>
+<li>用户永久免费<strong>10GB</strong>直链存储</li>
+<li>每天<strong>1GB</strong>下行流量</li>
+<li>无限量的上传流量</li>
+<li>每天下载请求<strong>2500</strong>次免费</li>
+<li>每天上传请求<strong>2500</strong>次免费</li>
+<li>基于CloudFlareCDN</li>
+</ul>
+<p>而且超出免费额度的价钱也十分合理【不过我不会往里头冲一分钱的！】 <img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20100931.jpg" alt="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20100931.jpg"></p>
+<p>然而我偶然得知，Backblaze加入了CloudFlare的 <a target="_blank" rel="noopener" href="https://www.cloudflare.com/bandwidth-alliance/">带宽联盟（ Bandwidth Alliance）</a> Backblaze与CloudFlare之间的流量直接免费，也就是每天<strong>无限量</strong>下行流量，配上CloudFlare超长缓存，每天下载请求无限次免费。<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%BE%97%E6%84%8F.png"></p>
+<p>而且这样与我用COS的速度是差不多的，那我何必用付费的COS呢？</p>
+<h1 id="注册："><a href="#注册：" class="headerlink" title="注册："></a>注册：</h1><p>去<a target="_blank" rel="noopener" href="https://www.backblaze.com/zh_CN/cloud-storage.html">B2 云存储</a>注册，可以用Google快捷登录：</p>
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20101845.jpg"></p>
+<p>注册之后可能会要求你绑定手机号，乖乖的绑定自己的中国手机号吧【可能会产生短信费用，大概0.1￥】，不要想什么歪门邪道<br>，毕竟很多公开的手机号是不能用的，而且GoogleVoice也被拒绝了。</p>
+<p>新建一个桶，设置为公开：</p>
+<p>上传一个文件，点击右边的信息按钮，我们要在这里获取一些信息：</p>
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20102255.jpg"></p>
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20102940.jpg"></p>
+<p>看到那个友好链接吗，这就是CloudFlare加速的链接，但这个不是我们想要的链接，我们要自定义域名，毕竟默认的加速相当蛋疼。</p>
+<h1 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h1><p>这一步需要你有个域名，开个子域给图床：</p>
+<p>由于我是bnxb接入的CloudFlare，所以我首先要去 <code>cdn.bnxb.com</code> ，将 <code>assets.cyfan.top</code> 指向 <code>f000.backblazeb2.com</code> 【每个人都可能不一样，自己看情况】，并开启CDN，然后在DNSPOD里CNAME负载均衡一下，这里就不放图了。<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E6%9C%9F%E5%BE%85.png"></p>
+<h1 id="缩短链接"><a href="#缩短链接" class="headerlink" title="缩短链接"></a>缩短链接</h1><p>默认即使绑定域名后，链接大概是这样滴：</p>
+<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;assets.cyfan.top&#x2F;file&#x2F;CYF-PicBed&#x2F;pic&#x2F;postpic&#x2F;2020-07-09%20102255.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>可以看到,中间多了 <code>/file/CYF-PicBed/</code> ,这并不是我所需要的,所以我们要把它变成这样:</p>
+<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;img.cyfan.top&#x2F;pic&#x2F;postpic&#x2F;2020-07-09%20102255.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>你要知道，我有一大堆图片都是直接以 <code>https://img.cyfan.top</code> 存在底下的，NotePad++可以批量改，但是我在外链也放了很多啊.所以只能改域名。<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90%E8%A1%80%E5%80%92%E5%9C%B0.png"></p>
+<p>前往CloudFlare,设置页面规则,进行301转发:</p>
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20103634.jpg"></p>
+<p>其中 <code>$1</code> 是CloudFlare的匹配符号，此规则意思是将所有的 <code>https://img.cyfan.top/*</code> 跳转向 <code>https://assets.cyfan.top/file/CYF-PicBed/*</code> </p>
+<p>去 <code>cdn.bnxb.com</code> ，将 <code>img.cyfan.top</code> 指向 任意一ip,比如 <code>1.0.0.1</code> 并开启CDN，然后在DNSPOD里CNAME。</p>
+<p>此后,所有访问图片都会在里头跳转一下,外面基本看不出来有什么差别.</p>
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20104238.jpg"></p>
+<h1 id="开启CORS-加长缓存时间"><a href="#开启CORS-加长缓存时间" class="headerlink" title="开启CORS|加长缓存时间"></a>开启CORS|加长缓存时间</h1><p>就这样结束了么？没有，你会发现访问的链接里所有的资源都是MISS，这是因为Backblaze默认不缓存<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/stick_65.png">。</p>
+<p>所以，自己设置呗！</p>
+<p>点击桶，进入桶设定：</p>
+<p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20104802.jpg"></p>
+<p>里头写上:</p>
+<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;cache-control&quot;:&quot;max-age&#x3D;43200000&quot;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这个意思是强制缓存 <code>43200000</code> ,大约是50天.然而这里注意一下，时间太长有个问题，你修改一张图片，外面可以能要50天才能更改，这样只能通过手动清除缓存做到了。</p>
+<p>点击CORS设置,选择:</p>
+<pre class="line-numbers language-none"><code class="language-none">与所有HTTPS来源共享此存储桶中的所有内容。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>即可.</p>
+<h1 id="实测"><a href="#实测" class="headerlink" title="实测"></a>实测</h1><p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20105402.jpg"></p>
+<p>免费额度基本用不完.</p>
+<p>可惜PicGo没有支持Backblaze，我只能通过网页端上传<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E8%A3%85%E5%A4%A7%E6%AC%BE.png">。</p>
+<p>然而有一件事情非常蛋疼，你丫的根目录上传的时候是不会创建文件夹的，一次上传会把文件夹里的图片全部上传到根目录。所以，我只能手动创建文件夹，这个痛苦我真的是，<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/tx.png">。</p>
+<p>嗯，用了一个晚上，感觉还是挺香的，鹅厂的COS收费确实不合理，也要学学外面人家收费啊！</p>
+<hr>
+<p>溜了溜了，作业还没写完呢<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E9%82%AA%E9%AD%85%E4%B8%80%E7%AC%91.jpg"></p>
+<p>原文链接：<a target="_blank" href="https://blog.cyfan.top/p/ce240368.html" rel="nofollow noopener">https://blog.cyfan.top/p/ce240368.html</a></p>
+
+      </div>
+    </div>
+</div>
+
+<div class="post-category">
+
+    <div id="p-meta-i">
+        
+              
+                <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+              
+                <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/%E8%BD%AC%E8%BD%BD/">转载</a>
+              
+          
+          
+              
+                <a class="hover-with-bg" href="/tags/%E7%99%BD%E5%AB%96/"># 白嫖</a>
+              
+                <a class="hover-with-bg" href="/tags/%E6%96%87%E4%BB%B6%E5%82%A8%E5%AD%98/"># 文件储存</a>
+              
+          
+    </div>
+</div>
+
+
+<div class="post-footer">
+  
+  <div class="donate text-center">
+    <span>喜欢这篇文章？为什么不考虑打赏一下作者呢？</span>
+    <div class="donate-way">
+      
+        <a href="/donate/" class="donate-btn button">
+          赞赏
+        </a>
+      
+    </div>
+  </div>
+  
+
+  <div class="post-copyright">
+    <p style="margin: 5px 0;">文章作者：<a href="/">ChenYFan</a></p>
+    <p style="margin: 5px 0;">文章链接：<a href="https://tnxg.loyunet.cn/p/462c1af03672.html">https://tnxg.loyunet.cn/p/462c1af03672.html</a></p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，非常感谢。</p>
+  </div>
+  
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    <div id="miracle-comments">
+        <div id="tcomment">
+          <!-- <div style="display: flex;">
+            <a href="javascript:loadTwikoo();" id="loadCommentBtn" style="color:var(--first-text-color);border-radius: 5px;background-color:var(--sec-bkg);font-size: 1.1rem;text-decoration: none;border: none;cursor: pointer;    position: relative;vertical-align: baseline;padding: 10px;margin: 0 auto;">加载评论</a>
+          </div> -->
+          <div style="margin: 0 auto;width: 100%;text-align: center;">
+            <div class="donutSpinner" style="margin: auto;width: 25px;height: 25px;"><div></div></div>
+          </div>
+        </div>
+    </div>
+    <script>
+function loadComment() {
+  // https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js
+    try {
+      loadScriptFile({
+        
+          url: "https://cdn.staticfile.org/twikoo/1.6.7/twikoo.min.js",
+        
+        loadType: "async",
+        cb: () => {
+          twikoo.init({
+            envId: 'https://api.twikoo.prts.top',
+            el: '#tcomment',
+            region: 'ap-shanghai',
+            path: 'window.location.pathname'
+          });
+        }});
+    } catch (e) {
+      document.getElementById("loadCommentBtn").innerText = "无法加载 Twikoo 评论";
+      console.info(e);
+    }
+
+}
+
+function loadTwikoo() {
+  try {
+    loadComment();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+var runningOnBrowser = typeof window !== "undefined";
+
+var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+
+var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        loadTwikoo();
+        observer.disconnect();
+      }
+    }, { threshold: [0] });
+    observer.observe(document.getElementById('miracle-comments'));
+  } else {
+    loadTwikoo();
+  }
+}, 1);
+
+    </script>
+
+
+    </div>
+
+</article>
+
+
+        </div>
+        
+  <footer class="text-center">
+    
+      
+          
+              
+                  
+                    <p>&copy; 
+                        2019 - 
+                            2022&nbsp;&nbsp;&copy;天翔TNXG
+                    </p>
+                    
+                      <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
+                          href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+
+                      <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
+                      <p>站点访问量:<spanid="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
+                      </p>
+                      <p><a target="_blank" rel="noopener" href="https://travellings.link/"><img src="https://travellings.link/assets/logo.svg"
+                            width="10%"></a></p>
+                      <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
+                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+                            height="20%">又拍云</a> 提供CDN加速、云储存服务</p>
+  </footer>
+  
+    <div class="p-btn">
+      
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+        
+          <a href="#top" class="click-btn">
+            <i id="i-up"></i>
+          </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    
+
+
+    <!-- Google Analytics -->
+    <script defer>
+        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+        ga.l = +new Date;
+        ga('create', 'G-RLK9KD8ZT6', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<script>
+    document.getElementById("btn-dropdown").addEventListener('click', () => {
+      toggleClass("#dropdown-menus","display-inline");
+    });
+    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
+
+    
+
+    
+  /* 小彩蛋: 饮茶先啦 */
+  setTimeout(() => {
+    var time = new Date();
+    if (time.getHours() == 15) {
+      let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
+      document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
+    }
+  },1);
+    
+</script>
+
+
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
+
+
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
+
+
+
+
+
+
+
+      
+        
+<script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
+<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
+
+          
+            <script>
+              loadStatistic("https://qexo.prts.top")
+            </script>
+        </div>
+        <div id="css-loading">
+            <h3 class="text-center">加载中...</h3>
+        </div>
+        
+    </body>
+</html>

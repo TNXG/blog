@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="https://tnxg.loyunet.cn/favicon.png">
+    <link rel="icon" type="image/png" href="https://tnxg.loyunet.cn/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>关于图片储存的那些事 | 天翔TNXG的空间站</title>
+    
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    
+    <meta name="description" content="&lt;h1 id=&#34;序言&#34;&gt;&lt;a href=&#34;#序言&#34; class=&#34;headerlink&#34; title=&#34;序言&#34;&gt;&lt;/a&gt;序言&lt;/h1&gt;&lt;p&gt;自上次搬运了CYF的文章之后，再次谈及文件储存，也已经是一年多以后了&lt;/p&gt;
+&lt;p&gt;为什么要突然谈及关于这方面的事情呢？其实最主要的原因还是因为个人的动态博客因为资金问题停止运营&lt;span class=&#34;heimus&#34; title=&#34;你知道的太多了&#34;&gt;苦逼中学生&lt;/span&gt;从而转向了我之前以为技术问题而抛弃的静态博客，至少现在GitHub、GitHubPages、Vercel还是免费的，然鹅这就引发了一个非常严重的问题，我的静态资源扔到哪？&lt;/p&gt;">
+    <meta name="author" content="天翔TNXG">
+    <meta name="keywords" content="天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟">
+    <meta property="og:title" content="关于图片储存的那些事"/>
+    <script>
+        //判断非本机且未使用https 时，强制重定向到https。
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
+            window.location = window.location.toString().replace(/^http:/, "https:");
+    </script>
+    <script>
+        if (!!navigator.serviceWorker) {
+            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+                if (localStorage.getItem('cw_installed') !== 'true') {
+                    const conf = () => {
+                        console.log('[CW] Installing Success,Configuring...');
+                        fetch('/cw-cgi/api?type=config')
+                            .then(res => res.text())
+                            .then(text => {
+                                if (text === 'ok') {
+                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
+                                    localStorage.setItem('cw_installed', 'true');
+                                    //如果你不希望重载页面，请移除下面五行
+                                    fetch(window.location.href).then(res => res.text()).then(text => {
+                                        document.open()
+                                        document.write(text);
+                                        document.close();
+                                    });
+                                } else {
+                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                                    setTimeout(() => {
+                                        conf()
+                                    }, 200);
+                                }
+                            }).catch(err => {
+                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                            });
+                    }
+                    setTimeout(() => {
+                        conf()
+                    }, 50);
+                }
+            }).catch(err => {
+                console.error('[CW] Installing Failed,Error: ' + err.message);
+            });
+        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+    </script>
+    <style>
+
+
+    
+    :root{
+        --shadow-color: rgba(0,0,0,0.2);
+        --sec-shadow: rgba(0,0,0,0.03);
+        --shadow-hover-color: rgba(0,0,0,0.28);
+        --first-text-color: #475b6d;
+        --second-text-color: #37475b;
+        --third-text-color: #858585;
+        --default-text-color: #505050;
+        --default-link-color: #007bff;
+        --link-color: #000000;
+        --second-link-color: #4F9BFA;
+        --code-color:rgba(27,31,35,.05);
+        --post-bkg-color: #fff;
+        --page-bkg-color: #f2f5f8;
+        --nav-a-hover-color: #3498db;
+        --post-sec-text-color: #718096;
+        --sec-bkg: #f2f5f8;
+        --color-mode: 'light';
+        --bkg-h: rgba(255,255,255,0.6);
+        --bkg-m: #e1e4e8;
+        --home-title-color: #4169E1;
+        --shadow: 0 4px 10px rgba(0,2,4,0.06),0 0 1px rgba(0,2,4,0.11);
+        --hr-color: #ddd;
+        --bg-t: #f4f4f4;
+        --nav-bkg: rgba(255,255,255,0.6);
+    }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-mode: 'dark';
+  }
+
+  :root:not([data-theme]) {
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+  }
+}
+
+[data-theme='dark'] {
+    --shadow-color: rgba(0,0,0,0.2);
+    --shadow-hover-color: rgba(0,0,0,0.28);
+    --first-text-color: hsla(0,0%,100%,0.92);
+    --second-text-color: hsla(0,0%,100%,0.86);
+    --third-text-color: #a7a9ad;
+    --default-text-color: #505050;
+    --default-link-color: #1589e9;
+    --link-color: #000000;
+    --second-link-color: #30a9de;
+    --post-bkg-color: #252d38;
+    --page-bkg-color: #181c27;
+    --nav-a-hover-color: #3498db;
+    --post-sec-text-color: #a7a9ad;
+    --sec-bkg: #364151;
+    --bkg-h: rgba(255,255,255,0.2);
+    --bkg-m: rgba(255,255,255,0.1);
+    --home-title-color: rgb(226, 82, 90);
+    --code-color:#3e4b5e;
+    --shadow: none;
+    --hr-color: #718096;
+    --bg-t: #364151;
+    --nav-bkg: rgba(13,17,23,0.6);
+}
+
+</style>
+
+
+
+    
+<link rel="stylesheet" href="https://assets.tnxg.whitenuo.cn/blog-file/assets/css/master.css">
+<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+
+
+<style>
+#page-main,footer,.p-btn{
+    display: none;
+}
+html,body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: overlay;
+}
+body{
+    background-color: var(--page-bkg-color);
+    color: var(--second-text-color);
+    overflow-y: scroll;
+}
+a {
+    color: var(--default-link-color);
+    text-decoration: none;
+    background-color: transparent;
+}
+a:hover{
+    color: var(--second-link-color);
+}
+.main-content,.post-card-main{
+    margin: 30px;
+}
+
+
+
+@media (max-width: 410px){
+    .post-card-main{
+        max-width: 350px!important;
+    }
+}
+
+@media (max-width: 980px){
+    .post-card-main{
+        max-width: 520px!important;
+    }
+}
+
+
+@media (min-width: 780px){ 
+    h3{
+        font-size: 1.5rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 1280px){ 
+    h3{
+        font-size: 1.7rem;
+        line-height: 1.5em;
+    }
+}
+@media (min-width: 2096px){ 
+    h3{
+        font-size: 1.8rem;
+        line-height: 1.5em;
+    }
+}
+
+.text-center{
+    text-align: center!important;
+}
+.middle-center{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    height: 54px;
+    padding: 0 1.25rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--bkg-m);
+    background-color: var(--nav-bkg);
+}
+header .header__left, header .header__right {
+    display: flex;
+    align-items: center;
+    font-family: rubik,sans-serif,Varela Round;
+}
+header .header__left .logo__text {
+    font-size: 18px;
+    font-weight: 450;
+    padding: 14.5px 10px;
+    border-radius: 5px;
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus {
+    height: 54px;
+    padding: 0 0 0 15px;
+}
+header .header__right .button {
+    color: var(--second-text-color);
+}
+header .header__right .navbar__menus .navbar-menu {
+    display: inline-block;
+    align-items: center;
+    height: 54px;
+    padding: 0 10px;
+    font-size: 16px;
+    line-height: 54px;
+}
+header .header__right .dropdown-icon {
+    display: none;
+    height: 54px;
+    padding: 15px 10px;
+    border: 0;
+    background-color: transparent;
+}
+header .header__right .dropdown-menus {
+    line-height: 2rem;
+    animation: slide-in .15s ease 1;
+    display: none;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(54px + 10px);
+    border-radius: 6px;
+    padding: 24px;
+    background-color: var(--page-bkg-color);
+    border: 1px solid var(--bkg-m);
+    z-index: 9999;
+    justify-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+header .header__right #btn-search, header .header__right #btn-toggle-dark{
+    display: inline-block;
+    padding:  18px 10px;
+    height: 25px;
+}
+header .header__right #btn-dropdown{
+  display: inline-block;
+  padding:  13.5px 0;
+}
+header .header__right .dropdown-menus .dropdown-menu {
+    padding: 10px;
+    color: var(--second-text-color);
+}
+@media screen and (max-width: 764px){
+.navbar__menus {
+    display: none!important;
+}
+.dropdown-icon {
+    display: inline-block!important;
+}
+}
+.p-btn{
+    position: fixed;
+    bottom: 1.2rem;
+    right: 1.2rem;
+    contain: layout;
+}
+.toc-btn,.click-btn{
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    align-items: center;
+    margin-top: .5rem;
+    font-size: .75rem;
+    background-color: var(--sec-bkg);
+    display: block;
+    padding: 0.9rem;
+    box-shadow: 0 0.3rem 0.6rem rgba(48,55,66,.15);
+    border: none;
+    border-radius: 0.5rem;
+    line-height: 1;
+    color: var(--first-text-color);
+}
+.toc-link{
+    color: var(--second-text-color);
+}
+
+#css-loading h3{
+    font-weight: 500;
+    font-size: 1.4rem;
+    text-align: center;
+    position: fixed;
+    top: 200px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    animation: cssLoad;
+    animation-delay: 0.3s;
+    -webkit-animation: cssLoad;
+    -webkit-animation-delay: 0.3s;
+}
+@keyframes cssLoad {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+
+.memorial {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1); filter:gray;
+}
+
+
+    .post-copyright:after {
+        position: absolute;
+        color: #fff;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+        content: ' ';
+        height: 10rem;
+        width: 10rem;
+        right: -2rem;
+        top: -2rem;
+        opacity: .1;
+    }
+
+</style>
+
+    
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+            <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
+    
+    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    
+    <script src="/js/main.js"></script>
+    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    
+<meta name="generator" content="Hexo 6.2.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
+</head>
+
+    <body>
+        <header>
+            
+<div class="header__left">
+	<a href="/" class="button"><span class="logo__text">天翔TNXG的空间站</span></a>
+</div>
+<div class="header__right">
+	<div class="navbar__menus">
+		
+		<a href="/" class="button">
+			<div class="navbar-menu">首页</div>
+		</a>
+		
+		<a href="/archives/" class="button">
+			<div class="navbar-menu">存档</div>
+		</a>
+		
+		<a href="/albums/" class="button">
+			<div class="navbar-menu">相册</div>
+		</a>
+		
+		<a href="/talks/" class="button">
+			<div class="navbar-menu">说说</div>
+		</a>
+		
+		<a href="/links/" class="button">
+			<div class="navbar-menu">友链</div>
+		</a>
+		
+		<a href="/policy/" class="button">
+			<div class="navbar-menu">条款</div>
+		</a>
+		
+		<a href="/more/" class="button">
+			<div class="navbar-menu">更多</div>
+		</a>
+		
+		<a href="/about/" class="button">
+			<div class="navbar-menu">关于</div>
+		</a>
+		
+	</div>
+	
+	<a href="/search/" class="button">
+		<div id="btn-search">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32">
+				<path
+					d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
+				</path>
+			</svg>
+		</div>
+	</a>
+	
+	<a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
+		<div>
+			<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+				stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+			</svg>
+		</div>
+	</a>
+	<a href="javaScript:void(0);" class="dropdown-icon button">
+		<div id="btn-dropdown">
+			<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+				stroke="currentColor" stroke-width="32" stroke-linecap="round">
+				<path
+					d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
+					fill="currentColor"></path>
+			</svg>
+		</div>
+	</a>
+	<div class="dropdown-menus" id="dropdown-menus">
+		
+		<a href="/" class="dropdown-menu button">首页</a>
+		<br>
+		
+		<a href="/archives/" class="dropdown-menu button">存档</a>
+		<br>
+		
+		<a href="/albums/" class="dropdown-menu button">相册</a>
+		<br>
+		
+		<a href="/talks/" class="dropdown-menu button">说说</a>
+		<br>
+		
+		<a href="/links/" class="dropdown-menu button">友链</a>
+		<br>
+		
+		<a href="/policy/" class="dropdown-menu button">条款</a>
+		<br>
+		
+		<a href="/more/" class="dropdown-menu button">更多</a>
+		<br>
+		
+		<a href="/about/" class="dropdown-menu button">关于</a>
+		<br>
+		
+	</div>
+</div>
+
+        </header>
+        <div id="top"></div>
+        <div id="page-main" class="main-content">
+        <div class="mg-top">
+            
+
+<article class="page">
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>关于图片储存的那些事</h3>
+    
+      <span class="post-meta-label">
+        天翔TNXG
+      </span>
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2022-04-11 00:50" pubdate>
+          2022-04-11-00-50
+        </time>
+      </span>
+    
+    
+      
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        共 1k 字
+      </span>
+    
+    
+    
+  </div>
+  
+</div>
+<div class="article-m">
+  <div class="post-toc">
+    
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BA%8F%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">序言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AC%E5%85%B1%E5%9B%BE%E5%BA%8A"><span class="toc-number">2.</span> <span class="toc-text">公共图床</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#SM-MS"><span class="toc-number">2.1.</span> <span class="toc-text">SM.MS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E5%90%88%E5%9B%BE%E5%BA%8A"><span class="toc-number">2.2.</span> <span class="toc-text">聚合图床</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%AF%E8%BF%87%E5%9B%BE%E5%BA%8A"><span class="toc-number">2.3.</span> <span class="toc-text">路过图床</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89%E6%8A%80%E6%9C%AF%E5%8A%9B%E7%9A%84%E7%99%BD%E5%AB%96"><span class="toc-number">3.</span> <span class="toc-text">没有技术力的白嫖</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#bilibili"><span class="toc-number">3.1.</span> <span class="toc-text">bilibili</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Github-JSDelivr"><span class="toc-number">3.2.</span> <span class="toc-text">Github+JSDelivr</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NPM-%E5%90%84%E7%A7%8DNPM%E9%95%9C%E5%83%8F"><span class="toc-number">3.3.</span> <span class="toc-text">NPM + 各种NPM镜像</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87%E7%BC%93%E5%AD%98"><span class="toc-number">3.4.</span> <span class="toc-text">图片缓存</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%BE%E8%AF%AD"><span class="toc-number">4.</span> <span class="toc-text">尾语</span></a></li></ol>
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <h1 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h1><p>自上次搬运了CYF的文章之后，再次谈及文件储存，也已经是一年多以后了</p>
+<p>为什么要突然谈及关于这方面的事情呢？其实最主要的原因还是因为个人的动态博客因为资金问题停止运营<span class="heimus" title="你知道的太多了">苦逼中学生</span>从而转向了我之前以为技术问题而抛弃的静态博客，至少现在GitHub、GitHubPages、Vercel还是免费的，然鹅这就引发了一个非常严重的问题，我的静态资源扔到哪？</p>
+<span id="more"></span>
+
+<p>网上所给出的JSDelivr+GitHub当做图床，我个人表示jsd是用来加速静态资源的不错，但是过度的滥用反而会导致出现问题</p>
+<p>虽然关于<code>JSDelivr had lost their ICP license</code>的风波已经过去了一段时间，且jsd在国内又可以正常访问了，但是其速度还是不如之前快了，所以用其加速下css、js之类的文件速度还算可观，但是我这种一张图就将近500KB的人来说，全文使用jsd是不太可取的</p>
+<p>我这篇文章还是仿照下CYF大佬的格式简单讲下现在的公共图床罢</p>
+<h1 id="公共图床"><a href="#公共图床" class="headerlink" title="公共图床"></a>公共图床</h1><h2 id="SM-MS"><a href="#SM-MS" class="headerlink" title="SM.MS"></a>SM.MS</h2><p>任何一篇讲图床的文章绕不开的就是sm.ms，它真的算是太知名了（）</p>
+<p>但我给出的评价是</p>
+<p><strong>使用体验极差</strong></p>
+<p>上传速度慢、在中国大陆无法访问</p>
+<p><img src="https://images.weserv.nl/?q=100&url=https://s2.loli.net/2022/04/10/wOSq3TekxaYZfRl.jpg"></p>
+<p>这个图床也算是彻底死了，别问我为什么图能加载出来，这走的图片反代（）</p>
+<h2 id="聚合图床"><a href="#聚合图床" class="headerlink" title="聚合图床"></a>聚合图床</h2><p>这个图床访问速度还是挺可观的，也算是我用的最早的图床，但是访问它的的图片还要经过重定向，我个人是不太喜欢的</p>
+<p><strong>总体还不错</strong></p>
+<p><img src="https://pic.imgdb.cn/item/5eee096c14195aa594064c7d.gif"></p>
+<h2 id="路过图床"><a href="#路过图床" class="headerlink" title="路过图床"></a>路过图床</h2><p>路过图床嘛，远近闻名的删图王</p>
+<p><strong>不作推荐</strong></p>
+<p><img src="https://s1.ax1x.com/2022/04/10/LALWCD.jpg"></p>
+<h1 id="没有技术力的白嫖"><a href="#没有技术力的白嫖" class="headerlink" title="没有技术力的白嫖"></a>没有技术力的白嫖</h1><h2 id="bilibili"><a href="#bilibili" class="headerlink" title="bilibili"></a>bilibili</h2><img src="https://i0.hdslb.com/bfs/album/a7fbf71215ebafaf7865d8bd57f19f20605fba1f.jpg" referrerpolicy="no-referrer">
+
+<p>哔哩哔哩的图床，速度快上传快，缺点就是防盗链</p>
+<p><a href="i0.hdslb.com">i0.hdslb.com</a>、<a href="i2.hdslb.com">i2.hdslb.com</a>，cdn是金山云</p>
+<p><a href="i1.hdslb.com">i1.hdslb.com</a>、<a href="i4.hdslb.com">i4.hdslb.com</a>、<a href="s1.hdslb.com">s1.hdslb.com</a>、<a href="s3.hdslb.com">s3.hdslb.com</a>，cdn是阿里云</p>
+<p><a href="i3.hdslb.com">i3.hdslb.com</a>，cdn是腾讯云</p>
+<p><a href="s2.hdslb.com">s2.hdslb.com</a>给的是<a href="cdn20.com">cdn20.com</a>，但是我不知道这是哪一家的cdn</p>
+<p>看自己喜好了，加载速度都很客观</p>
+<p><span class="heimu">叔叔有钱</span></p>
+<p>可以搭配PicGo使用，有现成的插件</p>
+<p><strong>如果不介意no-referrer的话便用，极力推荐</strong></p>
+<h2 id="Github-JSDelivr"><a href="#Github-JSDelivr" class="headerlink" title="Github+JSDelivr"></a>Github+JSDelivr</h2><p>网上的教程已经泛滥成灾了，就不必说了</p>
+<p>羊毛从羊身上长出来，你得这里怼着一只羊使劲薅羊毛，把羊薅死了就没那么好的羊让你薅了</p>
+<p><strong>极不推荐</strong></p>
+<h2 id="NPM-各种NPM镜像"><a href="#NPM-各种NPM镜像" class="headerlink" title="NPM + 各种NPM镜像"></a>NPM + 各种NPM镜像</h2><p>CYF大佬写了详细的教程：<a target="_blank" rel="noopener" href="https://blog.cyfan.top/p/eb490c73.html#npm-JSDelivr-amp-amp-Zhimg-amp-amp-bdstatic-amp-amp-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F">点击查看文章</a></p>
+<p>我也不多过于赘述了</p>
+<p>反正我的博客的图源就是b2桶和NPM来回切</p>
+<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;npm.elemecdn.com&#x2F; 是饿了么的用的阿里cdn
+https:&#x2F;&#x2F;unpkg.zhimg.com&#x2F; 是知乎的用的也是阿里
+https:&#x2F;&#x2F;shadow.elemecdn.com&#x2F; 已经停止维护了，用的阿里cdn
+https:&#x2F;&#x2F;code.bdstatic.com&#x2F;npm&#x2F; 是百度的用的百度cdn
+https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F; 是jsd的,目前可以正常访问，但是速度堪忧<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>较为推荐</strong></p>
+<h2 id="图片缓存"><a href="#图片缓存" class="headerlink" title="图片缓存"></a>图片缓存</h2><p>之前有一段时间也是用这个解决图片问题的，我个人喜欢images.weserv.nl提供的服务，这个服务商提供了非常丰富的图片后处理方法</p>
+<p><img src="https://images.weserv.nl/?q=100&url=https://cdn.jsdelivr.net/gh/tianxiang-tester/tianxiang-oss@master/img/24/86.jpg"></p>
+<h1 id="尾语"><a href="#尾语" class="headerlink" title="尾语"></a>尾语</h1><p>最保险的方法还是自己去花钱买阿里云、腾讯云、七牛、多吉云、又拍云等付费对象储存提供商提供的储存服务，再不济上传云盘、保存本地又何尝不是一种解决方法</p>
+<p>但是毕竟静态博客嘛，能白嫖就白嫖.jpg，不寒颤</p>
+<p>BackBlaze和IPFS等到时候单独写一篇文章，顺便附带一些这里介绍的图床的PicGo的上传方法，</p>
+<p>这篇文章等我又发现了什么优秀的可以白嫖的就更新（）</p>
+<p>夜深了，祝自己好梦</p>
+
+      </div>
+    </div>
+</div>
+
+<div class="post-category">
+
+    <div id="p-meta-i">
+        
+              
+                <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+              
+                <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E5%88%9B/">原创</a>
+              
+          
+          
+              
+                <a class="hover-with-bg" href="/tags/%E7%99%BD%E5%AB%96/"># 白嫖</a>
+              
+                <a class="hover-with-bg" href="/tags/%E6%96%87%E4%BB%B6%E5%82%A8%E5%AD%98/"># 文件储存</a>
+              
+                <a class="hover-with-bg" href="/tags/%E5%AF%B9%E8%B1%A1%E5%82%A8%E5%AD%98/"># 对象储存</a>
+              
+          
+    </div>
+</div>
+
+
+<div class="post-footer">
+  
+  <div class="donate text-center">
+    <span>喜欢这篇文章？为什么不考虑打赏一下作者呢？</span>
+    <div class="donate-way">
+      
+        <a href="/donate/" class="donate-btn button">
+          赞赏
+        </a>
+      
+    </div>
+  </div>
+  
+
+  <div class="post-copyright">
+    <p style="margin: 5px 0;">文章作者：<a href="/">天翔TNXG</a></p>
+    <p style="margin: 5px 0;">文章链接：<a href="https://tnxg.loyunet.cn/p/0cace299bdc7.html">https://tnxg.loyunet.cn/p/0cace299bdc7.html</a></p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，非常感谢。</p>
+  </div>
+  
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    <div id="miracle-comments">
+        <div id="tcomment">
+          <!-- <div style="display: flex;">
+            <a href="javascript:loadTwikoo();" id="loadCommentBtn" style="color:var(--first-text-color);border-radius: 5px;background-color:var(--sec-bkg);font-size: 1.1rem;text-decoration: none;border: none;cursor: pointer;    position: relative;vertical-align: baseline;padding: 10px;margin: 0 auto;">加载评论</a>
+          </div> -->
+          <div style="margin: 0 auto;width: 100%;text-align: center;">
+            <div class="donutSpinner" style="margin: auto;width: 25px;height: 25px;"><div></div></div>
+          </div>
+        </div>
+    </div>
+    <script>
+function loadComment() {
+  // https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js
+    try {
+      loadScriptFile({
+        
+          url: "https://cdn.staticfile.org/twikoo/1.6.7/twikoo.min.js",
+        
+        loadType: "async",
+        cb: () => {
+          twikoo.init({
+            envId: 'https://api.twikoo.prts.top',
+            el: '#tcomment',
+            region: 'ap-shanghai',
+            path: 'window.location.pathname'
+          });
+        }});
+    } catch (e) {
+      document.getElementById("loadCommentBtn").innerText = "无法加载 Twikoo 评论";
+      console.info(e);
+    }
+
+}
+
+function loadTwikoo() {
+  try {
+    loadComment();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+var runningOnBrowser = typeof window !== "undefined";
+
+var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+
+var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        loadTwikoo();
+        observer.disconnect();
+      }
+    }, { threshold: [0] });
+    observer.observe(document.getElementById('miracle-comments'));
+  } else {
+    loadTwikoo();
+  }
+}, 1);
+
+    </script>
+
+
+    </div>
+
+</article>
+
+
+        </div>
+        
+  <footer class="text-center">
+    
+      
+          
+              
+                  
+                    <p>&copy; 
+                        2019 - 
+                            2022&nbsp;&nbsp;&copy;天翔TNXG
+                    </p>
+                    
+                      <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
+                          href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+
+                      <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
+                      <p>站点访问量:<spanid="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
+                      </p>
+                      <p><a target="_blank" rel="noopener" href="https://travellings.link/"><img src="https://travellings.link/assets/logo.svg"
+                            width="10%"></a></p>
+                      <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
+                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+                            height="20%">又拍云</a> 提供CDN加速、云储存服务</p>
+  </footer>
+  
+    <div class="p-btn">
+      
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+        
+          <a href="#top" class="click-btn">
+            <i id="i-up"></i>
+          </a>
+    </div>
+
+    <!-- SCRIPTS -->
+    
+
+
+    <!-- Google Analytics -->
+    <script defer>
+        window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
+        ga.l = +new Date;
+        ga('create', 'G-RLK9KD8ZT6', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+<script>
+    document.getElementById("btn-dropdown").addEventListener('click', () => {
+      toggleClass("#dropdown-menus","display-inline");
+    });
+    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
+
+    
+
+    
+  /* 小彩蛋: 饮茶先啦 */
+  setTimeout(() => {
+    var time = new Date();
+    if (time.getHours() == 15) {
+      let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
+      document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
+    }
+  },1);
+    
+</script>
+
+
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
+
+
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
+
+
+
+
+
+
+
+      
+        
+<script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
+<script src="https://tnxg.loyunet.cn/assets/js/message.js"></script>
+
+          
+            <script>
+              loadStatistic("https://qexo.prts.top")
+            </script>
+        </div>
+        <div id="css-loading">
+            <h3 class="text-center">加载中...</h3>
+        </div>
+        
+    </body>
+</html>
