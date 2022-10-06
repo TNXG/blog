@@ -1,32 +1,5 @@
 name: TNXGClientWorker
-hotconfig:
-  - https://cdn.jsdelivr.net/gh/TNXG/blog@static/config.yaml
-  - https://unpkg.com/tnxg-oss@latest/config.yaml
 catch_rules:
-  # - rule: ^(http|https)\:\/\/q1\.qlogo\.cn # 匹配qlogo
-  #   transform_rules:
-  #     - search: _
-  #       action: skip # 跳过拦截
-
-  # - rule: ^(http|https)\:\/\/cravatar\.cn # 匹配cravatar.cn
-  #   transform_rules:
-  #     - search: _
-  #       action: skip # 跳过拦截
-
-  # - rule: ^(http|https)\:\/\/api\.twikoo\.prts\.top # 匹配twikooAPI
-  #   transform_rules:
-  #     - search: _
-  #       action: skip # 跳过拦截
-
-  # - rule: ^(http|https)\:\/\/api\.friendcircle\.prts\.top # 匹配twikooAPI
-  #   transform_rules:
-  #     - search: _
-  #       action: skip # 跳过拦截
-
-  # - rule: ^(http|https)\:\/\/n\.clarity\.ms # 匹配n.clarity.ms
-  #   transform_rules:
-  #     - search: _
-  #       action: skip # 跳过拦截
   - rule: _
     transform_rules:
       - search: _ # 匹配原域，返回原域
@@ -63,28 +36,6 @@ catch_rules:
         redirect:
           to: /$1/
           status: 301
-      - search: (?<=\/\?redirect\=)().*$ # 匹配/?redirect=wwww，跳为wwww
-        action: redirect
-        redirect:
-          to: http://$1
-          status: 301
-
-      - search: _ # 多cdn并发
-        replace:
-          - _
-          - vercel.tnxg.loyunet.cn
-          - npm.elemecdn.com/tnxg-blog@latest
-          - cdn1.tianli0.top/npm/tnxg-blog@latest
-      - search: \.html$
-        header:
-          Content-Type: text/html;charset=UTF-8
-      - search: _    
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          timeout: 2000
 
   - rule: ^(http|https)\:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
     transform_rules:
@@ -106,120 +57,6 @@ catch_rules:
           preflight: false
           timeout: 5000
 
-  - rule: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net # 匹配Jsdelivr
-    transform_rules:
-      - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/ # 寻找 x.jsd.net/npm/的内容
-        replace:
-          - https://npm.elemecdn.com/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://npm.onmicrosoft.cn/
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
-      - search: ^(http|https)\:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/ # 寻找 x.jsd.net/gh/的内容
-        replace:
-          - https://cdn1.tianli0.top/gh/
-          - https://jsd.8b9.cn/gh/
-          - https://jsd.onmicrosoft.cn/gh/
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
-
-  - rule: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com # 匹配DogeCloud
-    transform_rules:
-      - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/ # 寻找 x.DogeCloud.com/npm/的内容
-        replace:
-          - https://npm.elemecdn.com/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://npm.onmicrosoft.cn/
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
-      - search: ^(http|https)\:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/ # 寻找 x.DogeCloud.com/gh/的内容
-        replace:
-          - https://cdn1.tianli0.top/gh/
-          - https://jsd.8b9.cn/gh/
-          - https://jsd.onmicrosoft.cn/gh/
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
-
-  - rule: ^(http|https)\:\/\/cdn1\.tianli0\.top # 匹配cdn1.tianli0.top
-    transform_rules:
-      - search: ^(http|https)\:\/\/cdn1\.tianli0\.top\/npm\/ # 寻找 cdn1.tianli0.top/npm/的内容
-        replace:
-          - https://npm.elemecdn.com/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://npm.onmicrosoft.cn/
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
-      - search: ^(http|https)\:\/\/cdn1\.tianli0\.top\/gh\/ # 寻找 cdn1.tianli0.top/gh/的内容
-        replace:
-          - https://jsd.onmicrosoft.cn/gh/
-          - https://jsd.8b9.cn/gh/
-          - https://cdn1.tianli0.top/gh/
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
-
-  - rule: ^(http|https)\:\/\/unpkg\.com # 匹配Unpkg
-    transform_rules:
-      - search: ^(http|https)\:\/\/unpkg\.com\/ # 寻找 unpkg.com/的内容
-        replace:
-          - https://npm.elemecdn.com/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-          - https://npm.onmicrosoft.cn/
-          - https://jsd.onmicrosoft.cn/npm/
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
-
-  - rule: ^(http|https)\:\/\/npm\.elemecdn\.com # 匹配Unpkg
-    transform_rules:
-      - search: ^(http|https)\:\/\/npm\.elemecdn\.com # 寻找 npm.elemecdn.com/的内容
-        replace:
-          - https://npm.elemecdn.com/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-          - https://npm.onmicrosoft.cn/
-          - https://jsd.onmicrosoft.cn/npm/
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
-          
   - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
@@ -264,21 +101,6 @@ catch_rules:
         action: fetch
         fetch:
           expire: 1000*60*60*24*365 #CDN默认缓存一年
-
-  - rule: ^(http|https)\:\/\/assets\.tnxg\.whitenuo\.cn # 匹配assets.tnxg.whitenuo.cn
-    transform_rules:
-      - search: ^(http|https)\:\/\/assets\.tnxg\.whitenuo\.cn\/blog-file\/ # 寻找 assets.tnxg.whitenuo.cn/blog-file的内容
-        replace:
-          - _
-          - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
-          - cdn.prts.top/npm/tnxg-blog@lates
-          - cdn1.tianli0.top/npm/tnxg-blog@latest
-        action: fetch
-        fetch:
-          engine: parallel
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24 
 
   - rule: (http|https)\:\/\/(.*)\/prism\/(.*)\/themes\/prism\-prism\-vsc\-dark\-plus.min\.css$ # 匹配xx/prism/xxx/themes/prism-prism-vsc-dark-plus.min.css
     transform_rules:
