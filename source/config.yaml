@@ -74,15 +74,7 @@ catch_rules:
           - _
           - vercel.tnxg.loyunet.cn
           - npm.elemecdn.com/tnxg-blog@latest
-          - jsd.8b9.cn/npm/tnxg-blog@latest
           - cdn1.tianli0.top/npm/tnxg-blog@latest
-          - cdn.prts.top/npm/tnxg-blog@latest
-          - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
-          - npm.onmicrosoft.cn/tnxg-blog@latest
-          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
-          - cdn.bilicdn.tk/npm/tnxg-blog@latest
-          - unpkg.com/tnxg-blog@latest
-          - cdn.jsdelivr.net/npm/tnxg-blog@latest
       - search: \.html$
         header:
           Content-Type: text/html;charset=UTF-8
@@ -121,13 +113,9 @@ catch_rules:
           - https://npm.elemecdn.com/
           - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
-          - https://cdn.prts.top/npm/
           - https://jsd.onmicrosoft.cn/npm/
           - https://npm.onmicrosoft.cn/
           - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
         action: fetch
         fetch:
           engine: parallel
@@ -139,10 +127,6 @@ catch_rules:
           - https://cdn1.tianli0.top/gh/
           - https://jsd.8b9.cn/gh/
           - https://jsd.onmicrosoft.cn/gh/
-          - https://cdn.prts.top/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
-          - https://gcore.jsdelivr.net/gh/
         action: fetch
         fetch:
           engine: parallel
@@ -157,13 +141,8 @@ catch_rules:
           - https://npm.elemecdn.com/
           - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
-          - https://cdn.prts.top/npm/
           - https://jsd.onmicrosoft.cn/npm/
           - https://npm.onmicrosoft.cn/
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
         action: fetch
         fetch:
           engine: parallel
@@ -175,10 +154,6 @@ catch_rules:
           - https://cdn1.tianli0.top/gh/
           - https://jsd.8b9.cn/gh/
           - https://jsd.onmicrosoft.cn/gh/
-          - https://cdn.prts.top/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
-          - https://gcore.jsdelivr.net/gh/
         action: fetch
         fetch:
           engine: parallel
@@ -193,13 +168,8 @@ catch_rules:
           - https://npm.elemecdn.com/
           - https://jsd.8b9.cn/npm/
           - https://cdn1.tianli0.top/npm/
-          - https://cdn.prts.top/npm/
           - https://jsd.onmicrosoft.cn/npm/
           - https://npm.onmicrosoft.cn/
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
         action: fetch
         fetch:
           engine: parallel
@@ -211,10 +181,6 @@ catch_rules:
           - https://jsd.onmicrosoft.cn/gh/
           - https://jsd.8b9.cn/gh/
           - https://cdn1.tianli0.top/gh/
-          - https://cdn.prts.top/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
-          - https://gcore.jsdelivr.net/gh/
         action: fetch
         fetch:
           engine: parallel
@@ -231,11 +197,6 @@ catch_rules:
           - https://cdn1.tianli0.top/npm/
           - https://npm.onmicrosoft.cn/
           - https://jsd.onmicrosoft.cn/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://cdn.prts.top/npm/
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
         action: fetch
         fetch:
           engine: parallel
@@ -252,11 +213,6 @@ catch_rules:
           - https://cdn1.tianli0.top/npm/
           - https://npm.onmicrosoft.cn/
           - https://jsd.onmicrosoft.cn/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://cdn.prts.top/npm/
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
         action: fetch
         fetch:
           engine: parallel
@@ -315,10 +271,8 @@ catch_rules:
         replace:
           - _
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
-          - cdn.bilicdn.tk/npm/tnxg-blog@lates
           - cdn.prts.top/npm/tnxg-blog@lates
           - cdn1.tianli0.top/npm/tnxg-blog@latest
-          - pages.tnxg.loyunet.cn
         action: fetch
         fetch:
           engine: parallel

@@ -1,1 +1,1 @@
-python update.py [F]修复页脚的一个小bug
+python update.py [F]优化页面样式
