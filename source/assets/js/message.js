@@ -20,20 +20,20 @@ async function gethitokoto() {
     document.getElementById("tnxg_hitokoto").innerHTML = `${returndata.content}(${returndata.from})`;
 }
 
-
-
-function getdata() {
+async function getdata() {
     if (!(localStorage.getItem('TNXGBlog_UserId'))) {
         localStorage.setItem('TNXGBlog_UserId', unique(36).toUpperCase());
     }
     ipinfo = getipinfo()
-    var req = new XMLHttpRequest();
-    req.open('POST', 'https://api.tnxg.prts.top/api/v1/callback', false);
-    req.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    req.send('userid=' + localStorage.getItem('TNXGBlog_UserId') + '&url=' + encodeURIComponent(window.location.href) + "&ip=" + ipinfo.ip + "&loc=" + ipinfo.location);
-    json = JSON.parse(req.response);
-    local = json.local;
-    document.getElementById("tnxg_addr").innerHTML = local;
+    con = fetch('https://api.tnxg.prts.top/api/v1/callback', {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/x-www-form-urlencoded'
+        },
+        body: 'userid=' + localStorage.getItem('TNXGBlog_UserId') + '&url=' + encodeURIComponent(window.location.href) + "&ip=" + ipinfo.ip + "&loc=" + ipinfo.location
+    });
+    json = await con.json();
+    document.getElementById("tnxg_addr").innerHTML = json.local;
 }
 
 function getipinfo() {

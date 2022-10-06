@@ -1,1 +1,1 @@
-python update.py [F]精简cw，修复message.js
+python update.py [F]message.js getdata部分异步处理
