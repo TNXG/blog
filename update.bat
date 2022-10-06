@@ -1,1 +1,1 @@
-python update.py [F]使page下有评论
+python update.py "[F]修复一个小问题"
