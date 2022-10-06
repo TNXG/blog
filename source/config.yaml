@@ -2,35 +2,18 @@ name: TNXGClientWorker
 catch_rules:
   - rule: _
     transform_rules:
-      - search: _ # 匹配原域，返回原域
+      - search: _
+        replace:
+          - _
+          - gcore.tnxg.loyunet.cn
+          - vercel.tnxg.loyunet.cn
         action: fetch
         fetch:
-          engine: fetch
-      - search: \/blog-cgi\/api?type=cwstatus # 匹配/blog-cgi/api?type=cwstatus，返回cw及配置信息
-        action: return
-        return:
-          body: '{"InstallStatus":"OK","ConfigVersion":"2.0.6","ClientWorkerVersion":"3.0.0-beta-3","ConfigLastUpdateTime":"1664004271"}'
-          status: 200
-        header:
-          content-type: text/json
-      - search: (^5) # 如果状态为5xx类则返回503
-        searchin: status
-        action: return
-        return:
-          body: The GateWay is down!This Page is provided by ClientWorker!
-          status: 503
-      - search: (403) # 如果状态为403类则返回403
-        searchin: status
-        action: return
-        return:
-          body: 403 Forbidden
-          status: 403
-      - search: (404) #如果状态为404类则返回404
-        searchin: status
-        action: return
-        return:
-          body: 404 Not Found
-          status: 404
+          status: .*
+          engine: parallel
+          preflight: false # false
+          timeout: 30000
+          delay: 4000
       - search: \/([^\/.]+)$ # 匹配/path，跳为/path/
         action: redirect
         redirect:
