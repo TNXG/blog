@@ -1,1 +1,1 @@
-python update.py [F]优化页面样式
+python update.py [F]精简cw，修复message.js

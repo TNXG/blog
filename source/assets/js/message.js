@@ -3,10 +3,10 @@ async function getnotice() {
     document.getElementById("tnxg_notice").innerHTML = localnotice;
     const replacehtml = await fetch('https://qexo.prts.top/pub/get_custom/?key=notice');
     noticejson = await replacehtml.json().data;
-    if (localnotice != noticejson.data) {
+    if (localnotice != noticejson) {
         console.log("天翔TNXG的空间站:::非最新公告，正在更新")
-        localStorage.setItem("TNXGBlog_notice", noticejson.data)
-        document.getElementById("tnxg_notice").innerHTML = noticejson.data;
+        localStorage.setItem("TNXGBlog_notice", noticejson)
+        document.getElementById("tnxg_notice").innerHTML = noticejson;
     }
 }
 
