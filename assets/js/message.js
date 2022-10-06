@@ -1,12 +1,13 @@
 async function getnotice() {
     localnotice = localStorage.getItem("TNXGBlog_notice");
+    console.log(`天翔TNXG的空间站::加载本地缓存公告，公告内容：${localnotice}`)
     document.getElementById("tnxg_notice").innerHTML = localnotice;
     const replacehtml = await fetch('https://qexo.prts.top/pub/get_custom/?key=notice');
-    noticejson = await replacehtml.json().data;
-    if (localnotice != noticejson) {
-        console.log("天翔TNXG的空间站:::非最新公告，正在更新")
-        localStorage.setItem("TNXGBlog_notice", noticejson)
-        document.getElementById("tnxg_notice").innerHTML = noticejson;
+    noticejson = await replacehtml.json();
+    if (localnotice != noticejson.data) {
+        console.log(`天翔TNXG的空间站::非最新公告或初次访问，正在更新，最新公告内容：${noticejson.data}`)
+        localStorage.setItem("TNXGBlog_notice", noticejson.data)
+        document.getElementById("tnxg_notice").innerHTML = noticejson.data;
     }
 }
 
@@ -25,7 +26,7 @@ async function getdata() {
         localStorage.setItem('TNXGBlog_UserId', unique(36).toUpperCase());
     }
     ipinfo = getipinfo()
-    con = fetch('https://api.tnxg.prts.top/api/v1/callback', {
+    const con = await fetch('https://api.tnxg.prts.top/api/v1/callback', {
         method: 'POST',
         headers: {
             'content-type': 'application/x-www-form-urlencoded'

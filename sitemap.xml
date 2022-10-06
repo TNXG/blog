@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tnxg.loyunet.cn/xineyc/guide.html</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/xineyc/index.html</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/xineyc/statistics.html</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://tnxg.loyunet.cn/blog-cgi/index.html</loc>
     
     <lastmod>2022-10-06</lastmod>
@@ -92,42 +119,6 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/xineyc/guide.html</loc>
-    
-    <lastmod>2022-10-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/xineyc/index.html</loc>
-    
-    <lastmod>2022-10-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/xineyc/statistics.html</loc>
-    
-    <lastmod>2022-10-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/p/09dc7c8016e3.html</loc>
-    
-    <lastmod>2022-10-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tnxg.loyunet.cn/assets/data/girls.json</loc>
     
     <lastmod>2022-10-06</lastmod>
@@ -156,6 +147,15 @@
   
   <url>
     <loc>https://tnxg.loyunet.cn/assets/data/monument.json</loc>
+    
+    <lastmod>2022-10-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/p/09dc7c8016e3.html</loc>
     
     <lastmod>2022-10-06</lastmod>
     
