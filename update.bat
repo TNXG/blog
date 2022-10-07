@@ -1,1 +1,1 @@
-python update.py "[F]修订页面"
+python update.py "[F]新文件适配友链朋友圈"
