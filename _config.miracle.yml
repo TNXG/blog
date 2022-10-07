@@ -46,6 +46,7 @@ custom:
   css:
     - "/assets/css/master.css"
     - "https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css"
+    - "https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css"
 
 
 index:
@@ -69,10 +70,10 @@ navbar:
   menu:
     首页: '/'
     存档: '/archives/'
-    标签: '/tags/'
     说说: '/talks/'
     友链: '/links/'
     友圈: '/friendcircle/'
+    开往: 'https://travellings.link/'
     条款: '/policy/'
     更多: '/more/'
     关于: '/about/'
@@ -153,4 +154,4 @@ static_prefix:
 
 lazyload:
   enable: true
-  loadingImage: "/path/to/your/file"
+  loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp"

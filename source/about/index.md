@@ -1,12 +1,12 @@
 ---
-title: 关于我
+title: 关于
 type: "about"
 date: 2022-02-07 16:35:30
-updated: 2022-04-04 21:50:35
+updated: 2022-10-07 12:50:35
 aplayer: true
 ---
 
-## About Me
+# 关于我
 >hey，看过来！快看看这只沙雕+废物！！快快快！！！
 >
 
@@ -16,16 +16,21 @@ aplayer: true
   </div>
 </div>
 
-> 未成年，可以独立思考，会发傻，~~爱吃桃~~，不足及时指出
+[![wakatime](https://wakatime.com/badge/user/4a671fe1-89e5-4c3d-acdd-6a423297698f.svg)](https://wakatime.com/@4a671fe1-89e5-4c3d-acdd-6a423297698f)
 
+> 未成年，可以独立思考，会发傻，~~爱吃桃~~，不足及时指出
 
 很高兴能够在此与你相遇，愿这份友谊永不消逝！
 
+<figure><embed src="https://wakatime.com/share/@TNXG/d02e03cf-37e4-4415-9226-87ff79d40804.svg"></embed></figure>
 
-## About Site
+# 联系方式
+[QQ](https://jq.qq.com/?_wv=1027&k=hc3OKNED) | [GitHub](https://github.com/TNXG) | [E-Mail](mailto:tianxiang_tnxg@outlook.com) | [网易云音乐](https://music.163.com/user/home?id=515522946) | [哔哩哔哩](https://space.bilibili.com/175424674) | [Telegram](https://t.me/tianxiang_tnxg) | [Twitter](https://twitter.com/TNXG4)
+
+# 关于站点
 >来看看站点的构成？（白嫖大王.jpg）
 
-{% imagesurl /images/article/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png %}
+![](https://assets.tnxg.whitenuo.cn/images/article/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png)
 
 ~~图片过时了~~
 
@@ -33,6 +38,28 @@ aplayer: true
 
 <details>
 <summary>2022</summary>
+
+### 2022-10-7
+新主题的适应性工作基本完成
+
+### 2022-10-5
+将hexo-theme-yun更换为hexo-theme-miracle
+<span class="heimu">说白了就更换了博客主题</span>
+
+### 2022-8-17
+更换HPPTalk为QexoTalks
+
+### 2022-8-13
+博客更换全新Logo
+
+### 2022-7-28
+全面更换自建资源仓库
+
+### 2022-7-21
+博客加入ClientWorker
+
+### 2022-7-12
+在前几天发现ElemeUnpkg镜像不回源，开始自建资源仓库
 
 ### 2022-6-7
 博客静态资源cdn由JsDelivr更换为ElemeUnpkg镜像，保证基础访问速度
@@ -118,20 +145,18 @@ MurlAPI初步建立
 在机缘巧合下，我注册了我的第一个域名<a href="http://misakanetwork.ml">misakanetwork.ml</a>，这将我带入了web的世界中来。不过那时候还是对着百度写一些简单的网页
 </details>
 
-## 感谢
+# 感谢
 
-[跳转到我们的鸣谢名单！](../thanks/)
+[跳转到我们的鸣谢名单！](/thanks/)
 
-## 其他
+# 其他
 
 <details>
-
 <summary>About Game</summary>
 
 ### 明日方舟
 
 997437387
-
 月霜夕#4422
 
 ### 我的世界Minecraft
@@ -142,19 +167,16 @@ BE: tian xiang zax6
 ### 少女前线
 
 1516432
-
 TARS天翔
 
 ### 崩坏3
 
 260574680
-
 天翔
 
 ### 原神
 
 142617967
-
 天翔TNXG
 
 </details>

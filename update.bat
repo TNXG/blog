@@ -1,1 +1,1 @@
-python update.py "[F]修复一个小问题"
+python update.py "[F]修订页面"
