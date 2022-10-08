@@ -1,64 +1,49 @@
 {
     "friends": [
-        {
-            "class_name": "天翔TNXG的空间站的友情链接",
-            "class_descr": "天翔TNXG的空间站的友情链接",
-            "link_list": [
-                {
-                    "link": "https://www.loyunet.cn",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.loyunet.cn.jpg",
-                    "name": "洛圄网络",
-                    "descr": "一个意外，一件奇遇"
-                },
-                {
-                    "link": "https://blog.redish101.top/",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/redish101.github.io.webp",
-                    "name": "Redish101博客",
-                    "descr": "路漫漫而修远兮，吾将上下而求索"
-                },
-                {
-                    "link": "https://zacrelnet.xyz/",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/zacrelnet.xyz.jpg",
-                    "name": "零谦的博客[Archive]",
-                    "descr": "分享资源但是大部分是水帖"
-                },
-                {
-                    "link": "https://blog.wututu.cn/",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.wututu.top.png",
-                    "name": "wututu-blog",
-                    "descr": "wututu的博客,各种干货分享的博客"
-                },
-                {
-                    "link": "https://blog.utermux.dev/",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/blog.utermux.dev.jpg",
-                    "name": "Utermux博客",
-                    "descr": "2096779623的个人博客"
-                },
-                {
-                    "link": "https://immmmm.com/",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/immmmm.com.png",
-                    "name": "林木木的博客",
-                    "descr": "林木木大佬！"
-                },
-                {
-                    "link": "https://www.nesxc.com/",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.nesxc.com.jpg",
-                    "name": "小N同学的博客",
-                    "descr": "青石落晚巷 故人未还乡"
-                },
-                {
-                    "link": "https://tianli-blog.club/",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/tianli-blog.club.webp",
-                    "name": "Tianli的博客",
-                    "descr": "惟其不可能，所以才相信。"
-                },
-                {
-                    "link": "https://www.594594.xyz/",
-                    "avatar": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.594594.xyz.jpg",
-                    "name": "轻音时雨的博客",
-                    "descr": "鹿友のKICO的小主页"
-                }
-            ]
-        }
+        [
+            "洛圄网络",
+            "https://www.loyunet.cn/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.loyunet.cn.jpg"
+        ],
+        [
+            "Redish101博客",
+            "https://blog.redish101.top/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/redish101.github.io.webp"
+        ],
+        [
+            "零谦的博客[Archive]",
+            "https://zacrelnet.xyz/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/zacrelnet.xyz.jpg"
+        ],
+        [
+            "wututu-blog",
+            "https://blog.wututu.cn/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.wututu.top.png"
+        ],
+        [
+            "Utermux博客",
+            "https://blog.utermux.dev/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/blog.utermux.dev.jpg"
+        ],
+        [
+            "林木木的博客",
+            "https://immmmm.com/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/immmmm.com.png"
+        ],
+        [
+            "小N同学的博客",
+            "https://www.nesxc.com/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.nesxc.com.jpg"
+        ],
+        [
+            "Tianli的博客",
+            "https://tianli-blog.club/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/tianli-blog.club.webp"
+        ],
+        [
+            "鹿友のKICO的小主页",
+            "https://www.594594.xyz/",
+            "https://assets.tnxg.whitenuo.cn/images/avatar/friends/www.594594.xyz.jpg"
+        ]
     ]
 }
