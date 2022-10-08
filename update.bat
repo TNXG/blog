@@ -1,1 +1,1 @@
-python update.py "[F]尝试使用新的友链朋友圈检测方式"
+python update.py "[F]更换友链显示方式"

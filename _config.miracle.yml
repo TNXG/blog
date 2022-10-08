@@ -19,7 +19,7 @@ global:
     enable: true
     from_year: 2019
     to_year: 2022
-    name: "&copy;天翔TNXG"
+    name: "天翔TNXG"
   ## 哀悼模式，网页黑白
   # memorial:
   #    enable: false
@@ -144,7 +144,10 @@ tag:
     end_color: "#454d5d"
 
 links:
-  enable: false
+  enable: true
+  json_links:
+    enable: true
+    item_links: "/assets/data/links.json"
 
 page404:
   enable: true
