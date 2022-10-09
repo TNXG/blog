@@ -1,1 +1,1 @@
-python update.py "[F]更换友链显示方式"
+python update.py "Feat: 新文章"
