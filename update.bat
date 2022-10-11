@@ -1,1 +1,1 @@
-python update.py "Fix: 修了个bug"
+python update.py "Updata: 升级友链朋友圈前端版本"
