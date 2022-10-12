@@ -21,6 +21,9 @@
   border-bottom: 2px solid #ccc;
   transition: opacity 0.2s;
 }
+.textretty a:links {
+  color: #6767ff;
+}
 .textretty a:hover {
   opacity: 0.8;
 }
