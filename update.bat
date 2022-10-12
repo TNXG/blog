@@ -1,1 +1,1 @@
-python update.py "Updata: 升级友链朋友圈前端版本"
+python update.py "Fix: 更改文章内超链接的颜色"
