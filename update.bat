@@ -1,1 +1,1 @@
-python update.py "Fix: 更改文章内超链接的颜色"
+python update.py "Fix: 再次尝试更改文章内超链接的颜色"
