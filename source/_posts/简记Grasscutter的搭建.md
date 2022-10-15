@@ -5,7 +5,8 @@ update: 2022-05-01 00:15:17
 tags: [原神, 私服, 抓包, 教程]
 categories: [游戏, 原创, 教程]
 ---
-{% imagesurl /images/article/2022/05/20220501000338.jpg %}
+
+![](https://assets.tnxg.whitenuo.cn/images/article/2022/05/20220501000338.jpg)
 
 # 前言
 
@@ -52,7 +53,7 @@ Mongodb
 
 首先需要到[Mongodb的官网](https://www.mongodb.com/try/download/community)下载软件，我这里推荐使用它的zip存档，这方便我们稍后配置<span class="heimus" title="你知道的太多了">如果大佬会配置Mongodb的自启或别的什么我就不说啥了，毕竟谁也不想每次开个Mongodb都要在安装盘里找半天</span>
 
-{% imagesurl /images/article/2022/04/20220430221147.png %}
+![](https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220430221147.png)
 
 ## 开启Mongodb
 
@@ -89,7 +90,7 @@ echo mongod --dbpath "../db" >> start.bat
 
 在以上前置软件安装完成后前往Github下载最新的[Grasscutter](https://github.com/Grasscutters/Grasscutter)，当然是下载源代码（保持版本最新嘛）
 
-{% imagesurl /images/article/2022/04/20220430223815.png %}
+![](https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220430223815.png)
 
 当然用git工具直接clone是最简单的`git clone https://github.com/Grasscutters/Grasscutter.git`
 

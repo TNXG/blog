@@ -3176,6 +3176,13 @@ hexo-cli@^4.3.0:
     resolve "^1.11.0"
     tildify "^2.0.0"
 
+hexo-filter-auto-spacing@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.npmmirror.com/hexo-filter-auto-spacing/-/hexo-filter-auto-spacing-0.2.1.tgz#2da2f3be434e3de93b946b6f6d4dbe80cb470dbe"
+  integrity sha512-CVD0zDTy7ubd5NRtl7zewvM9/qT3gFlbIkp2Y3D4rf39KpO0fsUg/mWOMuh5NzwjYP4fQIleuLKeZmWpYdNdSg==
+  dependencies:
+    pangunode "^0.1.0"
+
 hexo-front-matter@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npmjs.org/hexo-front-matter/-/hexo-front-matter-3.0.0.tgz"
@@ -5094,6 +5101,11 @@ pako@^1.0.3:
   version "1.0.11"
   resolved "https://registry.npmmirror.com/pako/-/pako-1.0.11.tgz"
   integrity sha512-4hLB8Py4zZce5s4yd9XzopqwVv/yGNhV1Bl8NTmCq1763HeK2+EwVTv+leGeL13Dnh2wfbqowVPXCIO0z4taYw==
+
+pangunode@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmmirror.com/pangunode/-/pangunode-0.1.0.tgz#9ab0e46d0f3227b506351599ae04e3880cfd051e"
+  integrity sha512-Vs4udXXLjaZnBeFGuLIrauj78Y7Kh9Bif9pDk+Wf/9jCjbnC7HHY4qXOcL2GI9vTDAX0uJ6Y5Wzf3Cj58avapA==
 
 parent-module@^1.0.0:
   version "1.0.1"

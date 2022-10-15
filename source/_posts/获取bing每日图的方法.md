@@ -5,7 +5,9 @@ updated: 2022-07-31 14:22:00
 tags: [白嫖, PHP]
 categories: [原创, 技术]
 ---
+
 随便扯一篇文章发出来？
+
 <!-- more -->
 ```php
 ini_set("display_errors", "Off");
