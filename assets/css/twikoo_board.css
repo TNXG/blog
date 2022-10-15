@@ -1,53 +1,37 @@
 /* 字体 */
-@font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/HarmonyOS_Sans.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/HarmonyOS_Sans.ttf");
     font-family: "HarmonyOS_Sans";
 }
 
-@font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/ysbth.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/ysbth.ttf");
     font-family: "ysbth";
 }
 
-@font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/CtrlAstr.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/CtrlAstr.ttf");
     font-family: "CtrlAstr";
 }
 
-@font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/Gsenochian.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/Gsenochian.ttf");
     font-family: "Gsenochian";
 }
 
-@font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/Tevyat.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/Tevyat.ttf");
     font-family: "Tevyat";
 }
 
-@font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/JetBrainsMono.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/JetBrainsMono.ttf");
     font-family: "JetBrainsMono";
 }
 
-.CtrlAstr {
-    font-family: "CtrlAstr";
-}
+.CtrlAstr {font-family: "CtrlAstr";}
 
-.ysbth {
-    font-family: "ysbth";
-}
+.ysbth {font-family: "ysbth";}
 
-.Gsenochian {
-    font-family: "Gsenochian";
-}
+.Gsenochian {font-family: "Gsenochian";}
 
-.Tevyat {
-    font-family: "Tevyat";
-}
+.Tevyat {font-family: "Tevyat";}
 
-.JetBrainsMono {
-    font-family: "JetBrainsMono";
-}
+.JetBrainsMono {font-family: "JetBrainsMono";}
 
 * {
     margin: 0;
@@ -95,9 +79,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-p {
-    margin-top: 10px;
-}
+p {margin-top: 10px;}
 
 i {
     margin-top: 10px;
@@ -120,7 +102,7 @@ a:hover {
     text-decoration: none
 }
 
-/*滚动条样式*/
+/* 滚动条样式 */
 *::-webkit-scrollbar {
     width: 4px;
     /*height: 4px;*/
@@ -174,8 +156,7 @@ a:hover {
     overflow: hidden;
 }
 
-.container.result {
-    background: rgba(120, 129, 147, 0.3);
+.container.result {background: rgba(120, 129, 147, 0.3);
     box-shadow: 0 0 10px 0px #333;
     backdrop-filter: blur(10px);
 }
@@ -236,9 +217,7 @@ h1.title {
     background: linear-gradient(90deg, #9c51ff, #816bff);
 }
 
-.info {
-    border-radius: 10px;
-}
+.info {border-radius: 10px;}
 
 .info .info-item {
     padding: 0px;
@@ -246,9 +225,7 @@ h1.title {
     /* line-height: 46px; */
 }
 
-.info .info-item~.info-item {
-    border-top: #e1e1e1 solid 1px;
-}
+.info .info-item~.info-item {border-top: #e1e1e1 solid 1px;}
 
 .info .info-item .lable {
     border-right: #e1e1e1 solid 1px;
@@ -264,16 +241,12 @@ h1.title {
 
 /* 黑幕 */
 .heimus,
-.heimus rt {
-    background-color: #252525
-}
+.heimus rt {background-color: #252525}
 
 span.heimus a.external,
 span.heimus a.external:visited,
 span.heimus a.extiw,
-span.heimus a.extiw:visited {
-    color: #252525
-}
+span.heimus a.extiw:visited {color: #252525}
 
 .heimus,
 .heimus a,

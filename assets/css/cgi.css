@@ -61,11 +61,9 @@
 }
 
 
-* {
-    box-sizing: border-box;
-}
+* {box-sizing: border-box;}
 
-/*滚动条样式*/
+/* 滚动条样式 */
 *::-webkit-scrollbar {
     width: 4px;
     /*height: 4px;*/
@@ -139,9 +137,7 @@ body {
 }
 
 button,
-a {
-    cursor: pointer;
-}
+a {cursor: pointer;}
 
 .app-container {
     width: 100%;
@@ -157,9 +153,7 @@ a {
 .app-container input,
 .app-container optgroup,
 .app-container select,
-.app-container textarea {
-    font-family: "DM Sans", sans-serif;
-}
+.app-container textarea {font-family: "DM Sans", sans-serif;}
 
 .app-content {
     display: flex;
@@ -183,17 +177,12 @@ a {
     align-items: center;
 }
 
-.app-header-left {
-    flex-grow: 1;
-}
+.app-header-left {flex-grow: 1;}
 
-.app-header-right button {
-    margin-left: 10px;
-}
+.app-header-right button {margin-left: 10px;}
 
 
-.app-name {
-    color: var(--main-color);
+.app-name {color: var(--main-color);
     margin: 0;
     font-size: 20px;
     line-height: 24px;
@@ -226,9 +215,7 @@ a {
     overflow: hidden;
 }
 
-.dark .search-wrapper {
-    box-shadow: none;
-}
+.dark .search-wrapper {box-shadow: none;}
 
 .search-input {
     border: none;
@@ -241,8 +228,7 @@ a {
     color: var(--main-color);
 }
 
-.search-input:placeholder {
-    color: var(--main-color);
+.search-input:placeholder {color: var(--main-color);
     opacity: 0.6;
 }
 
@@ -259,8 +245,7 @@ a {
     justify-content: center;
 }
 
-.notification-btn {
-    color: var(--main-color);
+.notification-btn {color: var(--main-color);
     padding: 0;
     border: 0;
     background-color: transparent;
@@ -289,8 +274,7 @@ a {
     margin-right: 4px;
 }
 
-.profile-btn span {
-    color: var(--main-color);
+.profile-btn span {color: var(--main-color);
     font-size: 16px;
     line-height: 24px;
     font-weight: 700;
@@ -308,8 +292,7 @@ a {
     align-items: center;
 }
 
-.app-sidebar-link {
-    color: var(--main-color);
+.app-sidebar-link {color: var(--main-color);
     color: var(--link-color);
     margin: 16px 0;
     transition: 0.2s;
@@ -322,13 +305,11 @@ a {
     align-items: center;
 }
 
-.app-sidebar-link:hover {
-    background-color: var(--link-color-hover);
+.app-sidebar-link:hover {background-color: var(--link-color-hover);
     color: var(--link-color-active);
 }
 
-.app-sidebar-link.active {
-    background-color: var(--link-color-active-bg);
+.app-sidebar-link.active {background-color: var(--link-color-active-bg);
     color: var(--link-color-active);
 }
 
@@ -367,13 +348,9 @@ a {
     color: var(--main-color);
 }
 
-.projects-section-header .time {
-    font-size: 20px;
-}
+.projects-section-header .time {font-size: 20px;}
 
-.projects-status {
-    display: flex;
-}
+.projects-status {display: flex;}
 
 .item-status {
     display: flex;
@@ -426,13 +403,11 @@ a {
     transition: 0.2s;
 }
 
-.view-btn.active {
-    background-color: var(--link-color-active-bg);
+.view-btn.active {background-color: var(--link-color-active-bg);
     color: var(--link-color-active);
 }
 
-.view-btn:not(.active):hover {
-    background-color: var(--link-color-hover);
+.view-btn:not(.active):hover {background-color: var(--link-color-hover);
     color: var(--link-color-active);
 }
 
@@ -460,8 +435,7 @@ a {
     display: none;
 }
 
-.messages-section.show {
-    transform: translateX(0);
+.messages-section.show {transform: translateX(0);
     opacity: 1;
     margin-left: 0;
 }
@@ -474,21 +448,18 @@ a {
     background-color: var(--projects-section);
 }
 
-.message-box {
-    border-top: 1px solid var(--message-box-border);
+.message-box {border-top: 1px solid var(--message-box-border);
     padding: 16px;
     display: flex;
     align-items: flex-start;
     width: 100%;
 }
 
-.message-box:hover {
-    background-color: var(--message-box-hover);
+.message-box:hover {background-color: var(--message-box-hover);
     border-top-color: var(--link-color-hover);
 }
 
-.message-box:hover+.message-box {
-    border-top-color: var(--link-color-hover);
+.message-box:hover+.message-box {border-top-color: var(--link-color-hover);
 }
 
 .message-box img {
@@ -535,16 +506,13 @@ a {
     cursor: pointer;
 }
 
-.dark .star-checkbox {
-    color: var(--secondary-color);
+.dark .star-checkbox {color: var(--secondary-color);
 }
 
-.dark .star-checkbox input:checked+label {
-    color: var(--star);
+.dark .star-checkbox input:checked+label {color: var(--star);
 }
 
-.star-checkbox input:checked+label svg {
-    fill: var(--star);
+.star-checkbox input:checked+label svg {fill: var(--star);
     transition: 0.2s;
 }
 
@@ -571,9 +539,7 @@ a {
     flex-wrap: wrap;
 }
 
-.project-boxes.jsGridView .project-box-wrapper {
-    width: 33.3%;
-}
+.project-boxes.jsGridView .project-box-wrapper {width: 33.3%;}
 
 .project-boxes.jsListView .project-box {
     display: flex;
@@ -581,9 +547,7 @@ a {
     position: relative;
 }
 
-.project-boxes.jsListView .project-box>* {
-    margin-right: 24px;
-}
+.project-boxes.jsListView .project-box>* {margin-right: 24px;}
 
 .project-boxes.jsListView .more-wrapper {
     position: absolute;
@@ -596,9 +560,7 @@ a {
     max-width: 120px;
 }
 
-.project-boxes.jsListView .project-box-header {
-    order: 2;
-}
+.project-boxes.jsListView .project-box-header {order: 2;}
 
 .project-boxes.jsListView .project-box-footer {
     order: 3;
@@ -607,13 +569,9 @@ a {
     justify-content: flex-start;
 }
 
-.project-boxes.jsListView .project-box-footer:after {
-    display: none;
-}
+.project-boxes.jsListView .project-box-footer:after {display: none;}
 
-.project-boxes.jsListView .participants {
-    margin-bottom: 8px;
-}
+.project-boxes.jsListView .participants {margin-bottom: 8px;}
 
 .project-boxes.jsListView .project-box-content-header p {
     text-align: left;
@@ -661,9 +619,7 @@ a {
     margin-bottom: 16px;
 }
 
-.project-box-content-header p {
-    margin: 0;
-}
+.project-box-content-header p {margin: 0;}
 
 .project-box-wrapper {
     padding: 8px;
@@ -691,13 +647,11 @@ a {
     transform: translatex(-50%);
   }
 
-  &:before { top: 0;}
-  &:after { bottom: 0; }*/
+  &:before {top: 0;}
+  &:after {bottom: 0;}*/
 }
 
-.more-wrapper {
-    position: relative;
-}
+.more-wrapper {position: relative;}
 
 .box-content-header {
     font-size: 16px;
@@ -773,9 +727,7 @@ a {
     object-fit: cover;
 }
 
-.participants img:not(:first-child) {
-    margin-left: -8px;
-}
+.participants img:not(:first-child) {margin-left: -8px;}
 
 .add-participant {
     width: 20px;
@@ -790,8 +742,7 @@ a {
     padding: 0;
 }
 
-.days-left {
-    background-color: rgba(255, 255, 255, 0.6);
+.days-left {background-color: rgba(255, 255, 255, 0.6);
     font-size: 12px;
     border-radius: 20px;
     flex-shrink: 0;
@@ -799,8 +750,7 @@ a {
     font-weight: 700;
 }
 
-.mode-switch.active .moon {
-    fill: var(--main-color);
+.mode-switch.active .moon {fill: var(--main-color);
 }
 
 .messages-btn {
@@ -819,28 +769,21 @@ a {
 }
 
 @media screen and (max-width: 980px) {
-    .project-boxes.jsGridView .project-box-wrapper {
-        width: 50%;
-    }
+    .project-boxes.jsGridView .project-box-wrapper {width: 50%;}
 
     .status-number,
-    .status-type {
-        font-size: 14px;
-    }
+    .status-type {font-size: 14px;}
 
     .status-type:after {
         width: 4px;
         height: 4px;
     }
 
-    .item-status {
-        margin-right: 0;
-    }
+    .item-status {margin-right: 0;}
 }
 
 @media screen and (max-width: 880px) {
-    .messages-section {
-        transform: translateX(100%);
+    .messages-section {transform: translateX(100%);
         position: absolute;
         opacity: 0;
         top: 0;
@@ -849,21 +792,15 @@ a {
         width: 100%;
     }
 
-    .messages-section .messages-close {
-        display: block;
-    }
+    .messages-section .messages-close {display: block;}
 
-    .messages-btn {
-        display: flex;
-    }
+    .messages-btn {display: flex;}
 }
 
 @media screen and (max-width: 720px) {
 
     .app-name,
-    .profile-btn span {
-        display: none;
-    }
+    .profile-btn span {display: none;}
 
     .add-btn,
     .notification-btn,
@@ -879,84 +816,52 @@ a {
         height: 16px;
     }
 
-    .app-header-right button {
-        margin-left: 4px;
-    }
+    .app-header-right button {margin-left: 4px;}
 }
 
 @media screen and (max-width: 520px) {
-    .projects-section {
-        overflow: auto;
-    }
+    .projects-section {overflow: auto;}
 
-    .project-boxes {
-        overflow-y: visible;
-    }
+    .project-boxes {overflow-y: visible;}
 
     .app-sidebar,
-    .app-icon {
-        padding: 20px 8px;
-    }
+    .app-icon {padding: 20px 8px;}
 
-    .app-content {
-        padding: 16px 12px 24px 12px;
-    }
+    .app-content {padding: 16px 12px 24px 12px;}
 
     .status-number,
-    .status-type {
-        font-size: 10px;
-    }
+    .status-type {font-size: 10px;}
 
     .view-btn {
         width: 24px;
         height: 24px;
     }
 
-    .app-header {
-        padding: 16px 10px;
-    }
+    .app-header {padding: 16px 10px;}
 
-    .search-input {
-        max-width: 120px;
-    }
+    .search-input {max-width: 120px;}
 
-    .project-boxes.jsGridView .project-box-wrapper {
-        width: 100%;
-    }
+    .project-boxes.jsGridView .project-box-wrapper {width: 100%;}
 
-    .projects-section {
-        padding: 24px 16px 0 16px;
-    }
+    .projects-section {padding: 24px 16px 0 16px;}
 
     .profile-btn img {
         width: 24px;
         height: 24px;
     }
 
-    .app-header {
-        padding: 10px;
-    }
+    .app-header {padding: 10px;}
 
     .projects-section-header p,
-    .projects-section-header .time {
-        font-size: 18px;
-    }
+    .projects-section-header .time {font-size: 18px;}
 
-    .status-type {
-        padding-right: 4px;
-    }
+    .status-type {padding-right: 4px;}
 
-    .status-type:after {
-        display: none;
-    }
+    .status-type:after {display: none;}
 
-    .search-input {
-        font-size: 14px;
-    }
+    .search-input {font-size: 14px;}
 
-    .messages-btn {
-        top: 48px;
-    }
+    .messages-btn {top: 48px;}
 
     .box-content-header {
         font-size: 12px;
@@ -968,17 +873,11 @@ a {
         line-height: 16px;
     }
 
-    .project-boxes.jsListView .project-box-header>span {
-        font-size: 10px;
-    }
+    .project-boxes.jsListView .project-box-header>span {font-size: 10px;}
 
-    .box-progress-header {
-        font-size: 12px;
-    }
+    .box-progress-header {font-size: 12px;}
 
-    .box-progress-percentage {
-        font-size: 10px;
-    }
+    .box-progress-percentage {font-size: 10px;}
 
     .days-left {
         font-size: 8px;
@@ -986,9 +885,7 @@ a {
         text-align: center;
     }
 
-    .project-boxes.jsListView .project-box>* {
-        margin-right: 10px;
-    }
+    .project-boxes.jsListView .project-box>* {margin-right: 10px;}
 
     .project-boxes.jsListView .more-wrapper {
         right: 2px;

@@ -1,15 +1,11 @@
 /* 黑幕 */
 .heimu,
-.heimu rt {
-  background-color: #252525
-}
+.heimu rt {background-color: #252525}
 
 span.heimu a.external,
 span.heimu a.external:visited,
 span.heimu a.extiw,
-span.heimu a.extiw:visited {
-  color: #252525
-}
+span.heimu a.extiw:visited {color: #252525}
 
 .heimu,
 .heimu a,
@@ -42,18 +38,14 @@ body:not(.heimu_toggle_on) .heimu:hover .new {
   color: #FCC
 }
 
-/* 黑幕s */
+/* 黑幕 s */
 .heimus,
-.heimus rt {
-  background-color: #252525
-}
+.heimus rt {background-color: #252525}
 
 span.heimus a.external,
 span.heimus a.external:visited,
 span.heimus a.extiw,
-span.heimus a.extiw:visited {
-  color: #252525
-}
+span.heimus a.extiw:visited {color: #252525}
 
 .heimus,
 .heimus a,
@@ -87,69 +79,48 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
 }
 
 /* 字体 */
-@font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/typeface/HarmonyOS_Sans.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/HarmonyOS_Sans.ttf");
   font-family: "HarmonyOS_Sans";
 }
 
-@font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/typeface/ysbth.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/ysbth.ttf");
   font-family: "ysbth";
 }
 
-@font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/typeface/CtrlAstr.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/CtrlAstr.ttf");
   font-family: "CtrlAstr";
 }
 
-@font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/typeface/Gsenochian.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/Gsenochian.ttf");
   font-family: "Gsenochian";
 }
 
-@font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/typeface/Tevyat.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/Tevyat.ttf");
   font-family: "Tevyat";
 }
 
-@font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/typeface/JetBrainsMono.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/JetBrainsMono.ttf");
   font-family: "JetBrainsMono";
 }
 
-@font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/typeface/AgeFonts001.ttf");
+@font-face {src: url("https://assets.tnxg.whitenuo.cn/typeface/AgeFonts001.ttf");
   font-family: "AgeFonts001";
 }
 
 
-body {
-  font-family: "HarmonyOS_Sans";
-}
+body {font-family: "HarmonyOS_Sans";}
 
-.CtrlAstr {
-  font-family: "CtrlAstr";
-}
+.CtrlAstr {font-family: "CtrlAstr";}
 
-.ysbth {
-  font-family: "ysbth";
-}
+.ysbth {font-family: "ysbth";}
 
-.Gsenochian {
-  font-family: "Gsenochian";
-}
+.Gsenochian {font-family: "Gsenochian";}
 
-.Tevyat {
-  font-family: "Tevyat";
-}
+.Tevyat {font-family: "Tevyat";}
 
-.JetBrainsMono {
-  font-family: "JetBrainsMono";
-}
+.JetBrainsMono {font-family: "JetBrainsMono";}
 
-.AgeFonts001 {
-  font-family: "AgeFonts001";
-}
+.AgeFonts001 {font-family: "AgeFonts001";}
 
 
 .bg {
@@ -191,13 +162,9 @@ body {
   pointer-events: none;
 }
 
-#girls {
-  text-align: center;
-}
+#girls {text-align: center;}
 
-.girls-number {
-  color: #fff;
-}
+.girls-number {color: #fff;}
 
 .girl-items {
   display: flex;
@@ -232,13 +199,10 @@ body {
   transition: 0.5s;
 }
 
-.girl-item .girl-avatar:hover {
-  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.12);
+.girl-item .girl-avatar:hover {box-shadow: 0 0 2rem rgba(0, 0, 0, 0.12);
 }
 
-.girl-item .girl-name {
-  font-size: 0.9rem;
-}
+.girl-item .girl-name {font-size: 0.9rem;}
 
 .girl-item .girl-from {
   font-size: 12px;
@@ -247,32 +211,23 @@ body {
   color: var(--hty-secondary-text-color);
 }
 
-.girl-item .girl-from::before {
-  content: '「';
+.girl-item .girl-from::before {content: '「';}
+
+.girl-item .girl-from::after {content: '」';}
+
+body {cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/cursor.png"), auto;
 }
 
-.girl-item .girl-from::after {
-  content: '」';
+a {cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
 }
 
-body {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/cursor.png"), auto;
+a:hover {cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
 }
 
-a {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
+.hty-icon-button {cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
 }
 
-a:hover {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
-}
-
-.hty-icon-button {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
-}
-
-input {
-  cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/text.cur"), auto;
+input {cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/text.cur"), auto;
 }
 
 .link-items {
@@ -307,9 +262,7 @@ input {
 }
 
 @media screen and (max-width: 768px) {
-  .link-url {
-    display: flex;
-  }
+  .link-url {display: flex;}
 }
 
 .link-url .link-left {
@@ -326,8 +279,7 @@ input {
   transition: 0.5s;
 }
 
-.link-url .link-avatar:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+.link-url .link-avatar:hover {box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .link-url .link-info {

@@ -4,26 +4,20 @@
 	 * Generate an indented list of links from a nav. Meant for use with panel().
 	 * @return {jQuery} jQuery object.
 	 */
-	$.fn.navList = function() {
-
-		var	$this = $(this);
+	$.fn.navList = function() {var	$this = $(this);
 			$a = $this.find('a'),
 			b = [];
 
-		$a.each(function() {
-
-			var	$this = $(this),
+		$a.each(function() {var	$this = $(this),
 				indent = Math.max(0, $this.parents('li').length - 1),
 				href = $this.attr('href'),
 				target = $this.attr('target');
 
 			b.push(
-				'<a ' +
-					'class="link depth-' + indent + '"' +
-					( (typeof target !== 'undefined' && target != '') ? ' target="' + target + '"' : '') +
-					( (typeof href !== 'undefined' && href != '') ? ' href="' + href + '"' : '') +
-				'>' +
-					'<span class="indent-' + indent + '"></span>' +
+				'<a' +
+					'class="link depth-'+ indent +'"' +
+					((typeof target !== 'undefined' && target != '') ?' target="'+ target +'"' : '') +
+					((typeof href !== 'undefined' && href != '') ?' href="'+ href +'"' : '') +'>'+'<span class="indent-' + indent + '"></span>' +
 					$this.text() +
 				'</a>'
 			);
@@ -46,9 +40,7 @@
 				return $this;
 
 		// Multiple elements?
-			if (this.length > 1) {
-
-				for (var i=0; i < this.length; i++)
+			if (this.length> 1) {for (var i=0; i < this.length; i++)
 					$(this[i]).panel(userConfig);
 
 				return $this;
@@ -108,12 +100,8 @@
 							return;
 
 					// If an event was provided, cancel it.
-						if (event) {
-
-							event.preventDefault();
-							event.stopPropagation();
-
-						}
+						if (event) {event.preventDefault();
+							event.stopPropagation();}
 
 					// Hide.
 						config.target.removeClass(config.visibleClass);
@@ -127,8 +115,7 @@
 
 							// Reset forms.
 								if (config.resetForms)
-									$this.find('form').each(function() {
-										this.reset();
+									$this.find('form').each(function() {this.reset();
 									});
 
 						}, config.delay);
@@ -141,19 +128,15 @@
 					.css('-webkit-overflow-scrolling', 'touch');
 
 			// Hide on click.
-				if (config.hideOnClick) {
-
-					$this.find('a')
+				if (config.hideOnClick) {$this.find('a')
 						.css('-webkit-tap-highlight-color', 'rgba(0,0,0,0)');
 
 					$this
-						.on('click', 'a', function(event) {
-
-							var $a = $(this),
+						.on('click', 'a', function(event) {var $a = $(this),
 								href = $a.attr('href'),
 								target = $a.attr('target');
 
-							if (!href || href == '#' || href == '' || href == '#' + id)
+							if (!href || href == '#' || href == ''|| href =='#' + id)
 								return;
 
 							// Cancel original event.
@@ -164,9 +147,7 @@
 								$this._hide();
 
 							// Redirect to href.
-								window.setTimeout(function() {
-
-									if (target == '_blank')
+								window.setTimeout(function() {if (target == '_blank')
 										window.open(href);
 									else
 										window.location.href = href;
@@ -178,9 +159,7 @@
 				}
 
 			// Event: Touch stuff.
-				$this.on('touchstart', function(event) {
-
-					$this.touchPosX = event.originalEvent.touches[0].pageX;
+				$this.on('touchstart', function(event) {$this.touchPosX = event.originalEvent.touches[0].pageX;
 					$this.touchPosY = event.originalEvent.touches[0].pageY;
 
 				})
@@ -206,19 +185,19 @@
 							switch (config.side) {
 
 								case 'left':
-									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX > delta);
+									result = (diffY < boundary && diffY> (-1 * boundary)) && (diffX> delta);
 									break;
 
 								case 'right':
-									result = (diffY < boundary && diffY > (-1 * boundary)) && (diffX < (-1 * delta));
+									result = (diffY < boundary && diffY> (-1 * boundary)) && (diffX < (-1 * delta));
 									break;
 
 								case 'top':
-									result = (diffX < boundary && diffX > (-1 * boundary)) && (diffY > delta);
+									result = (diffX < boundary && diffX> (-1 * boundary)) && (diffY> delta);
 									break;
 
 								case 'bottom':
-									result = (diffX < boundary && diffX > (-1 * boundary)) && (diffY < (-1 * delta));
+									result = (diffX < boundary && diffX> (-1 * boundary)) && (diffY < (-1 * delta));
 									break;
 
 								default:
@@ -239,25 +218,18 @@
 						}
 
 					// Prevent vertical scrolling past the top or bottom.
-						if (($this.scrollTop() < 0 && diffY < 0)
-						|| (ts > (th - 2) && ts < (th + 2) && diffY > 0)) {
-
-							event.preventDefault();
-							event.stopPropagation();
-
-						}
+						if (($this.scrollTop() <0 && diffY < 0)
+						|| (ts> (th - 2) && ts <(th + 2) && diffY > 0)) {event.preventDefault();
+							event.stopPropagation();}
 
 				});
 
 			// Event: Prevent certain events inside the panel from bubbling.
-				$this.on('click touchend touchstart touchmove', function(event) {
-					event.stopPropagation();
+				$this.on('click touchend touchstart touchmove', function(event) {event.stopPropagation();
 				});
 
 			// Event: Hide panel if a child anchor tag pointing to its ID is clicked.
-				$this.on('click', 'a[href="#' + id + '"]', function(event) {
-
-					event.preventDefault();
+				$this.on('click', 'a[href="#'+ id +'"]', function(event) {event.preventDefault();
 					event.stopPropagation();
 
 					config.target.removeClass(config.visibleClass);
@@ -267,14 +239,11 @@
 		// Body.
 
 			// Event: Hide panel on body click/tap.
-				$body.on('click touchend', function(event) {
-					$this._hide(event);
+				$body.on('click touchend', function(event) {$this._hide(event);
 				});
 
 			// Event: Toggle.
-				$body.on('click', 'a[href="#' + id + '"]', function(event) {
-
-					event.preventDefault();
+				$body.on('click', 'a[href="#'+ id +'"]', function(event) {event.preventDefault();
 					event.stopPropagation();
 
 					config.target.toggleClass(config.visibleClass);
@@ -285,9 +254,7 @@
 
 			// Event: Hide on ESC.
 				if (config.hideOnEscape)
-					$window.on('keydown', function(event) {
-
-						if (event.keyCode == 27)
+					$window.on('keydown', function(event) {if (event.keyCode == 27)
 							$this._hide(event);
 
 					});
@@ -311,9 +278,7 @@
 				return $this;
 
 		// Multiple elements?
-			if (this.length > 1) {
-
-				for (var i=0; i < this.length; i++)
+			if (this.length> 1) {for (var i=0; i < this.length; i++)
 					$(this[i]).placeholder();
 
 				return $this;
@@ -325,20 +290,15 @@
 
 		// Text, TextArea.
 			$this.find('input[type=text],textarea')
-				.each(function() {
+				.each(function() {var i = $(this);
 
-					var i = $(this);
-
-					if (i.val() == ''
-					||  i.val() == i.attr('placeholder'))
+					if (i.val() == ''||  i.val() == i.attr('placeholder'))
 						i
 							.addClass('polyfill-placeholder')
 							.val(i.attr('placeholder'));
 
 				})
-				.on('blur', function() {
-
-					var i = $(this);
+				.on('blur', function() {var i = $(this);
 
 					if (i.attr('name').match(/-polyfill-field$/))
 						return;
@@ -349,9 +309,7 @@
 							.val(i.attr('placeholder'));
 
 				})
-				.on('focus', function() {
-
-					var i = $(this);
+				.on('focus', function() {var i = $(this);
 
 					if (i.attr('name').match(/-polyfill-field$/))
 						return;
@@ -365,11 +323,8 @@
 
 		// Password.
 			$this.find('input[type=password]')
-				.each(function() {
-
-					var i = $(this);
-					var x = $(
-								$('<div>')
+				.each(function() {var i = $(this);
+					var x = $($('<div>')
 									.append(i.clone())
 									.remove()
 									.html()
@@ -392,38 +347,26 @@
 						x.hide();
 
 					i
-						.on('blur', function(event) {
-
-							event.preventDefault();
+						.on('blur', function(event) {event.preventDefault();
 
 							var x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
 
-							if (i.val() == '') {
-
-								i.hide();
-								x.show();
-
-							}
+							if (i.val() == '') {i.hide();
+								x.show();}
 
 						});
 
 					x
-						.on('focus', function(event) {
+						.on('focus', function(event) {event.preventDefault();
 
-							event.preventDefault();
-
-							var i = x.parent().find('input[name=' + x.attr('name').replace('-polyfill-field', '') + ']');
+							var i = x.parent().find('input[name=' + x.attr('name').replace('-polyfill-field', '') +']');
 
 							x.hide();
 
 							i
 								.show()
-								.focus();
-
-						})
-						.on('keypress', function(event) {
-
-							event.preventDefault();
+								.focus();})
+						.on('keypress', function(event) {event.preventDefault();
 							x.val('');
 
 						});
@@ -432,19 +375,13 @@
 
 		// Events.
 			$this
-				.on('submit', function() {
-
-					$this.find('input[type=text],input[type=password],textarea')
-						.each(function(event) {
-
-							var i = $(this);
+				.on('submit', function() {$this.find('input[type=text],input[type=password],textarea')
+						.each(function(event) {var i = $(this);
 
 							if (i.attr('name').match(/-polyfill-field$/))
 								i.attr('name', '');
 
-							if (i.val() == i.attr('placeholder')) {
-
-								i.removeClass('polyfill-placeholder');
+							if (i.val() == i.attr('placeholder')) {i.removeClass('polyfill-placeholder');
 								i.val('');
 
 							}
@@ -452,17 +389,13 @@
 						});
 
 				})
-				.on('reset', function(event) {
-
-					event.preventDefault();
+				.on('reset', function(event) {event.preventDefault();
 
 					$this.find('select')
 						.val($('option:first').val());
 
 					$this.find('input,textarea')
-						.each(function() {
-
-							var i = $(this),
+						.each(function() {var i = $(this),
 								x;
 
 							i.removeClass('polyfill-placeholder');
@@ -478,14 +411,10 @@
 
 									x = i.parent().find('input[name=' + i.attr('name') + '-polyfill-field]');
 
-									if (i.val() == '') {
-										i.hide();
-										x.show();
-									}
-									else {
-										i.show();
-										x.hide();
-									}
+									if (i.val() == '') {i.hide();
+										x.show();}
+									else {i.show();
+										x.hide();}
 
 									break;
 
@@ -498,8 +427,7 @@
 								case 'textarea':
 									i.val(i.attr('defaultValue'));
 
-									if (i.val() == '') {
-										i.addClass('polyfill-placeholder');
+									if (i.val() == '') {i.addClass('polyfill-placeholder');
 										i.val(i.attr('placeholder'));
 									}
 
@@ -532,9 +460,7 @@
 				$elements = $($elements);
 
 		// Step through elements.
-			$elements.each(function() {
-
-				var	$e = $(this), $p,
+			$elements.each(function() {var	$e = $(this), $p,
 					$parent = $e.parent();
 
 				// No parent? Bail.
