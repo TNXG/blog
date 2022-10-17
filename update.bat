@@ -1,1 +1,1 @@
-python update.py "Fix: 修改了构建工作流"
+python update.py "Updata: 更新插件"
