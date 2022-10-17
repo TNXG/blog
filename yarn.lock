@@ -3370,10 +3370,10 @@ hexo-renderer-stylus@^2.1.0:
     nib "^1.2.0"
     stylus "^0.57.0"
 
-hexo-seo-autopush@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.npmmirror.com/hexo-seo-autopush/-/hexo-seo-autopush-2.1.1.tgz#a443914ee18b97e4bce6f1f76e4141f6a553a9d7"
-  integrity sha512-zTy6U7y4mKbIuR/1efmtQNNYWL8CnElZVNW4Ep7XnIepcMNGOs5t7O8zeiHW0BsFPbi7MKxXsk+MFFMfh2NuRQ==
+hexo-seo-autopush@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.npmjs.org/hexo-seo-autopush/-/hexo-seo-autopush-2.1.2.tgz#3e42d0810080badb75a4b36db4b0ed180f38161e"
+  integrity sha512-SguIeXzceaTf3dum/BMYZVJKpmr+QSHEGN1Oagx99fKiZHsA1Dz7S21TQB7zP5hzrz7UJVIpW4V/+W0k0T87wg==
   dependencies:
     googleapis "^67.0.0"
     request "^2.88.2"
