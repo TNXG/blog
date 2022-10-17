@@ -7,15 +7,15 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>更换主题 Miracle | 天翔TNXG的空间站</title>
+    <title>归档 | 天翔TNXG的空间站</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="&lt;p&gt;其实早就有了更换主题的心思了，但是奈何页面修改太多想必迁移也是一种很麻烦的事情，但是思前想后最终还是把主题给更换了&lt;/p&gt;">
+    <meta name="description" content="明日尚未到来，希望凝于心上">
     <meta name="author" content="天翔TNXG">
-    <meta name="keywords" content="天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟">
-    <meta property="og:title" content="更换主题 Miracle"/>
+    <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
+    <meta property="og:title" content="归档"/>
     <script>
         //判断非本机且未使用https 时，强制重定向到https。
         if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
@@ -530,203 +530,23 @@ header .header__right .dropdown-menus .dropdown-menu {
             
 
 <article class="page">
-<div id="post-meta-m">
-    <div class="post-meta" id="post-meta">
-  <h3>更换主题 Miracle</h3>
-    
-      <span class="post-meta-label">
-        天翔TNXG
-      </span>
-    
-    
-      <span class="post-meta-label">
-        <span class="p-dot"></span>
-        <time datetime="2022-10-17 13:51" pubdate>
-          2022-10-17 13:51
-        </time>
-      </span>
+  <div class="archive-list">
+    <p class="h4">共计 16 篇文章</p>
+    <hr>
     
     
       
-      <span class="post-meta">
-        <span class="p-dot"></span>
-        共 668 字
-      </span>
-    
-    
-    
-  </div>
-  
-</div>
-<div class="article-m">
-  <div class="post-toc">
-    
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8E%E5%A4%B1%E6%95%88%E9%A1%B5%E9%9D%A2%E8%BF%9B%E8%A1%8C%E4%BF%AE%E6%94%B9"><span class="toc-number">1.</span> <span class="toc-text">对于失效页面进行修改 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E8%83%8C%E6%99%AF%E5%9B%BE%E7%89%87"><span class="toc-number">2.</span> <span class="toc-text">关于背景图片 </span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">3.</span> <span class="toc-text">其他 </span></a></li></ol>
-    
-  </div>
-    <div id="article">
-      <div id="post-content" class="markdown-body textretty">
-        <p>其实早就有了更换主题的心思了，但是奈何页面修改太多想必迁移也是一种很麻烦的事情，但是思前想后最终还是把主题给更换了</p>
-<span id="more"></span>
-
-<p>我实在受不了之前那个主题被我改的加载半天的页面了，当时正好群里的大佬在宣传他写的 Miracle 主题，看了看还是蛮符合我审美的，于是我就开始了痛苦的更换主题工作</p>
-<p><img src="https://assets.tnxg.whitenuo.cn/images/article/2022/10/9ddfa1cd417c722ee5c7e9304f0eda8f.png" alt="9ddfa1cd417c722ee5c7e9304f0eda8f"></p>
-<h1 id="对于失效页面进行修改"><a href="# 对于失效页面进行修改" class="headerlink" title="对于失效页面进行修改"></a>对于失效页面进行修改 </h1><p> 更换主题的过程中，我突然意识到貌似博客的 <a href="/girls/">Lovely Girls</a> 和 <a href="/monument/">Monument 丨丰碑</a> 是基于原主题提供的支持搭建的页面，如果更换主题那么这两个页面也将会出现问题，于是我看了看代码结构</p>
-<pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">new Vue(&#123;
-            el: &quot;#girls&quot;,
-            data: &#123;
-                girls: [],
-            &#125;,
-            async mounted() &#123;
-                this.girls &#x3D; await fetch(&quot;&#x2F;assets&#x2F;data&#x2F;monument.json&quot;)
-                    .then(res &#x3D;&gt; &#123;
-                        return res.json();
-                    &#125;)
-                if (true) &#123;
-                    this.girls.sort(() &#x3D;&gt; Math.random() - 0.5);
-                &#125;
-            &#125;
-        &#125;)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>好，妈的是 vue，根本不会，但是并不影响我将功能迁移到新的主题，毕竟没养过猪也吃过猪肉嘛</p>
-<p>简单对于这些页面进行处理之后这两个页面也算是恢复正常了 <span class="heimu"> 实际上 css 设置的还是有点小问题，待修复 </span>，但貌似 <a href="/video/"> 视频集 </a> 和 <a href="/albums/"> 相册集</a> 及其下属的子页面也是通过类似的代码实现的，但是我懒，不想搞了，，，到时候闲下来再说罢</p>
-<h1 id="关于背景图片"><a href="# 关于背景图片" class="headerlink" title="关于背景图片"></a>关于背景图片 </h1><p> 因为新主题并不支持背景图片，所以我用 css 简单实现了这个功能</p>
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.bg</span> <span class="token punctuation">&#123;</span>
-  <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
-  <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-  <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span><span class="token string url">"https://prts.top/api/img/wallpaper/?type=cdn"</span><span class="token punctuation">)</span></span><span class="token punctuation">;</span>
-  <span class="token property">background-repeat</span><span class="token punctuation">:</span> no-repeat<span class="token punctuation">;</span>
-  <span class="token property">background-position</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-  <span class="token property">background-size</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
-  <span class="token property">background-attachment</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
-  <span class="token property">z-index</span><span class="token punctuation">:</span> -100
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><code>z-index: -100</code>这个参数其实是我后面添加的，因为之前的 css 总会覆盖页面其他内容，于是简单设置了个优先度，将背景图片置于最底层</p>
-<h1 id="其他"><a href="# 其他" class="headerlink" title="其他"></a>其他 </h1><p> 实际上我对于很多页面进行了修复，其中包括了因为更换主题导致出现问题的页面及因为时间久远未进行维护的页面</p>
-<p>简单优化了一下实现公告功能的代码，删除了很多 cw 并发的链接，cw 本来就是对于页面进行加速的，像我原来那样配置非但没有起到加速的作用反而堵塞了网络请求，使页面无法加载或加载缓慢</p>
-<p>罢了罢了，溜走溜走，新主题到现在也算是配置好了</p>
-
-      </div>
-    </div>
-</div>
-
-<div class="post-category">
-
-    <div id="p-meta-i">
         
-          
-              
-                <a class="hover-with-bg" href="/tags/%E5%B0%8F%E8%AE%B0/"># 小记</a>
-              
-                <a class="hover-with-bg" href="/tags/%E5%8E%9F%E5%88%9B/"># 原创</a>
-              
-                <a class="hover-with-bg" href="/tags/%E6%80%BB%E7%BB%93/"># 总结</a>
-              
-          
-    </div>
-</div>
-
-
-<div class="post-footer">
-  
-  <div class="donate text-center">
-    <span>喜欢这篇文章？为什么不考虑打赏一下作者呢？</span>
-    <div class="donate-way">
+        <p class="h5">2022</p>
       
-        <a href="/donate/" class="donate-btn button">
-          赞赏
-        </a>
-      
-    </div>
-  </div>
-  
+      <a href="/p/09dc7c8016e3.html" class="list-group-item list-group-item-action">
+        <span class="archive-post-title">简记 Grasscutter 的搭建</span>
+        <time style="float: right;">05-01</time>
+      </a>
+    
 
-  <div class="post-copyright">
-    <p style="margin: 5px 0;">文章作者：<a href="/">天翔TNXG</a></p>
-    <p style="margin: 5px 0;">文章链接：<a href="https://tnxg.loyunet.cn/p/1114563838cb.html">https://tnxg.loyunet.cn/p/1114563838cb.html</a></p>
-    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处，非常感谢。</p>
-  </div>
-  
 </div>
-
-    <!-- Comments -->
-    <div class="comments">
-        
-        
-    <div id="miracle-comments">
-        <div id="tcomment">
-          <!-- <div style="display: flex;">
-            <a href="javascript:loadTwikoo();" id="loadCommentBtn" style="color:var(--first-text-color);border-radius: 5px;background-color:var(--sec-bkg);font-size: 1.1rem;text-decoration: none;border: none;cursor: pointer;    position: relative;vertical-align: baseline;padding: 10px;margin: 0 auto;">加载评论</a>
-          </div> -->
-          <div style="margin: 0 auto;width: 100%;text-align: center;">
-            <div class="donutSpinner" style="margin: auto;width: 25px;height: 25px;"><div></div></div>
-          </div>
-        </div>
-    </div>
-    <script>
-function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js
-    try {
-      loadScriptFile({
-        
-          url: "https://cdn.staticfile.org/twikoo/1.6.7/twikoo.min.js",
-        
-        loadType: "async",
-        cb: () => {
-          twikoo.init({
-            envId: 'https://api.twikoo.prts.top',
-            el: '#tcomment',
-            region: 'ap-shanghai',
-            path: 'window.location.pathname'
-          });
-        }});
-    } catch (e) {
-      document.getElementById("loadCommentBtn").innerText = "无法加载 Twikoo 评论";
-      console.info(e);
-    }
-
-}
-
-function loadTwikoo() {
-  try {
-    loadComment();
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-var runningOnBrowser = typeof window !== "undefined";
-
-var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
-
-var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
-
-setTimeout(function () {
-  if (!isBot && supportsIntersectionObserver) {
-    var observer = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting) {
-        loadTwikoo();
-        observer.disconnect();
-      }
-    }, { threshold: [0] });
-    observer.observe(document.getElementById('miracle-comments'));
-  } else {
-    loadTwikoo();
-  }
-}, 1);
-
-    </script>
-
-
-    </div>
-
 </article>
-
-
         </div>
         
   <footer class="text-center">
@@ -753,8 +573,6 @@ setTimeout(function () {
   
     <div class="p-btn">
       
-        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
-        
           <a href="#top" class="click-btn">
             <i id="i-up"></i>
           </a>
@@ -797,50 +615,8 @@ setTimeout(function () {
 </script>
 
 
-<script>
-    var postImg = document.querySelectorAll("article[class=page] img");
-    for (let imgi = 0; imgi < postImg.length; imgi++) {
-        postImg[imgi].onclick = () => {
-            let zoomImg = document.createElement("div");
-            zoomImg.id = "zoomImg";
-            zoomImg.innerHTML = `<div id="zoom-picture"></div>
-    <div class="poptrox-overlay"
-        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
-        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
-        <div
-            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
-        </div>
-        <div class="poptrox-popup"
-            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
-            <div class="loader" style="display: none;"></div>
-            <div class="pic" style="text-indent: 0px;"><img
-                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
-                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
-        </div>
-    </div>`;
-            document.body.appendChild(zoomImg);
-                document.querySelector("#zoomImg").onclick = () => {
-                    document.querySelector("#zoomImg").remove();
-                }
-        }
-    }
-    
-</script>
 
 
-
-
-    <script>
-        query("#toc-btn")[0].onclick = () => {
-            if (query(".post-toc")[0].innerHTML) {
-                toggleClass(".post-toc", "display-inline");
-            }
-        }
-
-        if (!query(".post-toc")[0].innerHTML) {
-            addClass("#toc-btn","display-none");
-        }
-    </script>
 
 
 
