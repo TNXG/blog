@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
 
 jobs:
   HexoBlogBuild:
@@ -48,3 +49,6 @@ jobs:
           BRANCH: static
           FOLDER: public
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
+      - name: keep alive
+        uses: gautamkrishnar/keepalive-workflow@master
