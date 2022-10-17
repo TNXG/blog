@@ -1,1 +1,1 @@
-python update.py "Fix: 修改.gitignore文件"
+python update.py "Fix: 删除缓存文件"
