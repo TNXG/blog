@@ -6,7 +6,7 @@
 title: 天翔TNXG的空间站
 subtitle: ''
 description: 明日尚未到来，希望凝于心上
-keywords: 天翔TNXG, TNXG , 个人自留地, 空间站, 明日方舟
+keywords: 天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话
 author: '天翔TNXG'
 language: 'zh-CN'
 timezone: 'Asia/Shanghai'
@@ -100,6 +100,11 @@ encrypt:
   wrong_hash_message: 抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.
 
 
+# enable: 开启/关闭 推送
+# cron: 执行时间周期
+# count: 每次提交最新的10篇文章，输入0或者不填写则默认为所有文章(建议是最新的10篇文章)
+# date: 更新时间(updated)|创建日期(created)
+# https://github.com/Lete114/hexo-seo-autopush.git
 hexo_seo_autopush:
   cron: 0 0,6,12,18,21 * * *
   baidu:
