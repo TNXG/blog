@@ -6,3 +6,5 @@ node_modules/
 public/
 .deploy*/
 update.bat
+yarn.lock
+package-lock.json

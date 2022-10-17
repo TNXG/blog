@@ -1,1 +1,1 @@
-python update.py "Fix: ĞŞ¸´ÅäÖÃ"
+python update.py "Fix: ĞŞ¸Ä.gitignoreÎÄ¼ş"
