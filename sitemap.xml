@@ -2,42 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tnxg.loyunet.cn/blog-cgi/index.html</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/board/index.html</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/categories/index.html</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/donate/bill.html</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tnxg.loyunet.cn/friendcircle/index.html</loc>
     
     <lastmod>2022-10-19</lastmod>
@@ -128,7 +92,52 @@
   </url>
   
   <url>
+    <loc>https://tnxg.loyunet.cn/blog-cgi/index.html</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/board/index.html</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/categories/index.html</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/donate/bill.html</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://tnxg.loyunet.cn/p/09dc7c8016e3.html</loc>
+    
+    <lastmod>2022-10-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/404.html</loc>
     
     <lastmod>2022-10-19</lastmod>
     
@@ -173,16 +182,7 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/404.html</loc>
-    
-    <lastmod>2022-10-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/p/6ffdb612451a.html</loc>
+    <loc>https://tnxg.loyunet.cn/p/c0df823fa6f5.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
