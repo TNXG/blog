@@ -25,7 +25,7 @@ aplayer: true
 <figure><embed src="https://wakatime.com/share/@TNXG/d02e03cf-37e4-4415-9226-87ff79d40804.svg"></embed></figure>
 
 # 联系方式
-[QQ](https://jq.qq.com/?_wv=1027&k=hc3OKNED) | [GitHub](https://github.com/TNXG) | [E-Mail](mailto:tianxiang_tnxg@outlook.com) | [网易云音乐](https://music.163.com/user/home?id=515522946) | [哔哩哔哩](https://space.bilibili.com/175424674) | [Telegram](https://t.me/tianxiang_tnxg) | [Twitter](https://twitter.com/TNXG4)
+[QQ](https://jq.qq.com/?_wv=1027&k=hc3OKNED) | [GitHub](https://github.com/TNXG) | [E-Mail](mailto:tianxiang_tnxg@outlook.com) | [网易云音乐](https://music.163.com/user/home?id=515522946) | [哔哩哔哩](https://space.bilibili.com/175424674) | [Telegram](https://t.me/tianxiang_tnxg) | [Twitter](https://twitter.com/tianxiang_tnxg)
 
 # 关于站点
 >来看看站点的构成？（白嫖大王.jpg）

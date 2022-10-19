@@ -1,1 +1,1 @@
-python update.py "Fix: 删除缓存文件"
+python update.py "Fix: 尝试使用网络方法解决cors问题"
