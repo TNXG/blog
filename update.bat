@@ -1,1 +1,1 @@
-python update.py "Fix: 添加.nojekyll文件"
+python update.py "Fix: 尝试更换方式修复cors问题"
