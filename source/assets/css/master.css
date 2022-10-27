@@ -158,7 +158,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url("https://prts.top/api/img/wallpaper/?type=cdn");
+  background-image: url("https://api.prts.top/img/wallpaper/?type=cdn");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -272,7 +272,7 @@ a:hover {
 }
 
 input {
-  cursor: url("https://cdn.yunyoujun.cn/css/md-cursors/text.cur"), auto;
+  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
 }
 
 .link-items {

@@ -1,1 +1,1 @@
-python update.py "Fix: 尝试更换方式修复cors问题"
+python update.py "Fix: 更换全新api接口"

@@ -39,7 +39,7 @@ async function getdata() {
 
 function getipinfo() {
     var xml = new XMLHttpRequest();
-    xml.open('GET', 'https://prts.top/api/ipinfo/', false);
+    xml.open('GET', 'https://api.prts.top/v1/ipinfo/', false);
     xml.send(null);
     json = JSON.parse(xml.response);
     return json;
