@@ -15,8 +15,8 @@ updated: 2022-10-06 16:35:30
 - [分类](/categories/)
 - 投喂
   - [主页](/donate/)
-  - [捐助者名单](/donate/sponsors.html)
-  - [账单](/donate/bill.html)
+  - [捐助者名单](/donate/sponsors/)
+  - [账单](/donate/bill/)
 - [友链朋友圈](/friendcircle/)
 - [Lovely Girls](/girls/)
 - [友情链接](/links/)

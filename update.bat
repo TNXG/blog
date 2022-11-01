@@ -1,1 +1,1 @@
-python update.py "Fix: 更换全新api接口"
+python update.py "Feat: New友链"
