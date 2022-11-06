@@ -1,1 +1,1 @@
-python update.py "Feat: 新文章"
+python update.py "Fix: 修复新文章的排版和时间问题"
