@@ -656,12 +656,14 @@ header .header__right .dropdown-menus .dropdown-menu {
               
             
             
-组合 html 信息 (获取最新 api 消息 ());
 
-function 获取最新 api 消息 () {var req = new XMLHttpRequest();
+
+printpages(get_lastet_apidata());
+
+function get_lastet_apidata() {var req = new XMLHttpRequest();
     req.open('GET', 'https://api.prts.top/v1/ak-conf/', false);
     req.send(null);
-    return JSON.parse(req.re
+    return JSON
         </p>
         <div class="index-btm post-metas">
           
