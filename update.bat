@@ -1,1 +1,1 @@
-python update.py "Fix: 修复新文章的排版和时间问题"
+python update.py "Fix: 修复部分文章因为api变动出现的问题"
