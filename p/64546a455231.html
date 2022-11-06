@@ -550,7 +550,7 @@ header .header__right .dropdown-menus .dropdown-menu {
       
       <span class="post-meta">
         <span class="p-dot"></span>
-        共 248 字
+        共 147 字
       </span>
     
     
@@ -570,27 +570,11 @@ header .header__right .dropdown-menus .dropdown-menu {
 组合 html 信息 (获取最新 api 消息 ());
 
 function 获取最新 api 消息 () {var req = new XMLHttpRequest();
-    req.open('GET', 'https://prts.top/api/ak-conf/', false);
+    req.open('GET', 'https://api.prts.top/v1/ak-conf/', false);
     req.send(null);
     return JSON.parse(req.response);
 }
 
-function 组合 html 信息 (data) {
-    返回值 = '';
-    数组信息 = data.announceList;
-    数组长度 = 数组信息.length;
-    for (i = 0; i < 数组长度; i++) {标题 = 数组信息 [i].title;
-        if (!( 数组信息 [i].isWebUrl)) {break;};
-        数据 url = 数组信息 [i].webUrl;
-        数据 id = 数据 url.substring(50, 数据 url.indexOf('.html'));
-        var req = new XMLHttpRequest();
-        req.open('GET', 'https://prts.top/api/ak-conf/?id=' + 数据 id, false);
-        req.send(null);
-
-        返回值 = 返回值 + ';' + 数据 url;
-    }
-    return
-}
 async function 组合 html 信息 (data) {
     返回值 = '';
     数组信息 = data.announceList;
@@ -599,7 +583,7 @@ async function 组合 html 信息 (data) {
         if (!( 数组信息 [i].isWebUrl)) {break;};
         数据 url = 数组信息 [i].webUrl;
         数据 id = 数据 url.substring(50, 数据 url.indexOf('.html'));
-        const replacehtml = await fetch('https://prts.top/api/ak-conf/?id=' + 数据 id);
+        const replacehtml = await fetch('https://api.prts.top/v1/ak-conf/?id=' + 数据 id);
         const returnhtml = await replacehtml.text();
         returndata = returnhtml.substring(returnhtml.indexOf('<div class="main">'), returnhtml.indexOf('</body>\n</html>'));
         returndata = returndata.split('<img class="banner-image"src="').join('<img src="');
