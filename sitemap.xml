@@ -2,9 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://tnxg.loyunet.cn/p/a8527ce0075d.html</loc>
+    <loc>https://tnxg.loyunet.cn/monument/index.html</loc>
     
-    <lastmod>2022-11-08</lastmod>
+    <lastmod>2022-11-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/policy/index.html</loc>
+    
+    <lastmod>2022-11-06</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/tags/index.html</loc>
+    
+    <lastmod>2022-11-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -101,33 +119,6 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/monument/index.html</loc>
-    
-    <lastmod>2022-11-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/policy/index.html</loc>
-    
-    <lastmod>2022-11-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/tags/index.html</loc>
-    
-    <lastmod>2022-11-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tnxg.loyunet.cn/donate/bill/index.html</loc>
     
     <lastmod>2022-11-06</lastmod>
@@ -191,7 +182,16 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/p/23644076e19f.html</loc>
+    <loc>https://tnxg.loyunet.cn/p/9b15392467a1.html</loc>
+    
+    <lastmod>2022-11-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/p/0dec4f588efd.html</loc>
     
     <lastmod>2022-10-15</lastmod>
     
