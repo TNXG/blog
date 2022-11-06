@@ -1,1 +1,1 @@
-python update.py "Fix: 修复背景接口错误的问题"
+python update.py "Feat: 新文章"
