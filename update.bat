@@ -1,1 +1,1 @@
-python update.py "Fix: 再次修复部分文章因为api变动出现的问题"
+python update.py "Fix: 修改netlify配置"
