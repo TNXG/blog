@@ -1,1 +1,1 @@
-python update.py "Fix: 修改netlify配置"
+python update.py "Feat: 提交新文章"
