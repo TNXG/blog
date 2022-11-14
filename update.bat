@@ -1,1 +1,1 @@
-python update.py "Fix: 修复文件命名错误的问题"
+python update.py "Fix: 尝试修复Netlify部署的Bug"
