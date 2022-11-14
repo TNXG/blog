@@ -1,1 +1,1 @@
-python update.py "Feat: 提交新文章"
+python update.py "Fix: 修复文件命名错误的问题"
