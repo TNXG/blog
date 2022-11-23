@@ -1,1 +1,1 @@
-python update.py "Fix: 尝试修复Netlify部署的Bug"
+python update.py "Feat: 新一言和修改许可协议"
