@@ -1,1 +1,1 @@
-python update.py "Feat: 新一言和修改许可协议"
+python update.py "Fix: 修改页脚"
