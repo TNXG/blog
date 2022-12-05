@@ -1,1 +1,1 @@
-python update.py "Feat: 更新主题"
+python update.py "Fix: 修改页面样式"
