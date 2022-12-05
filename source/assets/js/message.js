@@ -1,3 +1,14 @@
+function tnxg_pages() {
+    getdata();
+    bloggeractivetime();
+}
+
+function tnxg_index() {
+    tnxg_pages();
+    getnotice();
+    gethitokoto()
+}
+
 async function getnotice() {
     localnotice = localStorage.getItem("TNXGBlog_notice");
     console.log(`天翔TNXG的空间站::加载本地缓存公告，公告内容：${localnotice}`)
@@ -43,6 +54,19 @@ function getipinfo() {
     xml.send(null);
     json = JSON.parse(xml.response);
     return json;
+}
+
+async function bloggeractivetime() {
+    const replacehtml = await fetch('https://qexo.prts.top/pub/status/');
+    noticejson = await replacehtml.json();
+    date = new Date(noticejson.data.last * 1000);
+    Y = date.getFullYear() + '年';
+    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '月';
+    D = date.getDate() + '日';
+    h = date.getHours() + ':';
+    m = date.getMinutes();
+    document.getElementById("bloggeractivetime").innerHTML = Y + M + D + h + m;
+    console.log(noticejson.data.last * 1000)
 }
 
 function unique(size) {

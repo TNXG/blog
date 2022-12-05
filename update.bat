@@ -1,1 +1,1 @@
-python update.py "Fix: 修改Bug"
+python update.py "Feat: 更新主题"

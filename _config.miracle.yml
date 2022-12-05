@@ -79,6 +79,9 @@ navbar:
     关于: '/about/'
 
 post:
+  readingProgess:
+    enable: true
+
   meta:
     author: true
     date: true
@@ -157,4 +160,8 @@ static_prefix:
 
 lazyload:
   enable: true
-  loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/heita_zhuan_slow.gif/webp"
+  onlypost: false
+  loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif/webp"
+
+qexo_time:
+    enable: true
