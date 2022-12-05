@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
+
 <head>
     <meta charset="UTF-8">
     
@@ -16,10 +17,12 @@
     <meta name="author" content="天翔TNXG">
     <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
     <meta property="og:title" content="Lovely Girls"/>
+
     <script>
         //判断非本机且未使用https 时，强制重定向到https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
             window.location = window.location.toString().replace(/^http:/, "https:");
+        }
     </script>
     <script>
         if (!!navigator.serviceWorker) {
@@ -58,6 +61,7 @@
             });
         } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
     </script>
+    
     <style>
 
 
@@ -393,6 +397,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 </style>
 
     
+
+    
         <!--
         <link rel="stylesheet" href="/css/page.css" media="print"
             onload="this.media='all';this.onload=null">
@@ -405,11 +411,11 @@ header .header__right .dropdown-menus .dropdown-menu {
     <noscript>
         <link rel="stylesheet" href="/css/main.css">
     </noscript>
-    
-    <script src="/js/main.js"></script>
     <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
 	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+    
+    <script src="/js/main.js"></script>
     
     <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
@@ -652,6 +658,8 @@ setTimeout(function () {
       
           
               
+                <p>站长最后在线时间&nbsp<span id="bloggeractivetime">[Loading ]</span></p>
+                
                   
                     <p>&copy; 
                         2019 - 
@@ -660,27 +668,36 @@ setTimeout(function () {
                     
                       <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
                           href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
-
                       <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
                       <p>站点访问量:<span id="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
                       </p>
                       <!-- <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
-                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
-                            height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
-                      <p><a target="_blank" rel="noopener" href="https://travellings.cn/"><img src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
-                          height="40%" /></a></p>
+                  src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+                  height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
+                      <p><a target="_blank" rel="noopener" href="https://travellings.cn/"><img
+                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
+                            height="40%" /></a></p>
   </footer>
   
     <div class="p-btn">
       
-          <a href="#top" class="click-btn">
-            <i id="i-up"></i>
-          </a>
+          
+            <a class="toc-btn" id="share-btn"><i>
+                <svg t="1670124379155" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" p-id="2683" width="25" height="25">
+                  <path
+                    d="M395.946667 234.666667v64H256v469.333333h512V522.666667h64V768a64 64 0 0 1-64 64H256a64 64 0 0 1-64-64V298.666667a64 64 0 0 1 64-64h139.946667z m335.850666-87.914667l150.848 150.826667-158.378666 158.4-45.269334-45.248L748.394667 341.333333H672c-121.685333 0-220.714667 97.024-223.914667 217.941334L448 565.333333v85.333334h-64v-85.333334C384 406.272 512.938667 277.333333 672 277.333333h99.861333l-85.312-85.333333 45.248-45.248z"
+                    p-id="2684" fill="var(--first-text-color)"></path>
+                </svg>
+              </i></a>
+            
+              <a href="#top" class="click-btn">
+                <i id="i-up"></i>
+              </a>
     </div>
 
     <!-- SCRIPTS -->
     
-
 
     <!-- Google Analytics -->
     <script defer>
@@ -748,11 +765,76 @@ setTimeout(function () {
 
 
 
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
+
+
+
+    <script>
+        query("#share-btn")[0].onclick = async () => {
+            let url = `${location.protocol}//${location.hostname}${location.port ? ":"+location.port:location.port}${location.pathname}#read=${sessionStorage.getItem(location.pathname+"_read_y") || ""}`;
+            try {
+                await navigator.clipboard.writeText(url);
+                prompt_core("分享链接已经复制至剪贴板", 4800, true);
+            } catch(e) {
+                prompt_core("分享链接复制失败，请手动复制<br/>"+url, 4800, false);
+            }
+        }
+    </script>
 
 
 
 
 
+
+
+    <script>
+        const getScrollPosition = (el = window) => ({
+            x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
+            y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
+        });
+        // 此处的 750 是「页面元素的最大宽度」
+        var wx = document.getElementsByClassName("article-m")[0].clientWidth;
+        var wy = document.getElementsByClassName("article-m")[0].clientHeight;
+        function windowScroll() {
+            // 反复修改 确保页面尺寸不改变
+            wx = document.getElementsByClassName("article-m")[0].clientWidth;
+            wy = document.getElementsByClassName("article-m")[0].clientHeight;
+            let y = Math.round(getScrollPosition().y);
+            // console.log(y);
+            // 组合字符串，同时记录页面坐标，页面宽度和高度
+            let p = `${y}:${wx}:${wy}`;
+            // 写入到 sessionStorage 中
+            sessionStorage.setItem(location.pathname + "_read_y", p);
+        }
+        // URL 中是否包含传递的坐标信息
+        setTimeout(() => {
+            if (location.hash.split("#read=").length > 1) {
+                prompt_core("已有阅读进度，正在跳转", 4800, true);
+                // 分离字符串
+                let read_y = location.hash.split("#read=")[1];
+                read_y = read_y.split(":");
+                // 组合乘积，顺滑移动至坐标
+                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
+            } else {
+                // 从 sessionStorage 中获取
+                let read_y = sessionStorage.getItem(location.pathname + "_read_y") || "0:0:0";
+                read_y = read_y.split(":");
+                if (read_y[0] != "0") prompt_core("已有阅读进度，正在跳转", 4800, true);
+                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
+            }
+        }, 500);
+        window.onscroll = windowScroll;
+    </script>
 
       
         
@@ -769,10 +851,12 @@ setTimeout(function () {
               })(window, document, "clarity", "script", "bdwnhd5bw9");
             </script>
             <script>
-              loadStatistic("https://qexo.prts.top")
-              getdata();
-              getnotice();
-              gethitokoto()
+              loadStatistic("https://qexo.prts.top");
+              if (window.location.pathname == '/' || window.location.pathname == '') {
+                tnxg_index()
+              } else {
+                tnxg_pages()
+              }
             </script>
         </div>
         <div id="css-loading">

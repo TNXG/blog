@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 
+
 <head>
     <meta charset="UTF-8">
     
@@ -16,10 +17,12 @@
     <meta name="author" content="天翔TNXG">
     <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
     <meta property="og:title" content="分类 - 技术"/>
+
     <script>
         //判断非本机且未使用https 时，强制重定向到https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:"))
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
             window.location = window.location.toString().replace(/^http:/, "https:");
+        }
     </script>
     <script>
         if (!!navigator.serviceWorker) {
@@ -58,6 +61,7 @@
             });
         } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
     </script>
+    
     <style>
 
 
@@ -393,6 +397,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 </style>
 
     
+
+    
         <!--
         <link rel="stylesheet" href="/css/page.css" media="print"
             onload="this.media='all';this.onload=null">
@@ -405,11 +411,11 @@ header .header__right .dropdown-menus .dropdown-menu {
     <noscript>
         <link rel="stylesheet" href="/css/main.css">
     </noscript>
-    
-    <script src="/js/main.js"></script>
     <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
 	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
     <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+    
+    <script src="/js/main.js"></script>
     
     <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
@@ -561,6 +567,8 @@ header .header__right .dropdown-menus .dropdown-menu {
       
           
               
+                <p>站长最后在线时间&nbsp<span id="bloggeractivetime">[Loading ]</span></p>
+                
                   
                     <p>&copy; 
                         2019 - 
@@ -569,27 +577,27 @@ header .header__right .dropdown-menus .dropdown-menu {
                     
                       <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
                           href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
-
                       <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
                       <p>站点访问量:<span id="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
                       </p>
                       <!-- <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
-                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
-                            height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
-                      <p><a target="_blank" rel="noopener" href="https://travellings.cn/"><img src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
-                          height="40%" /></a></p>
+                  src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+                  height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
+                      <p><a target="_blank" rel="noopener" href="https://travellings.cn/"><img
+                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
+                            height="40%" /></a></p>
   </footer>
   
     <div class="p-btn">
       
-          <a href="#top" class="click-btn">
-            <i id="i-up"></i>
-          </a>
+          
+              <a href="#top" class="click-btn">
+                <i id="i-up"></i>
+              </a>
     </div>
 
     <!-- SCRIPTS -->
     
-
 
     <!-- Google Analytics -->
     <script defer>
@@ -633,6 +641,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 
 
+
+
       
         
 <script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
@@ -648,10 +658,12 @@ header .header__right .dropdown-menus .dropdown-menu {
               })(window, document, "clarity", "script", "bdwnhd5bw9");
             </script>
             <script>
-              loadStatistic("https://qexo.prts.top")
-              getdata();
-              getnotice();
-              gethitokoto()
+              loadStatistic("https://qexo.prts.top");
+              if (window.location.pathname == '/' || window.location.pathname == '') {
+                tnxg_index()
+              } else {
+                tnxg_pages()
+              }
             </script>
         </div>
         <div id="css-loading">
