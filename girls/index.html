@@ -544,14 +544,14 @@ header .header__right .dropdown-menus .dropdown-menu {
         
     </div>
     <div id="article" class="markdown-body textretty">
-        <p> 我喜欢她们，兄弟。虽然我知道可能会很奇怪，但我就是喜欢她们。这种爱是跨越空间的，是跨越世纪的，是跨越生与死的边界的 </p>
-<h1 id="跳转到 - 丰碑"><a href="# 跳转到 - 丰碑" class="headerlink" title="跳转到 丰碑"></a> 跳转到 <a href="/monument/"> 丰碑 </a></h1><div id="girls">
+        <p>我喜欢她们，兄弟。虽然我知道可能会很奇怪，但我就是喜欢她们。这种爱是跨越空间的，是跨越世纪的，是跨越生与死的边界的</p>
+<h1 id="跳转到-丰碑"><a href="#跳转到-丰碑" class="headerlink" title="跳转到 丰碑"></a>跳转到 <a href="/monument/">丰碑</a></h1><div id="girls">
     <div class="spinner" v-if="!girls.length"></div>
     <div class="girls-number"></div>
-    <div class="girl-banner"><span title="我全都要！"> 大家都是我的天使！</span>
+    <div class="girl-banner"><span title="我全都要！">大家都是我的天使！</span>
     <ul class="girl-items">
         <li class="girl-item" v-for="girl in girls" :id="girl.name"><a class="girl-url"
-                :href="girl.url ||'https://zh.moegirl.org/'+ girl.name" :title="girl.reason" alt="portrait"
+                :href="girl.url || 'https://zh.moegirl.org/' + girl.name" :title="girl.reason" alt="portrait"
                 target="_blank" rel="noopener">
                 <figure class="girl-info"><img class="girl-avatar" loading="lazy" :src="girl.avatar" :alt="girl.name"
                         onerror="this.src=CONFIG.anonymous_image">
@@ -564,12 +564,16 @@ header .header__right .dropdown-menus .dropdown-menu {
     </ul>
     <script>new Vue({
             el: "#girls",
-            data: {girls: [],
+            data: {
+                girls: [],
             },
-            async mounted() {this.girls = await fetch("/assets/data/girls.json")
-                    .then(res => {return res.json();
+            async mounted() {
+                this.girls = await fetch("/assets/data/girls.json")
+                    .then(res => {
+                        return res.json();
                     })
-                if (true) {this.girls.sort(() => Math.random() - 0.5);
+                if (true) {
+                    this.girls.sort(() => Math.random() - 0.5);
                 }
             }
         })</script>
@@ -592,11 +596,11 @@ header .header__right .dropdown-menus .dropdown-menu {
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js
+  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.7/twikoo.min.js",
+          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {

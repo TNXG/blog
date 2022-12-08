@@ -577,7 +577,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 <script>
 printpages(get_lastet_apidata());
 
-function get_lastet_apidata() {var req = new XMLHttpRequest();
+function get_lastet_apidata() {
+    var req = new XMLHttpRequest();
     req.open('GET', 'https://api.prts.top/v1/ak-conf/', false);
     req.send(null);
     return JSON.parse(req.response);
@@ -586,14 +587,17 @@ function get_lastet_apidata() {var req = new XMLHttpRequest();
 async function printpages(data) {
     latestdata = '';
     announceList = data.announceList;
-    for (i = 0; i < announceList.length;i++) {title = announceList[i].title;
-        if (!(announceList[i].isWebUrl)) {break;};
+    for (i = 0; i < announceList.length;i++) {
+        title = announceList[i].title;
+        if (!(announceList[i].isWebUrl)) {
+            break;
+        };
         data_url = announceList[i].webUrl;
         data_id = data_url.substring(50, data_url.indexOf('.html'));
         const replacehtml = await fetch('https://api.prts.top/v1/ak-conf/?id=' + data_id);
         const returnhtml = await replacehtml.text();
         returndata = returnhtml.substring(returnhtml.indexOf('<div class="main">'), returnhtml.indexOf('</body>\n</html>'));
-        returndata = returndata.split('<img class="banner-image"src="').join('<img src="');
+        returndata = returndata.split('<img class="banner-image" src="').join('<img src="');
         returndata = returndata.split('uniwebview://move?target=shop&param1=SKINSHOP').join('https://ak.hypergryph.com/');
         latestdata = latestdata + '<h1>' + title + '</h1>' + '<br>' + returndata;
         document.getElementById("tnxg_akmessage").innerHTML = latestdata;
@@ -663,11 +667,11 @@ async function printpages(data) {
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js
+  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.7/twikoo.min.js",
+          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {

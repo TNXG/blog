@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>获取 bing 每日图的方法 | 天翔TNXG的空间站</title>
+    <title>获取bing每日图的方法 | 天翔TNXG的空间站</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
@@ -16,7 +16,7 @@
     <meta name="description" content="&lt;p&gt;随便扯一篇文章发出来？&lt;/p&gt;">
     <meta name="author" content="天翔TNXG">
     <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
-    <meta property="og:title" content="获取 bing 每日图的方法"/>
+    <meta property="og:title" content="获取bing每日图的方法"/>
 
     <script>
         //判断非本机且未使用https 时，强制重定向到https。
@@ -538,7 +538,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <article class="page">
 <div id="post-meta-m">
     <div class="post-meta" id="post-meta">
-  <h3>获取 bing 每日图的方法</h3>
+  <h3>获取bing每日图的方法</h3>
     
       <span class="post-meta-label">
         天翔TNXG
@@ -556,7 +556,7 @@ header .header__right .dropdown-menus .dropdown-menu {
       
       <span class="post-meta">
         <span class="p-dot"></span>
-        共 230 字
+        共 228 字
       </span>
     
     
@@ -572,16 +572,16 @@ header .header__right .dropdown-menus .dropdown-menu {
   </div>
     <div id="article">
       <div id="post-content" class="markdown-body textretty">
-        <p> 随便扯一篇文章发出来？</p>
+        <p>随便扯一篇文章发出来？</p>
 <span id="more"></span>
 <pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">ini_set</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"display_errors"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"Off"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token class-name">E_ALL</span> <span class="token operator">|</span> <span class="token class-name">E_STRICT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 删除警告信息 </span>
+<span class="token comment">// 删除警告信息</span>
 
 <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'https://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$str</span> <span class="token operator">=</span> <span class="token function">json_decode</span><span class="token punctuation">(</span><span class="token variable">$str</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token variable">$num</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'num'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token comment">// 从官方 api 返回最近每日图的信息，并获取参数 $num</span>
+<span class="token comment">// 从官方api返回最近每日图的信息，并获取参数$num</span>
 
 <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$num</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
@@ -592,11 +592,11 @@ header .header__right .dropdown-menus .dropdown-menu {
         <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token comment">// 如果 $num 为空则赋值 0，否则则按 num 传入值对 $num 进行赋值 (大于等于 7 或小于等于 0)</span>
+<span class="token comment">// 如果$num为空则赋值0，否则则按num传入值对$num进行赋值(大于等于7或小于等于0)</span>
 
 <span class="token variable">$con</span> <span class="token operator">=</span> <span class="token variable">$str</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'images'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$a</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token variable">$url</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"https://cn.bing.com"</span> <span class="token operator">.</span> <span class="token variable">$con</span><span class="token punctuation">;</span>
-<span class="token comment">// 获取随机图信息 </span>
+<span class="token comment">// 获取随机图信息</span>
 
 <span class="token variable">$type</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$type</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
@@ -612,9 +612,9 @@ header .header__right .dropdown-menus .dropdown-menu {
         <span class="token variable">$images</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
         <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token variable">$images</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span>
-<span class="token comment">// 获取参数 type 并赋值 $type，按照赋值内容返回相对应的格式 </span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<span class="token comment">// 获取参数type并赋值$type，按照赋值内容返回相对应的格式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p> 详细信息及实现方法已经写在代码注释里了，可以参考着玩一玩（大雾）</p>
+<p>详细信息及实现方法已经写在代码注释里了，可以参考着玩一玩（大雾）</p>
 <p><img src="https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png"></p>
 
       </div>
@@ -680,11 +680,11 @@ header .header__right .dropdown-menus .dropdown-menu {
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.7/twikoo.all.min.js
+  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.7/twikoo.min.js",
+          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {

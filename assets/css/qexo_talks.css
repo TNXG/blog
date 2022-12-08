@@ -1,13 +1,17 @@
-/* 加载样式 */
+/*加载样式*/
 .qexo_inner,
 .qexo_loader {
   border-radius: 50%;
   position: absolute;
 }
 
-.qexo_loading {min-height: 200px;}
+.qexo_loading {
+  min-height: 200px;
+}
 
-.qexo_part {min-height: 100px;}
+.qexo_part {
+  min-height: 100px;
+}
 
 .qexo_loader {
   background-color: #90939920;
@@ -47,26 +51,32 @@
 }
 
 @keyframes rotate-one {
-  0% {transform: rotateX(35deg) rotateY(-45deg) rotateZ(0);
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0);
   }
 
-  100% {transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
   }
 }
 
 @keyframes rotate-two {
-  0% {transform: rotateX(50deg) rotateY(10deg) rotateZ(0);
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0);
   }
 
-  100% {transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
   }
 }
 
 @keyframes rotate-three {
-  0% {transform: rotateX(35deg) rotateY(55deg) rotateZ(0);
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0);
   }
 
-  100% {transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
   }
 }
 
@@ -80,14 +90,19 @@
   margin-top: 12px;
 }
 
-#qexot>section>div>div {box-shadow: -1px 5px 10px 0 rgba(50, 50, 93, 0.1),
+#qexot>section>div>div {
+  box-shadow: -1px 5px 10px 0 rgba(50, 50, 93, 0.1),
     0 0 10px rgba(0, 0, 0, 0.07) !important;
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-#qexot p {margin: 0;}
+#qexot p {
+  margin: 0;
+}
 
-#qexot .datafrom i {margin-right: 4px;}
+#qexot .datafrom i {
+  margin-right: 4px;
+}
 
 /* 时间 */
 #qexot>section>div>div>div .qexot-datatime {
