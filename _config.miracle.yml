@@ -156,7 +156,7 @@ page404:
   enable: true
 
 static_prefix:
-  twikoo: "https://cdn.staticfile.org/twikoo/1.6.7/"
+  twikoo: "https://cdn.staticfile.org/twikoo/1.6.8/"
 
 lazyload:
   enable: true

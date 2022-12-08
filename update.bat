@@ -1,1 +1,1 @@
-python update.py "Fix: 修改页面样式"
+python update.py "Feat: 新友链"

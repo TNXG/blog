@@ -20,7 +20,6 @@
     "hexo": "^6.3.0",
     "hexo-blog-encrypt": "^3.1.6",
     "hexo-browsersync": "^0.3.0",
-    "hexo-filter-auto-spacing": "^0.2.1",
     "hexo-generator-archive": "^2.0.0",
     "hexo-generator-category": "^2.0.0",
     "hexo-generator-feed": "^3.0.0",
