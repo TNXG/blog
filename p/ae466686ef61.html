@@ -8,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
     <link rel="icon" type="image/png" href="/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>归档 | 天翔TNXG的空间站</title>
+    <title>关于GitHub学生包的一些问题 | 天翔TNXG的空间站</title>
     
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
@@ -16,7 +16,7 @@
     <meta name="description" content="明日尚未到来，希望凝于心上">
     <meta name="author" content="天翔TNXG">
     <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
-    <meta property="og:title" content="归档"/>
+    <meta property="og:title" content="关于GitHub学生包的一些问题"/>
 
     <script>
         //判断非本机且未使用https 时，强制重定向到https。
@@ -536,47 +536,185 @@ header .header__right .dropdown-menus .dropdown-menu {
             
 
 <article class="page">
-  <div class="archive-list">
-    <p class="h4">共计 20 篇文章</p>
-    <hr>
+<div id="post-meta-m">
+    <div class="post-meta" id="post-meta">
+  <h3>关于GitHub学生包的一些问题</h3>
     
-    
-      
-        
-        <p class="h5">2022</p>
-      
-      <a href="/p/0cace299bdc7.html" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">关于图片储存的那些事</span>
-        <time style="float: right;">04-11</time>
-      </a>
-    
-      
-      <a href="/p/dda727f4f8e1.html" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">月初的小记</span>
-        <time style="float: right;">04-05</time>
-      </a>
-    
-      
-      <a href="/p/f62a1e676dca.html" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">浅谈吾导先路活动</span>
-        <time style="float: right;">04-01</time>
-      </a>
-    
-      
-      <a href="/p/96e628bd5754.html" class="list-group-item list-group-item-action">
-        <span class="archive-post-title">Hello World</span>
-        <time style="float: right;">01-18</time>
-      </a>
-    
-
-    <nav aria-label="navigation">
-      <span class="pagination" id="pagination">
-        <a class="extend prev" rel="prev" href="/archives/2022/">&lt;</a><a class="page-number" href="/archives/2022/">1</a><span class="page-number current">2</span>
+      <span class="post-meta-label">
+        天翔TNXG
       </span>
-    </nav>
-
+    
+    
+      <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2022-12-23 20:30" pubdate>
+          2022-12-23 20:30
+        </time>
+      </span>
+    
+    
+      
+      <span class="post-meta">
+        <span class="p-dot"></span>
+        共 662 字
+      </span>
+    
+    
+    
+  </div>
+  
 </div>
+<div class="article-m">
+  <div class="post-toc">
+    
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E7%94%B3%E8%AF%B7%E6%97%B6%E5%9C%B0%E5%9B%BE%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD%E7%9A%84%E9%82%A3%E4%BB%B6%E4%BA%8B%E6%83%85"><span class="toc-number">1.</span> <span class="toc-text">关于申请时地图无法加载的那件事情</span></a></li></ol>
+    
+  </div>
+    <div id="article">
+      <div id="post-content" class="markdown-body textretty">
+        <p>关于我的GitHub Student Developer Pack其实在今年10月份就已经申请到手了</p>
+<p>主要还是因为Copilot太香了，兜兜转转几遍终于还是把这个玩意申请到手了</p>
+<p><del>终于可以继续tab、注释编程了</del></p>
+<p>一定要有耐心，这个东西就是在申请和被打回之间兜兜转转的</p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/article/2022/12/3bb2bd1361dc81fec124bb39421f6d0f.png" alt="申请情况"></p>
+<p>实际上我被驳回申请的数量还算少，你可以取康康隔壁大佬申请学生包的次数</p>
+<p>关于如何申请学生包我就不再阐述了，毕竟网上的教程有很多</p>
+<p>但无论如何实际上定位是最重要的，材料什么都可以</p>
+<p>甚至是一张课程表<del>（没错，我就是课程表过的申请）</del></p>
+<h2 id="关于申请时地图无法加载的那件事情"><a href="#关于申请时地图无法加载的那件事情" class="headerlink" title="关于申请时地图无法加载的那件事情"></a>关于申请时地图无法加载的那件事情</h2><p><strong>没有代码，只提供解决思路，需要一定的动手能力</strong><del>其实就是懒得开小号再过一遍流程了</del></p>
+<p>education.github.com 里面引用的那个 bing 地图是有些大病</p>
+<p><code>t0.dynamic.tiles.ditu.live.com</code> 及 <code>t1.dynamic.tiles.ditu.live.com</code> 无法正常加载，会提示 csp 策略有问题，就很怪，，，隔壁 <a target="_blank" rel="noopener" href="https://cn.bing.com/maps">cn.bing.com&#x2F;maps</a> 都可以正常加载来着</p>
+<p>我个人大抵是因为原来的 <code>www.bing.com</code> 被重定向到了 <code>cn.bing.com</code> 导致的问题</p>
+<p>搜索框其实是可以辅助地图进行定位，在我本机ip下就可以搜索到我的学校（地图不显示出来没法点击确定进行下一步），但是挂载tz后，搜索栏就已经搜索不到我的学校了，所以实际上这个搜索也是分地区显示的（）</p>
+<p>我f12看了下搜索框接口的api地址，其中是有携带地理位置信息（地区代码）的</p>
+<p>这就意味着我们可以通过抓包的方式返回一个假的数据，让接口返回原来本机ip请求到的数据，来让搜索框可以显示本机ip所在地理位置的学校</p>
+<p>实际上Fiddler就有修改应答数据的功能，自行google进行设置，这些需要按照自己的情况来进行修改（实际上可以使用通配符使得整个搜索框的api都返回本机ip请求到的应答数据）</p>
+<p>关于获取本机ip请求到的应答数据其实就是你本地ip访问搜索框api接口返回的数据（记得是搜索你的学校返回的数据哦）</p>
+<p>定位完成后记得及时关闭tz，否则在审批的过程中会被瞬间拒绝</p>
+
+      </div>
+    </div>
+</div>
+
+<div class="post-category">
+
+    <div id="p-meta-i">
+        
+              
+                <a class="hover-with-bg" href="/categories/Github/">Github</a>
+              
+                <a class="hover-with-bg" href="/categories/Github/%E7%99%BD%E5%AB%96/">白嫖</a>
+              
+          
+          
+              
+                <a class="hover-with-bg" href="/tags/%E7%99%BD%E5%AB%96/"># 白嫖</a>
+              
+                <a class="hover-with-bg" href="/tags/Github/"># Github</a>
+              
+                <a class="hover-with-bg" href="/tags/%E5%AD%A6%E7%94%9F%E8%AE%A4%E8%AF%81/"># 学生认证</a>
+              
+          
+    </div>
+</div>
+
+
+<div class="post-footer">
+  
+  <div class="donate text-center">
+    <span>喜欢这篇文章？为什么不考虑打赏一下作者呢？</span>
+    <div class="donate-way">
+      
+        <a href="/donate/" class="donate-btn button">
+          赞赏
+        </a>
+      
+    </div>
+  </div>
+  
+
+  <div class="post-copyright">
+    <p style="margin: 5px 0;">文章作者：<a href="/">天翔TNXG</a></p>
+    <p style="margin: 5px 0;">文章链接：<a href="https://tnxg.loyunet.cn/p/ae466686ef61.html">https://tnxg.loyunet.cn/p/ae466686ef61.html</a></p>
+    <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处，非常感谢。</p>
+  </div>
+  
+</div>
+
+    <!-- Comments -->
+    <div class="comments">
+        
+        
+    <div id="miracle-comments">
+        <div id="tcomment">
+          <!-- <div style="display: flex;">
+            <a href="javascript:loadTwikoo();" id="loadCommentBtn" style="color:var(--first-text-color);border-radius: 5px;background-color:var(--sec-bkg);font-size: 1.1rem;text-decoration: none;border: none;cursor: pointer;    position: relative;vertical-align: baseline;padding: 10px;margin: 0 auto;">加载评论</a>
+          </div> -->
+          <div style="margin: 0 auto;width: 100%;text-align: center;">
+            <div class="donutSpinner" style="margin: auto;width: 25px;height: 25px;"><div></div></div>
+          </div>
+        </div>
+    </div>
+    <script>
+function loadComment() {
+  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
+    try {
+      loadScriptFile({
+        
+          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
+        
+        loadType: "async",
+        cb: () => {
+          twikoo.init({
+            envId: 'https://api.twikoo.prts.top',
+            el: '#tcomment',
+            region: 'ap-shanghai',
+            path: 'window.location.pathname'
+          });
+        }});
+    } catch (e) {
+      document.getElementById("loadCommentBtn").innerText = "无法加载 Twikoo 评论";
+      console.info(e);
+    }
+
+}
+
+function loadTwikoo() {
+  try {
+    loadComment();
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+var runningOnBrowser = typeof window !== "undefined";
+
+var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
+
+var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
+
+setTimeout(function () {
+  if (!isBot && supportsIntersectionObserver) {
+    var observer = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) {
+        loadTwikoo();
+        observer.disconnect();
+      }
+    }, { threshold: [0] });
+    observer.observe(document.getElementById('miracle-comments'));
+  } else {
+    loadTwikoo();
+  }
+}, 1);
+
+    </script>
+
+
+    </div>
+
 </article>
+
+
         </div>
         
   <footer class="text-center">
@@ -607,7 +745,18 @@ header .header__right .dropdown-menus .dropdown-menu {
   
     <div class="p-btn">
       
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+        
           
+            <a class="toc-btn" id="share-btn"><i>
+                <svg t="1670124379155" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                  xmlns="http://www.w3.org/2000/svg" p-id="2683" width="25" height="25">
+                  <path
+                    d="M395.946667 234.666667v64H256v469.333333h512V522.666667h64V768a64 64 0 0 1-64 64H256a64 64 0 0 1-64-64V298.666667a64 64 0 0 1 64-64h139.946667z m335.850666-87.914667l150.848 150.826667-158.378666 158.4-45.269334-45.248L748.394667 341.333333H672c-121.685333 0-220.714667 97.024-223.914667 217.941334L448 565.333333v85.333334h-64v-85.333334C384 406.272 512.938667 277.333333 672 277.333333h99.861333l-85.312-85.333333 45.248-45.248z"
+                    p-id="2684" fill="var(--first-text-color)"></path>
+                </svg>
+              </i></a>
+            
               <a href="#top" class="click-btn">
                 <i id="i-up"></i>
               </a>
@@ -649,6 +798,64 @@ header .header__right .dropdown-menus .dropdown-menu {
 </script>
 
 
+<script>
+    var postImg = document.querySelectorAll("article[class=page] img");
+    for (let imgi = 0; imgi < postImg.length; imgi++) {
+        postImg[imgi].onclick = () => {
+            let zoomImg = document.createElement("div");
+            zoomImg.id = "zoomImg";
+            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+            document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+        }
+    }
+    
+</script>
+
+
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn","display-none");
+        }
+    </script>
+
+
+
+    <script>
+        query("#share-btn")[0].onclick = async () => {
+            let url = `${location.protocol}//${location.hostname}${location.port ? ":"+location.port:location.port}${location.pathname}#read=${sessionStorage.getItem(location.pathname+"_read_y") || ""}`;
+            try {
+                await navigator.clipboard.writeText(url);
+                prompt_core("分享链接已经复制至剪贴板", 4800, true);
+            } catch(e) {
+                prompt_core("分享链接复制失败，请手动复制<br/>"+url, 4800, false);
+            }
+        }
+    </script>
 
 
 
@@ -656,9 +863,44 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 
 
-
-
-
+    <script>
+        const getScrollPosition = (el = window) => ({
+            x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
+            y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
+        });
+        // 此处的 750 是「页面元素的最大宽度」
+        var wx = document.getElementsByClassName("article-m")[0].clientWidth;
+        var wy = document.getElementsByClassName("article-m")[0].clientHeight;
+        function windowScroll() {
+            // 反复修改 确保页面尺寸不改变
+            wx = document.getElementsByClassName("article-m")[0].clientWidth;
+            wy = document.getElementsByClassName("article-m")[0].clientHeight;
+            let y = Math.round(getScrollPosition().y);
+            // console.log(y);
+            // 组合字符串，同时记录页面坐标，页面宽度和高度
+            let p = `${y}:${wx}:${wy}`;
+            // 写入到 sessionStorage 中
+            sessionStorage.setItem(location.pathname + "_read_y", p);
+        }
+        // URL 中是否包含传递的坐标信息
+        setTimeout(() => {
+            if (location.hash.split("#read=").length > 1) {
+                prompt_core("已有阅读进度，正在跳转", 4800, true);
+                // 分离字符串
+                let read_y = location.hash.split("#read=")[1];
+                read_y = read_y.split(":");
+                // 组合乘积，顺滑移动至坐标
+                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
+            } else {
+                // 从 sessionStorage 中获取
+                let read_y = sessionStorage.getItem(location.pathname + "_read_y") || "0:0:0";
+                read_y = read_y.split(":");
+                if (read_y[0] != "0") prompt_core("已有阅读进度，正在跳转", 4800, true);
+                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
+            }
+        }, 500);
+        window.onscroll = windowScroll;
+    </script>
 
       
         
