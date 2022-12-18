@@ -24,10 +24,6 @@ catch_rules:
     transform_rules:
       - search: _ # 多cdn并发
         replace:
-          - https://i0.hdslb.com
-          - https://i1.hdslb.com
-          - https://i2.hdslb.com
-          - https://i3.hdslb.com
           - https://s1.hdslb.com
           - https://s2.hdslb.com
           - https://s3.hdslb.com
@@ -37,7 +33,7 @@ catch_rules:
         fetch:
           engine: parallel
           status: 200
-          preflight: true
+          preflight: false
           timeout: 30000
           delay: 4000
 
