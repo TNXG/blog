@@ -1,1 +1,1 @@
-python update.py "Fix: 更换图床服务商"
+python update.py "Fix: 修复cw配置问题"
