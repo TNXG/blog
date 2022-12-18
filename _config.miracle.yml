@@ -45,6 +45,7 @@ custom:
 
   css:
     - "/assets/css/master.css"
+    - "/assets/css/font.css"
     - "https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css"
     - "https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css"
 
