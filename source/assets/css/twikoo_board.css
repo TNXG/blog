@@ -1,32 +1,38 @@
 /* 字体 */
+@import url("./font.css");
+
 @font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/HarmonyOS_Sans.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/HarmonyOS_Sans.woff2") format('woff2');
     font-family: "HarmonyOS_Sans";
 }
 
 @font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/ysbth.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/ysbth.woff2") format('woff2');
     font-family: "ysbth";
 }
 
 @font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/CtrlAstr.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/CtrlAstr.woff2") format('woff2');
     font-family: "CtrlAstr";
 }
 
 @font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/Gsenochian.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/Gsenochian.woff2") format('woff2');
     font-family: "Gsenochian";
 }
 
 @font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/Tevyat.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/Tevyat.woff2") format('woff2');
     font-family: "Tevyat";
 }
 
 @font-face {
-    src: url("https://assets.tnxg.whitenuo.cn/typeface/JetBrainsMono.ttf");
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/JetBrainsMono.woff2") format('woff2');
     font-family: "JetBrainsMono";
+}
+
+.HarmonyOS_Sans {
+    font-family: "HarmonyOS_Sans";
 }
 
 .CtrlAstr {
@@ -53,6 +59,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "HarmonyOS_Regular";
 }
 
 input,
@@ -64,7 +71,6 @@ button {
 }
 
 body {
-    font-family: "HarmonyOS_Sans";
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -157,7 +163,7 @@ a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url("https://prts.top/api/img/wallpaper/?type=cdn");
+    background-image: url("https://api.prts.top/v1/img/wallpaper/?type=cdn");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;

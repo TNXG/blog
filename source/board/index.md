@@ -20,7 +20,7 @@ layout: false
             <div class>
                 <div class="info">
                     <div id="tcomment"></div>
-                    <script src="{% twikoocdnurl %}"></script>
+                    <script src="{% twikoocdnurl %}twikoo.min.js"></script>
                     <script>
                         twikoo.init({
                             envId: 'https://api.twikoo.prts.top',

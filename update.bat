@@ -1,1 +1,1 @@
-python update.py "Fix: 修复cw配置问题"
+python update.py "Fix: 修复部分bug"
