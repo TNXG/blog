@@ -13,7 +13,7 @@ categories: ["Github", "白嫖"]
 
 一定要有耐心，这个东西就是在申请和被打回之间兜兜转转的
 
-![申请情况](https://assets.tnxg.whitenuo.cn/images/article/2022/12/3bb2bd1361dc81fec124bb39421f6d0f.png)
+![申请情况](https://assets.tnxg.whitenuo.cn/images/upload/2022/12/3bb2bd1361dc81fec124bb39421f6d0f.png)
 
 实际上我被驳回申请的数量还算少，你可以取康康隔壁大佬申请学生包的次数
 

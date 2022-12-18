@@ -30,7 +30,7 @@ aplayer: true
 # 关于站点
 >来看看站点的构成？（白嫖大王.jpg）
 
-![](https://assets.tnxg.whitenuo.cn/images/article/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png)
+![](https://assets.tnxg.whitenuo.cn/images/upload/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png)
 
 ~~图片过时了~~
 

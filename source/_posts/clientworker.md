@@ -6,7 +6,7 @@ tags: [白嫖, JS]
 categories: [原创, 技术]
 ---
 
-![](https://assets.tnxg.whitenuo.cn/images/article/2022/07/70d49e280638dd9c2c13eb318e796bc0.png)
+![](https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png)
 
 <!-- more -->
 
@@ -222,7 +222,7 @@ catch_rules:
 
 当我把这配置发出去的时候CFY就表示
 
-![](https://assets.tnxg.whitenuo.cn/images/article/2022/07/ESVG4TR85H54ERGT8484W.png)
+![](https://assets.tnxg.whitenuo.cn/images/upload/2022/07/ESVG4TR85H54ERGT8484W.png)
 
 我寻思Safari这个玩意还有人用？我眼里(Safari=IE)
 
