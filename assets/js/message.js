@@ -66,7 +66,6 @@ async function bloggeractivetime() {
     h = date.getHours() + ':';
     m = date.getMinutes();
     document.getElementById("bloggeractivetime").innerHTML = Y + M + D + h + m;
-    console.log(noticejson.data.last * 1000)
 }
 
 function unique(size) {
