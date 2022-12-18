@@ -13,7 +13,7 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     
     
-    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://assets.tnxg.whitenuo.cn/images/article/2022/05/20220501000338.jpg&#34;&gt;&lt;/p&gt;
+    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://assets.tnxg.whitenuo.cn/images/upload/2022/05/20220501000338.jpg&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;tip:本文仅作技术分享，从而带来的任何问题我们暂不负责，若本文侵犯了贵方的权益请联系&lt;a href=&#34;mailto:tianxiang_tnxg@outlook.com&#34;&gt;天翔TNXG&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;上一次见到关于MitmProxy的项目是关于明日方舟的G和私服，没想到这么快就轮到原神了，这还是令我有点惊讶的&lt;/p&gt;
 &lt;p&gt;不过搭建这类东西是需要点小技术的。没有技术力的还是去看别人写的博文，利用懒人包搭建罢&lt;/p&gt;">
@@ -575,7 +575,7 @@ header .header__right .dropdown-menus .dropdown-menu {
   </div>
     <div id="article">
       <div id="post-content" class="markdown-body textretty">
-        <p><img src="https://assets.tnxg.whitenuo.cn/images/article/2022/05/20220501000338.jpg"></p>
+        <p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/05/20220501000338.jpg"></p>
 <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>tip:本文仅作技术分享，从而带来的任何问题我们暂不负责，若本文侵犯了贵方的权益请联系<a href="mailto:tianxiang_tnxg@outlook.com">天翔TNXG</a></p>
 <p>上一次见到关于MitmProxy的项目是关于明日方舟的G和私服，没想到这么快就轮到原神了，这还是令我有点惊讶的</p>
 <p>不过搭建这类东西是需要点小技术的。没有技术力的还是去看别人写的博文，利用懒人包搭建罢</p>
@@ -596,7 +596,7 @@ Mongodb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <h1 id="下载安装Mongodb"><a href="#下载安装Mongodb" class="headerlink" title="下载安装Mongodb"></a>下载安装Mongodb</h1><p>关于Mongodb下载安装我有必要详细讲下，这玩意的安装过程属实有点麻烦</p>
 <p>但如果你是大佬，或者你的Mongodb服务已经在22102端口正常运行，请跳过这步，直接开始<a href="#%E6%9E%84%E5%BB%BAGrasscutter">构建Grasscutter</a></p>
 <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>首先需要到<a target="_blank" rel="noopener" href="https://www.mongodb.com/try/download/community">Mongodb的官网</a>下载软件，我这里推荐使用它的zip存档，这方便我们稍后配置<span class="heimus" title="你知道的太多了">如果大佬会配置Mongodb的自启或别的什么我就不说啥了，毕竟谁也不想每次开个Mongodb都要在安装盘里找半天</span></p>
-<p><img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220430221147.png"></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220430221147.png"></p>
 <h2 id="开启Mongodb"><a href="#开启Mongodb" class="headerlink" title="开启Mongodb"></a>开启Mongodb</h2><p>解压刚下载的压缩包</p>
 <p>打开cmd，然后cd到刚解压的文件夹中</p>
 <p>新建一个文件夹，用来储存我们的数据<code>mkdir db</code></p>
@@ -611,7 +611,7 @@ echo mongod --dbpath &quot;..&#x2F;db&quot; &gt;&gt; start.bat<span aria-hidden=
 <h1 id="配置Python"><a href="#配置Python" class="headerlink" title="配置Python"></a>配置Python</h1><p>这个还算比较简单，直接运行<code>pip install mitmproxy</code>就可以了</p>
 <p>如果下载慢或者报错的话我个人推荐还是去网上搜搜<code>pip如何配置全局镜像源</code></p>
 <h1 id="构建Grasscutter"><a href="#构建Grasscutter" class="headerlink" title="构建Grasscutter"></a>构建Grasscutter</h1><h2 id="拉取项目"><a href="#拉取项目" class="headerlink" title="拉取项目"></a>拉取项目</h2><p>在以上前置软件安装完成后前往Github下载最新的<a target="_blank" rel="noopener" href="https://github.com/Grasscutters/Grasscutter">Grasscutter</a>，当然是下载源代码（保持版本最新嘛）</p>
-<p><img src="https://assets.tnxg.whitenuo.cn/images/article/2022/04/20220430223815.png"></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220430223815.png"></p>
 <p>当然用git工具直接clone是最简单的<code>git clone https://github.com/Grasscutters/Grasscutter.git</code></p>
 <p>首先要做的肯定是先cd到一个方便接下来步骤的文件夹，我就选择桌面了<code>cd C:\Users\Administrator\Desktop\</code></p>
 <p>然后直接clone Grasscutter的仓库，<code>git clone https://github.com/Grasscutters/Grasscutter.git</code><span class="heimus" title="你知道的太多了">如果你是从github直接下载的可以直接解压，无伤大雅</span></p>

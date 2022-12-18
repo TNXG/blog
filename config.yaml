@@ -31,13 +31,13 @@ catch_rules:
           - https://s1.hdslb.com
           - https://s2.hdslb.com
           - https://s3.hdslb.com
-        action: fetch
         header:
           referrer: no-referrer # 更改引用策略
+        action: fetch
         fetch:
           engine: parallel
           status: 200
-          preflight: false
+          preflight: true
           timeout: 30000
           delay: 4000
 
@@ -46,7 +46,7 @@ catch_rules:
       - search: image\/webp
         searchin: header
         searchkey: Accept
-        replace: .jpg/webp
+        replace: .jpg?fmt=webp
         replacein: url
         replacekey: .jpg
         action: fetch
@@ -57,7 +57,7 @@ catch_rules:
       - search: image\/webp
         searchin: header
         searchkey: Accept
-        replace: .png/webp
+        replace: .png?fmt=webp
         replacein: url
         replacekey: .png
         action: fetch
@@ -68,7 +68,7 @@ catch_rules:
       - search: image\/webp
         searchin: header
         searchkey: Accept
-        replace: .jpeg/webp
+        replace: .jpeg?fmt=webp
         replacein: url
         replacekey: .jpeg
         action: fetch
@@ -79,7 +79,7 @@ catch_rules:
       - search: image\/webp
         searchin: header
         searchkey: Accept
-        replace: .gif/webp
+        replace: .gif?fmt=webp
         replacein: url
         replacekey: .gif
         action: fetch
