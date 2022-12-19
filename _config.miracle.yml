@@ -162,7 +162,7 @@ static_prefix:
 lazyload:
   enable: true
   onlypost: false
-  loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif/webp"
+  loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"
 
 qexo_time:
     enable: true

@@ -1,1 +1,1 @@
-python update.py "Fix: 修复部分bug"
+python update.py "Fix: 尝试修复遗留问题"

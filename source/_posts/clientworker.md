@@ -84,9 +84,9 @@ ClientWorker的作者CYF对ServiceWorker的评价其实很简单`ServiceWorker�
 
 ## 判断是否成功安装
 
-这里可以在域名后方加上`/cw-cgi`查询cw是否正常安装
+这里可以在域名后方加上`[/cw-cgi/hello](/cw-cgi/hello)`查询cw是否正常安装
 
-如果返回的是`Not Found!, Client Worker!`则代表cw正常安装
+如果返回的是`Hello ClientWorker!`则代表cw正常安装
 
 
 ## 配置ClientWorker
@@ -230,29 +230,26 @@ catch_rules:
 
 
 
-应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效
+~~应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效~~
+没啥鸟用，cw无法修改referrer信息，但是可以将流量转发到没有防盗链的资源链接上
 
 ```yaml
-  - rule: ^https:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
+  - rule: ^(http|https)\:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
     transform_rules:
-      - search: _ #多cdn并发
+      - search: _ # 多cdn并发
         replace:
-          - https://i0.hdslb.com
-          - https://i1.hdslb.com
-          - https://i2.hdslb.com
-          - https://i3.hdslb.com
           - https://s1.hdslb.com
           - https://s2.hdslb.com
           - https://s3.hdslb.com
+        header:
+          referrer: no-referrer # 更改引用策略
         action: fetch
         fetch:
+          engine: parallel
           status: 200
-          engine: classic
           preflight: false
-          timeout: 5000
-      - search: _
-        header:
-          Referrer-Policy: no-referrer # 更改引用策略
+          timeout: 30000
+          delay: 4000
 ```
 ![这张就是b站的图片](https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg)
 
