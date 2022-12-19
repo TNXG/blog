@@ -145,7 +145,7 @@ catch_rules:
 
       - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/
         replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
+          - https://cdn1.tianli0.top/gh/
           - https://cdn.bilicdn.tk/gh/
           - https://jsd.onmicrosoft.cn/gh/
           - https://gcore.jsdelivr.net/gh/
@@ -154,7 +154,7 @@ catch_rules:
 
       - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/
         replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/
+          - https://cdn1.tianli0.top/gh/
           - https://cdn.bilicdn.tk/gh/
           - https://jsd.onmicrosoft.cn/gh/
           - https://gcore.jsdelivr.net/gh/

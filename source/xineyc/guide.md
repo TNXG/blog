@@ -9,7 +9,7 @@ layout: false
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="https://npm.elemecdn.com/tnxg-blog@latest/xineyc/assets/css/main.css" />
 	<link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css">
-	<!--div id="lolijump"><img src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/baomihuahua/boxmoeimg@aa712b4f29f35874eef43475423901f8da4d68ce/2021/09/15/1047dd767c7caf91b8e7da3ea8e991fe.png" height="88" width="64"></div-->
+	<!--div id="lolijump"><img src="https://cdn1.tianli0.top/gh/baomihuahua/boxmoeimg@aa712b4f29f35874eef43475423901f8da4d68ce/2021/09/15/1047dd767c7caf91b8e7da3ea8e991fe.png" height="88" width="64"></div-->
 	<div id="lolijump"><img src="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" height="75%"></div>
 </head>
 <body class="is-preload">
@@ -86,9 +86,9 @@ layout: false
 				</section>
 			</div>
 			<script src="https://npm.elemecdn.com/jquery@3.6.0/dist/jquery.min.js"></script>
-			<script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YuanLin233/yuanlin233.github.io@main/assets/js/jquery.scrollex.min.js"></script>
-			<script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YuanLin233/yuanlin233.github.io@main/assets/js/browser.min.js"></script>
-			<script src="https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/gh/YuanLin233/yuanlin233.github.io@main/assets/js/breakpoints.min.js"></script>
+			<script src="https://cdn1.tianli0.top/gh/YuanLin233/yuanlin233.github.io@main/assets/js/jquery.scrollex.min.js"></script>
+			<script src="https://cdn1.tianli0.top/gh/YuanLin233/yuanlin233.github.io@main/assets/js/browser.min.js"></script>
+			<script src="https://cdn1.tianli0.top/gh/YuanLin233/yuanlin233.github.io@main/assets/js/breakpoints.min.js"></script>
 			<script src="https://npm.elemecdn.com/tnxg-blog@latest/xineyc/assets/js/main.js"></script>
 			<script src="https://npm.elemecdn.com/tnxg-blog@latest/xineyc/assets/js/util.js"></script>
 	        <script src="./assets/js/hello.js"></script>
