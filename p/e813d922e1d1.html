@@ -631,8 +631,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 <li>新建<code>config.yml</code>在其中填写配置</li>
 </ol>
 <p>以上内容摘抄至<a target="_blank" rel="noopener" href="https://clientworker.js.org/">ClientWorker官方文档</a></p>
-<h2 id="判断是否成功安装"><a href="#判断是否成功安装" class="headerlink" title="判断是否成功安装"></a>判断是否成功安装</h2><p>这里可以在域名后方加上<code>/cw-cgi</code>查询cw是否正常安装</p>
-<p>如果返回的是<code>Not Found!, Client Worker!</code>则代表cw正常安装</p>
+<h2 id="判断是否成功安装"><a href="#判断是否成功安装" class="headerlink" title="判断是否成功安装"></a>判断是否成功安装</h2><p>这里可以在域名后方加上<code>[/cw-cgi/hello](/cw-cgi/hello)</code>查询cw是否正常安装</p>
+<p>如果返回的是<code>Hello ClientWorker!</code>则代表cw正常安装</p>
 <h2 id="配置ClientWorker"><a href="#配置ClientWorker" class="headerlink" title="配置ClientWorker"></a>配置ClientWorker</h2><p>这个可以参考<a target="_blank" rel="noopener" href="https://clientworker.js.org/">ClientWorker官方文档</a></p>
 <p>而我的配置则是</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> ClientWorker
@@ -761,27 +761,23 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/ESVG4TR85H54ERGT8484W.png"></p>
 <p>我寻思Safari这个玩意还有人用？我眼里(Safari&#x3D;IE)</p>
 <p>咳咳，问题不大，反正我不用Safari我也看不到会出什么bug <del>（掩耳盗铃）</del></p>
-<p>应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/(i0<span class="token punctuation">|</span>i1<span class="token punctuation">|</span>i2<span class="token punctuation">|</span>i3<span class="token punctuation">|</span>s1<span class="token punctuation">|</span>s2<span class="token punctuation">|</span>s3)\.hdslb\.com <span class="token comment"># 匹配B站资源链接</span>
+<p><del>应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效</del><br>没啥鸟用，cw无法修改referrer信息，但是可以将流量转发到没有防盗链的资源链接上</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> ^(http<span class="token punctuation">|</span>https)\<span class="token punctuation">:</span>\/\/(i0<span class="token punctuation">|</span>i1<span class="token punctuation">|</span>i2<span class="token punctuation">|</span>i3<span class="token punctuation">|</span>s1<span class="token punctuation">|</span>s2<span class="token punctuation">|</span>s3)\.hdslb\.com <span class="token comment"># 匹配B站资源链接</span>
   <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _ <span class="token comment">#多cdn并发</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _ <span class="token comment"># 多cdn并发</span>
       <span class="token key atrule">replace</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//i0.hdslb.com
-        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//i1.hdslb.com
-        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//i2.hdslb.com
-        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//i3.hdslb.com
         <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s1.hdslb.com
         <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s2.hdslb.com
         <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s3.hdslb.com
+      <span class="token key atrule">header</span><span class="token punctuation">:</span>
+        <span class="token key atrule">referrer</span><span class="token punctuation">:</span> no<span class="token punctuation">-</span>referrer <span class="token comment"># 更改引用策略</span>
       <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
       <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
+        <span class="token key atrule">engine</span><span class="token punctuation">:</span> parallel
         <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">200</span>
-        <span class="token key atrule">engine</span><span class="token punctuation">:</span> classic
         <span class="token key atrule">preflight</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-        <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">5000</span>
-    <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
-      <span class="token key atrule">header</span><span class="token punctuation">:</span>
-        <span class="token key atrule">Referrer-Policy</span><span class="token punctuation">:</span> no<span class="token punctuation">-</span>referrer <span class="token comment"># 更改引用策略</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+        <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">30000</span>
+        <span class="token key atrule">delay</span><span class="token punctuation">:</span> <span class="token number">4000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><img src="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" alt="这张就是b站的图片"></p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>善待公益项目，每个开发者都是普通人</p>
 <p>jsd反代(回源)</p>
