@@ -1,1 +1,1 @@
-python update.py "Fix：修复友链界面样式错误的问题"
+python update.py "Feat: New"
