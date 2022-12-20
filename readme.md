@@ -7,6 +7,7 @@
 [![Author](https://img.shields.io/badge/Author-tianxiang-orange)](https://github.com/ChenYFan)
 [![GitHub package.json dependency version (dev dep on branch)](https://img.shields.io/github/package-json/dependency-version/TNXG/blog/hexo?logo=hexo)](https://hexo.io)
 [![Miracle](https://img.shields.io/badge/Theme-Miracle-blue)](https://github.com/hifun-team/hexo-theme-miracle)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FTNXG%2Fblog.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FTNXG%2Fblog?ref=badge_shield)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dc63d659-d2c5-49f2-829b-3d2e25749cf0/deploy-status)](https://app.netlify.com/sites/tnxg-blog/deploys)
 [![Vercel Status](https://img.shields.io/badge/Vercel%20Deploy-Look%20Right-000000?style=flat-square&logo=Vercel)](https://vercel.com/tnxg/tnxg-blog)
@@ -50,3 +51,6 @@
 然后PR给我
 
 </div>
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FTNXG%2Fblog.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2FTNXG%2Fblog?ref=badge_large)
