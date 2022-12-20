@@ -11,42 +11,6 @@
   </url>
   
   <url>
-    <loc>https://tnxg.loyunet.cn/xineyc/agreement.html</loc>
-    
-    <lastmod>2022-12-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/xineyc/guide.html</loc>
-    
-    <lastmod>2022-12-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/xineyc/index.html</loc>
-    
-    <lastmod>2022-12-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://tnxg.loyunet.cn/xineyc/statistics.html</loc>
-    
-    <lastmod>2022-12-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://tnxg.loyunet.cn/blog-cgi/index.html</loc>
     
     <lastmod>2022-12-20</lastmod>
@@ -120,6 +84,42 @@
   
   <url>
     <loc>https://tnxg.loyunet.cn/tags/index.html</loc>
+    
+    <lastmod>2022-12-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/xineyc/agreement.html</loc>
+    
+    <lastmod>2022-12-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/xineyc/guide.html</loc>
+    
+    <lastmod>2022-12-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/xineyc/index.html</loc>
+    
+    <lastmod>2022-12-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://tnxg.loyunet.cn/xineyc/statistics.html</loc>
     
     <lastmod>2022-12-20</lastmod>
     
