@@ -8,7 +8,6 @@ page.subtitle = theme.links.subtitle || __('links.subtitle')
   <div class="post-meta" id="post-meta">
     <h3><%= page.title %></h3>
   </div>
-</div>
 <h2 id="友链说明"><a href="#友链说明" class="headerlink" title="友链说明"></a>友链说明</h2><p>友链显示顺序为添加前后顺序~</p><p>如要申请友链，请前往<a target="_blank" rel="noopener" href="https://github.com/TNXG/blog/#friends">这里</a>申请友链或者在评论区发送</p>
   <details>
   <summary>申请友链前必读</summary>
@@ -22,7 +21,8 @@ page.subtitle = theme.links.subtitle || __('links.subtitle')
   <li>暂时不同意商业及非个人的网站的友链申请(py 除外)。</li>
   </ul></p>
   <p>申请友链时必须按照以下格式填写</p>
-  <pre class="line-numbers language-none"><code class="language-none">&quot;url&quot;: &quot;站点链接&quot;,
+  <pre class="line-numbers language-none"><code class="language-none">
+  &quot;url&quot;: &quot;站点链接&quot;,
   &quot;image&quot;: &quot;icon图片链接（推荐使用图床，我们会进行缓存）&quot;,
   &quot;title&quot;: &quot;站点名称&quot;,
   &quot;intro&quot;: &quot;站点简介&quot;
@@ -30,10 +30,12 @@ page.subtitle = theme.links.subtitle || __('links.subtitle')
   <br>
   <details>
   <summary>本站信息</summary>
-  <pre class="line-numbers language-none"><code class="language-none">站名: 天翔TNXG的空间站
+  <pre class="line-numbers language-none"><code class="language-none">
+  站名: 天翔TNXG的空间站
   链接：https:&#x2F;&#x2F;tnxg.loyunet.cn
   介绍: 明日尚未到来，希望凝于心上
-  图标: https:&#x2F;&#x2F;q1.qlogo.cn&#x2F;g?b&#x3D;qq&amp;nk&#x3D;2271225249&amp;s&#x3D;640<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+  图标: https:&#x2F;&#x2F;q1.qlogo.cn&#x2F;g?b&#x3D;qq&amp;nk&#x3D;2271225249&amp;s&#x3D;640
+  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
   </details></details>
 <div class="links-page" style="padding-top:10px;" id="links-page">
     <% for(const each of theme.links.items || []) { %>
@@ -109,8 +111,8 @@ query('.lazyload-img').forEach(function (item) {
 
       </script>
     <% } %>
-</div>
   </div>
+</div>
   <div class="article-m">
     <div class="post-toc">
         <% if (page.toc == true){ %>
@@ -128,4 +130,4 @@ query('.lazyload-img').forEach(function (item) {
         <%- partial(type) %>
     </div>
 <% } %>
-</article>  
+</article>
