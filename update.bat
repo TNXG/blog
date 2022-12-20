@@ -1,1 +1,1 @@
-python update.py "Fix: 尝试修复遗留问题2"
+python update.py "Feat: 升级主题、依赖"

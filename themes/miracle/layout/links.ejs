@@ -8,7 +8,8 @@ page.subtitle = theme.links.subtitle || __('links.subtitle')
   <div class="post-meta" id="post-meta">
     <h3><%= page.title %></h3>
   </div>
-  <h2 id="友链说明"><a href="#友链说明" class="headerlink" title="友链说明"></a>友链说明</h2><p>友链显示顺序为添加前后顺序~</p><p>如要申请友链，请前往<a target="_blank" rel="noopener" href="https://github.com/TNXG/blog/#friends">这里</a>申请友链或者在评论区发送</p>
+</div>
+<h2 id="友链说明"><a href="#友链说明" class="headerlink" title="友链说明"></a>友链说明</h2><p>友链显示顺序为添加前后顺序~</p><p>如要申请友链，请前往<a target="_blank" rel="noopener" href="https://github.com/TNXG/blog/#friends">这里</a>申请友链或者在评论区发送</p>
   <details>
   <summary>申请友链前必读</summary>
   <p><ul>
@@ -104,25 +105,10 @@ query('.lazyload-img').forEach(function (item) {
 });
 },0)
         })();
+
+
       </script>
     <% } %>
 </div>
   </div>
-  <div class="article-m">
-      <div class="post-toc">
-          <% if (page.toc == true){ %>
-              <%- toc(page.content) %>
-          <% } %>
-      </div>
-      <div id="article" class="markdown-body textretty">
-          <%- page.content %>
-      </div>
-  </div>
-  <% if(page.comment || theme.global.comment) { %>
-      <!-- Comments -->
-      <div class="comments">
-          <% var type = '_partial/comments/' + theme.comment.type %>
-          <%- partial(type) %>
-      </div>
-  <% } %>
-  </article>  
+</article>

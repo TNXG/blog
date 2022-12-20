@@ -24,7 +24,6 @@ if (page.title) {
     <meta name="author" content="<%= page.author || config.author %>">
     <meta name="keywords" content="<%= config.keywords %>">
     <% if (page.title){ %><meta property="og:title" content="<%= page.title %>"/><% } %>
-
     <script>
         //判断非本机且未使用https 时，强制重定向到https。
         if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
@@ -68,7 +67,6 @@ if (page.title) {
             });
         } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
     </script>
-    
     <%- partial('_partial/style.ejs') %>
     
 

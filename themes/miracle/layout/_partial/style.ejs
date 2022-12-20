@@ -17,7 +17,6 @@
         --default-link-color: #007bff;
         --link-color: #000000;
         --second-link-color: #4F9BFA;
-        --tnxg-set-css-color-1: #6767ff;
         --code-color:rgba(27,31,35,.05);
         --post-bkg-color: rgba(255, 255, 255, 0.7);
         --page-bkg-color: #f2f5f8;
@@ -98,17 +97,19 @@
 #page-main,footer,.p-btn{
     display: none;
 }
-html,body{
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     overflow-y: overlay;
 }
-body{
+body {
     background-color: var(--page-bkg-color);
     color: var(--second-text-color);
     overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all .3s;
 }
 a {
     color: var(--default-link-color);
@@ -184,6 +185,8 @@ header {
     z-index: 10;
     border-bottom: 1px solid var(--bkg-m);
     background-color: var(--nav-bkg);
+    backdrop-filter: blur(4px);
+    transition: all .3s;
 }
 header .header__left, header .header__right {
     display: flex;
