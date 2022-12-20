@@ -17,7 +17,6 @@
     <meta name="author" content="天翔TNXG">
     <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
     
-
     <script>
         //判断非本机且未使用https 时，强制重定向到https。
         if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
@@ -61,7 +60,6 @@
             });
         } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
     </script>
-    
     <style>
 
 
@@ -77,7 +75,6 @@
         --default-link-color: #007bff;
         --link-color: #000000;
         --second-link-color: #4F9BFA;
-        --tnxg-set-css-color-1: #6767ff;
         --code-color:rgba(27,31,35,.05);
         --post-bkg-color: rgba(255, 255, 255, 0.7);
         --page-bkg-color: #f2f5f8;
@@ -163,17 +160,19 @@
 #page-main,footer,.p-btn{
     display: none;
 }
-html,body{
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     overflow-y: overlay;
 }
-body{
+body {
     background-color: var(--page-bkg-color);
     color: var(--second-text-color);
     overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all .3s;
 }
 a {
     color: var(--default-link-color);
@@ -249,6 +248,8 @@ header {
     z-index: 10;
     border-bottom: 1px solid var(--bkg-m);
     background-color: var(--nav-bkg);
+    backdrop-filter: blur(4px);
+    transition: all .3s;
 }
 header .header__left, header .header__right {
     display: flex;
@@ -396,7 +397,6 @@ header .header__right .dropdown-menus .dropdown-menu {
     }
 
 </style>
-
     
 
     
@@ -414,7 +414,6 @@ header .header__right .dropdown-menus .dropdown-menu {
     <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
 </head>
-
     <body>
         <header>
             
@@ -543,20 +542,21 @@ header .header__right .dropdown-menus .dropdown-menu {
 <div class="post-card-center">
 <div class="post-card-main">
 
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/ae466686ef61.html">
-          
-          关于GitHub学生包的一些问题</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/ae466686ef61.html">
             
-            
+            关于GitHub学生包的一些问题</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            关于我的GitHub Student Developer Pack其实在今年10月份就已经申请到手了
+              
+                
+              
+              关于我的GitHub Student Developer Pack其实在今年10月份就已经申请到手了
 主要还是因为Copilot太香了，兜兜转转几遍终于还是把这个玩意申请到手了
 终于可以继续tab、注释编程了
 一定要有耐心，这个东西就是在申请和被打回之间兜兜转转的
@@ -564,228 +564,240 @@ header .header__right .dropdown-menus .dropdown-menu {
 实际上我被驳回申请的数量还算少，你可以取康康隔壁大佬申请学生包的次数
 关于如何申请学生包我就不再阐述了，毕竟网上的教程有很多
 但无论
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-12-23 20:30" pubdate>
-                2022-12-23
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/Github/">Github</a>
-              
-                <span class="p-dot"></span><a href="/categories/Github/%E7%99%BD%E5%AB%96/">白嫖</a>
+                <time datetime="2022-12-23 20:30" pubdate>
+                  2022-12-23
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/Github/">Github</a>
+                
+                  <span class="p-dot"></span><a href="/categories/Github/%E7%99%BD%E5%AB%96/">白嫖</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/634c0c03906f.html">
-          
-          不想当偶像的马娘不是好术力口 2·奇迹的复活！东海帝王！</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/634c0c03906f.html">
             
-            
+            不想当偶像的马娘不是好术力口 2·奇迹的复活！东海帝王！</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            不想当偶像的马娘不是好术力口第一卷·属于我们的时代2·奇迹的复活！东海帝王！“哟，小金船大人今天怎么有心思去帝王前辈的休息室一逛啦”
+              
+                
+              
+              不想当偶像的马娘不是好术力口第一卷·属于我们的时代2·奇迹的复活！东海帝王！“哟，小金船大人今天怎么有心思去帝王前辈的休息室一逛啦”
 “咳，落樱前辈就别调侃我了，我这不是来问帝王要一些签名作为小金船炒面Plus版的附赠品……对了前辈是来找帝王的吧，我就不打扰各位啦”
 说罢，黄金船遍驾驶小金船号离开了帝王的休息室。
 “前辈？”光钻发出了疑问
 帝王和北黑也朝樱落投来了好奇的眼神。
 “呃，硬要说起来也没
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-12-10 14:06" pubdate>
-                2022-12-10
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/%E5%8E%9F%E5%88%9B/">原创</a>
+                <time datetime="2022-12-10 14:06" pubdate>
+                  2022-12-10
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/569ce1f2363d.html">
-          
-          不想当偶像的马娘不是好术力口 1·故事的起始</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/569ce1f2363d.html">
             
-            
+            不想当偶像的马娘不是好术力口 1·故事的起始</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            不想当偶像的马娘不是好术力口第一卷·属于我们的时代1·故事的起始“光钻！樱落！快点快点，今天是帝王小姐的有马纪念！我一定不能错过！”一只黑毛的小马娘跑到了另外两只小马娘身边，对她们大声说到。
+              
+                
+              
+              不想当偶像的马娘不是好术力口第一卷·属于我们的时代1·故事的起始“光钻！樱落！快点快点，今天是帝王小姐的有马纪念！我一定不能错过！”一只黑毛的小马娘跑到了另外两只小马娘身边，对她们大声说到。
 “北黑！别那么冒冒失失的好吗？我们这不是在准备了么？很快就能好的啦”另一位茶色毛发的马娘说到。
 一旁的芦毛小马娘也只是笑了笑，便开口说：“我收拾好了哦，现在大家都在等你呢，光钻。”
 意识到自己确实慢人一步的里
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-11-14 01:10" pubdate>
-                2022-11-14
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/%E5%8E%9F%E5%88%9B/">原创</a>
+                <time datetime="2022-11-14 01:10" pubdate>
+                  2022-11-14
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/c81f75a8cc34.html">
-          
-          不想当偶像的马娘不是好术力口 序2·流星的坠落</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/c81f75a8cc34.html">
             
-            
+            不想当偶像的马娘不是好术力口 序2·流星的坠落</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            不想当偶像的马娘不是好术力口第一卷·属于我们的时代序2·流星的坠落一场大雨后的竞马场，场况变为了妥妥的重场，这无疑加大了这场比赛的难度。
+              
+                
+              
+              不想当偶像的马娘不是好术力口第一卷·属于我们的时代序2·流星的坠落一场大雨后的竞马场，场况变为了妥妥的重场，这无疑加大了这场比赛的难度。
 我们的希望象征小姐踩了踩脚下的草地，是那种一脚踩下去能踩出水的程度，何况希望象征的对手还是拥有“皇帝”之名的鲁道夫象征。
 这是希望象征第一次与她的姐姐共同站在同一条赛道上，她深知自己与自己这位“姐姐”的差距，哪怕作为一位三冠马娘，生涯总计获得5次G1优胜的她，也
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-11-05 00:10" pubdate>
-                2022-11-05
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/%E5%8E%9F%E5%88%9B/">原创</a>
+                <time datetime="2022-11-05 00:10" pubdate>
+                  2022-11-05
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/2609279ac047.html">
-          
-          更换主题Miracle</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/2609279ac047.html">
             
+            更换主题Miracle</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              其实早就有了更换主题的心思了，但是奈何页面修改太多想必迁移也是一种很麻烦的事情，但是思前想后最终还是把主题给更换了
+          </p>
+          <div class="index-btm post-metas">
             
               
+                <time datetime="2022-10-13 05:25" pubdate>
+                  2022-10-13
+                </time>
+              
             
-            其实早就有了更换主题的心思了，但是奈何页面修改太多想必迁移也是一种很麻烦的事情，但是思前想后最终还是把主题给更换了
-        </p>
-        <div class="index-btm post-metas">
-          
             
-              <time datetime="2022-10-13 05:25" pubdate>
-                2022-10-13
-              </time>
-            
-          
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/dfb153abe251.html">
-          
-          不想当偶像的马娘不是好术力口 序·最后的自白书</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/dfb153abe251.html">
             
-            
+            不想当偶像的马娘不是好术力口 序·最后的自白书</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            不想当偶像的马娘不是好术力口第一卷·属于我们的时代序·最后的自白书我只一个事事无成的普通人罢了，普通的在这个世界上活着，普通的在这个世界上挣扎着，现实的重量时常压迫着我，使我抬不起头来。
+              
+                
+              
+              不想当偶像的马娘不是好术力口第一卷·属于我们的时代序·最后的自白书我只一个事事无成的普通人罢了，普通的在这个世界上活着，普通的在这个世界上挣扎着，现实的重量时常压迫着我，使我抬不起头来。
 我幼时的梦想啊，我曾幻想越过山峰，踏过花海，奔跑在无边的草原之上。
 现在想来，那些梦想却在现实的重压之下变得脆弱不堪。
 常年累月生活在重压之下的我，再也无法顺着微风奔跑。
 身体的疲态已经开始显现，我无力所做我想要
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-10-09 13:10" pubdate>
-                2022-10-09
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/%E5%8E%9F%E5%88%9B/">原创</a>
+                <time datetime="2022-10-09 13:10" pubdate>
+                  2022-10-09
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/">小说</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%B0%8F%E8%AF%B4/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/64546a455231.html">
-          
-          明日方舟官方通报</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/64546a455231.html">
             
-            
+            明日方舟官方通报</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            
+              
+                
+              
+              
 
 
 printpages(get_lastet_apidata());
@@ -795,265 +807,279 @@ function get_lastet_apidata() {
     req.open('GET', 'https://api.prts.top/v1/ak-conf/', false);
     req.send(null);
     return
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-08-07 18:22" pubdate>
-                2022-08-07
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/">明日方舟</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/%E9%80%9A%E6%8A%A5/">通报</a>
+                <time datetime="2022-08-07 18:22" pubdate>
+                  2022-08-07
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/">明日方舟</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/%E9%80%9A%E6%8A%A5/">通报</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/a73f2508bb88.html">
-          
-          获取bing每日图的方法</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/a73f2508bb88.html">
+            
+            获取bing每日图的方法</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              随便扯一篇文章发出来？
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2022-07-31 14:22" pubdate>
+                  2022-07-31
+                </time>
+              
             
             
               
-            
-            随便扯一篇文章发出来？
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-07-31 14:22" pubdate>
-                2022-07-31
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E5%8E%9F%E5%88%9B/">原创</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E5%8E%9F%E5%88%9B/%E6%8A%80%E6%9C%AF/">技术</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%8E%9F%E5%88%9B/%E6%8A%80%E6%9C%AF/">技术</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/e813d922e1d1.html">
-          
-          Hexo博客优化？不如尝试ClientWorker</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/e813d922e1d1.html">
             
+            Hexo博客优化？不如尝试ClientWorker</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              
+          </p>
+          <div class="index-btm post-metas">
             
+              
+                <time datetime="2022-07-21 20:22" pubdate>
+                  2022-07-21
+                </time>
               
             
             
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-07-21 20:22" pubdate>
-                2022-07-21
-              </time>
-            
-          
-          
-            
               
-                <span class="p-dot"></span><a href="/categories/%E5%8E%9F%E5%88%9B/">原创</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E5%8E%9F%E5%88%9B/%E6%8A%80%E6%9C%AF/">技术</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E5%8E%9F%E5%88%9B/%E6%8A%80%E6%9C%AF/">技术</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/09dc7c8016e3.html">
-          
-          简记Grasscutter的搭建</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/09dc7c8016e3.html">
             
-            
+            简记Grasscutter的搭建</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            
+              
+                
+              
+              
 前言tip:本文仅作技术分享，从而带来的任何问题我们暂不负责，若本文侵犯了贵方的权益请联系天翔TNXG
 上一次见到关于MitmProxy的项目是关于明日方舟的G和私服，没想到这么快就轮到原神了，这还是令我有点惊讶的
 不过搭建这类东西是需要点小技术的。没有技术力的还是去看别人写的博文，利用懒人包搭建罢
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-05-01 00:15" pubdate>
-                2022-05-01
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/%E5%8E%9F%E5%88%9B/">原创</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/%E5%8E%9F%E5%88%9B/%E6%95%99%E7%A8%8B/">教程</a>
+                <time datetime="2022-05-01 00:15" pubdate>
+                  2022-05-01
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/%E5%8E%9F%E5%88%9B/%E6%95%99%E7%A8%8B/">教程</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/0cace299bdc7.html">
-          
-          关于图片储存的那些事</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/0cace299bdc7.html">
             
-            
+            关于图片储存的那些事</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            序言自上次搬运了CYF的文章之后，再次谈及文件储存，也已经是一年多以后了
+              
+                
+              
+              序言自上次搬运了CYF的文章之后，再次谈及文件储存，也已经是一年多以后了
 为什么要突然谈及关于这方面的事情呢？其实最主要的原因还是因为个人的动态博客因为资金问题停止运营苦逼中学生从而转向了我之前以为技术问题而抛弃的静态博客，至少现在GitHub、GitHubPages、Vercel还是免费的，然鹅这就引发了一个非常严重的问题，我的静态资源扔到哪？
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-04-11 00:50" pubdate>
-                2022-04-11
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E5%88%9B/">原创</a>
+                <time datetime="2022-04-11 00:50" pubdate>
+                  2022-04-11
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%8A%80%E6%9C%AF/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/dda727f4f8e1.html">
-          
-          月初的小记</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/dda727f4f8e1.html">
             
-            
+            月初的小记</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            需要简单说几句
+              
+                
+              
+              需要简单说几句
 alist搭建的网盘直链系统也算是构建完成了
 
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-04-05 23:13" pubdate>
-                2022-04-05
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                <time datetime="2022-04-05 23:13" pubdate>
+                  2022-04-05
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/f62a1e676dca.html">
-          
-          浅谈吾导先路活动</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/f62a1e676dca.html">
             
-            
+            浅谈吾导先路活动</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            正文吾导先路的活动也终于算是告一段落，这次活动的剧情也是给这宏大世界观的泰拉大地又添上浓墨重彩的一笔。
+              
+                
+              
+              正文吾导先路的活动也终于算是告一段落，这次活动的剧情也是给这宏大世界观的泰拉大地又添上浓墨重彩的一笔。
 给我留下印象最深刻的不是能天使的姐姐蕾缪安，也不是莫斯提马或者是她的监督者菲亚梅塔，而是受到了来自拉特兰律法庇佑的，天使与恶魔的混血儿“塞茜莉亚”。
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-04-01 02:50" pubdate>
-                2022-04-01
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
-              
-                <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/%E5%8E%9F%E5%88%9B/">原创</a>
+                <time datetime="2022-04-01 02:50" pubdate>
+                  2022-04-01
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/">游戏</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%B8%B8%E6%88%8F/%E5%8E%9F%E5%88%9B/">原创</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/96e628bd5754.html">
-          
-          Hello World</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/96e628bd5754.html">
             
-            
+            Hello World</a>
+          </h3>
+          <p class="index-excerpt">
               
-            
-            我草，我只能说我tm裂开了
+              
+                
+              
+              我草，我只能说我tm裂开了
 服务器到期时我的动态博客还没有备份
 这也就导致了我新写的文章飞了
 到头来发现还是静态博客对我好
@@ -1063,59 +1089,62 @@ alist搭建的网盘直链系统也算是构建完成了
 咳咳，无视上面的无能狂怒
 但也迁移了将近两天(指昨天晚上1点)的文章，图片链接全部都是我自己手动替换的，麻了
 
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2022-01-18 01:20" pubdate>
-                2022-01-18
-              </time>
-            
-          
-          
+          </p>
+          <div class="index-btm post-metas">
             
               
-                <span class="p-dot"></span><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                <time datetime="2022-01-18 01:20" pubdate>
+                  2022-01-18
+                </time>
               
             
-          
-        </div>
-      </article>
-    </div>
+            
+              
+                
+                  <span class="p-dot"></span><a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                
+              
+            
+          </div>
+        </article>
+      </div>
+    
   
-    <div class="index-card">
-      
-      <article class="index-card-info">
-        <h3 class="index-header">
-          <a href="/p/2a3dfb7a68bb.html">
-          
-          明日方舟手书《Satellite》观看有感</a>
-        </h3>
-        <p class="index-excerpt">
+    
+      <div class="index-card">
+        
+        <article class="index-card-info">
+          <h3 class="index-header">
+            <a href="/p/2a3dfb7a68bb.html">
+            
+            明日方舟手书《Satellite》观看有感</a>
+          </h3>
+          <p class="index-excerpt">
+              
+              
+                
+              
+              原石天灾下的人类显得如此渺小。渺小到，连自己最珍贵的人也无法保护
+          </p>
+          <div class="index-btm post-metas">
+            
+              
+                <time datetime="2021-02-24 23:17" pubdate>
+                  2021-02-24
+                </time>
+              
             
             
               
-            
-            原石天灾下的人类显得如此渺小。渺小到，连自己最珍贵的人也无法保护
-        </p>
-        <div class="index-btm post-metas">
-          
-            
-              <time datetime="2021-02-24 23:17" pubdate>
-                2021-02-24
-              </time>
-            
-          
-          
-            
-              
-                <span class="p-dot"></span><a href="/categories/%E6%96%87%E7%AB%A0/">文章</a>
+                
+                  <span class="p-dot"></span><a href="/categories/%E6%96%87%E7%AB%A0/">文章</a>
+                
               
             
-          
-        </div>
-      </article>
-    </div>
+          </div>
+        </article>
+      </div>
+    
   
 </div>
 </div>
@@ -1128,42 +1157,40 @@ alist搭建的网盘直链系统也算是构建完成了
 
         </div>
         
-  <footer class="text-center">
+<footer class="text-center">
     
+    
+    
+    
+      <p>站长最后在线时间&nbsp<span id="bloggeractivetime">[Loading]</span></p>
       
-          
-              
-                <p>站长最后在线时间&nbsp<span id="bloggeractivetime">[Loading ]</span></p>
-                
-                  
-                    <p>&copy; 
-                        2019 - 
-                            2022&nbsp;&nbsp;天翔TNXG
-                    </p>
-                    
-                      <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
-                          href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
-                      <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
-                      <p>站点访问量:<span id="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
-                      </p>
-                      <!-- <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
-                  src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
-                  height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
-                      <p><a target="_blank" rel="noopener" href="https://travellings.cn/"><img
-                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
-                            height="40%" /></a></p>
-  </footer>
-  
-    <div class="p-btn">
-      
-          
-              <a href="#top" class="click-btn">
-                <i id="i-up"></i>
-              </a>
-    </div>
+    
+    <p>&copy;  2019 - 2022&nbsp;&nbsp;天翔TNXG</p>
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
+      href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+  <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
+  <p>站点访问量:<span id="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
+  </p>
+  <!-- <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
+src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
+  <p><a target="_blank" rel="noopener" href="https://travellings.cn/"><img
+        src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
+        height="40%" /></a></p>
+</footer>
 
-    <!-- SCRIPTS -->
+
+<div class="p-btn">
     
+    
+    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" class="click-btn">
+      <i id="i-up"></i>
+    </a>
+</div>
+
+<!-- SCRIPTS -->
+
 
     <!-- Google Analytics -->
     <script defer>
@@ -1209,28 +1236,31 @@ alist搭建的网盘直链系统也算是构建完成了
 
 
 
-      
-        
+
+
+
+  
 <script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
 <script src="/assets/js/message.js"></script>
 
-          
-            <!-- 尾部脚本 -->
-            <script type="text/javascript">
-              (function (c, l, a, r, i, t, y) {
-                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-                t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-                y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-              })(window, document, "clarity", "script", "bdwnhd5bw9");
-            </script>
-            <script>
-              loadStatistic("https://qexo.prts.top");
-              if (window.location.pathname == '/' || window.location.pathname == '') {
-                tnxg_index()
-              } else {
-                tnxg_pages()
-              }
-            </script>
+
+
+<!-- 尾部脚本 -->
+<script type="text/javascript">
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "bdwnhd5bw9");
+</script>
+<script>
+  loadStatistic("https://qexo.prts.top");
+  if (window.location.pathname == '/' || window.location.pathname == '') {
+    tnxg_index()
+  } else {
+    tnxg_pages()
+  }
+</script>
         </div>
         <div id="css-loading">
             <h3 class="text-center">加载中...</h3>

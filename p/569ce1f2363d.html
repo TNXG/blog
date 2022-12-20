@@ -17,7 +17,6 @@
     <meta name="author" content="天翔TNXG">
     <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
     <meta property="og:title" content="不想当偶像的马娘不是好术力口 1·故事的起始"/>
-
     <script>
         //判断非本机且未使用https 时，强制重定向到https。
         if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
@@ -61,7 +60,6 @@
             });
         } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
     </script>
-    
     <style>
 
 
@@ -77,7 +75,6 @@
         --default-link-color: #007bff;
         --link-color: #000000;
         --second-link-color: #4F9BFA;
-        --tnxg-set-css-color-1: #6767ff;
         --code-color:rgba(27,31,35,.05);
         --post-bkg-color: rgba(255, 255, 255, 0.7);
         --page-bkg-color: #f2f5f8;
@@ -163,17 +160,19 @@
 #page-main,footer,.p-btn{
     display: none;
 }
-html,body{
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
     overflow-y: overlay;
 }
-body{
+body {
     background-color: var(--page-bkg-color);
     color: var(--second-text-color);
     overflow-y: scroll;
+    overflow-x: hidden;
+    transition: all .3s;
 }
 a {
     color: var(--default-link-color);
@@ -249,6 +248,8 @@ header {
     z-index: 10;
     border-bottom: 1px solid var(--bkg-m);
     background-color: var(--nav-bkg);
+    backdrop-filter: blur(4px);
+    transition: all .3s;
 }
 header .header__left, header .header__right {
     display: flex;
@@ -396,7 +397,6 @@ header .header__right .dropdown-menus .dropdown-menu {
     }
 
 </style>
-
     
 
     
@@ -421,7 +421,6 @@ header .header__right .dropdown-menus .dropdown-menu {
     <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXG的空间站" type="application/atom+xml">
 </head>
-
     <body>
         <header>
             
@@ -745,53 +744,46 @@ setTimeout(function () {
 
         </div>
         
-  <footer class="text-center">
+<footer class="text-center">
     
+    
+    
+    
+      <p>站长最后在线时间&nbsp<span id="bloggeractivetime">[Loading]</span></p>
       
-          
-              
-                <p>站长最后在线时间&nbsp<span id="bloggeractivetime">[Loading ]</span></p>
-                
-                  
-                    <p>&copy; 
-                        2019 - 
-                            2022&nbsp;&nbsp;天翔TNXG
-                    </p>
-                    
-                      <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
-                          href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
-                      <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
-                      <p>站点访问量:<span id="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
-                      </p>
-                      <!-- <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
-                  src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
-                  height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
-                      <p><a target="_blank" rel="noopener" href="https://travellings.cn/"><img
-                            src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
-                            height="40%" /></a></p>
-  </footer>
-  
-    <div class="p-btn">
-      
-        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
-        
-          
-            <a class="toc-btn" id="share-btn"><i>
-                <svg t="1670124379155" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                  xmlns="http://www.w3.org/2000/svg" p-id="2683" width="25" height="25">
-                  <path
-                    d="M395.946667 234.666667v64H256v469.333333h512V522.666667h64V768a64 64 0 0 1-64 64H256a64 64 0 0 1-64-64V298.666667a64 64 0 0 1 64-64h139.946667z m335.850666-87.914667l150.848 150.826667-158.378666 158.4-45.269334-45.248L748.394667 341.333333H672c-121.685333 0-220.714667 97.024-223.914667 217.941334L448 565.333333v85.333334h-64v-85.333334C384 406.272 512.938667 277.333333 672 277.333333h99.861333l-85.312-85.333333 45.248-45.248z"
-                    p-id="2684" fill="var(--first-text-color)"></path>
-                </svg>
-              </i></a>
-            
-              <a href="#top" class="click-btn">
-                <i id="i-up"></i>
-              </a>
-    </div>
+    
+    <p>&copy;  2019 - 2022&nbsp;&nbsp;天翔TNXG</p>
+    
+    <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
+      href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+  <p> 来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
+  <p>站点访问量:<span id="qexo-site-pv">Loading...</span>丨页面访问量:<span id="qexo-page-pv">Loading...</span>
+  </p>
+  <!-- <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
+src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
+  <p><a target="_blank" rel="noopener" href="https://travellings.cn/"><img
+        src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
+        height="40%" /></a></p>
+</footer>
 
-    <!-- SCRIPTS -->
+
+<div class="p-btn">
     
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+    
+    
+      <a class="toc-btn" id="share-btn"><i>
+        <svg t="1670124379155" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2683" width="25" height="25"><path d="M395.946667 234.666667v64H256v469.333333h512V522.666667h64V768a64 64 0 0 1-64 64H256a64 64 0 0 1-64-64V298.666667a64 64 0 0 1 64-64h139.946667z m335.850666-87.914667l150.848 150.826667-158.378666 158.4-45.269334-45.248L748.394667 341.333333H672c-121.685333 0-220.714667 97.024-223.914667 217.941334L448 565.333333v85.333334h-64v-85.333334C384 406.272 512.938667 277.333333 672 277.333333h99.861333l-85.312-85.333333 45.248-45.248z" p-id="2684" fill="var(--first-text-color)"></path></svg>
+      </i></a>
+    
+    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" class="click-btn">
+      <i id="i-up"></i>
+    </a>
+</div>
+
+<!-- SCRIPTS -->
+
 
     <!-- Google Analytics -->
     <script defer>
@@ -930,28 +922,31 @@ setTimeout(function () {
         window.onscroll = windowScroll;
     </script>
 
-      
-        
+
+
+
+  
 <script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
 <script src="/assets/js/message.js"></script>
 
-          
-            <!-- 尾部脚本 -->
-            <script type="text/javascript">
-              (function (c, l, a, r, i, t, y) {
-                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-                t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-                y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-              })(window, document, "clarity", "script", "bdwnhd5bw9");
-            </script>
-            <script>
-              loadStatistic("https://qexo.prts.top");
-              if (window.location.pathname == '/' || window.location.pathname == '') {
-                tnxg_index()
-              } else {
-                tnxg_pages()
-              }
-            </script>
+
+
+<!-- 尾部脚本 -->
+<script type="text/javascript">
+  (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+  })(window, document, "clarity", "script", "bdwnhd5bw9");
+</script>
+<script>
+  loadStatistic("https://qexo.prts.top");
+  if (window.location.pathname == '/' || window.location.pathname == '') {
+    tnxg_index()
+  } else {
+    tnxg_pages()
+  }
+</script>
         </div>
         <div id="css-loading">
             <h3 class="text-center">加载中...</h3>
