@@ -1,1 +1,1 @@
-python update.py "Feat: New"
+python update.py "Fix: 修订ReadMe.MD"
