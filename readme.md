@@ -1,6 +1,6 @@
 <div align="center">
 
-# 天翔TNXG的空间站
+# 天翔TNXGの空间站
 
 明日尚未到来，希望凝于心上
 

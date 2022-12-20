@@ -1,1 +1,1 @@
-python update.py "Fix: –ﬁ∂©ReadMe.MD"
+python update.py "Fix: –ﬁ∏¥Œ Ã‚"

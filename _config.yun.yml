@@ -181,7 +181,7 @@ social:
 # Banner设置
 banner:
   enable: true
-  title: 天翔的空间站
+  title: 天翔の空间站
   src: /js/ui/banner.js
   border: true
   cloud:
