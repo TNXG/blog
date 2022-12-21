@@ -1,1 +1,1 @@
-python update.py "Fix: –ﬁ∏¥Œ Ã‚"
+python update.py "Feat: –¬robots.txt"

@@ -26,6 +26,10 @@ global:
   #    date: "7-8"
   comment: true
 
+# 默认说说页
+talk:
+    enable: false
+
 # 搜索
 search:
   enable: true
