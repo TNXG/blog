@@ -1,1 +1,1 @@
-python update.py "Feat: 更多的老婆"
+python update.py "Fix: 修复回滚顶部的bug"

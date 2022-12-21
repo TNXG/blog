@@ -121,7 +121,7 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
 
 @font-face {
   src: url("https://assets.tnxg.whitenuo.cn/fonts/AgeFonts001.woff") format('woff');
-  font-family: "JetBrainsMono";
+  font-family: "AgeFonts001";
 }
 
 .HarmonyOS_Sans {
