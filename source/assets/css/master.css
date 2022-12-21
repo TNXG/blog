@@ -119,6 +119,11 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
   font-family: "JetBrainsMono";
 }
 
+@font-face {
+  src: url("https://assets.tnxg.whitenuo.cn/fonts/AgeFonts001.woff") format('woff');
+  font-family: "JetBrainsMono";
+}
+
 .HarmonyOS_Sans {
   font-family: "HarmonyOS_Sans";
 }
@@ -141,6 +146,10 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
 
 .JetBrainsMono {
   font-family: "JetBrainsMono";
+}
+
+.AgeFonts001 {
+  font-family: "AgeFonts001";
 }
 
 * {
@@ -207,7 +216,6 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
   text-align: center;
   justify-content: center;
   width: 8rem;
-  margin: 1rem;
 }
 
 .girl-item .girl-info {
@@ -219,8 +227,8 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
 .girl-item .girl-avatar {
   object-fit: cover;
   object-position: center top;
-  width: 4rem;
-  height: 4rem;
+  width: 6rem;
+  height: 6rem;
   border-radius: 50%;
   padding: 0.2rem;
   background-color: #fff;
