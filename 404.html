@@ -330,7 +330,7 @@ header .header__right .dropdown-menus .dropdown-menu {
     contain: layout;
 }
 .toc-btn,.click-btn{
-    cursor: pointer;
+    cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -533,16 +533,18 @@ header .header__right .dropdown-menus .dropdown-menu {
 
         </div>
         
-<div class="p-btn">
-    
-    
-    <a href="javascript:window.scrollTo({top:0,behavior:'smooth'});" class="click-btn">
-      <i id="i-up"></i>
-    </a>
-</div>
+    <div class="p-btn">
+      
+          
+              <span id="up-btn" hidden="hidden">
+                <a href="javascript:topFunction()" class="click-btn">
+                  <i id="i-up"></i>
+                </a>
+              </span>
+    </div>
 
-<!-- SCRIPTS -->
-
+    <!-- SCRIPTS -->
+    
 
     <!-- Google Analytics -->
     <script defer>
@@ -588,31 +590,49 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 
 
-
-
-
-  
+      
+        
 <script src="https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"></script>
 <script src="/assets/js/message.js"></script>
 
+          
+            <!-- 尾部脚本 -->
+            <script type="text/javascript">
+              (function (c, l, a, r, i, t, y) {
+                c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
+                t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+                y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+              })(window, document, "clarity", "script", "bdwnhd5bw9");
+              loadStatistic("https://qexo.prts.top");
+              if (window.location.pathname == '/' || window.location.pathname == '') {
+                tnxg_index()
+              } else {
+                tnxg_pages()
+              }
 
-
-<!-- 尾部脚本 -->
-<script type="text/javascript">
-  (function (c, l, a, r, i, t, y) {
-    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
-    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-  })(window, document, "clarity", "script", "bdwnhd5bw9");
-</script>
-<script>
-  loadStatistic("https://qexo.prts.top");
-  if (window.location.pathname == '/' || window.location.pathname == '') {
-    tnxg_index()
-  } else {
-    tnxg_pages()
-  }
-</script>
+              document.body.addEventListener('scroll', function (e) { scrollFunction() })
+              function scrollFunction() {
+                console.log("触发了一个滚动事件");
+                if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                  document.getElementById("up-btn").style.display = "block";
+                } else {
+                  document.getElementById("up-btn").style.display = "none";
+                }
+              }
+              var timer = null;
+              function topFunction() {
+                cancelAnimationFrame(timer);
+                timer = requestAnimationFrame(function fn() {
+                  var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+                  if (oTop > 0) {
+                    document.body.scrollTop = document.documentElement.scrollTop = oTop - 80;
+                    timer = requestAnimationFrame(fn);
+                  } else {
+                    cancelAnimationFrame(timer);
+                  }
+                });
+              }
+            </script>
         </div>
         <div id="css-loading">
             <h3 class="text-center">加载中...</h3>
