@@ -1,1 +1,1 @@
-python update.py "Fix: 修复回滚顶部的bug"
+python update.py "Feat: 更新数据"

@@ -18,6 +18,11 @@ images:
   domain: https://assets.tnxg.whitenuo.cn
   #domain: https://assets.prts.top
 
+lazyload:
+  enable: true
+  onlypost: false
+  loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"
+
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
 url: https://tnxg.loyunet.cn/

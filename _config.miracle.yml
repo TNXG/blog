@@ -14,6 +14,9 @@ global:
   # 网页访问统计
   web_analytics:
     google: "G-RLK9KD8ZT6"
+    woyaolav6:
+      id: "JuuJr9Xtk01ykQVU"
+      ck: "JuuJr9Xtk01ykQVU"
   # 在页面底部加入 Copyright
   copyright:
     enable: true
@@ -28,7 +31,7 @@ global:
 
 # 默认说说页
 talk:
-    enable: false
+  enable: false
 
 # 搜索
 search:
@@ -53,7 +56,6 @@ custom:
     - "https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css"
     - "https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css"
 
-
 index:
   # 名称
   name: "天翔TNXGの空间站"
@@ -73,15 +75,15 @@ index:
     enable: true
 navbar:
   menu:
-    首页: '/'
-    存档: '/archives/'
-    说说: '/talks/'
-    友链: '/links/'
-    友圈: '/friendcircle/'
-    开往: 'https://travellings.link/'
-    条款: '/policy/'
-    更多: '/more/'
-    关于: '/about/'
+    首页: "/"
+    存档: "/archives/"
+    说说: "/talks/"
+    友链: "/links/"
+    友圈: "/friendcircle/"
+    开往: "https://travellings.link/"
+    条款: "/policy/"
+    更多: "/more/"
+    关于: "/about/"
 
 post:
   readingProgess:
@@ -169,4 +171,4 @@ lazyload:
   loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"
 
 qexo_time:
-    enable: true
+  enable: true
