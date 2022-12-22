@@ -23,7 +23,7 @@ layout: false
                     <script src="{% twikoocdnurl %}twikoo.min.js"></script>
                     <script>
                         twikoo.init({
-                            envId: 'https://twikoo.prts.top',
+                            envId: 'https://api.twikoo.prts.top',
                             el: '#tcomment',
                         })
                     </script>

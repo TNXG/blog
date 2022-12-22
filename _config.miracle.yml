@@ -134,7 +134,7 @@ post:
 comment:
   type: twikoo
   twikoo:
-    envid: "https://twikoo.prts.top"
+    envid: "https://api.twikoo.prts.top"
     isVercel: true
 
 category:
