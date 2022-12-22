@@ -1,1 +1,1 @@
-python update.py "Feat: 更换twikoo部署方式"
+python update.py "Fix: 修复留言板"
