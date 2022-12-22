@@ -549,11 +549,11 @@ header .header__right .dropdown-menus .dropdown-menu {
 </blockquote>
 <div class="text-center">
   <div class="site-author-avatar">
-    <img src="https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640">
+    <img src="https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640" class="lazyload-img" data-srcset="https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp">
   </div>
 </div>
 
-<p><a target="_blank" rel="noopener" href="https://wakatime.com/@4a671fe1-89e5-4c3d-acdd-6a423297698f"><img src="https://wakatime.com/badge/user/4a671fe1-89e5-4c3d-acdd-6a423297698f.svg" alt="wakatime"></a></p>
+<p><a target="_blank" rel="noopener" href="https://wakatime.com/@4a671fe1-89e5-4c3d-acdd-6a423297698f"><img src="https://wakatime.com/badge/user/4a671fe1-89e5-4c3d-acdd-6a423297698f.svg" class="lazyload-img" data-srcset="https://wakatime.com/badge/user/4a671fe1-89e5-4c3d-acdd-6a423297698f.svg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="wakatime"></a></p>
 <blockquote>
 <p>未成年，可以独立思考，会发傻，<del>爱吃桃</del>，不足及时指出</p>
 </blockquote>
@@ -564,7 +564,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <h1 id="关于站点"><a href="#关于站点" class="headerlink" title="关于站点"></a>关于站点</h1><blockquote>
 <p>来看看站点的构成？（白嫖大王.jpg）</p>
 </blockquote>
-<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png"></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <p><del>图片过时了</del></p>
 <blockquote>
 <p>本站编年史</p>
@@ -772,6 +772,12 @@ setTimeout(function () {
 
 
 
+    <!-- 51.la V6 Analytics -->
+    <script>
+        !function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JuuJr9Xtk01ykQVU",ck:"JuuJr9Xtk01ykQVU",autoTrack:true});
+    </script>
+
+
 
 <script>
     document.getElementById("btn-dropdown").addEventListener('click', () => {
@@ -825,6 +831,30 @@ setTimeout(function () {
 </script>
 
 
+
+<script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
 
 
     <script>

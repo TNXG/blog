@@ -576,7 +576,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <span id="more"></span>
 
 <p>我实在受不了之前那个主题被我改的加载半天的页面了，当时正好群里的大佬在宣传他写的Miracle主题，看了看还是蛮符合我审美的，于是我就开始了痛苦的更换主题工作</p>
-<p><img src="https://assets.tnxg.whitenuo.cn/images/article/2022/10/9ddfa1cd417c722ee5c7e9304f0eda8f.png" alt="9ddfa1cd417c722ee5c7e9304f0eda8f"></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/article/2022/10/9ddfa1cd417c722ee5c7e9304f0eda8f.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/article/2022/10/9ddfa1cd417c722ee5c7e9304f0eda8f.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="9ddfa1cd417c722ee5c7e9304f0eda8f"></p>
 <h1 id="对于失效页面进行修改"><a href="#对于失效页面进行修改" class="headerlink" title="对于失效页面进行修改"></a>对于失效页面进行修改</h1><p>更换主题的过程中，我突然意识到貌似博客的 <a href="/girls/">Lovely Girls</a> 和 <a href="/monument/">Monument丨丰碑</a> 是基于原主题提供的支持搭建的页面，如果更换主题那么这两个页面也将会出现问题，于是我看了看代码结构</p>
 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">new Vue(&#123;
             el: &quot;#girls&quot;,
@@ -796,6 +796,12 @@ setTimeout(function () {
 
 
 
+    <!-- 51.la V6 Analytics -->
+    <script>
+        !function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JuuJr9Xtk01ykQVU",ck:"JuuJr9Xtk01ykQVU",autoTrack:true});
+    </script>
+
+
 
 <script>
     document.getElementById("btn-dropdown").addEventListener('click', () => {
@@ -849,6 +855,30 @@ setTimeout(function () {
 </script>
 
 
+
+<script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
 
 
     <script>

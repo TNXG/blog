@@ -572,7 +572,7 @@ header .header__right .dropdown-menus .dropdown-menu {
   </div>
     <div id="article">
       <div id="post-content" class="markdown-body textretty">
-        <p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png"></p>
+        <p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <span id="more"></span>
 
 <hr>
@@ -757,7 +757,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>关于我配置的最新内容都可以在<a href="https://tnxg.loyunet.cn/config.yaml">Config.yaml</a>找到</p>
 <p>后面的那些是我给dogecloud-oss写的webp自适应内容</p>
 <p>当我把这配置发出去的时候CFY就表示</p>
-<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/ESVG4TR85H54ERGT8484W.png"></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/ESVG4TR85H54ERGT8484W.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/ESVG4TR85H54ERGT8484W.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <p>我寻思Safari这个玩意还有人用？我眼里(Safari&#x3D;IE)</p>
 <p>咳咳，问题不大，反正我不用Safari我也看不到会出什么bug <del>（掩耳盗铃）</del></p>
 <p><del>应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效</del><br>没啥鸟用，cw无法修改referrer信息，但是可以将流量转发到没有防盗链的资源链接上</p>
@@ -777,7 +777,7 @@ header .header__right .dropdown-menus .dropdown-menu {
         <span class="token key atrule">preflight</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
         <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">30000</span>
         <span class="token key atrule">delay</span><span class="token punctuation">:</span> <span class="token number">4000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" alt="这张就是b站的图片"></p>
+<p><img src="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" class="lazyload-img" data-srcset="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="这张就是b站的图片"></p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>善待公益项目，每个开发者都是普通人</p>
 <p>jsd反代(回源)</p>
 <pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;cdn.bilicdn.tk&#x2F;
@@ -970,6 +970,12 @@ setTimeout(function () {
 
 
 
+    <!-- 51.la V6 Analytics -->
+    <script>
+        !function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JuuJr9Xtk01ykQVU",ck:"JuuJr9Xtk01ykQVU",autoTrack:true});
+    </script>
+
+
 
 <script>
     document.getElementById("btn-dropdown").addEventListener('click', () => {
@@ -1023,6 +1029,30 @@ setTimeout(function () {
 </script>
 
 
+
+<script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
 
 
     <script>

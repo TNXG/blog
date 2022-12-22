@@ -576,7 +576,7 @@ header .header__right .dropdown-menus .dropdown-menu {
       <div id="post-content" class="markdown-body textretty">
         <p>需要简单说几句</p>
 <p>alist搭建的网盘直链系统也算是构建完成了</p>
-<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220405234846.jpeg"></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220405234846.jpeg" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220405234846.jpeg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <span id="more"></span>
 
 <p>博客菜单无法打开的bug也修复了，sese-engine的爬虫也在正常工作了</p>
@@ -768,6 +768,12 @@ setTimeout(function () {
 
 
 
+    <!-- 51.la V6 Analytics -->
+    <script>
+        !function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JuuJr9Xtk01ykQVU",ck:"JuuJr9Xtk01ykQVU",autoTrack:true});
+    </script>
+
+
 
 <script>
     document.getElementById("btn-dropdown").addEventListener('click', () => {
@@ -821,6 +827,30 @@ setTimeout(function () {
 </script>
 
 
+
+<script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
 
 
     <script>

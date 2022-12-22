@@ -572,7 +572,7 @@ header .header__right .dropdown-menus .dropdown-menu {
   </div>
     <div id="article">
       <div id="post-content" class="markdown-body textretty">
-        <p>嘛，都看见了，这次又双叒叕换域名了，甚至更换了云游论坛的域名<br><img src="https://assets.tnxg.whitenuo.cn/images/cover/benner_tianxiang_Lotianyi_1.png"></p>
+        <p>嘛，都看见了，这次又双叒叕换域名了，甚至更换了云游论坛的域名<br><img src="https://assets.tnxg.whitenuo.cn/images/cover/benner_tianxiang_Lotianyi_1.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/cover/benner_tianxiang_Lotianyi_1.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <span id="more"></span>
 
 <p>嘛，都看见了，这次又双叒叕换域名了，甚至更换了云游论坛的域名</p>
@@ -761,6 +761,12 @@ setTimeout(function () {
 
 
 
+    <!-- 51.la V6 Analytics -->
+    <script>
+        !function(p){"use strict";!function(t){var s=window,e=document,i=p,c="".concat("https:"===e.location.protocol?"https://":"http://","sdk.51.la/js-sdk-pro.min.js"),n=e.createElement("script"),r=e.getElementsByTagName("script")[0];n.type="text/javascript",n.setAttribute("charset","UTF-8"),n.async=!0,n.src=c,n.id="LA_COLLECT",i.d=n;var o=function(){s.LA.ids.push(i)};s.LA?s.LA.ids&&o():(s.LA=p,s.LA.ids=[],o()),r.parentNode.insertBefore(n,r)}()}({id:"JuuJr9Xtk01ykQVU",ck:"JuuJr9Xtk01ykQVU",autoTrack:true});
+    </script>
+
+
 
 <script>
     document.getElementById("btn-dropdown").addEventListener('click', () => {
@@ -814,6 +820,30 @@ setTimeout(function () {
 </script>
 
 
+
+<script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
 
 
     <script>
