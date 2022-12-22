@@ -10,8 +10,8 @@ layout: false
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="https://cdn.staticfile.org/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="/assets/css/cgi.css">
-    <script src="/assets/js/cgi.js"></script>
     <script src="/assets/js/uamessage.js"></script>
+    <script src="/assets/js/cgi.js"></script>
 </head>
 <body translate="no">
     <div class="app-container">
@@ -119,32 +119,10 @@ layout: false
                             </div>
                         </div>
                     </div>
-                                        <div class="project-box-wrapper">
-                        <div class="project-box" style="background-color: #d5deff;">
-                            <div class="project-box-header">
-                                <span>
-                                    ClientWorker信息
-                                </span>
-                            </div>
-                            <div class="project-box-content-header">
-                                <p class="box-content-header">
-                                    <span id="tnxg_cgi_cwstatus_InstallStatus"></span><br>
-                                    <span id="tnxg_cgi_cwstatus_ClientWorkerVersion"></span><br>
-                                    <span id="tnxg_cgi_cwstatus_ConfigVersion"></span><br>
-                                    <span id="tnxg_cgi_cwstatus_ConfigLastUpdateTime"></span><br>
-                                </p>
-                            </div>
-                            <div class="project-box-footer">
-                                <div class="participants">
-                                </div>
-                                <div class="days-left" style="color: #4067f9;">
-                                    ClientWorker信息卡片
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
+        </div>
+    </div>
 </body>
 <script>cgi_start()</script>
 </html>

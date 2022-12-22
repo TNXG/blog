@@ -8,12 +8,13 @@ function cgi_start() {
         document.getElementById("tnxg_cgi_CDNState").innerHTML = 'CloudFlare CDN正常运行<br>节点信息:' + loc2name(text.split("colo=")[1].split("\n")[0]) + '<br>节点ip:' + text.split("ip=")[1].split("\n")[0];
     } else {
         document.getElementById("tnxg_cgi_CDNState").innerHTML = 'CloudFlare CDN未启用';
-    };
-    ipinfo = getipinfo(userid);
+    }
+    ;
+    ipinfo = getipinfo();
     var info = new Browser();
     document.getElementById("tnxg_cgi_userip").innerHTML = '用户ip:' + ipinfo.ip;
-    document.getElementById("tnxg_cgi_userloc").innerHTML = '用户地址:' + ipinfo.local;
-    document.getElementById("tnxg_cgi_userid").innerHTML = '用户id:' + userid;
+    document.getElementById("tnxg_cgi_userloc").innerHTML = '用户地址:' + ipinfo.location;
+    document.getElementById("tnxg_cgi_userid").innerHTML = '用户id:' + localStorage.getItem('TNXGBlog_UserId');
     document.getElementById("tnxg_cgi_userua").innerHTML = '用户浏览器信息:浏览器:' + info.browser + ';版本:' + info.version + ';引擎:' + info.engine;
     document.getElementById("tnxg_cgi_system").innerHTML = '用户系统信息:系统:' + info.os + ';设备:' + info.device + ';语言:' + info.language;
 
@@ -50,11 +51,11 @@ function cgi_start() {
         }
     })
 
-    fetch('https://assets.tnxg.whitenuo.cn/blog-file/index.html').then(function (response) {
+    fetch('https://assets.tnxg.whitenuo.cn/index.html').then(function (response) {
         if (response.status == '200' || response.status == '304') {
-            document.getElementById("tnxg_cgi_cdnstatus_doge").innerHTML = 'DogeCloud_OSS:返回正常';
+            document.getElementById("tnxg_cgi_cdnstatus_doge").innerHTML = 'TNXG-OSS:返回正常';
         } else {
-            document.getElementById("tnxg_cgi_cdnstatus_doge").innerHTML = 'DogeCloud_OSS:返回异常';
+            document.getElementById("tnxg_cgi_cdnstatus_doge").innerHTML = 'TNXG-OSS:返回异常';
         }
     })
 
@@ -67,12 +68,12 @@ function cgi_start() {
             }
         })
 
-    fetch('https://prts.top/')
+    fetch('https://api.prts.top/')
         .then(function (response) {
             if (response.status == '200' || response.status == '304') {
-                document.getElementById("tnxg_cgi_apistatus_prts").innerHTML = 'ArknightsProxyInazuma:返回正常';
+                document.getElementById("tnxg_cgi_apistatus_prts").innerHTML = 'Prts:返回正常';
             } else {
-                document.getElementById("tnxg_cgi_cdnstatus_prts").innerHTML = 'ArknightsProxyInazuma:返回异常';
+                document.getElementById("tnxg_cgi_cdnstatus_prts").innerHTML = 'Prts:返回异常';
             }
         })
 
@@ -109,29 +110,7 @@ function cgi_start() {
                 document.getElementById("tnxg_cgi_apistatus_fc").innerHTML = 'FriendCircle:返回异常';
             }
         })
-    fetch('/api?type=cwstatus')
-        .then(response => response.json())
-        .then(data => {
-            if (data.InstallStatus == 'OK') {
-                document.getElementById("tnxg_cgi_cwstatus_InstallStatus").innerHTML = 'ClientWorker正常运行';
-            } else {
-                document.getElementById("tnxg_cgi_cwstatus_InstallStatus").innerHTML = 'ClientWorker未启动';
-            }
-            document.getElementById("tnxg_cgi_cwstatus_ConfigVersion").innerHTML = 'Config版本：' + data.InstallStatus;
-            document.getElementById("tnxg_cgi_cwstatus_ClientWorkerVersion").innerHTML = 'ClientWorker版本：' + data.ClientWorkerVersion;
-            var date = new Date(data.ConfigLastUpdateTime * 1000);  // 参数需要毫秒数，所以这里将秒数乘于 1000
-            Y = date.getFullYear() + '-';
-            M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-            D = date.getDate() + ' ';
-            h = date.getHours() + ':';
-            m = date.getMinutes() + ':';
-            s = date.getSeconds();
-            document.getElementById("tnxg_cgi_cwstatus_ConfigLastUpdateTime").innerHTML = 'Config最后更新时间：' + Y + M + D + h + m + s;
-        }
-        )
-
 }
-
 
 
 function loc2name(loc) {
@@ -144,9 +123,9 @@ function loc2name(loc) {
     }
 }
 
-function getipinfo(userid) {
+function getipinfo() {
     var req = new XMLHttpRequest();
-    req.open('GET', 'https://prts.top/api/data/blog.php?id=' + userid, false);
+    req.open('GET', 'https://api.prts.top/v1/ipinfo/', false);
     req.send(null);
     return JSON.parse(req.response);
 }

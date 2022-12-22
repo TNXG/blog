@@ -1,1 +1,1 @@
-python update.py "Feat: 更新数据"
+python update.py "Feat: 更换twikoo部署方式"
