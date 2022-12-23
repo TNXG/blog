@@ -17,7 +17,7 @@
 这次推的女孩<br>
 [![这次推的女孩](https://unv-shield.librian.net/api/unv_shield?url=https://i0.hdslb.com/bfs/album/2439cd0ecf55e69f1a08fb01d659b0da34d779ac.png&scale=2&txt=%E6%B4%9B%E5%A4%A9%E4%BE%9D)](https://space.bilibili.com/36081646)
 
-## <a href="https://tnxg.loyunet.cn/links/">Friends</a>
+## <a href="https://blog.tnxg.top/links/">Friends</a>
 
 **申请加入友链时请遵守一下几点**
 

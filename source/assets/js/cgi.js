@@ -1,7 +1,7 @@
 function cgi_start() {
     userid = window.localStorage.getItem('TNXGBlog_UserId');
     var req = new XMLHttpRequest();
-    req.open('GET', 'https://tnxg.loyunet.cn/cdn-cgi/trace', false);
+    req.open('GET', 'https://blog.tnxg.top/cdn-cgi/trace', false);
     req.send(null);
     text = req.response;
     if (req.status == '200') {

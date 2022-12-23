@@ -25,7 +25,7 @@ lazyload:
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://tnxg.loyunet.cn/
+url: https://blog.tnxg.top/
 permalink: /p/:hash.html
 permalink_defaults:
 pretty_urls:

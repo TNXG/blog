@@ -7,4 +7,4 @@ Disallow: /lib/
 
 Allow: /
 
-Sitemap: https://tnxg.loyunet.cn/sitemap.xml
+Sitemap: https://blog.tnxg.top/sitemap.xml

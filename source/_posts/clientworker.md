@@ -216,7 +216,7 @@ catch_rules:
         replacekey: .gif
         
 ```
-关于我配置的最新内容都可以在[Config.yaml](https://tnxg.loyunet.cn/config.yaml)找到
+关于我配置的最新内容都可以在[Config.yaml](https://blog.tnxg.top/config.yaml)找到
 
 后面的那些是我给dogecloud-oss写的webp自适应内容
 
