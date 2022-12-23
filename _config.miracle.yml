@@ -47,7 +47,6 @@ beian:
 # 自定义
 custom:
   js:
-    - "https://npm.elemecdn.com/qexo-static@latest/hexo/statistic.js"
     - "/assets/js/message.js"
 
   css:

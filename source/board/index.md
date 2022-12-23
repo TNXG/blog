@@ -9,7 +9,7 @@ layout: false
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" type="image/png" href="/assets/images/favicon.png">
     <link rel="stylesheet" type="text/css" href="/assets/css/twikoo_board.css" />
-    <title>天翔TNXG的留言板 | 天翔TNXG的空间站</title>
+    <title>天翔TNXG的留言板 | 天翔TNXGの空间站</title>
 </head>
 
 <body>

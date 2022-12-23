@@ -11,19 +11,19 @@ function tnxg_index() {
 
 async function getnotice() {
     localnotice = localStorage.getItem("TNXGBlog_notice");
-    console.log(`天翔TNXG的空间站::加载本地缓存公告，公告内容：${localnotice}`)
+    console.log(`天翔TNXGの空间站::加载本地缓存公告，公告内容：${localnotice}`)
     document.getElementById("tnxg_notice").innerHTML = localnotice;
     const replacehtml = await fetch('https://qexo.prts.top/pub/get_custom/?key=notice');
     noticejson = await replacehtml.json();
     if (localnotice != noticejson.data) {
-        console.log(`天翔TNXG的空间站::非最新公告或初次访问，正在更新，最新公告内容：${noticejson.data}`)
+        console.log(`天翔TNXGの空间站::非最新公告或初次访问，正在更新，最新公告内容：${noticejson.data}`)
         localStorage.setItem("TNXGBlog_notice", noticejson.data)
         document.getElementById("tnxg_notice").innerHTML = noticejson.data;
     }
 }
 
 async function gethitokoto() {
-    console.log("天翔TNXG的空间站::获取一言数据中")
+    console.log("天翔TNXGの空间站::获取一言数据中")
     const replacehtml = await fetch('/assets/data/hitokoto.json');
     noticejson = await replacehtml.json();
     datalength = noticejson.length;
@@ -46,6 +46,13 @@ async function getdata() {
     });
     json = await con.json();
     document.getElementById("tnxg_addr").innerHTML = json.local;
+    date = new Date(json.repo_latest_date * 1000);
+    Y = date.getFullYear() + '-';
+    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    D = date.getDate() + '&nbsp';
+    h = date.getHours() + ':';
+    m = date.getMinutes();
+    document.getElementById("tnxg_ghrepo_latest-date").innerHTML = Y + M + D + h + m;
 }
 
 function getipinfo() {

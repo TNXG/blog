@@ -3,7 +3,7 @@ title: 用户条款
 date: 2022-02-07 16:00:00
 update: 2022-08-14 15:50:00
 ---
-郑重声明：<a style="color:red">「天翔TNXG的空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">Email</a>（<tianxiang@loyunet.cn>)告知删除。
+郑重声明：<a style="color:red">「天翔TNXGの空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">Email</a>（<tianxiang@loyunet.cn>)告知删除。
 
 # 免责声明
 
