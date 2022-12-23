@@ -5,8 +5,8 @@ catch_rules:
       - search: _
         replace:
           - _
-          - gcore.tnxg.loyunet.cn
-          - vercel.tnxg.loyunet.cn
+          - gcore.blog.tnxg.top
+          - vercel.blog.tnxg.top
         action: fetch
         fetch:
           status: .*
