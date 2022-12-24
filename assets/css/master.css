@@ -152,11 +152,6 @@ body:not(.heimus_toggle_on) .heimus:hover .new {
   font-family: "AgeFonts001";
 }
 
-* {
-  font-family: "HarmonyOS_Regular";
-}
-
-
 .bg {
   position: fixed;
   top: 0;

@@ -3,66 +3,75 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>获取bing每日图的方法 | 天翔TNXGの空间站</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    
-    <meta name="description" content="&lt;p&gt;随便扯一篇文章发出来？&lt;/p&gt;">
-    <meta name="author" content="天翔TNXG">
-    <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
-    <meta property="og:title" content="获取bing每日图的方法"/>
-    <script>
-        //判断非本机且未使用https 时，强制重定向到https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
-            window.location = window.location.toString().replace(/^http:/, "https:");
-        }
-    </script>
-    <script>
-        if (!!navigator.serviceWorker) {
-            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-                if (localStorage.getItem('cw_installed') !== 'true') {
-                    const conf = () => {
-                        console.log('[CW] Installing Success,Configuring...');
-                        fetch('/cw-cgi/api?type=config')
-                            .then(res => res.text())
-                            .then(text => {
-                                if (text === 'ok') {
-                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
-                                    localStorage.setItem('cw_installed', 'true');
-                                    //如果你不希望重载页面，请移除下面五行
-                                    fetch(window.location.href).then(res => res.text()).then(text => {
-                                        document.open()
-                                        document.write(text);
-                                        document.close();
-                                    });
-                                } else {
-                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                                    setTimeout(() => {
-                                        conf()
-                                    }, 200);
-                                }
-                            }).catch(err => {
-                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                            });
-                    }
-                    setTimeout(() => {
-                        conf()
-                    }, 50);
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>获取bing每日图的方法 | 天翔TNXGの空间站</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  
+  <link href="/assets/css/font.css" rel="stylesheet">
+  
+  <meta name="description" content="&lt;p&gt;随便扯一篇文章发出来？&lt;/p&gt;">
+  <meta name="author" content="天翔TNXG">
+  <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
+  
+  <meta property="og:title" content="获取bing每日图的方法" />
+  <script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")) {
+      window.location = window.location.toString().replace(/^http:/, "https:");
+    }
+  </script>
+  <script>
+    if (!!navigator.serviceWorker) {
+      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+          const conf = () => {
+            console.log('[CW] Installing Success,Configuring...');
+            fetch('/cw-cgi/api?type=config')
+              .then(res => res.text())
+              .then(text => {
+                if (text === 'ok') {
+                  console.log('[CW] Installing Success,Configuring Success,Starting...');
+                  localStorage.setItem('cw_installed', 'true');
+                  //如果你不希望重载页面，请移除下面五行
+                  fetch(window.location.href).then(res => res.text()).then(text => {
+                    document.open()
+                    document.write(text);
+                    document.close();
+                  });
+                } else {
+                  console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                  setTimeout(() => {
+                    conf()
+                  }, 200);
                 }
-            }).catch(err => {
-                console.error('[CW] Installing Failed,Error: ' + err.message);
-            });
-        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-    </script>
-    <style>
+              }).catch(err => {
+                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+              });
+          }
+          setTimeout(() => {
+            conf()
+          }, 50);
+        }
+      }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+      });
+    } else {
+      console.error('[CW] Installing Failed,Error: Browser not support service worker');
+    }
+  </script>
+  <style>
 
 
+    
+    body * {
+        font-family: "HarmonyOS_Regular"!important;
+    }
     
     :root{
         --shadow-color: rgba(0,0,0,0.2);
@@ -151,8 +160,7 @@
 
     
 <link rel="stylesheet" href="/assets/css/master.css">
-<link rel="stylesheet" href="/assets/css/font.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+<link rel="stylesheet" href="/assets/css/shiki.css">
 <link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css">
 
 
@@ -397,28 +405,28 @@ header .header__right .dropdown-menus .dropdown-menu {
     }
 
 </style>
-    
 
-    
-        <!--
+
+  
+  <!--
         <link rel="stylesheet" href="/css/page.css" media="print"
             onload="this.media='all';this.onload=null">
         <noscript>-->
-            <link rel="stylesheet" href="/css/page.css">
-        <!--</noscript>-->
-    
-    
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
-    <noscript>
-        <link rel="stylesheet" href="/css/main.css">
-    </noscript>
-    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
-	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
-    
-    <script src="/js/main.js"></script>
-    
-    <div class="bg"></div>
+  <link rel="stylesheet" href="/css/page.css">
+  <!--</noscript>-->
+  
+  
+  <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript>
+    <link rel="stylesheet" href="/css/main.css">
+  </noscript>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+  
+  <script src="/js/main.js"></script>
+  
+  <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXGの空间站" type="application/atom+xml">
 </head>
     <body>
@@ -556,7 +564,7 @@ header .header__right .dropdown-menus .dropdown-menu {
       
       <span class="post-meta">
         <span class="p-dot"></span>
-        共 228 字
+        共 226 字
       </span>
     
     
@@ -574,47 +582,7 @@ header .header__right .dropdown-menus .dropdown-menu {
       <div id="post-content" class="markdown-body textretty">
         <p>随便扯一篇文章发出来？</p>
 <span id="more"></span>
-<pre class="line-numbers language-php" data-language="php"><code class="language-php"><span class="token function">ini_set</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"display_errors"</span><span class="token punctuation">,</span> <span class="token string double-quoted-string">"Off"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token function">error_reporting</span><span class="token punctuation">(</span><span class="token class-name">E_ALL</span> <span class="token operator">|</span> <span class="token class-name">E_STRICT</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// 删除警告信息</span>
-
-<span class="token variable">$str</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'https://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=8'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$str</span> <span class="token operator">=</span> <span class="token function">json_decode</span><span class="token punctuation">(</span><span class="token variable">$str</span><span class="token punctuation">,</span> <span class="token constant boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token variable">$num</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'num'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token comment">// 从官方api返回最近每日图的信息，并获取参数$num</span>
-
-<span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">empty</span><span class="token punctuation">(</span><span class="token variable">$num</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token number">7</span> <span class="token operator">>=</span> <span class="token variable">$num</span> <span class="token operator">&amp;&amp;</span> <span class="token variable">$num</span> <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token variable">$num</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-        <span class="token variable">$a</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
-<span class="token comment">// 如果$num为空则赋值0，否则则按num传入值对$num进行赋值(大于等于7或小于等于0)</span>
-
-<span class="token variable">$con</span> <span class="token operator">=</span> <span class="token variable">$str</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'images'</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token variable">$a</span><span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'url'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token variable">$url</span> <span class="token operator">=</span> <span class="token string double-quoted-string">"https://cn.bing.com"</span> <span class="token operator">.</span> <span class="token variable">$con</span><span class="token punctuation">;</span>
-<span class="token comment">// 获取随机图信息</span>
-
-<span class="token variable">$type</span> <span class="token operator">=</span> <span class="token variable">$_GET</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'type'</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">switch</span> <span class="token punctuation">(</span><span class="token variable">$type</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">case</span> <span class="token string single-quoted-string">'json'</span><span class="token punctuation">:</span>
-        <span class="token function">header</span><span class="token punctuation">(</span><span class="token string single-quoted-string">'Content-type:text/json'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token function">json_encode</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string single-quoted-string">'url'</span> <span class="token operator">=></span> <span class="token variable">$url</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">case</span> <span class="token string single-quoted-string">'url'</span><span class="token punctuation">:</span>
-        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"Location: <span class="token interpolation"><span class="token variable">$url</span></span>"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token keyword">default</span><span class="token punctuation">:</span>
-        <span class="token function">header</span><span class="token punctuation">(</span><span class="token string double-quoted-string">"content-type:image/jpeg"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token variable">$images</span> <span class="token operator">=</span> <span class="token function">file_get_contents</span><span class="token punctuation">(</span><span class="token variable">$url</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">die</span><span class="token punctuation">(</span><span class="token variable">$images</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span>
-<span class="token comment">// 获取参数type并赋值$type，按照赋值内容返回相对应的格式</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>详细信息及实现方法已经写在代码注释里了，可以参考着玩一玩（大雾）</p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">php</div><div class='code-container'><code><div class='line'><span style="color: #DCDCAA">ini_set</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"display_errors"</span><span style="color: #D4D4D4">, </span><span style="color: #CE9178">"Off"</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #DCDCAA">error_reporting</span><span style="color: #D4D4D4">(E_ALL | E_STRICT);</span></div><div class='line'><span style="color: #6A9955">// 删除警告信息</span></div><div class='line'></div><div class='line'><span style="color: #9CDCFE">$str</span><span style="color: #D4D4D4"> = </span><span style="color: #DCDCAA">file_get_contents</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'https://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=8'</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #9CDCFE">$str</span><span style="color: #D4D4D4"> = </span><span style="color: #DCDCAA">json_decode</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">$str</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">true</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #9CDCFE">$num</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">$_GET</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">'num'</span><span style="color: #D4D4D4">];</span></div><div class='line'><span style="color: #6A9955">// 从官方api返回最近每日图的信息，并获取参数$num</span></div><div class='line'></div><div class='line'><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (</span><span style="color: #DCDCAA">empty</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">$num</span><span style="color: #D4D4D4">)) &#123;</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">$a</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">&#125; </span><span style="color: #C586C0">else</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (</span><span style="color: #B5CEA8">7</span><span style="color: #D4D4D4"> &gt;= </span><span style="color: #9CDCFE">$num</span><span style="color: #D4D4D4"> && </span><span style="color: #9CDCFE">$num</span><span style="color: #D4D4D4"> &gt;= </span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">) &#123;</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">$a</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">$num</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">    &#125; </span><span style="color: #C586C0">else</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">$a</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">    &#125;;</span></div><div class='line'><span style="color: #D4D4D4">&#125;;</span></div><div class='line'><span style="color: #6A9955">// 如果$num为空则赋值0，否则则按num传入值对$num进行赋值(大于等于7或小于等于0)</span></div><div class='line'></div><div class='line'><span style="color: #9CDCFE">$con</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">$str</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">'images'</span><span style="color: #D4D4D4">][</span><span style="color: #9CDCFE">$a</span><span style="color: #D4D4D4">][</span><span style="color: #CE9178">'url'</span><span style="color: #D4D4D4">];</span></div><div class='line'><span style="color: #9CDCFE">$url</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">"https://cn.bing.com"</span><span style="color: #D4D4D4"> </span><span style="color: #D4D4D4">.</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">$con</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #6A9955">// 获取随机图信息</span></div><div class='line'></div><div class='line'><span style="color: #9CDCFE">$type</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">$_GET</span><span style="color: #D4D4D4">[</span><span style="color: #CE9178">'type'</span><span style="color: #D4D4D4">];</span></div><div class='line'><span style="color: #C586C0">switch</span><span style="color: #D4D4D4"> (</span><span style="color: #9CDCFE">$type</span><span style="color: #D4D4D4">) &#123;</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #C586C0">case</span><span style="color: #D4D4D4"> </span><span style="color: #CE9178">'json'</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #DCDCAA">header</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'Content-type:text/json'</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #C586C0">die</span><span style="color: #D4D4D4">(</span><span style="color: #DCDCAA">json_encode</span><span style="color: #D4D4D4">([</span><span style="color: #CE9178">'url'</span><span style="color: #D4D4D4"> =&gt; </span><span style="color: #9CDCFE">$url</span><span style="color: #D4D4D4">]));</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #C586C0">case</span><span style="color: #D4D4D4"> </span><span style="color: #CE9178">'url'</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #C586C0">die</span><span style="color: #D4D4D4">(</span><span style="color: #DCDCAA">header</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"Location: </span><span style="color: #9CDCFE">$url</span><span style="color: #CE9178">"</span><span style="color: #D4D4D4">));</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #C586C0">default</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #DCDCAA">header</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"content-type:image/jpeg"</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">$images</span><span style="color: #D4D4D4"> = </span><span style="color: #DCDCAA">file_get_contents</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">$url</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #C586C0">die</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">$images</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">&#125;</span></div><div class='line'><span style="color: #6A9955">// 获取参数type并赋值$type，按照赋值内容返回相对应的格式</span></div></code></div></pre><p>详细信息及实现方法已经写在代码注释里了，可以参考着玩一玩（大雾）</p>
 <p><img src="https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png" class="lazyload-img" data-srcset="https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 
       </div>
@@ -680,11 +648,11 @@ header .header__right .dropdown-menus .dropdown-menu {
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
+  // https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
+          url: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {

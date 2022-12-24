@@ -3,66 +3,75 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>Hexo博客优化？不如尝试ClientWorker | 天翔TNXGの空间站</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    
-    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png&#34;&gt;&lt;/p&gt;">
-    <meta name="author" content="天翔TNXG">
-    <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
-    <meta property="og:title" content="Hexo博客优化？不如尝试ClientWorker"/>
-    <script>
-        //判断非本机且未使用https 时，强制重定向到https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
-            window.location = window.location.toString().replace(/^http:/, "https:");
-        }
-    </script>
-    <script>
-        if (!!navigator.serviceWorker) {
-            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-                if (localStorage.getItem('cw_installed') !== 'true') {
-                    const conf = () => {
-                        console.log('[CW] Installing Success,Configuring...');
-                        fetch('/cw-cgi/api?type=config')
-                            .then(res => res.text())
-                            .then(text => {
-                                if (text === 'ok') {
-                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
-                                    localStorage.setItem('cw_installed', 'true');
-                                    //如果你不希望重载页面，请移除下面五行
-                                    fetch(window.location.href).then(res => res.text()).then(text => {
-                                        document.open()
-                                        document.write(text);
-                                        document.close();
-                                    });
-                                } else {
-                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                                    setTimeout(() => {
-                                        conf()
-                                    }, 200);
-                                }
-                            }).catch(err => {
-                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                            });
-                    }
-                    setTimeout(() => {
-                        conf()
-                    }, 50);
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>Hexo博客优化？不如尝试ClientWorker | 天翔TNXGの空间站</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  
+  <link href="/assets/css/font.css" rel="stylesheet">
+  
+  <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png&#34;&gt;&lt;/p&gt;">
+  <meta name="author" content="天翔TNXG">
+  <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
+  
+  <meta property="og:title" content="Hexo博客优化？不如尝试ClientWorker" />
+  <script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")) {
+      window.location = window.location.toString().replace(/^http:/, "https:");
+    }
+  </script>
+  <script>
+    if (!!navigator.serviceWorker) {
+      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+          const conf = () => {
+            console.log('[CW] Installing Success,Configuring...');
+            fetch('/cw-cgi/api?type=config')
+              .then(res => res.text())
+              .then(text => {
+                if (text === 'ok') {
+                  console.log('[CW] Installing Success,Configuring Success,Starting...');
+                  localStorage.setItem('cw_installed', 'true');
+                  //如果你不希望重载页面，请移除下面五行
+                  fetch(window.location.href).then(res => res.text()).then(text => {
+                    document.open()
+                    document.write(text);
+                    document.close();
+                  });
+                } else {
+                  console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                  setTimeout(() => {
+                    conf()
+                  }, 200);
                 }
-            }).catch(err => {
-                console.error('[CW] Installing Failed,Error: ' + err.message);
-            });
-        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-    </script>
-    <style>
+              }).catch(err => {
+                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+              });
+          }
+          setTimeout(() => {
+            conf()
+          }, 50);
+        }
+      }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+      });
+    } else {
+      console.error('[CW] Installing Failed,Error: Browser not support service worker');
+    }
+  </script>
+  <style>
 
 
+    
+    body * {
+        font-family: "HarmonyOS_Regular"!important;
+    }
     
     :root{
         --shadow-color: rgba(0,0,0,0.2);
@@ -151,8 +160,7 @@
 
     
 <link rel="stylesheet" href="/assets/css/master.css">
-<link rel="stylesheet" href="/assets/css/font.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+<link rel="stylesheet" href="/assets/css/shiki.css">
 <link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css">
 
 
@@ -397,28 +405,28 @@ header .header__right .dropdown-menus .dropdown-menu {
     }
 
 </style>
-    
 
-    
-        <!--
+
+  
+  <!--
         <link rel="stylesheet" href="/css/page.css" media="print"
             onload="this.media='all';this.onload=null">
         <noscript>-->
-            <link rel="stylesheet" href="/css/page.css">
-        <!--</noscript>-->
-    
-    
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
-    <noscript>
-        <link rel="stylesheet" href="/css/main.css">
-    </noscript>
-    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
-	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
-    
-    <script src="/js/main.js"></script>
-    
-    <div class="bg"></div>
+  <link rel="stylesheet" href="/css/page.css">
+  <!--</noscript>-->
+  
+  
+  <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript>
+    <link rel="stylesheet" href="/css/main.css">
+  </noscript>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+  
+  <script src="/js/main.js"></script>
+  
+  <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXGの空间站" type="application/atom+xml">
 </head>
     <body>
@@ -588,42 +596,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <blockquote>
 <p>ClientWorker是利用规则全局驱动sw的插件<br>目前涵盖了ServiceWorker的 路由拦截、路由劫持、请求&#x2F;响应（标头、状态、响应主体）修改、缓存调控，允许用户并发（双引擎），并且有一个自定义规则系统，可以自定义规则，拦截请求，修改响应，缓存颗粒化等功能。</p>
 </blockquote>
-<h2 id="如何安装"><a href="#如何安装" class="headerlink" title="如何安装"></a>如何安装</h2><pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">></span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token operator">!</span>navigator<span class="token punctuation">.</span>serviceWorker<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    navigator<span class="token punctuation">.</span>serviceWorker<span class="token punctuation">.</span><span class="token function">register</span><span class="token punctuation">(</span><span class="token string">'/cw.js?t='</span> <span class="token operator">+</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">registration</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>localStorage<span class="token punctuation">.</span><span class="token function">getItem</span><span class="token punctuation">(</span><span class="token string">'cw_installed'</span><span class="token punctuation">)</span> <span class="token operator">!==</span> <span class="token string">'true'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            <span class="token keyword">const</span> <span class="token function-variable function">conf</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/cw-cgi/api?type=config'</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-                    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">text</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                        <span class="token keyword">if</span> <span class="token punctuation">(</span>text <span class="token operator">===</span> <span class="token string">'ok'</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Success,Starting...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            localStorage<span class="token punctuation">.</span><span class="token function">setItem</span><span class="token punctuation">(</span><span class="token string">'cw_installed'</span><span class="token punctuation">,</span> <span class="token string">'true'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token comment">//如果你不希望重载页面，请移除下面五行</span>
-                            <span class="token function">fetch</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">text</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                                document<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                                document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>text<span class="token punctuation">)</span><span class="token punctuation">;</span>
-                                document<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-                            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Failed,Sleeping 200ms...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                                <span class="token function">conf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-                            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                        <span class="token punctuation">&#125;</span>
-                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Success,Configuring Error,Exiting...'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-                    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token punctuation">&#125;</span>
-            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-                <span class="token function">conf</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-            <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token parameter">err</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Failed,Error: '</span> <span class="token operator">+</span> err<span class="token punctuation">.</span>message<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span> console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'[CW] Installing Failed,Error: Browser not support service worker'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">&#125;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol>
+<h2 id="如何安装"><a href="#如何安装" class="headerlink" title="如何安装"></a>如何安装</h2><pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">javascript</div><div class='code-container'><code><div class='line'><span style="color: #808080">&lt;</span><span style="color: #569CD6">script</span><span style="color: #808080">&gt;</span><span style="color: #D4D4D4">if (!!navigator.serviceWorker) </span><span style="color: #569CD6">&#123;</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">navigator</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">serviceWorker</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">register</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'/cw.js?t='</span><span style="color: #D4D4D4"> + </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Date</span><span style="color: #D4D4D4">().</span><span style="color: #DCDCAA">getTime</span><span style="color: #D4D4D4">()).</span><span style="color: #DCDCAA">then</span><span style="color: #D4D4D4">(</span><span style="color: #569CD6">async</span><span style="color: #D4D4D4"> (</span><span style="color: #9CDCFE">registration</span><span style="color: #D4D4D4">) </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (</span><span style="color: #9CDCFE">localStorage</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">getItem</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'cw_installed'</span><span style="color: #D4D4D4">) !== </span><span style="color: #CE9178">'true'</span><span style="color: #D4D4D4">) &#123;</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #569CD6">const</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">conf</span><span style="color: #D4D4D4"> = () </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #9CDCFE">console</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">log</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'[CW] Installing Success,Configuring...'</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #DCDCAA">fetch</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'/cw-cgi/api?type=config'</span><span style="color: #D4D4D4">)</span></div><div class='line'><span style="color: #D4D4D4">                    .</span><span style="color: #DCDCAA">then</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">res</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">res</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">text</span><span style="color: #D4D4D4">())</span></div><div class='line'><span style="color: #D4D4D4">                    .</span><span style="color: #DCDCAA">then</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">text</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">                        </span><span style="color: #C586C0">if</span><span style="color: #D4D4D4"> (</span><span style="color: #9CDCFE">text</span><span style="color: #D4D4D4"> === </span><span style="color: #CE9178">'ok'</span><span style="color: #D4D4D4">) &#123;</span></div><div class='line'><span style="color: #D4D4D4">                            </span><span style="color: #9CDCFE">console</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">log</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'[CW] Installing Success,Configuring Success,Starting...'</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                            </span><span style="color: #9CDCFE">localStorage</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">setItem</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'cw_installed'</span><span style="color: #D4D4D4">, </span><span style="color: #CE9178">'true'</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                            </span><span style="color: #6A9955">//如果你不希望重载页面，请移除下面五行</span></div><div class='line'><span style="color: #D4D4D4">                            </span><span style="color: #DCDCAA">fetch</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">window</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">location</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">href</span><span style="color: #D4D4D4">).</span><span style="color: #DCDCAA">then</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">res</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">res</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">text</span><span style="color: #D4D4D4">()).</span><span style="color: #DCDCAA">then</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">text</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">                                </span><span style="color: #9CDCFE">document</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">open</span><span style="color: #D4D4D4">()</span></div><div class='line'><span style="color: #D4D4D4">                                </span><span style="color: #9CDCFE">document</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">write</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">text</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                                </span><span style="color: #9CDCFE">document</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">close</span><span style="color: #D4D4D4">();</span></div><div class='line'><span style="color: #D4D4D4">                            &#125;);</span></div><div class='line'><span style="color: #D4D4D4">                        &#125; </span><span style="color: #C586C0">else</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">                            </span><span style="color: #9CDCFE">console</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">log</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'[CW] Installing Success,Configuring Failed,Sleeping 200ms...'</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                            </span><span style="color: #DCDCAA">setTimeout</span><span style="color: #D4D4D4">(() </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">                                </span><span style="color: #DCDCAA">conf</span><span style="color: #D4D4D4">()</span></div><div class='line'><span style="color: #D4D4D4">                            &#125;, </span><span style="color: #B5CEA8">200</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                        &#125;</span></div><div class='line'><span style="color: #D4D4D4">                    &#125;).</span><span style="color: #DCDCAA">catch</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">err</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">                        </span><span style="color: #9CDCFE">console</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">log</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'[CW] Installing Success,Configuring Error,Exiting...'</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                    &#125;);</span></div><div class='line'><span style="color: #D4D4D4">            &#125;</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #DCDCAA">setTimeout</span><span style="color: #D4D4D4">(() </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #DCDCAA">conf</span><span style="color: #D4D4D4">()</span></div><div class='line'><span style="color: #D4D4D4">            &#125;, </span><span style="color: #B5CEA8">50</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">        &#125;</span></div><div class='line'><span style="color: #D4D4D4">    &#125;).</span><span style="color: #DCDCAA">catch</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">err</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">console</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">error</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'[CW] Installing Failed,Error: '</span><span style="color: #D4D4D4"> + </span><span style="color: #9CDCFE">err</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">message</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">    &#125;);</span></div><div class='line'><span style="color: #569CD6">&#125;</span><span style="color: #D4D4D4"> else </span><span style="color: #569CD6">&#123;</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">console</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">error</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'[CW] Installing Failed,Error: Browser not support service worker'</span><span style="color: #D4D4D4">); </span><span style="color: #569CD6">&#125;</span><span style="color: #808080">&lt;/</span><span style="color: #569CD6">script</span><span style="color: #808080">&gt;</span></div></code></div></pre><ol>
 <li>将以上这串代码安放在<code>&lt;head&gt;</code>里面，越靠前越好，当然<code>navigator.serviceWorker.register</code>是异步函数不会阻塞页面加载。</li>
 <li>进入<a target="_blank" rel="noopener" href="https://github.com/ChenYFan/ClientWorker/releases">ClientWorker Github Release</a>发布页，下载最新版本内容。</li>
 <li>解压，将文件夹中<code>cw.js</code>拷出，放在网页服务器下</li>
@@ -634,157 +607,17 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>如果返回的是<code>Hello ClientWorker!</code>则代表cw正常安装</p>
 <h2 id="配置ClientWorker"><a href="#配置ClientWorker" class="headerlink" title="配置ClientWorker"></a>配置ClientWorker</h2><p>这个可以参考<a target="_blank" rel="noopener" href="https://clientworker.js.org/">ClientWorker官方文档</a></p>
 <p>而我的配置则是</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">name</span><span class="token punctuation">:</span> ClientWorker
-<span class="token key atrule">catch_rules</span><span class="token punctuation">:</span>
-  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> _
-    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> \<span class="token comment">#.+</span>
-        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> url
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span> <span class="token string">""</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
-        <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
-        <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
-          <span class="token key atrule">engine</span><span class="token punctuation">:</span> fetch
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> (^4<span class="token punctuation">|</span>^5)
-        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> status
-        <span class="token key atrule">action</span><span class="token punctuation">:</span> return
-        <span class="token key atrule">return</span><span class="token punctuation">:</span>
-          <span class="token key atrule">body</span><span class="token punctuation">:</span> The GateWay is down<span class="token tag">!This</span> Page is provided by ClientWorker<span class="token tag">!</span>
-          <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">503</span>
-
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/(cdn<span class="token punctuation">|</span>fastly<span class="token punctuation">|</span>test1<span class="token punctuation">|</span>gcore)\.jsdelivr\.net\/npm\/
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
-
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn\.oss\.dogecdn\.com\/npm\/
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
-
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/unpkg\.com\/
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//unpkg.com/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.jsdelivr.net/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/npm/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/npm/
-
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/(cdn<span class="token punctuation">|</span>fastly<span class="token punctuation">|</span>test1<span class="token punctuation">|</span>gcore)\.jsdelivr\.net\/gh\/
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//gcore.jsdelivr.net/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/gh/
-
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> ^https<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn\.oss\.dogecdn\.com\/gh\/
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn.bilicdn.tk/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.onmicrosoft.cn/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//gcore.jsdelivr.net/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//jsd.8b9.cn/gh/
-          <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//cdn1.tianli0.top/gh/
-
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span>
-          <span class="token punctuation">-</span> _ 
-          <span class="token punctuation">-</span> s<span class="token punctuation">-</span>cd<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>cdn.oss.dogecdn.com/npm/tnxg<span class="token punctuation">-</span>blog@latest
-          <span class="token punctuation">-</span> jsd.onmicrosoft.cn/npm/tnxg<span class="token punctuation">-</span>blog@latest
-          <span class="token punctuation">-</span> cdn.bilicdn.tk/npm/tnxg<span class="token punctuation">-</span>blog@latest
-          <span class="token punctuation">-</span> unpkg.com/tnxg<span class="token punctuation">-</span>blog@latest
-          <span class="token punctuation">-</span> cdn<span class="token punctuation">-</span>api.vercel.app
-
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> \.html$
-        <span class="token key atrule">header</span><span class="token punctuation">:</span>
-          <span class="token key atrule">Content-Type</span><span class="token punctuation">:</span> text/html;charset=UTF<span class="token punctuation">-</span><span class="token number">8</span>
-
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _
-        <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
-        <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
-          <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">200</span>
-          <span class="token key atrule">engine</span><span class="token punctuation">:</span> classic
-          <span class="token key atrule">preflight</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-          <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">5000</span>
-          
-  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.jpg$</span>
-    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
-        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
-        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .jpg/webp
-        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
-        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .jpg
-  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.png$</span>
-    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
-        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
-        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .png/webp
-        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
-        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .png
-  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.jpeg$</span>
-    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
-        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
-        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .jpeg/webp
-        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
-        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .jpeg
-  <span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> (<span class="token punctuation">?</span>&lt;=^https\<span class="token punctuation">:</span>\/\/s<span class="token punctuation">-</span>bj<span class="token punctuation">-</span>1806<span class="token punctuation">-</span>tnxg<span class="token punctuation">-</span>oss<span class="token punctuation">-</span>normal.oss.dogecdn.com/(.<span class="token important">*))\.gif$</span>
-    <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
-      <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> image\/webp
-        <span class="token key atrule">searchin</span><span class="token punctuation">:</span> header
-        <span class="token key atrule">searchkey</span><span class="token punctuation">:</span> Accept
-        <span class="token key atrule">replace</span><span class="token punctuation">:</span> .gif/webp
-        <span class="token key atrule">replacein</span><span class="token punctuation">:</span> url
-        <span class="token key atrule">replacekey</span><span class="token punctuation">:</span> .gif
-        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>关于我配置的最新内容都可以在<a href="https://blog.tnxg.top/config.yaml">Config.yaml</a>找到</p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">yaml</div><div class='code-container'><code><div class='line'><span style="color: #569CD6">name</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">ClientWorker</span></div><div class='line'><span style="color: #569CD6">catch_rules</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">  - </span><span style="color: #569CD6">rule</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">_</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #569CD6">transform_rules</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">\#.+</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchin</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">url</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">""</span></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">_</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">action</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">fetch</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">fetch</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">engine</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">fetch</span></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">(^4|^5)</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchin</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">status</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">action</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">return</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">return</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">body</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">The GateWay is down!This Page is provided by ClientWorker!</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">status</span><span style="color: #D4D4D4">: </span><span style="color: #B5CEA8">503</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn.bilicdn.tk/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.onmicrosoft.cn/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://unpkg.com/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn.jsdelivr.net/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.8b9.cn/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn1.tianli0.top/npm/</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn.bilicdn.tk/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.onmicrosoft.cn/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://unpkg.com/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn.jsdelivr.net/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.8b9.cn/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn1.tianli0.top/npm/</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">^https:\/\/unpkg\.com\/</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn.bilicdn.tk/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.onmicrosoft.cn/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://unpkg.com/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn.jsdelivr.net/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.8b9.cn/npm/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn1.tianli0.top/npm/</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn1.tianli0.top/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn.bilicdn.tk/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.onmicrosoft.cn/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://gcore.jsdelivr.net/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.8b9.cn/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn1.tianli0.top/gh/</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn1.tianli0.top/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn.bilicdn.tk/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.onmicrosoft.cn/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://gcore.jsdelivr.net/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://jsd.8b9.cn/gh/</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://cdn1.tianli0.top/gh/</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">_</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">_</span><span style="color: #D4D4D4"> </span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">jsd.onmicrosoft.cn/npm/tnxg-blog@latest</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">cdn.bilicdn.tk/npm/tnxg-blog@latest</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">unpkg.com/tnxg-blog@latest</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">cdn-api.vercel.app</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">\.html$</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">header</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">Content-Type</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">text/html;charset=UTF-8</span></div><div class='line'></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">_</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">action</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">fetch</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">fetch</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">status</span><span style="color: #D4D4D4">: </span><span style="color: #B5CEA8">200</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">engine</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">classic</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">preflight</span><span style="color: #D4D4D4">: </span><span style="color: #569CD6">false</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">timeout</span><span style="color: #D4D4D4">: </span><span style="color: #B5CEA8">5000</span></div><div class='line'><span style="color: #D4D4D4">          </span></div><div class='line'><span style="color: #D4D4D4">  - </span><span style="color: #569CD6">rule</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">(?&lt;=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpg$</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #569CD6">transform_rules</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">image\/webp</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchin</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">header</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchkey</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">Accept</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">.jpg/webp</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replacein</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">url</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replacekey</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">.jpg</span></div><div class='line'><span style="color: #D4D4D4">  - </span><span style="color: #569CD6">rule</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">(?&lt;=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.png$</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #569CD6">transform_rules</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">image\/webp</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchin</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">header</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchkey</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">Accept</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">.png/webp</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replacein</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">url</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replacekey</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">.png</span></div><div class='line'><span style="color: #D4D4D4">  - </span><span style="color: #569CD6">rule</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">(?&lt;=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpeg$</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #569CD6">transform_rules</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">image\/webp</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchin</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">header</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchkey</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">Accept</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">.jpeg/webp</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replacein</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">url</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replacekey</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">.jpeg</span></div><div class='line'><span style="color: #D4D4D4">  - </span><span style="color: #569CD6">rule</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">(?&lt;=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.gif$</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #569CD6">transform_rules</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">image\/webp</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchin</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">header</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">searchkey</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">Accept</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">.gif/webp</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replacein</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">url</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replacekey</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">.gif</span></div><div class='line'><span style="color: #D4D4D4">        </span></div></code></div></pre><p>关于我配置的最新内容都可以在<a href="https://blog.tnxg.top/config.yaml">Config.yaml</a>找到</p>
 <p>后面的那些是我给dogecloud-oss写的webp自适应内容</p>
 <p>当我把这配置发出去的时候CFY就表示</p>
 <p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/ESVG4TR85H54ERGT8484W.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2022/07/ESVG4TR85H54ERGT8484W.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <p>我寻思Safari这个玩意还有人用？我眼里(Safari&#x3D;IE)</p>
 <p>咳咳，问题不大，反正我不用Safari我也看不到会出什么bug <del>（掩耳盗铃）</del></p>
 <p><del>应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效</del><br>没啥鸟用，cw无法修改referrer信息，但是可以将流量转发到没有防盗链的资源链接上</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token punctuation">-</span> <span class="token key atrule">rule</span><span class="token punctuation">:</span> ^(http<span class="token punctuation">|</span>https)\<span class="token punctuation">:</span>\/\/(i0<span class="token punctuation">|</span>i1<span class="token punctuation">|</span>i2<span class="token punctuation">|</span>i3<span class="token punctuation">|</span>s1<span class="token punctuation">|</span>s2<span class="token punctuation">|</span>s3)\.hdslb\.com <span class="token comment"># 匹配B站资源链接</span>
-  <span class="token key atrule">transform_rules</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> <span class="token key atrule">search</span><span class="token punctuation">:</span> _ <span class="token comment"># 多cdn并发</span>
-      <span class="token key atrule">replace</span><span class="token punctuation">:</span>
-        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s1.hdslb.com
-        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s2.hdslb.com
-        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//s3.hdslb.com
-      <span class="token key atrule">header</span><span class="token punctuation">:</span>
-        <span class="token key atrule">referrer</span><span class="token punctuation">:</span> no<span class="token punctuation">-</span>referrer <span class="token comment"># 更改引用策略</span>
-      <span class="token key atrule">action</span><span class="token punctuation">:</span> fetch
-      <span class="token key atrule">fetch</span><span class="token punctuation">:</span>
-        <span class="token key atrule">engine</span><span class="token punctuation">:</span> parallel
-        <span class="token key atrule">status</span><span class="token punctuation">:</span> <span class="token number">200</span>
-        <span class="token key atrule">preflight</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-        <span class="token key atrule">timeout</span><span class="token punctuation">:</span> <span class="token number">30000</span>
-        <span class="token key atrule">delay</span><span class="token punctuation">:</span> <span class="token number">4000</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" class="lazyload-img" data-srcset="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="这张就是b站的图片"></p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">yaml</div><div class='code-container'><code><div class='line'><span style="color: #D4D4D4">  - </span><span style="color: #569CD6">rule</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">^(http|https)\:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com</span><span style="color: #D4D4D4"> </span><span style="color: #6A9955"># 匹配B站资源链接</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #569CD6">transform_rules</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">      - </span><span style="color: #569CD6">search</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">_</span><span style="color: #D4D4D4"> </span><span style="color: #6A9955"># 多cdn并发</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">replace</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://s1.hdslb.com</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://s2.hdslb.com</span></div><div class='line'><span style="color: #D4D4D4">          - </span><span style="color: #CE9178">https://s3.hdslb.com</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">header</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">referrer</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">no-referrer</span><span style="color: #D4D4D4"> </span><span style="color: #6A9955"># 更改引用策略</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">action</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">fetch</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #569CD6">fetch</span><span style="color: #D4D4D4">:</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">engine</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">parallel</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">status</span><span style="color: #D4D4D4">: </span><span style="color: #B5CEA8">200</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">preflight</span><span style="color: #D4D4D4">: </span><span style="color: #569CD6">false</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">timeout</span><span style="color: #D4D4D4">: </span><span style="color: #B5CEA8">30000</span></div><div class='line'><span style="color: #D4D4D4">          </span><span style="color: #569CD6">delay</span><span style="color: #D4D4D4">: </span><span style="color: #B5CEA8">4000</span></div></code></div></pre><p><img src="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" class="lazyload-img" data-srcset="https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="这张就是b站的图片"></p>
 <h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>善待公益项目，每个开发者都是普通人</p>
 <p>jsd反代(回源)</p>
-<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;cdn.bilicdn.tk&#x2F;
-https:&#x2F;&#x2F;jsd.onmicrosoft.cn&#x2F;
-https:&#x2F;&#x2F;jsd.8b9.cn&#x2F;
-https:&#x2F;&#x2F;cdn1.tianli0.top&#x2F;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>我自己写的项目就不放出来了，回源是我自己的服务器，挺慢的</p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class='code-container'><code><div class='line'><span style="color: undefined">https://cdn.bilicdn.tk/</span></div><div class='line'><span style="color: undefined">https://jsd.onmicrosoft.cn/</span></div><div class='line'><span style="color: undefined">https://jsd.8b9.cn/</span></div><div class='line'><span style="color: undefined">https://cdn1.tianli0.top/</span></div></code></div></pre><p>我自己写的项目就不放出来了，回源是我自己的服务器，挺慢的</p>
 
       </div>
     </div>
@@ -849,11 +682,11 @@ https:&#x2F;&#x2F;cdn1.tianli0.top&#x2F;<span aria-hidden="true" class="line-num
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
+  // https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
+          url: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {

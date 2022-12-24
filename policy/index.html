@@ -3,66 +3,75 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>用户条款 | 天翔TNXGの空间站</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    
-    <meta name="description" content="明日尚未到来，希望凝于心上">
-    <meta name="author" content="天翔TNXG">
-    <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
-    <meta property="og:title" content="用户条款"/>
-    <script>
-        //判断非本机且未使用https 时，强制重定向到https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
-            window.location = window.location.toString().replace(/^http:/, "https:");
-        }
-    </script>
-    <script>
-        if (!!navigator.serviceWorker) {
-            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-                if (localStorage.getItem('cw_installed') !== 'true') {
-                    const conf = () => {
-                        console.log('[CW] Installing Success,Configuring...');
-                        fetch('/cw-cgi/api?type=config')
-                            .then(res => res.text())
-                            .then(text => {
-                                if (text === 'ok') {
-                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
-                                    localStorage.setItem('cw_installed', 'true');
-                                    //如果你不希望重载页面，请移除下面五行
-                                    fetch(window.location.href).then(res => res.text()).then(text => {
-                                        document.open()
-                                        document.write(text);
-                                        document.close();
-                                    });
-                                } else {
-                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                                    setTimeout(() => {
-                                        conf()
-                                    }, 200);
-                                }
-                            }).catch(err => {
-                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                            });
-                    }
-                    setTimeout(() => {
-                        conf()
-                    }, 50);
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>用户条款 | 天翔TNXGの空间站</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  
+  <link href="/assets/css/font.css" rel="stylesheet">
+  
+  <meta name="description" content="明日尚未到来，希望凝于心上">
+  <meta name="author" content="天翔TNXG">
+  <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
+  
+  <meta property="og:title" content="用户条款" />
+  <script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")) {
+      window.location = window.location.toString().replace(/^http:/, "https:");
+    }
+  </script>
+  <script>
+    if (!!navigator.serviceWorker) {
+      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+          const conf = () => {
+            console.log('[CW] Installing Success,Configuring...');
+            fetch('/cw-cgi/api?type=config')
+              .then(res => res.text())
+              .then(text => {
+                if (text === 'ok') {
+                  console.log('[CW] Installing Success,Configuring Success,Starting...');
+                  localStorage.setItem('cw_installed', 'true');
+                  //如果你不希望重载页面，请移除下面五行
+                  fetch(window.location.href).then(res => res.text()).then(text => {
+                    document.open()
+                    document.write(text);
+                    document.close();
+                  });
+                } else {
+                  console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                  setTimeout(() => {
+                    conf()
+                  }, 200);
                 }
-            }).catch(err => {
-                console.error('[CW] Installing Failed,Error: ' + err.message);
-            });
-        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-    </script>
-    <style>
+              }).catch(err => {
+                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+              });
+          }
+          setTimeout(() => {
+            conf()
+          }, 50);
+        }
+      }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+      });
+    } else {
+      console.error('[CW] Installing Failed,Error: Browser not support service worker');
+    }
+  </script>
+  <style>
 
 
+    
+    body * {
+        font-family: "HarmonyOS_Regular"!important;
+    }
     
     :root{
         --shadow-color: rgba(0,0,0,0.2);
@@ -151,8 +160,7 @@
 
     
 <link rel="stylesheet" href="/assets/css/master.css">
-<link rel="stylesheet" href="/assets/css/font.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+<link rel="stylesheet" href="/assets/css/shiki.css">
 <link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css">
 
 
@@ -397,28 +405,28 @@ header .header__right .dropdown-menus .dropdown-menu {
     }
 
 </style>
-    
 
-    
-        <!--
+
+  
+  <!--
         <link rel="stylesheet" href="/css/page.css" media="print"
             onload="this.media='all';this.onload=null">
         <noscript>-->
-            <link rel="stylesheet" href="/css/page.css">
-        <!--</noscript>-->
-    
-    
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
-    <noscript>
-        <link rel="stylesheet" href="/css/main.css">
-    </noscript>
-    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
-	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
-    
-    <script src="/js/main.js"></script>
-    
-    <div class="bg"></div>
+  <link rel="stylesheet" href="/css/page.css">
+  <!--</noscript>-->
+  
+  
+  <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript>
+    <link rel="stylesheet" href="/css/main.css">
+  </noscript>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+  
+  <script src="/js/main.js"></script>
+  
+  <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXGの空间站" type="application/atom+xml">
 </head>
     <body>
@@ -544,7 +552,7 @@ header .header__right .dropdown-menus .dropdown-menu {
         
     </div>
     <div id="article" class="markdown-body textretty">
-        <p>郑重声明：<a style="color:red">「天翔TNXGの空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">Email</a>（<a href="mailto:&#116;&#x69;&#97;&#110;&#x78;&#105;&#x61;&#x6e;&#103;&#64;&#x6c;&#111;&#121;&#x75;&#x6e;&#x65;&#116;&#46;&#99;&#x6e;">&#116;&#x69;&#97;&#110;&#x78;&#105;&#x61;&#x6e;&#103;&#64;&#x6c;&#111;&#121;&#x75;&#x6e;&#x65;&#116;&#46;&#99;&#x6e;</a>)告知删除。</p>
+        <p>郑重声明：<a style="color:red">「天翔TNXGの空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">Email</a>（<a href="mailto:&#116;&#x69;&#97;&#110;&#x78;&#x69;&#97;&#110;&#103;&#x40;&#108;&#x6f;&#x79;&#117;&#x6e;&#x65;&#x74;&#x2e;&#99;&#110;">&#116;&#x69;&#97;&#110;&#x78;&#x69;&#97;&#110;&#103;&#x40;&#108;&#x6f;&#x79;&#117;&#x6e;&#x65;&#x74;&#x2e;&#99;&#110;</a>)告知删除。</p>
 <h1 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h1><ul>
 <li>本博客所插入图片视频音乐等媒体均来自互联网，与博文内容相关，以便更好表达文章内容。如果侵犯到了您的权益，请联系博主删除。</li>
 <li>本博客所有评论内容仅代表评论者个人意见，与本站无关，请各位评论者评论时遵守当地及中国的法律法规。</li>
@@ -606,11 +614,11 @@ header .header__right .dropdown-menus .dropdown-menu {
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
+  // https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
+          url: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {

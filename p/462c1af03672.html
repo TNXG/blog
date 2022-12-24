@@ -3,66 +3,75 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>白嫖！10GB免流海外BackBlaze对象存储【可套CDN】 | 天翔TNXGの空间站</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    
-    <meta name="description" content="&lt;p&gt;腾讯云的COS就是个暗坑，进去的时候大肆宣扬用户前六个月免费，但实际上免费仅针对于存储于国内的bucket，而存储于国外的阶梯定价又极不合理，我的COS在一个月走了流量1.6GB。按照官方定价&lt;/p&gt;">
-    <meta name="author" content="ChenYFan">
-    <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
-    <meta property="og:title" content="白嫖！10GB免流海外BackBlaze对象存储【可套CDN】"/>
-    <script>
-        //判断非本机且未使用https 时，强制重定向到https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
-            window.location = window.location.toString().replace(/^http:/, "https:");
-        }
-    </script>
-    <script>
-        if (!!navigator.serviceWorker) {
-            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-                if (localStorage.getItem('cw_installed') !== 'true') {
-                    const conf = () => {
-                        console.log('[CW] Installing Success,Configuring...');
-                        fetch('/cw-cgi/api?type=config')
-                            .then(res => res.text())
-                            .then(text => {
-                                if (text === 'ok') {
-                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
-                                    localStorage.setItem('cw_installed', 'true');
-                                    //如果你不希望重载页面，请移除下面五行
-                                    fetch(window.location.href).then(res => res.text()).then(text => {
-                                        document.open()
-                                        document.write(text);
-                                        document.close();
-                                    });
-                                } else {
-                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                                    setTimeout(() => {
-                                        conf()
-                                    }, 200);
-                                }
-                            }).catch(err => {
-                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                            });
-                    }
-                    setTimeout(() => {
-                        conf()
-                    }, 50);
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>白嫖！10GB免流海外BackBlaze对象存储【可套CDN】 | 天翔TNXGの空间站</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  
+  <link href="/assets/css/font.css" rel="stylesheet">
+  
+  <meta name="description" content="&lt;p&gt;腾讯云的COS就是个暗坑，进去的时候大肆宣扬用户前六个月免费，但实际上免费仅针对于存储于国内的bucket，而存储于国外的阶梯定价又极不合理，我的COS在一个月走了流量1.6GB。按照官方定价&lt;/p&gt;">
+  <meta name="author" content="ChenYFan">
+  <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
+  
+  <meta property="og:title" content="白嫖！10GB免流海外BackBlaze对象存储【可套CDN】" />
+  <script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")) {
+      window.location = window.location.toString().replace(/^http:/, "https:");
+    }
+  </script>
+  <script>
+    if (!!navigator.serviceWorker) {
+      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+          const conf = () => {
+            console.log('[CW] Installing Success,Configuring...');
+            fetch('/cw-cgi/api?type=config')
+              .then(res => res.text())
+              .then(text => {
+                if (text === 'ok') {
+                  console.log('[CW] Installing Success,Configuring Success,Starting...');
+                  localStorage.setItem('cw_installed', 'true');
+                  //如果你不希望重载页面，请移除下面五行
+                  fetch(window.location.href).then(res => res.text()).then(text => {
+                    document.open()
+                    document.write(text);
+                    document.close();
+                  });
+                } else {
+                  console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                  setTimeout(() => {
+                    conf()
+                  }, 200);
                 }
-            }).catch(err => {
-                console.error('[CW] Installing Failed,Error: ' + err.message);
-            });
-        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-    </script>
-    <style>
+              }).catch(err => {
+                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+              });
+          }
+          setTimeout(() => {
+            conf()
+          }, 50);
+        }
+      }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+      });
+    } else {
+      console.error('[CW] Installing Failed,Error: Browser not support service worker');
+    }
+  </script>
+  <style>
 
 
+    
+    body * {
+        font-family: "HarmonyOS_Regular"!important;
+    }
     
     :root{
         --shadow-color: rgba(0,0,0,0.2);
@@ -151,8 +160,7 @@
 
     
 <link rel="stylesheet" href="/assets/css/master.css">
-<link rel="stylesheet" href="/assets/css/font.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+<link rel="stylesheet" href="/assets/css/shiki.css">
 <link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css">
 
 
@@ -397,28 +405,28 @@ header .header__right .dropdown-menus .dropdown-menu {
     }
 
 </style>
-    
 
-    
-        <!--
+
+  
+  <!--
         <link rel="stylesheet" href="/css/page.css" media="print"
             onload="this.media='all';this.onload=null">
         <noscript>-->
-            <link rel="stylesheet" href="/css/page.css">
-        <!--</noscript>-->
-    
-    
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
-    <noscript>
-        <link rel="stylesheet" href="/css/main.css">
-    </noscript>
-    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
-	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
-    
-    <script src="/js/main.js"></script>
-    
-    <div class="bg"></div>
+  <link rel="stylesheet" href="/css/page.css">
+  <!--</noscript>-->
+  
+  
+  <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript>
+    <link rel="stylesheet" href="/css/main.css">
+  </noscript>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+  
+  <script src="/js/main.js"></script>
+  
+  <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXGの空间站" type="application/atom+xml">
 </head>
     <body>
@@ -610,12 +618,8 @@ header .header__right .dropdown-menus .dropdown-menu {
 <h1 id="自定义域名"><a href="#自定义域名" class="headerlink" title="自定义域名"></a>自定义域名</h1><p>这一步需要你有个域名，开个子域给图床：</p>
 <p>由于我是bnxb接入的CloudFlare，所以我首先要去 <code>cdn.bnxb.com</code> ，将 <code>assets.cyfan.top</code> 指向 <code>f000.backblazeb2.com</code> 【每个人都可能不一样，自己看情况】，并开启CDN，然后在DNSPOD里CNAME负载均衡一下，这里就不放图了。<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E6%9C%9F%E5%BE%85.png" class="lazyload-img" data-srcset="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E6%9C%9F%E5%BE%85.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <h1 id="缩短链接"><a href="#缩短链接" class="headerlink" title="缩短链接"></a>缩短链接</h1><p>默认即使绑定域名后，链接大概是这样滴：</p>
-<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;assets.cyfan.top&#x2F;file&#x2F;CYF-PicBed&#x2F;pic&#x2F;postpic&#x2F;2020-07-09%20102255.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>可以看到,中间多了 <code>/file/CYF-PicBed/</code> ,这并不是我所需要的,所以我们要把它变成这样:</p>
-<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;img.cyfan.top&#x2F;pic&#x2F;postpic&#x2F;2020-07-09%20102255.jpg<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>你要知道，我有一大堆图片都是直接以 <code>https://img.cyfan.top</code> 存在底下的，NotePad++可以批量改，但是我在外链也放了很多啊.所以只能改域名。<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90%E8%A1%80%E5%80%92%E5%9C%B0.png" class="lazyload-img" data-srcset="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90%E8%A1%80%E5%80%92%E5%9C%B0.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class='code-container'><code><div class='line'><span style="color: undefined">https://assets.cyfan.top/file/CYF-PicBed/pic/postpic/2020-07-09%20102255.jpg</span></div></code></div></pre><p>可以看到,中间多了 <code>/file/CYF-PicBed/</code> ,这并不是我所需要的,所以我们要把它变成这样:</p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class='code-container'><code><div class='line'><span style="color: undefined">https://img.cyfan.top/pic/postpic/2020-07-09%20102255.jpg</span></div></code></div></pre><p>你要知道，我有一大堆图片都是直接以 <code>https://img.cyfan.top</code> 存在底下的，NotePad++可以批量改，但是我在外链也放了很多啊.所以只能改域名。<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90%E8%A1%80%E5%80%92%E5%9C%B0.png" class="lazyload-img" data-srcset="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90%E8%A1%80%E5%80%92%E5%9C%B0.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <p>前往CloudFlare,设置页面规则,进行301转发:</p>
 <p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20103634.jpg" class="lazyload-img" data-srcset="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20103634.jpg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <p>其中 <code>$1</code> 是CloudFlare的匹配符号，此规则意思是将所有的 <code>https://img.cyfan.top/*</code> 跳转向 <code>https://assets.cyfan.top/file/CYF-PicBed/*</code> </p>
@@ -627,13 +631,9 @@ header .header__right .dropdown-menus .dropdown-menu {
 <p>点击桶，进入桶设定：</p>
 <p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20104802.jpg" class="lazyload-img" data-srcset="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20104802.jpg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <p>里头写上:</p>
-<pre class="line-numbers language-none"><code class="language-none">&#123;&quot;cache-control&quot;:&quot;max-age&#x3D;43200000&quot;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这个意思是强制缓存 <code>43200000</code> ,大约是50天.然而这里注意一下，时间太长有个问题，你修改一张图片，外面可以能要50天才能更改，这样只能通过手动清除缓存做到了。</p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class='code-container'><code><div class='line'><span style="color: undefined">&#123;"cache-control":"max-age=43200000"&#125;</span></div></code></div></pre><p>这个意思是强制缓存 <code>43200000</code> ,大约是50天.然而这里注意一下，时间太长有个问题，你修改一张图片，外面可以能要50天才能更改，这样只能通过手动清除缓存做到了。</p>
 <p>点击CORS设置,选择:</p>
-<pre class="line-numbers language-none"><code class="language-none">与所有HTTPS来源共享此存储桶中的所有内容。<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>即可.</p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class='code-container'><code><div class='line'><span style="color: undefined">与所有HTTPS来源共享此存储桶中的所有内容。</span></div></code></div></pre><p>即可.</p>
 <h1 id="实测"><a href="#实测" class="headerlink" title="实测"></a>实测</h1><p><img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20105402.jpg" class="lazyload-img" data-srcset="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20105402.jpg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <p>免费额度基本用不完.</p>
 <p>可惜PicGo没有支持Backblaze，我只能通过网页端上传<img src="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E8%A3%85%E5%A4%A7%E6%AC%BE.png" class="lazyload-img" data-srcset="https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E8%A3%85%E5%A4%A7%E6%AC%BE.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp">。</p>
@@ -706,11 +706,11 @@ header .header__right .dropdown-menus .dropdown-menu {
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
+  // https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
+          url: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {

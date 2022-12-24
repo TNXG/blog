@@ -3,67 +3,76 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>关于图片储存的那些事 | 天翔TNXGの空间站</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    
-    <meta name="description" content="&lt;h1 id=&#34;序言&#34;&gt;&lt;a href=&#34;#序言&#34; class=&#34;headerlink&#34; title=&#34;序言&#34;&gt;&lt;/a&gt;序言&lt;/h1&gt;&lt;p&gt;自上次搬运了CYF的文章之后，再次谈及文件储存，也已经是一年多以后了&lt;/p&gt;
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>关于图片储存的那些事 | 天翔TNXGの空间站</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  
+  <link href="/assets/css/font.css" rel="stylesheet">
+  
+  <meta name="description" content="&lt;h1 id=&#34;序言&#34;&gt;&lt;a href=&#34;#序言&#34; class=&#34;headerlink&#34; title=&#34;序言&#34;&gt;&lt;/a&gt;序言&lt;/h1&gt;&lt;p&gt;自上次搬运了CYF的文章之后，再次谈及文件储存，也已经是一年多以后了&lt;/p&gt;
 &lt;p&gt;为什么要突然谈及关于这方面的事情呢？其实最主要的原因还是因为个人的动态博客因为资金问题停止运营&lt;span class=&#34;heimus&#34; title=&#34;你知道的太多了&#34;&gt;苦逼中学生&lt;/span&gt;从而转向了我之前以为技术问题而抛弃的静态博客，至少现在GitHub、GitHubPages、Vercel还是免费的，然鹅这就引发了一个非常严重的问题，我的静态资源扔到哪？&lt;/p&gt;">
-    <meta name="author" content="天翔TNXG">
-    <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
-    <meta property="og:title" content="关于图片储存的那些事"/>
-    <script>
-        //判断非本机且未使用https 时，强制重定向到https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
-            window.location = window.location.toString().replace(/^http:/, "https:");
-        }
-    </script>
-    <script>
-        if (!!navigator.serviceWorker) {
-            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-                if (localStorage.getItem('cw_installed') !== 'true') {
-                    const conf = () => {
-                        console.log('[CW] Installing Success,Configuring...');
-                        fetch('/cw-cgi/api?type=config')
-                            .then(res => res.text())
-                            .then(text => {
-                                if (text === 'ok') {
-                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
-                                    localStorage.setItem('cw_installed', 'true');
-                                    //如果你不希望重载页面，请移除下面五行
-                                    fetch(window.location.href).then(res => res.text()).then(text => {
-                                        document.open()
-                                        document.write(text);
-                                        document.close();
-                                    });
-                                } else {
-                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                                    setTimeout(() => {
-                                        conf()
-                                    }, 200);
-                                }
-                            }).catch(err => {
-                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                            });
-                    }
-                    setTimeout(() => {
-                        conf()
-                    }, 50);
+  <meta name="author" content="天翔TNXG">
+  <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
+  
+  <meta property="og:title" content="关于图片储存的那些事" />
+  <script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")) {
+      window.location = window.location.toString().replace(/^http:/, "https:");
+    }
+  </script>
+  <script>
+    if (!!navigator.serviceWorker) {
+      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+          const conf = () => {
+            console.log('[CW] Installing Success,Configuring...');
+            fetch('/cw-cgi/api?type=config')
+              .then(res => res.text())
+              .then(text => {
+                if (text === 'ok') {
+                  console.log('[CW] Installing Success,Configuring Success,Starting...');
+                  localStorage.setItem('cw_installed', 'true');
+                  //如果你不希望重载页面，请移除下面五行
+                  fetch(window.location.href).then(res => res.text()).then(text => {
+                    document.open()
+                    document.write(text);
+                    document.close();
+                  });
+                } else {
+                  console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                  setTimeout(() => {
+                    conf()
+                  }, 200);
                 }
-            }).catch(err => {
-                console.error('[CW] Installing Failed,Error: ' + err.message);
-            });
-        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-    </script>
-    <style>
+              }).catch(err => {
+                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+              });
+          }
+          setTimeout(() => {
+            conf()
+          }, 50);
+        }
+      }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+      });
+    } else {
+      console.error('[CW] Installing Failed,Error: Browser not support service worker');
+    }
+  </script>
+  <style>
 
 
+    
+    body * {
+        font-family: "HarmonyOS_Regular"!important;
+    }
     
     :root{
         --shadow-color: rgba(0,0,0,0.2);
@@ -152,8 +161,7 @@
 
     
 <link rel="stylesheet" href="/assets/css/master.css">
-<link rel="stylesheet" href="/assets/css/font.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+<link rel="stylesheet" href="/assets/css/shiki.css">
 <link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css">
 
 
@@ -398,28 +406,28 @@ header .header__right .dropdown-menus .dropdown-menu {
     }
 
 </style>
-    
 
-    
-        <!--
+
+  
+  <!--
         <link rel="stylesheet" href="/css/page.css" media="print"
             onload="this.media='all';this.onload=null">
         <noscript>-->
-            <link rel="stylesheet" href="/css/page.css">
-        <!--</noscript>-->
-    
-    
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
-    <noscript>
-        <link rel="stylesheet" href="/css/main.css">
-    </noscript>
-    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
-	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
-    
-    <script src="/js/main.js"></script>
-    
-    <div class="bg"></div>
+  <link rel="stylesheet" href="/css/page.css">
+  <!--</noscript>-->
+  
+  
+  <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript>
+    <link rel="stylesheet" href="/css/main.css">
+  </noscript>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+  
+  <script src="/js/main.js"></script>
+  
+  <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXGの空间站" type="application/atom+xml">
 </head>
     <body>
@@ -609,13 +617,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 <h2 id="NPM-各种NPM镜像"><a href="#NPM-各种NPM镜像" class="headerlink" title="NPM + 各种NPM镜像"></a>NPM + 各种NPM镜像</h2><p>CYF大佬写了详细的教程：<a target="_blank" rel="noopener" href="https://blog.cyfan.top/p/eb490c73.html#npm-JSDelivr-amp-amp-Zhimg-amp-amp-bdstatic-amp-amp-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%95%9C%E5%83%8F">点击查看文章</a></p>
 <p>我也不多过于赘述了</p>
 <p>反正我的博客的图源就是b2桶和NPM来回切</p>
-<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;npm.elemecdn.com&#x2F; 是饿了么的用的阿里cdn
-https:&#x2F;&#x2F;unpkg.zhimg.com&#x2F; 是知乎的用的也是阿里
-https:&#x2F;&#x2F;shadow.elemecdn.com&#x2F; 已经停止维护了，用的阿里cdn
-https:&#x2F;&#x2F;code.bdstatic.com&#x2F;npm&#x2F; 是百度的用的百度cdn
-https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F; 是jsd的,目前可以正常访问，但是速度堪忧<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>较为推荐</strong></p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class='code-container'><code><div class='line'><span style="color: undefined">https://npm.elemecdn.com/ 是饿了么的用的阿里cdn</span></div><div class='line'><span style="color: undefined">https://unpkg.zhimg.com/ 是知乎的用的也是阿里</span></div><div class='line'><span style="color: undefined">https://shadow.elemecdn.com/ 已经停止维护了，用的阿里cdn</span></div><div class='line'><span style="color: undefined">https://code.bdstatic.com/npm/ 是百度的用的百度cdn</span></div><div class='line'><span style="color: undefined">https://cdn.jsdelivr.net/npm/ 是jsd的,目前可以正常访问，但是速度堪忧</span></div></code></div></pre><p><strong>较为推荐</strong></p>
 <h2 id="图片缓存"><a href="#图片缓存" class="headerlink" title="图片缓存"></a>图片缓存</h2><p>之前有一段时间也是用这个解决图片问题的，我个人喜欢images.weserv.nl提供的服务，这个服务商提供了非常丰富的图片后处理方法</p>
 <p><img src="https://images.weserv.nl/?q=100&url=https://cdn.jsdelivr.net/gh/tianxiang-tester/tianxiang-oss@master/img/24/86.jpg" class="lazyload-img" data-srcset="https://images.weserv.nl/?q=100&url=https://cdn.jsdelivr.net/gh/tianxiang-tester/tianxiang-oss@master/img/24/86.jpg" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
 <h1 id="尾语"><a href="#尾语" class="headerlink" title="尾语"></a>尾语</h1><p>最保险的方法还是自己去花钱买阿里云、腾讯云、七牛、多吉云、又拍云等付费对象储存提供商提供的储存服务，再不济上传云盘、保存本地又何尝不是一种解决方法</p>
@@ -689,11 +691,11 @@ https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;npm&#x2F; 是jsd的,目前可以正常�
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
+  // https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
+          url: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {

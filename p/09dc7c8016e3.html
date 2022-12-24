@@ -3,69 +3,78 @@
 
 
 <head>
-    <meta charset="UTF-8">
-    
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <title>简记Grasscutter的搭建 | 天翔TNXGの空间站</title>
-    
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    
-    
-    <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://assets.tnxg.whitenuo.cn/images/upload/2022/05/20220501000338.jpg&#34;&gt;&lt;/p&gt;
+  <meta charset="UTF-8">
+  
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  <title>简记Grasscutter的搭建 | 天翔TNXGの空间站</title>
+  
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  
+  <link href="/assets/css/font.css" rel="stylesheet">
+  
+  <meta name="description" content="&lt;p&gt;&lt;img src=&#34;https://assets.tnxg.whitenuo.cn/images/upload/2022/05/20220501000338.jpg&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;tip:本文仅作技术分享，从而带来的任何问题我们暂不负责，若本文侵犯了贵方的权益请联系&lt;a href=&#34;mailto:tianxiang_tnxg@outlook.com&#34;&gt;天翔TNXG&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;上一次见到关于MitmProxy的项目是关于明日方舟的G和私服，没想到这么快就轮到原神了，这还是令我有点惊讶的&lt;/p&gt;
 &lt;p&gt;不过搭建这类东西是需要点小技术的。没有技术力的还是去看别人写的博文，利用懒人包搭建罢&lt;/p&gt;">
-    <meta name="author" content="天翔TNXG">
-    <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
-    <meta property="og:title" content="简记Grasscutter的搭建"/>
-    <script>
-        //判断非本机且未使用https 时，强制重定向到https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")){
-            window.location = window.location.toString().replace(/^http:/, "https:");
-        }
-    </script>
-    <script>
-        if (!!navigator.serviceWorker) {
-            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
-                if (localStorage.getItem('cw_installed') !== 'true') {
-                    const conf = () => {
-                        console.log('[CW] Installing Success,Configuring...');
-                        fetch('/cw-cgi/api?type=config')
-                            .then(res => res.text())
-                            .then(text => {
-                                if (text === 'ok') {
-                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
-                                    localStorage.setItem('cw_installed', 'true');
-                                    //如果你不希望重载页面，请移除下面五行
-                                    fetch(window.location.href).then(res => res.text()).then(text => {
-                                        document.open()
-                                        document.write(text);
-                                        document.close();
-                                    });
-                                } else {
-                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
-                                    setTimeout(() => {
-                                        conf()
-                                    }, 200);
-                                }
-                            }).catch(err => {
-                                console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                            });
-                    }
-                    setTimeout(() => {
-                        conf()
-                    }, 50);
+  <meta name="author" content="天翔TNXG">
+  <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
+  
+  <meta property="og:title" content="简记Grasscutter的搭建" />
+  <script>
+    //判断非本机且未使用https 时，强制重定向到https。
+    if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")) {
+      window.location = window.location.toString().replace(/^http:/, "https:");
+    }
+  </script>
+  <script>
+    if (!!navigator.serviceWorker) {
+      navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+        if (localStorage.getItem('cw_installed') !== 'true') {
+          const conf = () => {
+            console.log('[CW] Installing Success,Configuring...');
+            fetch('/cw-cgi/api?type=config')
+              .then(res => res.text())
+              .then(text => {
+                if (text === 'ok') {
+                  console.log('[CW] Installing Success,Configuring Success,Starting...');
+                  localStorage.setItem('cw_installed', 'true');
+                  //如果你不希望重载页面，请移除下面五行
+                  fetch(window.location.href).then(res => res.text()).then(text => {
+                    document.open()
+                    document.write(text);
+                    document.close();
+                  });
+                } else {
+                  console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                  setTimeout(() => {
+                    conf()
+                  }, 200);
                 }
-            }).catch(err => {
-                console.error('[CW] Installing Failed,Error: ' + err.message);
-            });
-        } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
-    </script>
-    <style>
+              }).catch(err => {
+                console.log('[CW] Installing Success,Configuring Error,Exiting...');
+              });
+          }
+          setTimeout(() => {
+            conf()
+          }, 50);
+        }
+      }).catch(err => {
+        console.error('[CW] Installing Failed,Error: ' + err.message);
+      });
+    } else {
+      console.error('[CW] Installing Failed,Error: Browser not support service worker');
+    }
+  </script>
+  <style>
 
 
+    
+    body * {
+        font-family: "HarmonyOS_Regular"!important;
+    }
     
     :root{
         --shadow-color: rgba(0,0,0,0.2);
@@ -154,8 +163,7 @@
 
     
 <link rel="stylesheet" href="/assets/css/master.css">
-<link rel="stylesheet" href="/assets/css/font.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css">
+<link rel="stylesheet" href="/assets/css/shiki.css">
 <link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css">
 
 
@@ -400,28 +408,28 @@ header .header__right .dropdown-menus .dropdown-menu {
     }
 
 </style>
-    
 
-    
-        <!--
+
+  
+  <!--
         <link rel="stylesheet" href="/css/page.css" media="print"
             onload="this.media='all';this.onload=null">
         <noscript>-->
-            <link rel="stylesheet" href="/css/page.css">
-        <!--</noscript>-->
-    
-    
-    <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
-    <noscript>
-        <link rel="stylesheet" href="/css/main.css">
-    </noscript>
-    <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
-	<script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
-    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
-    
-    <script src="/js/main.js"></script>
-    
-    <div class="bg"></div>
+  <link rel="stylesheet" href="/css/page.css">
+  <!--</noscript>-->
+  
+  
+  <link rel="stylesheet" href="/css/main.css" media="print" onload="this.media='all';this.onload=null">
+  <noscript>
+    <link rel="stylesheet" href="/css/main.css">
+  </noscript>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+  
+  <script src="/js/main.js"></script>
+  
+  <div class="bg"></div>
 <meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXGの空间站" type="application/atom+xml">
 </head>
     <body>
@@ -583,12 +591,7 @@ header .header__right .dropdown-menus .dropdown-menu {
 
 <p>当然这篇博文是基于Windows的环境下搭建的，不负责Linux</p>
 <p>你需要先在电脑中安装以下软件</p>
-<pre class="line-numbers language-none"><code class="language-none">Python ≈ 3.8
-Java ≈ 17
-CMD
-Mongodb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h1 id="下载安装Python"><a href="#下载安装Python" class="headerlink" title="下载安装Python"></a>下载安装Python</h1><p><a target="_blank" rel="noopener" href="https://assets.prts.top/d/aliyun/%E4%BE%9D%E8%B5%96/python/python3.8.8.exe">python3.8.8.exe</a></p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class='code-container'><code><div class='line'><span style="color: undefined">Python ≈ 3.8</span></div><div class='line'><span style="color: undefined">Java ≈ 17</span></div><div class='line'><span style="color: undefined">CMD</span></div><div class='line'><span style="color: undefined">Mongodb</span></div></code></div></pre><h1 id="下载安装Python"><a href="#下载安装Python" class="headerlink" title="下载安装Python"></a>下载安装Python</h1><p><a target="_blank" rel="noopener" href="https://assets.prts.top/d/aliyun/%E4%BE%9D%E8%B5%96/python/python3.8.8.exe">python3.8.8.exe</a></p>
 <p>在这里下载安装就可以了，虽然我不太确定py39能不能正常使用，但我觉得应该可以（）</p>
 <p>但一定要记住让它安装环境变量</p>
 <h1 id="下载安装Java"><a href="#下载安装Java" class="headerlink" title="下载安装Java"></a>下载安装Java</h1><p>我这里提供一个JavaJDK18的下载地址吧：<a target="_blank" rel="noopener" href="https://assets.prts.top/d/aliyun/%E4%BE%9D%E8%B5%96/java/jdk-18_windows-x64_bin.exe">jdk-18_windows-x64_bin.exe</a></p>
@@ -604,10 +607,7 @@ Mongodb<span aria-hidden="true" class="line-numbers-rows"><span></span><span></s
 <p>尝试使用命令开启Mongodb<code>mongod --dbpath &quot;../db&quot;</code>，如果命令提示符中出现大量json数据则代表开启成功 <del>或许开启失败也是一堆json数据，但我目前还没有遇见过</del></p>
 <p>如果嫌每次启动都输入命令麻烦当然可以写个启动脚本</p>
 <p>依旧是在Mongodb的根目录下，输入</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">echo cd bin &gt; start.bat
-echo mongod --dbpath &quot;..&#x2F;db&quot; &gt;&gt; start.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>这两条命令会在目录下生成生成一个<code>start.bat</code>以后点击start.bat就可以开启Mongodb服务</p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">cmd</div><div class='code-container'><code><div class='line'><span style="color: #D4D4D4">echo cd </span><span style="color: #9CDCFE">bin</span><span style="color: #D4D4D4"> &gt; start.bat</span></div><div class='line'><span style="color: #D4D4D4">echo </span><span style="color: #9CDCFE">mongod</span><span style="color: #D4D4D4"> --</span><span style="color: #9CDCFE">dbpath</span><span style="color: #D4D4D4"> </span><span style="color: #CE9178">"../db"</span><span style="color: #D4D4D4"> &gt;&gt; start.bat</span></div></code></div></pre><p>这两条命令会在目录下生成生成一个<code>start.bat</code>以后点击start.bat就可以开启Mongodb服务</p>
 <h1 id="配置Python"><a href="#配置Python" class="headerlink" title="配置Python"></a>配置Python</h1><p>这个还算比较简单，直接运行<code>pip install mitmproxy</code>就可以了</p>
 <p>如果下载慢或者报错的话我个人推荐还是去网上搜搜<code>pip如何配置全局镜像源</code></p>
 <h1 id="构建Grasscutter"><a href="#构建Grasscutter" class="headerlink" title="构建Grasscutter"></a>构建Grasscutter</h1><h2 id="拉取项目"><a href="#拉取项目" class="headerlink" title="拉取项目"></a>拉取项目</h2><p>在以上前置软件安装完成后前往Github下载最新的<a target="_blank" rel="noopener" href="https://github.com/Grasscutters/Grasscutter">Grasscutter</a>，当然是下载源代码（保持版本最新嘛）</p>
@@ -630,10 +630,7 @@ echo mongod --dbpath &quot;..&#x2F;db&quot; &gt;&gt; start.bat<span aria-hidden=
 <h2 id="开放服务器"><a href="#开放服务器" class="headerlink" title="开放服务器"></a>开放服务器</h2><p>依旧是在<code>Grasscutter-Server</code>文件夹中，cmd输入</p>
 <p><code>java -jar grasscutter.jar -handbook</code>你会看见在根目录下多了个<code>GM handbook.txt</code>的文件！这个文件是必须的！</p>
 <p>然后继续执行</p>
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">echo start java -jar grasscutter.jar &gt; start.bat
-echo start mitmdump -s proxy.py --ssl-insecure &gt;&gt; start.bat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>如果cmd没有任何报错，恭喜你成功了，你的服务器被开放了！</p>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">cmd</div><div class='code-container'><code><div class='line'><span style="color: #D4D4D4">echo start </span><span style="color: #9CDCFE">java</span><span style="color: #D4D4D4"> -</span><span style="color: #9CDCFE">jar</span><span style="color: #D4D4D4"> grasscutter.</span><span style="color: #9CDCFE">jar</span><span style="color: #D4D4D4"> &gt; start.bat</span></div><div class='line'><span style="color: #D4D4D4">echo start </span><span style="color: #9CDCFE">mitmdump</span><span style="color: #D4D4D4"> -</span><span style="color: #9CDCFE">s</span><span style="color: #D4D4D4"> proxy.</span><span style="color: #9CDCFE">py</span><span style="color: #D4D4D4"> --</span><span style="color: #9CDCFE">ssl</span><span style="color: #D4D4D4">-</span><span style="color: #9CDCFE">insecure</span><span style="color: #D4D4D4"> &gt;&gt; start.bat</span></div></code></div></pre><p>如果cmd没有任何报错，恭喜你成功了，你的服务器被开放了！</p>
 <p>现在你可以尝试使用<code>account create 用户名 用户id</code> 来创建你的游戏账号，并测试服务端是否正常</p>
 <h1 id="将国服客户端转成国际服"><a href="#将国服客户端转成国际服" class="headerlink" title="将国服客户端转成国际服"></a>将国服客户端转成国际服</h1><p>可以用<a target="_blank" rel="noopener" href="https://github.com/DGP-Studio/Snap.Genshin">Snap Genshin</a>，关于过程可以详见<a target="_blank" rel="noopener" href="https://www.snapgenshin.com/documents/extensions/Genshin-Launcher-Plus-SE-Plugin.html">它的文档</a></p>
 <h1 id="链接服务器"><a href="#链接服务器" class="headerlink" title="链接服务器"></a>链接服务器</h1><p>去 <code>设置-&gt;网络和Internet-&gt;代理-&gt;手动设置代理</code> 中设置代理服务器的IP，一般来说就是<code>127.0.0.1</code>，端口是<code>8080</code></p>
@@ -985,11 +982,11 @@ echo start mitmdump -s proxy.py --ssl-insecure &gt;&gt; start.bat<span aria-hidd
     </div>
     <script>
 function loadComment() {
-  // https://cdn.staticfile.org/twikoo/1.6.8/twikoo.all.min.js
+  // https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.all.min.js
     try {
       loadScriptFile({
         
-          url: "https://cdn.staticfile.org/twikoo/1.6.8/twikoo.min.js",
+          url: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.min.js",
         
         loadType: "async",
         cb: () => {
