@@ -1,1 +1,1 @@
-python update.py "Feat: 新玩意"
+python update.py "Feat: 新增账单内容"
