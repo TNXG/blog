@@ -1,4 +1,4 @@
-/*!
+/*
 _________________________________________________
 |                                               |
 | ##   ## # #####    ##    ####  #      ######  |
@@ -13,12 +13,14 @@ _________________________________________________
 |                 License : MIT                 |
 |_______________________________________________|
 */
-#page-main{
-    display: block!important;
+#page-main {
+    display: block !important;
 }
-#css-loading{
-    display: none !important
+
+#css-loading {
+    display: none !important;
 }
+
 ::-webkit-scrollbar {
     width: 6px;
     height: 5px;
@@ -28,13 +30,15 @@ _________________________________________________
 ::-webkit-scrollbar-button {
     display: none;
 }
+
 ::-webkit-scrollbar-thumb {
-    background: rgb(120,120,120);
+    background: rgb(120, 120, 120);
     border-radius: 2px;
-    transition: .2s;
+    transition: 0.2s;
 }
+
 ::selection {
-    background: rgb(230,230,230);
+    background: rgb(230, 230, 230);
     color: black;
 }
 
@@ -43,6 +47,7 @@ _________________________________________________
     padding: 0;
     margin-top: 54px;
 }
+
 .p-dot {
     margin: 0 0.2rem;
 }
@@ -132,16 +137,7 @@ p {
     }
 }
 
-
-
-
 /* Home */
-@import '_includes/home'
-
-
-/* Footer */
-@import '_includes/footer'
-
-
-/* Rewrite */
-@import '_includes/rewrite'
+@import '_includes/home'; /* Footer */
+@import '_includes/footer'; /* Rewrite */
+@import '_includes/rewrite';

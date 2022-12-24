@@ -61,11 +61,16 @@ future: true
 highlight:
   enable: false
 
-# 启用 prism
+# 关闭 prism
 prismjs:
-  enable: true
+  enable: false
   preprocess: true
   line_number: true
+
+# 关闭 shiki
+shiki_twoslash:
+  enable: true
+  theme: "dark-plus"
 
 index_generator:
   path: ""

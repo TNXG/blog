@@ -91,4 +91,4 @@ catch_rules:
           engine: fetch
           status: 200
           preflight: false
-          expire: 1000*60*60*24    
+          expire: 1000*60*60*24

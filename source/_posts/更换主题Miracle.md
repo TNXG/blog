@@ -14,13 +14,13 @@ tags:
 
 我实在受不了之前那个主题被我改的加载半天的页面了，当时正好群里的大佬在宣传他写的Miracle主题，看了看还是蛮符合我审美的，于是我就开始了痛苦的更换主题工作
 
-![9ddfa1cd417c722ee5c7e9304f0eda8f](https:/assets.tnxg.whitenuo.cn/images/article/2022/10/9ddfa1cd417c722ee5c7e9304f0eda8f.png)
+![9ddfa1cd417c722ee5c7e9304f0eda8f](https:/assets.tnxg.whitenuo.cn/images/upload/2022/10/9ddfa1cd417c722ee5c7e9304f0eda8f.png)
 
 # 对于失效页面进行修改
 
 更换主题的过程中，我突然意识到貌似博客的 [Lovely Girls](/girls/) 和 [Monument丨丰碑](/monument/) 是基于原主题提供的支持搭建的页面，如果更换主题那么这两个页面也将会出现问题，于是我看了看代码结构
 
-```JavaScript
+```js
 new Vue({
             el: "#girls",
             data: {

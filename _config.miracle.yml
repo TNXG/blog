@@ -29,6 +29,12 @@ global:
   #    date: "7-8"
   comment: true
 
+  font:
+    # 页面字体
+    family: "\"HarmonyOS_Regular\""
+    # 字体 CSS 文件，选填。注意，字体 CSS 文件不是字体文件，而是像 Google Fonts 一样声明字体的文件。
+    css: "/assets/css/font.css"
+
 # 默认说说页
 talk:
   enable: false
@@ -51,8 +57,7 @@ custom:
 
   css:
     - "/assets/css/master.css"
-    - "/assets/css/font.css"
-    - "https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css"
+    - "/assets/css/shiki.css"
     - "https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css"
 
 index:
@@ -102,6 +107,7 @@ post:
 
   # 评论插件
   comment: true
+
   code:
     highlight: false
 
@@ -162,7 +168,7 @@ page404:
   enable: true
 
 static_prefix:
-  twikoo: "https://cdn.staticfile.org/twikoo/1.6.8/"
+  twikoo: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/"
 
 lazyload:
   enable: true
