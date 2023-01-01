@@ -69,7 +69,7 @@ async function bloggeractivetime() {
     date = new Date(noticejson.data.last * 1000);
     Y = date.getFullYear() + '-';
     M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-    D = date.getDate() + '&nbsp';
+    D = date.getDate().toString().padStart(2,'0'); + '&nbsp';
     h = date.getHours() + ':';
     m = date.getMinutes();
     document.getElementById("bloggeractivetime").innerHTML = Y + M + D + h + m;

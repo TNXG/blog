@@ -21,7 +21,7 @@ global:
   copyright:
     enable: true
     from_year: 2019
-    to_year: 2022
+    to_year: 2023
     name: "天翔TNXG"
   ## 哀悼模式，网页黑白
   # memorial:
