@@ -5,7 +5,7 @@ catch_rules:
       - search: tnxg.loyunet.cn # 匹配tnxg.loyunet.cn，跳为/blog.tnxg.top/
         action: redirect
         redirect:
-          to: https://blog.tnxg.top/
+          to: blog.tnxg.top
           status: 301
       - search: _
         replace:
