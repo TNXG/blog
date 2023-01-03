@@ -1,1 +1,1 @@
-python update.py "Fix: 更新Cw脚本"
+python update.py "Fix: 尝试修复cw配置问题"
