@@ -1,1 +1,1 @@
-python update.py "Fix: ≥¢ ‘–ﬁ∏¥cw≈‰÷√Œ Ã‚"
+python update.py "Feat: “∆≥˝prism"

@@ -64,10 +64,10 @@ highlight:
 # 关闭 prism
 prismjs:
   enable: false
-  preprocess: true
-  line_number: true
+  preprocess: false
+  line_number: false
 
-# 关闭 shiki
+# 打开 shiki
 shiki_twoslash:
   enable: true
   theme: "dark-plus"
