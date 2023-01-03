@@ -1,1 +1,1 @@
-python update.py "Fix: 修复时间脚本bug"
+python update.py "Fix: 更新Cw脚本"

@@ -2,6 +2,11 @@ name: TNXGClientWorker
 catch_rules:
   - rule: _
     transform_rules:
+      - search: tnxg.loyunet.cn # 匹配tnxg.loyunet.cn，跳为/blog.tnxg.top/
+        action: redirect
+        redirect:
+          to: https://blog.tnxg.top/
+          status: 301
       - search: _
         replace:
           - _
@@ -19,6 +24,41 @@ catch_rules:
         redirect:
           to: /$1/
           status: 301
+
+  - rule: ^(http|https)\:\/\/((cdn|test1|quantil|fastly|gcore)\.jsdelivr\.net\/npm)|(unpkg\.com)|(npm\.elemecdn\.com) # 并发npm资源
+    transform_rules:
+      - search: _
+        replace:
+          - https://npm.elemecdn.com
+          - https://assets.tnxg.whitenuo.cn/proxy/npm
+          - https://npm.onmicrosoft.cn
+          - _
+        action: fetch
+        fetch:
+          status: 200
+          engine: parallel
+          preflight: false
+          timeout: 3000
+          cache:
+            expire: 1000*60*60*12
+            delay: 300
+
+  - rule: ^(http|https)\:\/\/(cdn|test1|quantil|fastly|gcore)\.jsdelivr\.net\/gh # 并发github资源
+    transform_rules:
+      - search: _
+        replace:
+          - https://assets.tnxg.whitenuo.cn/proxy/gh
+          - https://jsd.onmicrosoft.cn/gh
+          - _
+        action: fetch
+        fetch:
+          status: 200
+          engine: parallel
+          preflight: false
+          timeout: 3000
+          cache:
+            expire: 1000*60*60*12
+            delay: 300
 
   - rule: ^(http|https)\:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
     transform_rules:
