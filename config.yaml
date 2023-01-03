@@ -25,7 +25,7 @@ catch_rules:
           to: /$1/
           status: 301
 
-  - rule: ^(http|https)\:\/\/(((cdn|test1|quantil|fastly|gcore)\.jsdelivr\.net\/npm)|(unpkg\.com)|(npm\.elemecdn\.com)) # 并发npm资源
+  - rule: ^(http|https)\:\/\/(cdn|test1|quantil|fastly|gcore)\.jsdelivr\.net\/npm|^(http|https)\:\/\/unpkg\.com|^(http|https)\:\/\/npm\.elemecdn\.com # 并发npm资源
     transform_rules:
       - search: _
         replace:
