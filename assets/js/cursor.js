@@ -5,6 +5,7 @@ function getElement(string, item = document.documentElement) {
     }
     return tmp;
 }
+
 class dust {
     constructor() {
         this.x = 50;
@@ -20,6 +21,7 @@ class dust {
         this.rotation = Math.PI * Math.floor(Math.random() * 2);
     }
 }
+
 class canvasDust {
     constructor(canvasID) {
         this.width = 300;
@@ -49,8 +51,7 @@ class canvasDust {
                     i.x = x;
                     i.y = y;
                     this.buildDust(x, y, i);
-                }
-                else {
+                } else {
                     const x = i.x - i.vx;
                     const y = i.y - i.vy;
                     this.buildDust(x, y, i);
@@ -93,12 +94,12 @@ class canvasDust {
             this.ctx = canvas.getContext('2d');
             this.build();
             window.addEventListener('resize', () => this.resize());
-        }
-        else {
+        } else {
             throw new Error('canvasID 无效');
         }
     }
 }
+
 canvasDust.getPoint = (number = 1) => {
     let point = [];
     for (let i = 0; i < number; i++) {
@@ -110,8 +111,9 @@ canvasDust.getPoint = (number = 1) => {
 };
 try {
     new canvasDust('#canvas-dust');
+} catch (e) {
 }
-catch (e) { }
+
 class Cursor {
     constructor() {
         this.now = new MouseEvent('');
@@ -124,7 +126,9 @@ class Cursor {
         this.attention = "a,input,button,.admonition,.code-header,.gt-user-inner,.gt-header-textarea,.navBtnIcon";
         this.move = (timestamp) => {
             if (this.now !== undefined) {
-                let SX = this.outer.left, SY = this.outer.top, preX = Number(SX.substring(0, SX.length - 2)), preY = Number(SY.substring(0, SY.length - 2)), delX = (this.now.x - preX) * 0.3, delY = (this.now.y - preY) * 0.3;
+                let SX = this.outer.left, SY = this.outer.top, preX = Number(SX.substring(0, SX.length - 2)),
+                    preY = Number(SY.substring(0, SY.length - 2)), delX = (this.now.x - preX) * 0.3,
+                    delY = (this.now.y - preY) * 0.3;
                 if (timestamp - this.last > 15) {
                     preX += delX;
                     preY += delY;
@@ -134,8 +138,7 @@ class Cursor {
                 }
                 if (Math.abs(delX) > 0.2 || Math.abs(delY) > 0.2) {
                     window.requestAnimationFrame(this.move);
-                }
-                else {
+                } else {
                     this.moveIng = false;
                 }
             }
@@ -183,8 +186,8 @@ class Cursor {
         this.pushHolder = (items) => {
             items.forEach(item => {
                 if (!item.classList.contains('is--active')) {
-                    item.addEventListener('mouseover', this.hold, { passive: true });
-                    item.addEventListener('mouseout', this.relax, { passive: true });
+                    item.addEventListener('mouseover', this.hold, {passive: true});
+                    item.addEventListener('mouseout', this.relax, {passive: true});
                 }
             });
         };
@@ -193,14 +196,16 @@ class Cursor {
         };
         this.effecter.transform = 'translate(-50%, -50%) scale(0)';
         this.effecter.opacity = '1';
-        window.addEventListener('mousemove', this.reset, { passive: true });
-        window.addEventListener('click', this.Aeffect, { passive: true });
+        window.addEventListener('mousemove', this.reset, {passive: true});
+        window.addEventListener('click', this.Aeffect, {passive: true});
         this.pushHolders();
         const observer = new MutationObserver(this.pushHolders);
-        observer.observe(document, { childList: true, subtree: true });
+        observer.observe(document, {childList: true, subtree: true});
     }
 }
+
 new Cursor();
+
 class pjaxSupport {
     constructor() {
         this.loading = getElement('.loading');
@@ -249,7 +254,8 @@ class pjaxSupport {
         document.addEventListener('pjax:complete', this.loaded);
     }
 }
+
 try {
     new pjaxSupport();
+} catch (e) {
 }
-catch (e) { }
