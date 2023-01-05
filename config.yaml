@@ -25,7 +25,43 @@ catch_rules:
           to: /$1/
           status: 301
 
-  - rule: ^(http|https)\:\/\/(cdn|test1|quantil|fastly|gcore)\.jsdelivr\.net\/npm|^(http|https)\:\/\/unpkg\.com|^(http|https)\:\/\/npm\.elemecdn\.com # 并发npm资源
+  - rule: ^(http|https)\:\/\/(cdn|test1|quantil|fastly|gcore)\.jsdelivr\.net\/npm # 并发npm资源
+    transform_rules:
+      - search: _
+        replace:
+          - https://npm.elemecdn.com
+          - https://assets.tnxg.whitenuo.cn/proxy/npm
+          - https://npm.onmicrosoft.cn
+          - _
+        action: fetch
+        fetch:
+          status: 200
+          engine: parallel
+          preflight: false
+          timeout: 3000
+          cache:
+            expire: 1000*60*60*12
+            delay: 300
+
+  - rule: ^(http|https)\:\/\/npm\.elemecdn\.com # 并发npm资源
+    transform_rules:
+      - search: _
+        replace:
+          - https://npm.elemecdn.com
+          - https://assets.tnxg.whitenuo.cn/proxy/npm
+          - https://npm.onmicrosoft.cn
+          - _
+        action: fetch
+        fetch:
+          status: 200
+          engine: parallel
+          preflight: false
+          timeout: 3000
+          cache:
+            expire: 1000*60*60*12
+            delay: 300
+
+  - rule: ^(http|https)\:\/\/unpkg\.com # 并发npm资源
     transform_rules:
       - search: _
         replace:
