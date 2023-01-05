@@ -1,1 +1,1 @@
-python update.py "Fix: 订正文章内容"
+python update.py "Fix: 修复内容"
