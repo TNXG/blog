@@ -29,8 +29,7 @@ categories: ["Github", "白嫖"]
 
 education.github.com 里面引用的那个 bing 地图是有些大病
 
-`t0.dynamic.tiles.ditu.live.com` 及 `t1.dynamic.tiles.ditu.live.com` 无法正常加载，会提示 csp
-策略有问题，就很怪，，，隔壁 [cn.bing.com/maps](https://cn.bing.com/maps) 都可以正常加载来着
+`t0.dynamic.tiles.ditu.live.com` 及 `t1.dynamic.tiles.ditu.live.com` 无法正常加载，会提示`csp策略`有问题，就很怪，，，隔壁 [cn.bing.com/maps](https://cn.bing.com/maps) 都可以正常加载来着
 
 我个人大抵是因为原来的 `www.bing.com` 被重定向到了 `cn.bing.com` 导致的问题
 

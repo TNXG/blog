@@ -8,8 +8,6 @@ author: ChenYFan
 ---
 腾讯云的COS就是个暗坑，进去的时候大肆宣扬用户前六个月免费，但实际上免费仅针对于存储于国内的bucket，而存储于国外的阶梯定价又极不合理，我的COS在一个月走了流量1.6GB。按照官方定价
 
-<!-- more -->
-
 ![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20094557.jpg)
 
 ![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20094840.jpg)
@@ -20,26 +18,22 @@ author: ChenYFan
 
 ![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20095520.jpg)
 
+
 不是吧啊Sir，一个月一块多，那我为什么要用你的东西啊![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90.png)！
 
 很难让人理解，我CDN设置为一个月的超长缓存，但腾讯还是给我计价1GB，和回源没什么区别。
 
 后来F12看了一下，腾讯悄悄地在header里添加max-cache为43200s，12个小时强制清除缓存。Asir，赚钱不带这么玩吧。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E4%B8%AD%E6%9E%AA.png)
 
-最让我憋屈的是，`cyfan.top`
-是没有备案的，使用国内的bucket就不给绑定域名，害的我只能用香港，但是香港的绑定域名是不给SSL的，偏要套一层CDN才行。可\*\*\*腾讯云默认CDN是亚马逊的，速度渣的很，用来用去还是用回CloudFlare。可是，既然有CloudFlare，那我为什么不用免费的Github服务啊！![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%93%AD%E6%B3%A3.png)
+最让我憋屈的是，`cyfan.top` 是没有备案的，使用国内的bucket就不给绑定域名，害的我只能用香港，但是香港的绑定域名是不给SSL的，偏要套一层CDN才行。可\*\*\*腾讯云默认CDN是亚马逊的，速度渣的很，用来用去还是用回CloudFlare。可是，既然有CloudFlare，那我为什么不用免费的Github服务啊！![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%93%AD%E6%B3%A3.png)
 
 这就是逼着我要换一个图床啊么![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/qgbf.png)。
 
-后来twitter上有人发推推荐 `backblaze`
-的海外存储，使用了一下，发现完全满足需求。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/stick_27.png)
+后来twitter上有人发推推荐 `backblaze` 的海外存储，使用了一下，发现完全满足需求。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/stick_27.png)
 
 # Backblaze
 
-2015年9月，Backblaze推出了新产品B2 Cloud Storage。作为基础架构即服务（IaaS），它的目标是软件集成（尽管也提供Web前端和API）。它直接与类似服务Amazon
-S3，Microsoft Azure和Google
-Cloud竞争。在2018年4月，Backblaze宣布了云计算合作伙伴关系，它将直接将Backblaze的数据中心与其合作伙伴Packet和ServerCentral连接起来，为存储在B2
-Cloud Storage中的数据提供高性能的云计算，而无需支付任何费用。
+2015年9月，Backblaze推出了新产品B2 Cloud Storage。作为基础架构即服务（IaaS），它的目标是软件集成（尽管也提供Web前端和API）。它直接与类似服务Amazon S3，Microsoft Azure和Google Cloud竞争。在2018年4月，Backblaze宣布了云计算合作伙伴关系，它将直接将Backblaze的数据中心与其合作伙伴Packet和ServerCentral连接起来，为存储在B2 Cloud Storage中的数据提供高性能的云计算，而无需支付任何费用。
 
 B2 Cloud Storage非常客气，有以下优点：
 
@@ -52,9 +46,7 @@ B2 Cloud Storage非常客气，有以下优点：
 
 而且超出免费额度的价钱也十分合理【不过我不会往里头冲一分钱的！】 ![https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20100931.jpg](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20100931.jpg)
 
-然而我偶然得知，Backblaze加入了CloudFlare的 [带宽联盟（ Bandwidth Alliance）](https://www.cloudflare.com/bandwidth-alliance/)
-Backblaze与CloudFlare之间的流量直接免费，也就是每天**无限量**
-下行流量，配上CloudFlare超长缓存，每天下载请求无限次免费。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%BE%97%E6%84%8F.png)
+然而我偶然得知，Backblaze加入了CloudFlare的 [带宽联盟（ Bandwidth Alliance）](https://www.cloudflare.com/bandwidth-alliance/) Backblaze与CloudFlare之间的流量直接免费，也就是每天**无限量**下行流量，配上CloudFlare超长缓存，每天下载请求无限次免费。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%BE%97%E6%84%8F.png)
 
 而且这样与我用COS的速度是差不多的，那我何必用付费的COS呢？
 
@@ -81,8 +73,8 @@ Backblaze与CloudFlare之间的流量直接免费，也就是每天**无限量**
 
 这一步需要你有个域名，开个子域给图床：
 
-由于我是bnxb接入的CloudFlare，所以我首先要去 `cdn.bnxb.com` ，将 `assets.cyfan.top` 指向 `f000.backblazeb2.com`
-【每个人都可能不一样，自己看情况】，并开启CDN，然后在DNSPOD里CNAME负载均衡一下，这里就不放图了。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E6%9C%9F%E5%BE%85.png)
+由于我是bnxb接入的CloudFlare，所以我首先要去 `cdn.bnxb.com` ，将 `assets.cyfan.top` 指向 `f000.backblazeb2.com` 【每个人都可能不一样，自己看情况】，并开启CDN，然后在DNSPOD里CNAME负载均衡一下，这里就不放图了。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E6%9C%9F%E5%BE%85.png)
+
 
 # 缩短链接
 
@@ -98,15 +90,13 @@ https://assets.cyfan.top/file/CYF-PicBed/pic/postpic/2020-07-09%20102255.jpg
 https://img.cyfan.top/pic/postpic/2020-07-09%20102255.jpg
 ```
 
-你要知道，我有一大堆图片都是直接以 `https://img.cyfan.top`
-存在底下的，NotePad++可以批量改，但是我在外链也放了很多啊.所以只能改域名。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90%E8%A1%80%E5%80%92%E5%9C%B0.png)
+你要知道，我有一大堆图片都是直接以 `https://img.cyfan.top` 存在底下的，NotePad++可以批量改，但是我在外链也放了很多啊.所以只能改域名。![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/%E5%90%90%E8%A1%80%E5%80%92%E5%9C%B0.png)
 
 前往CloudFlare,设置页面规则,进行301转发:
 
 ![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20103634.jpg)
 
-其中 `$1` 是CloudFlare的匹配符号，此规则意思是将所有的 `https://img.cyfan.top/*`
-跳转向 `https://assets.cyfan.top/file/CYF-PicBed/*`
+其中 `$1` 是CloudFlare的匹配符号，此规则意思是将所有的 `https://img.cyfan.top/*` 跳转向 `https://assets.cyfan.top/file/CYF-PicBed/*` 
 
 去 `cdn.bnxb.com` ，将 `img.cyfan.top` 指向 任意一ip,比如 `1.0.0.1` 并开启CDN，然后在DNSPOD里CNAME。
 
@@ -120,9 +110,11 @@ https://img.cyfan.top/pic/postpic/2020-07-09%20102255.jpg
 
 所以，自己设置呗！
 
+
 点击桶，进入桶设定：
 
 ![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20104802.jpg)
+
 
 里头写上:
 
@@ -142,6 +134,7 @@ https://img.cyfan.top/pic/postpic/2020-07-09%20102255.jpg
 
 # 实测
 
+
 ![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/postpic/2020-07-09%20105402.jpg)
 
 免费额度基本用不完.
@@ -156,4 +149,4 @@ https://img.cyfan.top/pic/postpic/2020-07-09%20102255.jpg
 
 溜了溜了，作业还没写完呢![](https://npm.elemecdn.com/chenyfan-oss@1.0.0/pic/moji/邪魅一笑.jpg)
 
-<p>原文链接：<a href="https://blog.cyfan.top/p/ce240368.html" rel="nofollow">https://blog.cyfan.top/p/ce240368.html</a></p>
+原文链接：[https://blog.cyfan.top/p/ce240368.html](https://blog.cyfan.top/p/ce240368.html)

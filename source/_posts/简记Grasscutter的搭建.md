@@ -10,8 +10,7 @@ categories: [游戏, 原创, 教程]
 
 # 前言
 
-tip:
-本文仅作技术分享，从而带来的任何问题我们暂不负责，若本文侵犯了贵方的权益请联系[天翔TNXG](mailto:tianxiang_tnxg@outlook.com)
+tip:本文仅作技术分享，从而带来的任何问题我们暂不负责，若本文侵犯了贵方的权益请联系[天翔TNXG](mailto:tianxiang_tnxg@outlook.com)
 
 上一次见到关于MitmProxy的项目是关于明日方舟的G和私服，没想到这么快就轮到原神了，这还是令我有点惊讶的
 
@@ -52,9 +51,7 @@ Mongodb
 
 ## 下载
 
-首先需要到[Mongodb的官网](https://www.mongodb.com/try/download/community)
-下载软件，我这里推荐使用它的zip存档，这方便我们稍后配置<span class="heimus" title="你知道的太多了">
-如果大佬会配置Mongodb的自启或别的什么我就不说啥了，毕竟谁也不想每次开个Mongodb都要在安装盘里找半天</span>
+首先需要到[Mongodb的官网](https://www.mongodb.com/try/download/community)下载软件，我这里推荐使用它的zip存档，这方便我们稍后配置<span class="heimus" title="你知道的太多了">如果大佬会配置Mongodb的自启或别的什么我就不说啥了，毕竟谁也不想每次开个Mongodb都要在安装盘里找半天</span>
 
 ![](https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220430221147.png)
 
@@ -68,8 +65,7 @@ Mongodb
 
 然后再cd进入`bin`文件夹，`cd bin`
 
-尝试使用命令开启Mongodb`mongod --dbpath "../db"`，如果命令提示符中出现大量json数据则代表开启成功 ~~
-或许开启失败也是一堆json数据，但我目前还没有遇见过~~
+尝试使用命令开启Mongodb`mongod --dbpath "../db"`，如果命令提示符中出现大量json数据则代表开启成功 ~~或许开启失败也是一堆json数据，但我目前还没有遇见过~~
 
 如果嫌每次启动都输入命令麻烦当然可以写个启动脚本
 
@@ -100,8 +96,7 @@ echo mongod --dbpath "../db" >> start.bat
 
 首先要做的肯定是先cd到一个方便接下来步骤的文件夹，我就选择桌面了`cd C:\Users\Administrator\Desktop\`
 
-然后直接clone Grasscutter的仓库，`git clone https://github.com/Grasscutters/Grasscutter.git`<span class="heimus" title="
-你知道的太多了">如果你是从github直接下载的可以直接解压，无伤大雅</span>
+然后直接clone Grasscutter的仓库，`git clone https://github.com/Grasscutters/Grasscutter.git`<span class="heimus" title="你知道的太多了">如果你是从github直接下载的可以直接解压，无伤大雅</span>
 
 **尝鲜请前往development分支这里的更新速度是最快的**
 
@@ -121,15 +116,10 @@ clone完成后再次cd进Grasscutter文件夹`cd Grasscutter`
 
 我们先新建一个Grasscutter-Server文件夹
 
-* 将原本储存着代码的文件夹中的`data`文件夹、`keys`文件夹、`resources`文件夹、`grasscutter.jar`、`keystore.p12`、`proxy.py`
-  移动到`Grasscutter-Server`文件夹中
-* 将[GenshinData](https://github.com/Dimbreath/GenshinData)中的`TextMap`、`Subtitle`、`Readable`、`ExcelBinOutput`
-  移动到`Grasscutter-Server`的`resources`文件夹中
-* 将[Grasscutter-Protos](https://github.com/Grasscutters/Grasscutter-Protos)中的`proto`移动到`Grasscutter-Server`
-  的`resources`文件夹中
-* 将[gi-bin-output](https://github.com/radioegor146/gi-bin-output)中的`2.5.52/Data/_BinOutput`重命名为`BinOutput`
-  然后移动到`Grasscutter-Server`的`resources`
-  文件夹中，目前原仓库已经被封禁，但是还有备份啊（大雾）[gi-bin-output备份1](https://github.com/zhsitao/gi-bin-output)、[gi-bin-output备份2](https://github.com/Grassgrowers/gi-bin-output)
+* 将原本储存着代码的文件夹中的`data`文件夹、`keys`文件夹、`resources`文件夹、`grasscutter.jar`、`keystore.p12`、`proxy.py`移动到`Grasscutter-Server`文件夹中
+* 将[GenshinData](https://github.com/Dimbreath/GenshinData)中的`TextMap`、`Subtitle`、`Readable`、`ExcelBinOutput`移动到`Grasscutter-Server`的`resources`文件夹中
+* 将[Grasscutter-Protos](https://github.com/Grasscutters/Grasscutter-Protos)中的`proto`移动到`Grasscutter-Server`的`resources`文件夹中
+* 将[gi-bin-output](https://github.com/radioegor146/gi-bin-output)中的`2.5.52/Data/_BinOutput`重命名为`BinOutput`然后移动到`Grasscutter-Server`的`resources`文件夹中，目前原仓库已经被封禁，但是还有备份啊（大雾）[gi-bin-output备份1](https://github.com/zhsitao/gi-bin-output)、[gi-bin-output备份2](https://github.com/Grassgrowers/gi-bin-output)
 
 ## 开放服务器
 
@@ -150,8 +140,7 @@ echo start mitmdump -s proxy.py --ssl-insecure >> start.bat
 
 # 将国服客户端转成国际服
 
-可以用[Snap Genshin](https://github.com/DGP-Studio/Snap.Genshin)
-，关于过程可以详见[它的文档](https://www.snapgenshin.com/documents/extensions/Genshin-Launcher-Plus-SE-Plugin.html)
+可以用[Snap Genshin](https://github.com/DGP-Studio/Snap.Genshin)，关于过程可以详见[它的文档](https://www.snapgenshin.com/documents/extensions/Genshin-Launcher-Plus-SE-Plugin.html)
 
 # 链接服务器
 
@@ -161,8 +150,7 @@ echo start mitmdump -s proxy.py --ssl-insecure >> start.bat
 
 **注:** mitmproxy的CA证书可以从[`http://mitm.it`](http://mitm.it) 中下载它
 
-双击来[安装根证书](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate#installing-a-trusted-root-certificate)
-或者..
+双击来[安装根证书](https://docs.microsoft.com/en-us/skype-sdk/sdn/articles/installing-the-trusted-root-certificate#installing-a-trusted-root-certificate) 或者..
 
 确定你可以正常将流量转发到个人服务器的时候，打开游戏，在登录时你需要输入创建的用户名和任意密码即可加入服务器。
 
@@ -175,40 +163,41 @@ echo start mitmdump -s proxy.py --ssl-insecure >> start.bat
 在每个玩家的朋友列表中都有一个名为“服务器”的虚拟用户，你可以通过发送消息来使用命令。命令也适用于其他聊天室，例如私人/团队聊天。
 要在游戏中使用命令，需要添加 `/` 或 `!` 前缀，如 `/pos`
 
-| 命令             | 用法                                                       | 权限节点                      | 可用性          | 注释                    | 别名                                              |
-|----------------|----------------------------------------------------------|---------------------------|--------------|-----------------------|-------------------------------------------------|
-| account        | account <create\                                         | delete> <用户名> [uid]       |              | 仅服务端                  | 通过指定用户名和uid增删账户                                 |                                                 |
-| broadcast      | broadcast <消息内容>                                         | server.broadcast          | 均可使用         | 给所有玩家发送公告             | b                                               |
-| coop           | coop\<uid> <目标uid>                                       | server.coop               | 均可使用         | 强制某位玩家进入指定玩家的多人世界     |                                                 |
-| changescene    | changescene <场景ID>                                       | player.changescene        | 仅客户端         | 切换到指定场景               | scene                                           |
-| clearartifacts | clearartifacts                                           | player.clearartifacts     | 仅客户端         | 删除所有未装备及未解锁的圣遗物,包括五星  | clearart                                        |
-| clearweapons   | clearweapons                                             | player.clearweapons       | 仅客户端         | 删除所有未装备及未解锁的武器,包括五星   | clearwp                                         |
-| drop           | drop <物品ID\                                              | 物品名称> [数量]                | server.drop  | 仅客户端                  | 在指定玩家周围掉落指定物品                                   | `d` `dropitem`                                  |
-| give           | give [uid] <物品ID\                                        | 物品名称> [数量] [等级] [精炼等级]    |              |                       | 给予指定玩家一定数量及等级的物品 (精炼等级仅适用于武器)                   | `g` `item` `giveitem`                           |
-| givechar       | givechar\<uid> <角色ID> [等级]                               | player.givechar           | 均可使用         | 给予指定玩家对应角色            | givec                                           |
-| giveart        | giveart [uid]\<圣遗物ID> \<主属性ID> [\<副属性ID>[,<次数>]]... [等级] | player.giveart            | 均可使用         | 给予玩家指定属性的圣遗物          | gart                                            |
-| giveall        | giveall [uid] [数量]                                       | player.giveall            | 均可使用         | 给予指定玩家全部物品            | givea                                           |
-| godmode        | godmode [uid]                                            | player.godmode            | 仅客户端         | 保护你不受到任何伤害(依然会被击退)    |                                                 |
-| heal           | heal                                                     | player.heal               | 仅客户端         | 治疗队伍中所有角色             | h                                               |
-| help           | help [命令]                                                |                           | 均可使用         | 显示帮助或展示指定命令的帮助        |                                                 |
-| kick           | kick\<uid>                                               | server.kick               | 均可使用         | 从服务器中踢出指定玩家 (WIP)     | k                                               |
-| killall        | killall [uid] [场景ID]                                     | server.killall            | 均可使用         | 杀死指定玩家世界中所在或指定场景的全部生物 |                                                 |
-| list           | list                                                     |                           | 均可使用         | 列出在线玩家                |                                                 |
-| permission     | permission <add\                                         | remove> <用户名> <权限节点>      | *            | 均可使用                  | 添加或移除玩家的权限                                      |                                                 |
-| position       | position                                                 |                           | 仅客户端         | 获取当前坐标                | pos                                             |
-| reload         | reload                                                   | server.reload             | 均可使用         | 重载服务器配置               |                                                 |
-| resetconst     | resetconst [all]                                         | player.resetconstellation | 仅客户端         | 重置当前角色的命座,重新登录即可生效    | resetconstellation                              |
-| restart        | restart                                                  |                           | 均可使用         | 重启服务端                 |                                                 |
-| say            | say\<uid> <消息>                                           | server.sendmessage        | 均可使用         | 作为服务器发送消息给玩家          | `sendservmsg` `sendservermessage` `sendmessage` |
-| setfetterlevel | setfetterlevel <好感等级>                                    | player.setfetterlevel     | 仅客户端         | 设置当前角色的好感等级           | `setfetterlvl` `setfriendship`                  |
-| setstats       | setstats <属性> <数值>                                       | player.setstats           | 仅客户端         | 直接修改当前角色的面板           | stats                                           |
-| setworldlevel  | setworldlevel <世界等级>                                     | player.setworldlevel      | 仅客户端         | 设置世界等级(重新登陆即可生效)      | setworldlvl                                     |
-| spawn          | spanw <实体ID\                                             | 实体名称> [等级] [数量]           | server.spawn | 仅客户端                  | 在你周围生成实体                                        |                                                 |
-| stop           | stop                                                     | server.stop               | 均可使用         | 停止服务器                 |                                                 |
-| talent         | talent <天赋ID> <等级>                                       | player.settalent          | 仅客户端         | 设置当前角色的天赋等级           |                                                 |
-| teleport       | teleport [@playerUid]\<x> \<y> \<z> [sceneId]            | player.teleport           | 均可使用         | 传送玩家到指定坐标             | tp                                              |
-| tpall          |                                                          | player.tpall              | 仅客户端         | 传送多人世界中所有的玩家到自身地点     |                                                 |
-| weather        | weather <天气ID> <气候ID>                                    | player.weather            | 仅客户端         | 改变天气                  | w                                               |
+
+| 命令           | 用法                                                                  | 权限节点                  | 可用性   | 注释                                                    | 别名                                            |
+| ---------------- | ----------------------------------------------------------------------- | --------------------------- | ---------- | --------------------------------------------------------- | ------------------------------------------------- |
+| account        | account <create\|delete> <用户名> [uid]                               |                           | 仅服务端 | 通过指定用户名和uid增删账户                             |                                                 |
+| broadcast      | broadcast <消息内容>                                                  | server.broadcast          | 均可使用 | 给所有玩家发送公告                                      | b                                               |
+| coop           | coop\<uid> <目标uid>                                                  | server.coop               | 均可使用 | 强制某位玩家进入指定玩家的多人世界                      |                                                 |
+| changescene    | changescene <场景ID>                                                  | player.changescene        | 仅客户端 | 切换到指定场景                                          | scene                                           |
+| clearartifacts | clearartifacts                                                        | player.clearartifacts     | 仅客户端 | 删除所有未装备及未解锁的圣遗物,包括五星                 | clearart                                        |
+| clearweapons   | clearweapons                                                          | player.clearweapons       | 仅客户端 | 删除所有未装备及未解锁的武器,包括五星                   | clearwp                                         |
+| drop           | drop <物品ID\|物品名称> [数量]                                        | server.drop               | 仅客户端 | 在指定玩家周围掉落指定物品                              | `d` `dropitem`                                  |
+| give           | give [uid] <物品ID\|物品名称> [数量] [等级] [精炼等级]                |                           |          | 给予指定玩家一定数量及等级的物品 (精炼等级仅适用于武器) | `g` `item` `giveitem`                           |
+| givechar       | givechar\<uid> <角色ID> [等级]                                        | player.givechar           | 均可使用 | 给予指定玩家对应角色                                    | givec                                           |
+| giveart        | giveart [uid]\<圣遗物ID> \<主属性ID> [\<副属性ID>[,<次数>]]... [等级] | player.giveart            | 均可使用 | 给予玩家指定属性的圣遗物                                | gart                                            |
+| giveall        | giveall [uid] [数量]                                                  | player.giveall            | 均可使用 | 给予指定玩家全部物品                                    | givea                                           |
+| godmode        | godmode [uid]                                                         | player.godmode            | 仅客户端 | 保护你不受到任何伤害(依然会被击退)                      |                                                 |
+| heal           | heal                                                                  | player.heal               | 仅客户端 | 治疗队伍中所有角色                                      | h                                               |
+| help           | help [命令]                                                           |                           | 均可使用 | 显示帮助或展示指定命令的帮助                            |                                                 |
+| kick           | kick\<uid>                                                            | server.kick               | 均可使用 | 从服务器中踢出指定玩家 (WIP)                            | k                                               |
+| killall        | killall [uid] [场景ID]                                                | server.killall            | 均可使用 | 杀死指定玩家世界中所在或指定场景的全部生物              |                                                 |
+| list           | list                                                                  |                           | 均可使用 | 列出在线玩家                                            |                                                 |
+| permission     | permission <add\|remove> <用户名> <权限节点>                          | *                         | 均可使用 | 添加或移除玩家的权限                                    |                                                 |
+| position       | position                                                              |                           | 仅客户端 | 获取当前坐标                                            | pos                                             |
+| reload         | reload                                                                | server.reload             | 均可使用 | 重载服务器配置                                          |                                                 |
+| resetconst     | resetconst [all]                                                      | player.resetconstellation | 仅客户端 | 重置当前角色的命座,重新登录即可生效                     | resetconstellation                              |
+| restart        | restart                                                               |                           | 均可使用 | 重启服务端                                              |                                                 |
+| say            | say\<uid> <消息>                                                      | server.sendmessage        | 均可使用 | 作为服务器发送消息给玩家                                | `sendservmsg` `sendservermessage` `sendmessage` |
+| setfetterlevel | setfetterlevel <好感等级>                                             | player.setfetterlevel     | 仅客户端 | 设置当前角色的好感等级                                  | `setfetterlvl` `setfriendship`                  |
+| setstats       | setstats <属性> <数值>                                                | player.setstats           | 仅客户端 | 直接修改当前角色的面板                                  | stats                                           |
+| setworldlevel  | setworldlevel <世界等级>                                              | player.setworldlevel      | 仅客户端 | 设置世界等级(重新登陆即可生效)                          | setworldlvl                                     |
+| spawn          | spanw <实体ID\|实体名称> [等级] [数量]                                | server.spawn              | 仅客户端 | 在你周围生成实体                                        |                                                 |
+| stop           | stop                                                                  | server.stop               | 均可使用 | 停止服务器                                              |                                                 |
+| talent         | talent <天赋ID> <等级>                                                | player.settalent          | 仅客户端 | 设置当前角色的天赋等级                                  |                                                 |
+| teleport       | teleport [@playerUid]\<x> \<y> \<z> [sceneId]                         | player.teleport           | 均可使用 | 传送玩家到指定坐标                                      | tp                                              |
+| tpall          |                                                                       | player.tpall              | 仅客户端 | 传送多人世界中所有的玩家到自身地点                      |                                                 |
+| weather        | weather <天气ID> <气候ID>                                             | player.weather            | 仅客户端 | 改变天气                                                | w                                               |
 
 ## 额外功能
 
@@ -216,9 +205,7 @@ echo start mitmdump -s proxy.py --ssl-insecure >> start.bat
 
 # 尾语
 
-***切勿滥用***
-，给任何一个项目活下去的机会，这种东西本就不是合法的，我们自己玩玩嗨皮一把就可以了，大可不必到处宣传<span class="heimus" title="你知道的太多了">
-我的博客是给爬虫看的</span>
+***切勿滥用***，给任何一个项目活下去的机会，这种东西本就不是合法的，我们自己玩玩嗨皮一把就可以了，大可不必到处宣传<span class="heimus" title="你知道的太多了">我的博客是给爬虫看的</span>
 
 ## 参考
 

@@ -1,17 +1,17 @@
 [[headers]]
-for = "/*"
-[headers.values]
-access-control-allow-credentials = "true"
-access-control-allow-headers = "Origin, X-Requested-With, Content-Type, Accept, upgrade-insecure-requests, User-Agent"
-access-control-allow-methods = "GET,POST,PUT,DELETE,PATCH,OPTIONS"
-access-control-allow-origin = "*"
+  for = "/*"
+  [headers.values]
+    access-control-allow-credentials = "true"
+    access-control-allow-headers = "Origin, X-Requested-With, Content-Type, Accept, upgrade-insecure-requests, User-Agent"
+    access-control-allow-methods = "GET,POST,PUT,DELETE,PATCH,OPTIONS"
+    access-control-allow-origin = "*"
 
 [[headers]]
-for = "/*.yaml"
-[headers.values]
-Content-Type = "text/yaml; charset=utf-8"
-
+  for = "/*.yaml"
+  [headers.values]
+    Content-Type = "text/yaml; charset=utf-8"
+    
 [[headers]]
-for = "/*.pdf"
-[headers.values]
-Content-Type = "application/pdf; charset=utf-8"
+  for = "/*.pdf"
+  [headers.values]
+    Content-Type = "application/pdf; charset=utf-8"

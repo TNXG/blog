@@ -8,11 +8,15 @@
     src: url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.eot');
     /* IE9 Compat Modes */
     src: local('DM Sans'), local('DMSans-Normal'),
-    url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.eot?#iefix') format('embedded-opentype'),
-        /* IE6-IE8 */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.woff2') format('woff2'),
-        /* Super Modern Browsers */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.woff') format('woff'),
-        /* Modern Browsers */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.ttf') format('truetype'),
-        /* Safari, Android, iOS */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.svg#DMSans') format('svg');
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.woff') format('woff'),
+        /* Modern Browsers */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-regular.svg#DMSans') format('svg');
     /* Legacy iOS */
 }
 
@@ -24,11 +28,15 @@
     src: url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.eot');
     /* IE9 Compat Modes */
     src: local('DM Sans'), local('DMSans-Normal'),
-    url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.eot?#iefix') format('embedded-opentype'),
-        /* IE6-IE8 */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.woff2') format('woff2'),
-        /* Super Modern Browsers */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.woff') format('woff'),
-        /* Modern Browsers */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.ttf') format('truetype'),
-        /* Safari, Android, iOS */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.svg#DMSans') format('svg');
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.woff') format('woff'),
+        /* Modern Browsers */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-500.svg#DMSans') format('svg');
     /* Legacy iOS */
 }
 
@@ -40,11 +48,15 @@
     src: url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.eot');
     /* IE9 Compat Modes */
     src: local('DM Sans'), local('DMSans-Normal'),
-    url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.eot?#iefix') format('embedded-opentype'),
-        /* IE6-IE8 */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.woff2') format('woff2'),
-        /* Super Modern Browsers */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.woff') format('woff'),
-        /* Modern Browsers */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.ttf') format('truetype'),
-        /* Safari, Android, iOS */ url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.svg#DMSans') format('svg');
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.woff2') format('woff2'),
+        /* Super Modern Browsers */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.woff') format('woff'),
+        /* Modern Browsers */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.ttf') format('truetype'),
+        /* Safari, Android, iOS */
+        url('//lib.baomitu.com/fonts/dm-sans/dm-sans-700.svg#DMSans') format('svg');
     /* Legacy iOS */
 }
 
@@ -475,7 +487,7 @@ a {
     border-top-color: var(--link-color-hover);
 }
 
-.message-box:hover + .message-box {
+.message-box:hover+.message-box {
     border-top-color: var(--link-color-hover);
 }
 
@@ -527,11 +539,11 @@ a {
     color: var(--secondary-color);
 }
 
-.dark .star-checkbox input:checked + label {
+.dark .star-checkbox input:checked+label {
     color: var(--star);
 }
 
-.star-checkbox input:checked + label svg {
+.star-checkbox input:checked+label svg {
     fill: var(--star);
     transition: 0.2s;
 }
@@ -569,7 +581,7 @@ a {
     position: relative;
 }
 
-.project-boxes.jsListView .project-box > * {
+.project-boxes.jsListView .project-box>* {
     margin-right: 24px;
 }
 
@@ -610,7 +622,7 @@ a {
     text-overflow: ellipsis;
 }
 
-.project-boxes.jsListView .project-box-header > span {
+.project-boxes.jsListView .project-box-header>span {
     position: absolute;
     bottom: 16px;
     left: 16px;
@@ -956,7 +968,7 @@ a {
         line-height: 16px;
     }
 
-    .project-boxes.jsListView .project-box-header > span {
+    .project-boxes.jsListView .project-box-header>span {
         font-size: 10px;
     }
 
@@ -974,7 +986,7 @@ a {
         text-align: center;
     }
 
-    .project-boxes.jsListView .project-box > * {
+    .project-boxes.jsListView .project-box>* {
         margin-right: 10px;
     }
 

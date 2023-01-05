@@ -1,1 +1,1 @@
-python update.py "Feat: 重新格式化博客代码"
+python update.py "Fix: 订正文章内容"

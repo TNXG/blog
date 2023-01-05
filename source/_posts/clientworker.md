@@ -24,8 +24,7 @@ categories: [原创, 技术]
 
 我们能够依赖的也只有那些愿意做公益的大佬了，虽然回源依旧是`Unpkg`亦或者`Jsdelivr`，但最起码部分数据也被国内的cdn缓存了
 
-目前我遇到的解决方案几乎都有在使用ServiceWorker，就比如[静态博客接入 freecdn 提升访问速度](https://www.imaegoo.com/2021/hexo-free-cdn/)、[欲善其事，必利其器 - 论如何善用ServiceWorker](https://blog.cyfan.top/p/c0af86bb.html)
-，当然ClientWorker的技术基础也还是ServiceWorker
+目前我遇到的解决方案几乎都有在使用ServiceWorker，就比如[静态博客接入 freecdn 提升访问速度](https://www.imaegoo.com/2021/hexo-free-cdn/)、[欲善其事，必利其器 - 论如何善用ServiceWorker](https://blog.cyfan.top/p/c0af86bb.html)，当然ClientWorker的技术基础也还是ServiceWorker
 
 ClientWorker的作者CYF对ServiceWorker的评价其实很简单`ServiceWorker作为前端革命领袖，毫不夸张地被誉为前端黑科技`
 
@@ -41,7 +40,7 @@ ClientWorker的作者CYF对ServiceWorker的评价其实很简单`ServiceWorker�
 
 ## 如何安装
 
-```javascript
+```js
 <script>if (!!navigator.serviceWorker) {
     navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
         if (localStorage.getItem('cw_installed') !== 'true') {
@@ -99,126 +98,140 @@ ClientWorker的作者CYF对ServiceWorker的评价其实很简单`ServiceWorker�
 而我的配置则是
 
 ```yaml
-name: ClientWorker
+name: TNXGClientWorker
 catch_rules:
   - rule: _
     transform_rules:
-      - search: \#.+
-        searchin: url
-        replace: ""
-      - search: _
-        action: fetch
-        fetch:
-          engine: fetch
-      - search: (^4|^5)
-        searchin: status
-        action: return
-        return:
-          body: The GateWay is down!This Page is provided by ClientWorker!
-          status: 503
-
-      - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/npm\/
-        replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-
-      - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/npm\/
-        replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-
-      - search: ^https:\/\/unpkg\.com\/
-        replace:
-          - https://s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/
-          - https://cdn.bilicdn.tk/npm/
-          - https://jsd.onmicrosoft.cn/npm/
-          - https://unpkg.com/
-          - https://cdn.jsdelivr.net/npm/
-          - https://jsd.8b9.cn/npm/
-          - https://cdn1.tianli0.top/npm/
-
-      - search: ^https:\/\/(cdn|fastly|test1|gcore)\.jsdelivr\.net\/gh\/
-        replace:
-          - https://cdn1.tianli0.top/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://jsd.onmicrosoft.cn/gh/
-          - https://gcore.jsdelivr.net/gh/
-          - https://jsd.8b9.cn/gh/
-          - https://cdn1.tianli0.top/gh/
-
-      - search: ^https:\/\/s-cd-1806-tnxg-oss-cdn\.oss\.dogecdn\.com\/gh\/
-        replace:
-          - https://cdn1.tianli0.top/gh/
-          - https://cdn.bilicdn.tk/gh/
-          - https://jsd.onmicrosoft.cn/gh/
-          - https://gcore.jsdelivr.net/gh/
-          - https://jsd.8b9.cn/gh/
-          - https://cdn1.tianli0.top/gh/
-
+      - search: tnxg.loyunet.cn # 匹配tnxg.loyunet.cn，跳为/blog.tnxg.top/
+        action: redirect
+        redirect:
+          to: blog.tnxg.top
+          status: 301
       - search: _
         replace:
           - _
-          - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
-          - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
-          - cdn.bilicdn.tk/npm/tnxg-blog@latest
-          - unpkg.com/tnxg-blog@latest
-          - cdn-api.vercel.app
+          - gcore.blog.tnxg.top
+          - vercel.blog.tnxg.top
+        action: fetch
+        fetch:
+          status: .*
+          engine: parallel
+          preflight: false # false
+          timeout: 30000
+          delay: 4000
+      - search: \/([^\/.]+)$ # 匹配/path，跳为/path/
+        action: redirect
+        redirect:
+          to: /$1/
+          status: 301
 
-      - search: \.html$
-        header:
-          Content-Type: text/html;charset=UTF-8
-
+  - rule: ^(http|https)\:\/\/(cdn|test1|quantil|fastly|gcore)\.jsdelivr\.net\/npm|^(http|https)\:\/\/unpkg\.com|^(http|https)\:\/\/npm\.elemecdn\.com # 并发npm资源
+    transform_rules:
       - search: _
+        replace:
+          - https://npm.elemecdn.com
+          - https://assets.tnxg.whitenuo.cn/proxy/npm
+          - https://npm.onmicrosoft.cn
+          - _
         action: fetch
         fetch:
           status: 200
-          engine: classic
+          engine: parallel
           preflight: false
-          timeout: 5000
+          timeout: 3000
+          cache:
+            expire: 1000*60*60*12
+            delay: 300
 
-  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpg$
+  - rule: ^(http|https)\:\/\/(cdn|test1|quantil|fastly|gcore)\.jsdelivr\.net\/gh # 并发github资源
+    transform_rules:
+      - search: _
+        replace:
+          - https://assets.tnxg.whitenuo.cn/proxy/gh
+          - https://jsd.onmicrosoft.cn/gh
+          - _
+        action: fetch
+        fetch:
+          status: 200
+          engine: parallel
+          preflight: false
+          timeout: 3000
+          cache:
+            expire: 1000*60*60*12
+            delay: 300
+
+  - rule: ^(http|https)\:\/\/(i0|i1|i2|i3|s1|s2|s3)\.hdslb\.com # 匹配B站资源链接
+    transform_rules:
+      - search: _ # 多cdn并发
+        replace:
+          - https://s1.hdslb.com
+          - https://s2.hdslb.com
+          - https://s3.hdslb.com
+        header:
+          referrer: no-referrer # 更改引用策略
+        action: fetch
+        fetch:
+          engine: parallel
+          status: 200
+          preflight: false
+          timeout: 30000
+          delay: 4000
+
+  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
         searchin: header
         searchkey: Accept
-        replace: .jpg/webp
+        replace: .jpg?fmt=webp
         replacein: url
         replacekey: .jpg
-  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.png$
+        action: fetch
+        fetch:
+          expire: 1000*60*60*24*365 #CDN默认缓存一年
+  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.png$
     transform_rules:
       - search: image\/webp
         searchin: header
         searchkey: Accept
-        replace: .png/webp
+        replace: .png?fmt=webp
         replacein: url
         replacekey: .png
-  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpeg$
+        action: fetch
+        fetch:
+          expire: 1000*60*60*24*365 #CDN默认缓存一年
+  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.jpeg$
     transform_rules:
       - search: image\/webp
         searchin: header
         searchkey: Accept
-        replace: .jpeg/webp
+        replace: .jpeg?fmt=webp
         replacein: url
         replacekey: .jpeg
-  - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.gif$
+        action: fetch
+        fetch:
+          expire: 1000*60*60*24*365 #CDN默认缓存一年
+  - rule: (?<=^(http|https)\:\/\/assets\.tnxg\.whitenuo.cn/(.*))\.gif$
     transform_rules:
       - search: image\/webp
         searchin: header
         searchkey: Accept
-        replace: .gif/webp
+        replace: .gif?fmt=webp
         replacein: url
         replacekey: .gif
+        action: fetch
+        fetch:
+          expire: 1000*60*60*24*365 #CDN默认缓存一年
 
+  - rule: (http|https)\:\/\/(.*)\/prism\/(.*)\/themes\/prism\-prism\-vsc\-dark\-plus.min\.css$ # 匹配xx/prism/xxx/themes/prism-prism-vsc-dark-plus.min.css
+    transform_rules:
+      - search: (http|https)\:\/\/(.*)\/prism\/(.*)\/themes\/prism\-prism\-vsc\-dark\-plus.min\.css$ # 寻找 xx/prism/xxx/themes/prism-prism-vsc-dark-plus.min.css的内容
+        replace: https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css
+        action: fetch
+        fetch:
+          engine: fetch
+          status: 200
+          preflight: false
+          expire: 1000*60*60*24
 ```
 
 关于我配置的最新内容都可以在[Config.yaml](https://blog.tnxg.top/config.yaml)找到
@@ -232,6 +245,8 @@ catch_rules:
 我寻思Safari这个玩意还有人用？我眼里(Safari=IE)
 
 咳咳，问题不大，反正我不用Safari我也看不到会出什么bug ~~（掩耳盗铃）~~
+
+# 一些别的用法
 
 ~~应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效~~
 没啥鸟用，cw无法修改referrer信息，但是可以将流量转发到没有防盗链的资源链接上
