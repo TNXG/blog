@@ -1,1 +1,1 @@
-python update.py "Fix: 修复cw配置错误"
+python update.py "Feat: 重新格式化博客代码"

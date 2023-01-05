@@ -24,19 +24,23 @@ categories: [原创, 技术]
 
 我们能够依赖的也只有那些愿意做公益的大佬了，虽然回源依旧是`Unpkg`亦或者`Jsdelivr`，但最起码部分数据也被国内的cdn缓存了
 
-目前我遇到的解决方案几乎都有在使用ServiceWorker，就比如[静态博客接入 freecdn 提升访问速度](https://www.imaegoo.com/2021/hexo-free-cdn/)、[欲善其事，必利其器 - 论如何善用ServiceWorker](https://blog.cyfan.top/p/c0af86bb.html)，当然ClientWorker的技术基础也还是ServiceWorker
+目前我遇到的解决方案几乎都有在使用ServiceWorker，就比如[静态博客接入 freecdn 提升访问速度](https://www.imaegoo.com/2021/hexo-free-cdn/)、[欲善其事，必利其器 - 论如何善用ServiceWorker](https://blog.cyfan.top/p/c0af86bb.html)
+，当然ClientWorker的技术基础也还是ServiceWorker
 
 ClientWorker的作者CYF对ServiceWorker的评价其实很简单`ServiceWorker作为前端革命领袖，毫不夸张地被誉为前端黑科技`
 
 但是ServiceWorker作为一种前端技术是有学习及试错成本的，如果单单只为了加速个静态网页而学习ServiceWorker我觉得这肯定是不合理的
 
 # 正文
+
 ## 什么是ClientWorker
+
 引用原作者CYF的话(来自cw官方文档)
->ClientWorker是利用规则全局驱动sw的插件
->目前涵盖了ServiceWorker的 路由拦截、路由劫持、请求/响应（标头、状态、响应主体）修改、缓存调控，允许用户并发（双引擎），并且有一个自定义规则系统，可以自定义规则，拦截请求，修改响应，缓存颗粒化等功能。
+> ClientWorker是利用规则全局驱动sw的插件
+> 目前涵盖了ServiceWorker的 路由拦截、路由劫持、请求/响应（标头、状态、响应主体）修改、缓存调控，允许用户并发（双引擎），并且有一个自定义规则系统，可以自定义规则，拦截请求，修改响应，缓存颗粒化等功能。
 
 ## 如何安装
+
 ```javascript
 <script>if (!!navigator.serviceWorker) {
     navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
@@ -62,8 +66,8 @@ ClientWorker的作者CYF对ServiceWorker的评价其实很简单`ServiceWorker�
                             }, 200);
                         }
                     }).catch(err => {
-                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                    });
+                    console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                });
             }
             setTimeout(() => {
                 conf()
@@ -72,8 +76,9 @@ ClientWorker的作者CYF对ServiceWorker的评价其实很简单`ServiceWorker�
     }).catch(err => {
         console.error('[CW] Installing Failed,Error: ' + err.message);
     });
-} else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }</script>
+} else {console.error('[CW] Installing Failed,Error: Browser not support service worker');}</script>
 ```
+
 1. 将以上这串代码安放在`<head>`里面，越靠前越好，当然`navigator.serviceWorker.register`是异步函数不会阻塞页面加载。
 2. 进入[ClientWorker Github Release](https://github.com/ChenYFan/ClientWorker/releases)发布页，下载最新版本内容。
 3. 解压，将文件夹中`cw.js`拷出，放在网页服务器下
@@ -81,19 +86,18 @@ ClientWorker的作者CYF对ServiceWorker的评价其实很简单`ServiceWorker�
 
 以上内容摘抄至[ClientWorker官方文档](https://clientworker.js.org/)
 
-
 ## 判断是否成功安装
 
 这里可以在域名后方加上`[/cw-cgi/hello](/cw-cgi/hello)`查询cw是否正常安装
 
 如果返回的是`Hello ClientWorker!`则代表cw正常安装
 
-
 ## 配置ClientWorker
 
 这个可以参考[ClientWorker官方文档](https://clientworker.js.org/)
 
 而我的配置则是
+
 ```yaml
 name: ClientWorker
 catch_rules:
@@ -163,7 +167,7 @@ catch_rules:
 
       - search: _
         replace:
-          - _ 
+          - _
           - s-cd-1806-tnxg-oss-cdn.oss.dogecdn.com/npm/tnxg-blog@latest
           - jsd.onmicrosoft.cn/npm/tnxg-blog@latest
           - cdn.bilicdn.tk/npm/tnxg-blog@latest
@@ -181,7 +185,7 @@ catch_rules:
           engine: classic
           preflight: false
           timeout: 5000
-          
+
   - rule: (?<=^https\:\/\/s-bj-1806-tnxg-oss-normal.oss.dogecdn.com/(.*))\.jpg$
     transform_rules:
       - search: image\/webp
@@ -214,8 +218,9 @@ catch_rules:
         replace: .gif/webp
         replacein: url
         replacekey: .gif
-        
+
 ```
+
 关于我配置的最新内容都可以在[Config.yaml](https://blog.tnxg.top/config.yaml)找到
 
 后面的那些是我给dogecloud-oss写的webp自适应内容
@@ -227,8 +232,6 @@ catch_rules:
 我寻思Safari这个玩意还有人用？我眼里(Safari=IE)
 
 咳咳，问题不大，反正我不用Safari我也看不到会出什么bug ~~（掩耳盗铃）~~
-
-
 
 ~~应该可以尝试使用cw修改header头来使某些以校验referrer的网站的防盗链失效~~
 没啥鸟用，cw无法修改referrer信息，但是可以将流量转发到没有防盗链的资源链接上
@@ -251,18 +254,20 @@ catch_rules:
           timeout: 30000
           delay: 4000
 ```
-![这张就是b站的图片](https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg)
 
+![这张就是b站的图片](https://i0.hdslb.com/bfs/album/78456546936836e3115325318fe9624c5584d97e.jpg)
 
 # 结语
 
 善待公益项目，每个开发者都是普通人
 
 jsd反代(回源)
+
 ```
 https://cdn.bilicdn.tk/
 https://jsd.onmicrosoft.cn/
 https://jsd.8b9.cn/
 https://cdn1.tianli0.top/
 ```
+
 我自己写的项目就不放出来了，回源是我自己的服务器，挺慢的

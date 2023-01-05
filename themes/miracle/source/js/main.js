@@ -3,10 +3,14 @@ function loadScript(isAsync, url, cb, isMoudule) {
     script.src = url;
     if (cb) script.onload = cb;
     if (isMoudule) script.type = 'module';
-    if (!isAsync) { isAsync = true };
+    if (!isAsync) {
+        isAsync = true
+    }
+    ;
     script.async = isAsync;
     document.body.appendChild(script);
 }
+
 function prompt_core(msg, fd_t, click) {
     let div = document.createElement("div");
     div.innerHTML = `${msg}`;
@@ -33,7 +37,8 @@ function prompt_core(msg, fd_t, click) {
             setTimeout(() => {
                 document.getElementById("prompt_1").remove();
             }, 1000);
-        } catch (e) {}
+        } catch (e) {
+        }
     }, fd_t);
 }
 
@@ -54,6 +59,7 @@ function loadScriptFile(option) {
     script[option.loadType] = true;
     document.body.appendChild(script);
 }
+
 /**
  * 选择器
  * query(".class") => <div class="class"></div>
@@ -63,6 +69,7 @@ function loadScriptFile(option) {
 function query(selector) {
     return Array.from(document.querySelectorAll(selector));
 }
+
 /**
  * addClass
  * e: CSS 选择器
@@ -82,6 +89,7 @@ function addClass(e, c) {
         }
     }
 }
+
 /**
  * removeClass
  * e: CSS 选择器
@@ -101,6 +109,7 @@ function removeClass(e, c) {
         }
     }
 }
+
 /**
  * inArray
  * 检索 String 是否存在于 Array 中
@@ -116,6 +125,7 @@ function inArray(stringToSearch, arrayToSearch) {
     }
     return false;
 }
+
 /**
  * toggleClass
  * e: CSS 选择器
@@ -147,13 +157,15 @@ function toggleClass(e, c) {
     const setLS = (k, v) => {
         try {
             localStorage.setItem(k, v);
-        } catch (e) { }
+        } catch (e) {
+        }
     };
 
     const removeLS = (k) => {
         try {
             localStorage.removeItem(k);
-        } catch (e) { }
+        } catch (e) {
+        }
     };
 
     const getLS = (k) => {

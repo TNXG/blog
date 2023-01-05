@@ -28,8 +28,8 @@
                                 }, 200);
                             }
                         }).catch(err => {
-                            console.log('[CW] Installing Success,Configuring Error,Exiting...');
-                        });
+                        console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                    });
                 }
                 setTimeout(() => {
                     conf()
@@ -38,5 +38,7 @@
         }).catch(err => {
             console.error('[CW] Installing Failed,Error: ' + err.message);
         });
-    } else { console.error('[CW] Installing Failed,Error: Browser not support service worker'); }
+    } else {
+        console.error('[CW] Installing Failed,Error: Browser not support service worker');
+    }
 </script>

@@ -4,11 +4,11 @@
 
 const fs = require('hexo-fs');
 
-function lazyProcess(htmlContent)  {
+function lazyProcess(htmlContent) {
     let loadingImage = this.config.lazyload.loadingImage || 'data:image/gif;base64,R0lGODlhAQABAID/AP///wAAACwAAAAAAQABAAACAkQBADs';
     return htmlContent.replace(/<img(.*?)src="(.*?)"(.*?)>/gi, function (str, p1, p2) {
         // might be duplicate
-        if (/data-srcset/gi.test(str)){
+        if (/data-srcset/gi.test(str)) {
             return str;
         }
         if (/src="data:image(.*?)/gi.test(str)) {
@@ -30,7 +30,7 @@ function webpProcess(htmlContent) {
     });
 }
 
-module.exports.processPost = function(data) {
+module.exports.processPost = function (data) {
     data.content = lazyProcess.call(this, data.content);
     return data;
 };

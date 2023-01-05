@@ -252,7 +252,7 @@ h1.title {
     /* line-height: 46px; */
 }
 
-.info .info-item~.info-item {
+.info .info-item ~ .info-item {
     border-top: #e1e1e1 solid 1px;
 }
 

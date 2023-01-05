@@ -1,6 +1,6 @@
 /*  Start of Shiki Twoslash CSS:
 
-Code blocks structurally look like: 
+Code blocks structurally look like:
 
 <pre class='shiki lsp twoslash [theme-name]'>
   <div class='language-id'>[lang-id]</div>
@@ -8,7 +8,7 @@ Code blocks structurally look like:
       <code>[the code as a series of spans]</code>
       <a href='playground...'>Try</a> (optional)
     </div>
-  </pre> 
+  </pre>
 */
 
 pre {
@@ -90,13 +90,12 @@ pre.twoslash data-lsp:hover::before {
 }
 
 
-
 pre .code-container {
     overflow: auto;
 }
 
 /* The try button */
-pre .code-container>a {
+pre .code-container > a {
     position: absolute;
     right: 8px;
     bottom: 8px;
@@ -112,12 +111,12 @@ pre .code-container>a {
 
 /* Respect no animations */
 @media (prefers-reduced-motion: reduce) {
-    pre .code-container>a {
+    pre .code-container > a {
         transition: none;
     }
 }
 
-pre .code-container>a:hover {
+pre .code-container > a:hover {
     color: white;
     background-color: #719af4;
 }

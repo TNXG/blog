@@ -8,7 +8,7 @@ hexo.extend.generator.register('searchdb', (locals) => {
     }
 
     const pathFn = require('path');
-    const { stripHTML } = require('hexo-util');
+    const {stripHTML} = require('hexo-util');
 
     if (pathFn.extname(config.path) !== '.json') {
         return;

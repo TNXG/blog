@@ -176,4 +176,4 @@ lazyload:
   loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"
 
 qexo_time:
-  enable: true
+  enable: false

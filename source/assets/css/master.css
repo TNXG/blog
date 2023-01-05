@@ -1,350 +1,359 @@
+.friend-screenshot {
+    max-width: 200px;
+    position: absolute;
+    right: -100px;
+    z-index: 99;
+    display: none;
+    box-shadow: 0 0 20px -5px rgb(158 158 158 / 20%);
+}
+
 /* 黑幕 */
 .heimu,
 .heimu rt {
-  background-color: #252525
+    background-color: #252525
 }
 
 span.heimu a.external,
 span.heimu a.external:visited,
 span.heimu a.extiw,
 span.heimu a.extiw:visited {
-  color: #252525
+    color: #252525
 }
 
 .heimu,
 .heimu a,
 a .heimu,
 .heimu a.new {
-  color: #252525;
-  text-shadow: none
+    color: #252525;
+    text-shadow: none
 }
 
 body:not(.heimu_toggle_on) .heimu:hover,
 body:not(.heimu_toggle_on) .heimu:active,
 body:not(.heimu_toggle_on) .heimu.off {
-  transition: color .13s linear;
-  color: white
+    transition: color .13s linear;
+    color: white
 }
 
 body:not(.heimu_toggle_on) .heimu:hover a,
 body:not(.heimu_toggle_on) a:hover .heimu,
 body:not(.heimu_toggle_on) .heimu.off a,
 body:not(.heimu_toggle_on) a:hover .heimu.off {
-  transition: color .13s linear;
-  color: lightblue
+    transition: color .13s linear;
+    color: lightblue
 }
 
 body:not(.heimu_toggle_on) .heimu.off .new,
 body:not(.heimu_toggle_on) .heimu.off .new:hover,
 body:not(.heimu_toggle_on) .new:hover .heimu.off,
 body:not(.heimu_toggle_on) .heimu:hover .new {
-  transition: color .13s linear;
-  color: #FCC
+    transition: color .13s linear;
+    color: #FCC
 }
 
 /* 黑幕s */
 .heimus,
 .heimus rt {
-  background-color: #252525
+    background-color: #252525
 }
 
 span.heimus a.external,
 span.heimus a.external:visited,
 span.heimus a.extiw,
 span.heimus a.extiw:visited {
-  color: #252525
+    color: #252525
 }
 
 .heimus,
 .heimus a,
 a .heimus,
 .heimus a.new {
-  color: #252525;
-  text-shadow: none
+    color: #252525;
+    text-shadow: none
 }
 
 body:not(.heimus_toggle_on) .heimus:hover,
 body:not(.heimus_toggle_on) .heimus:active,
 body:not(.heimus_toggle_on) .heimus.off {
-  transition: color .13s linear;
-  color: white
+    transition: color .13s linear;
+    color: white
 }
 
 body:not(.heimus_toggle_on) .heimus:hover a,
 body:not(.heimus_toggle_on) a:hover .heimus,
 body:not(.heimus_toggle_on) .heimus.off a,
 body:not(.heimus_toggle_on) a:hover .heimus.off {
-  transition: color .13s linear;
-  color: lightblue
+    transition: color .13s linear;
+    color: lightblue
 }
 
 body:not(.heimus_toggle_on) .heimus.off .new,
 body:not(.heimus_toggle_on) .heimus.off .new:hover,
 body:not(.heimus_toggle_on) .new:hover .heimus.off,
 body:not(.heimus_toggle_on) .heimus:hover .new {
-  transition: color .13s linear;
-  color: #FCC
+    transition: color .13s linear;
+    color: #FCC
 }
 
 /* 字体 */
 @import url("https://blog.tnxg.top/assets/css/font.css");
 
 @font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/fonts/HarmonyOS_Sans.woff2") format('woff2');
-  font-family: "HarmonyOS_Sans";
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/HarmonyOS_Sans.woff2") format('woff2');
+    font-family: "HarmonyOS_Sans";
 }
 
 @font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/fonts/ysbth.woff2") format('woff2');
-  font-family: "ysbth";
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/ysbth.woff2") format('woff2');
+    font-family: "ysbth";
 }
 
 @font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/fonts/CtrlAstr.woff2") format('woff2');
-  font-family: "CtrlAstr";
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/CtrlAstr.woff2") format('woff2');
+    font-family: "CtrlAstr";
 }
 
 @font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/fonts/Gsenochian.woff2") format('woff2');
-  font-family: "Gsenochian";
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/Gsenochian.woff2") format('woff2');
+    font-family: "Gsenochian";
 }
 
 @font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/fonts/Tevyat.woff2") format('woff2');
-  font-family: "Tevyat";
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/Tevyat.woff2") format('woff2');
+    font-family: "Tevyat";
 }
 
 @font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/fonts/JetBrainsMono.woff2") format('woff2');
-  font-family: "JetBrainsMono";
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/JetBrainsMono.woff2") format('woff2');
+    font-family: "JetBrainsMono";
 }
 
 @font-face {
-  src: url("https://assets.tnxg.whitenuo.cn/fonts/AgeFonts001.woff") format('woff');
-  font-family: "AgeFonts001";
+    src: url("https://assets.tnxg.whitenuo.cn/fonts/AgeFonts001.woff") format('woff');
+    font-family: "AgeFonts001";
 }
 
 .HarmonyOS_Sans {
-  font-family: "HarmonyOS_Sans";
+    font-family: "HarmonyOS_Sans";
 }
 
 .CtrlAstr {
-  font-family: "CtrlAstr";
+    font-family: "CtrlAstr";
 }
 
 .ysbth {
-  font-family: "ysbth";
+    font-family: "ysbth";
 }
 
 .Gsenochian {
-  font-family: "Gsenochian";
+    font-family: "Gsenochian";
 }
 
 .Tevyat {
-  font-family: "Tevyat";
+    font-family: "Tevyat";
 }
 
 .JetBrainsMono {
-  font-family: "JetBrainsMono";
+    font-family: "JetBrainsMono";
 }
 
 .AgeFonts001 {
-  font-family: "AgeFonts001";
+    font-family: "AgeFonts001";
 }
 
 .bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("https://api.prts.top/v1/img/wallpaper/?type=cdn");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  background-attachment: fixed;
-  z-index: -100
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("https://api.prts.top/v1/img/wallpaper/?type=cdn");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -100
 }
 
 /* 鼠标指针 */
 #cursor-outer {
-  z-index: 65536;
-  position: fixed;
-  transform: translate3d(-50%, -50%, 0px);
-  height: 36px;
-  width: 36px;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  pointer-events: none;
-  transition: background-color 0.3s, width 0.3s, height 0.3s;
+    z-index: 65536;
+    position: fixed;
+    transform: translate3d(-50%, -50%, 0px);
+    height: 36px;
+    width: 36px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    pointer-events: none;
+    transition: background-color 0.3s, width 0.3s, height 0.3s;
 }
 
 #cursor-effect {
-  z-index: 65535;
-  position: fixed;
-  transform: translate3d(-50%, -50%, 0px) scale(0);
-  height: 80px;
-  width: 80px;
-  border: 4px solid #ccc;
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
+    z-index: 65535;
+    position: fixed;
+    transform: translate3d(-50%, -50%, 0px) scale(0);
+    height: 80px;
+    width: 80px;
+    border: 4px solid #ccc;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
 }
 
 #girls {
-  text-align: center;
+    text-align: center;
 }
 
 .girls-number {
-  color: #fff;
+    color: #fff;
 }
 
 .girl-items {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding-left: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 0;
 }
 
 .girl-item {
-  display: inline-flex;
-  text-align: center;
-  justify-content: center;
-  width: 8rem;
+    display: inline-flex;
+    text-align: center;
+    justify-content: center;
+    width: 8rem;
 }
 
 .girl-item .girl-info {
-  width: 100%;
-  padding: 0;
-  margin: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 .girl-item .girl-avatar {
-  object-fit: cover;
-  object-position: center top;
-  width: 6rem;
-  height: 6rem;
-  border-radius: 50%;
-  padding: 0.2rem;
-  background-color: #fff;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.12);
-  transition: 0.5s;
+    object-fit: cover;
+    object-position: center top;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    padding: 0.2rem;
+    background-color: #fff;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.12);
+    transition: 0.5s;
 }
 
 .girl-item .girl-avatar:hover {
-  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.12);
 }
 
 .girl-item .girl-name {
-  font-size: 0.9rem;
+    font-size: 0.9rem;
 }
 
 .girl-item .girl-from {
-  font-size: 12px;
-  font-family: HarmonyOS_Sans;
-  font-weight: bold;
-  color: var(--hty-secondary-text-color);
+    font-size: 12px;
+    font-family: HarmonyOS_Sans;
+    font-weight: bold;
+    color: var(--hty-secondary-text-color);
 }
 
 .girl-item .girl-from::before {
-  content: '「';
+    content: '「';
 }
 
 .girl-item .girl-from::after {
-  content: '」';
+    content: '」';
 }
 
 body {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/cursor.png"), auto;
+    cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/cursor.png"), auto;
 }
 
 a {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
+    cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
 }
 
 a:hover {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
+    cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
 }
 
 .hty-icon-button {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
+    cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
 }
 
 input {
-  cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
+    cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), auto;
 }
 
 .link-items {
-  display: flex;
-  padding: 0 0.5rem;
-  text-align: center;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    padding: 0 0.5rem;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .link-item {
-  display: inline-flex;
-  width: 150%;
+    display: inline-flex;
+    width: 150%;
 }
 
 .link-url {
-  display: inline-flex;
-  text-align: center;
-  justify-self: center;
-  line-height: 2.5;
-  padding: 0.5rem 1rem;
-  margin: 0.5rem;
-  transition: 0.2s;
-  width: 150%;
-  color: var(--primary-color, #000);
+    display: inline-flex;
+    text-align: center;
+    justify-self: center;
+    line-height: 2.5;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    transition: 0.2s;
+    width: 150%;
+    color: var(--primary-color, #000);
 }
 
 .link-url:hover {
-  color: #fff;
-  background-color: var(--primary-color, #808080);
-  box-shadow: 0 2px 20px var(--primary-color, #808080);
+    color: #fff;
+    background-color: var(--primary-color, #808080);
+    box-shadow: 0 2px 20px var(--primary-color, #808080);
 }
 
 @media screen and (max-width: 768px) {
-  .link-url {
-    display: flex;
-  }
+    .link-url {
+        display: flex;
+    }
 }
 
 .link-url .link-left {
-  display: inline-block;
-  line-height: 0;
+    display: inline-block;
+    line-height: 0;
 }
 
 .link-url .link-avatar {
-  width: 10rem;
-  height: 5rem;
-  border-radius: 50%;
-  background-color: #fff;
-  border: 1px solid var(--primary-color, #808080);
-  transition: 0.5s;
+    width: 10rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid var(--primary-color, #808080);
+    transition: 0.5s;
 }
 
 .link-url .link-avatar:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .link-url .link-info {
-  width: 150%;
-  padding-left: 0.6rem;
+    width: 150%;
+    padding-left: 0.6rem;
 }
 
 .link-url .link-blog {
-  font-family: HarmonyOS_Sans;
-  font-weight: 900;
-  margin-top: 10px;
-  font-size: 1.5rem;
+    font-family: HarmonyOS_Sans;
+    font-weight: 900;
+    margin-top: 10px;
+    font-size: 1.5rem;
 }
 
 .link-url .link-desc {
-  font-size: 1rem;
-  margin-top: 0.5rem;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  overflow: hidden;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }

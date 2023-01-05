@@ -14,7 +14,7 @@ avatar:
     enable: false
 
 # 页面
-videos: 
+videos:
   icon: ri-video-line ri-lg
 
 # 导航
@@ -98,8 +98,8 @@ bg_image:
   opacity: 1
 
 tagcloud:
-    enable: false
-    amount: 20
+  enable: false
+  amount: 20
 
 # 头部引用
 head:
@@ -213,7 +213,7 @@ cursor:
   enable: true
   default: https://assets.tnxg.whitenuo.cn/images/cursor/cursor.png
   pointer: https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png
-  
+
 # 信息（显示文字、创建时间、更新时间、种类、标签）
 post_meta:
   item_text: true

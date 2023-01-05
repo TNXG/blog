@@ -5,4 +5,4 @@ page.subtitle = [__('tag.subtitle'), page.tag].join(" - ")
 var tag = site.tags.find({name: page.tag}).filter(tag => tag.length).data[0]
 %>
 
-<%- partial('_partial/archive-list.ejs', { params: { postTotal: tag ? tag.posts.length : 0 } }) %>
+<%- partial('_partial/archive-list.ejs', {params: {postTotal: tag ? tag.posts.length : 0}}) %>

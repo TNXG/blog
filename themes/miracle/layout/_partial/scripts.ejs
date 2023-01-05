@@ -1,13 +1,13 @@
 <%- partial('_partial/plugins/analytics.ejs') %>
 <%- partial('_partial/page-scripts.ejs') %>
 <% if (theme.post.fancybox.enable && (is_page() || is_post())) { %>
-<script>
-    var postImg = document.querySelectorAll("article[class=page] img");
-    for (let imgi = 0; imgi < postImg.length; imgi++) {
-        postImg[imgi].onclick = () => {
-            let zoomImg = document.createElement("div");
-            zoomImg.id = "zoomImg";
-            zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <script>
+        var postImg = document.querySelectorAll("article[class=page] img");
+        for (let imgi = 0; imgi < postImg.length; imgi++) {
+            postImg[imgi].onclick = () => {
+                let zoomImg = document.createElement("div");
+                zoomImg.id = "zoomImg";
+                zoomImg.innerHTML = `<div id="zoom-picture"></div>
     <div class="poptrox-overlay"
         style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
         <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
@@ -18,22 +18,22 @@
             style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
             <div class="loader" style="display: none;"></div>
             <div class="pic" style="text-indent: 0px;"><img
-                    src="${ postImg[imgi].srcset || postImg[imgi].src }" alt="Loading..."
+                    src="${postImg[imgi].srcset || postImg[imgi].src}" alt="Loading..."
                     style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
         </div>
     </div>`;
-            document.body.appendChild(zoomImg);
+                document.body.appendChild(zoomImg);
                 document.querySelector("#zoomImg").onclick = () => {
                     document.querySelector("#zoomImg").remove();
                 }
+            }
         }
-    }
-    
-</script>
+
+    </script>
 <% } %>
 
 <% if (config.lazyload && config.lazyload.enable && (is_page() || is_post())){ %>
-<script>
+    <script>
         try {
             var io = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
@@ -66,7 +66,7 @@
         }
 
         if (!query(".post-toc")[0].innerHTML) {
-            addClass("#toc-btn","display-none");
+            addClass("#toc-btn", "display-none");
         }
     </script>
 <% } %>
@@ -74,12 +74,12 @@
 <% if ((is_post() || is_page()) && theme.post.readingProgress.enable){ %>
     <script>
         query("#share-btn")[0].onclick = async () => {
-            let url = `${location.protocol}//${location.hostname}${location.port ? ":"+location.port:location.port}${location.pathname}#read=${sessionStorage.getItem(location.pathname+"_read_y") || ""}`;
+            let url = `${location.protocol}//${location.hostname}${location.port ? ":" + location.port : location.port}${location.pathname}#read=${sessionStorage.getItem(location.pathname + "_read_y") || ""}`;
             try {
                 await navigator.clipboard.writeText(url);
                 prompt_core("分享链接已经复制至剪贴板", 4800, true);
-            } catch(e) {
-                prompt_core("分享链接复制失败，请手动复制<br/>"+url, 4800, false);
+            } catch (e) {
+                prompt_core("分享链接复制失败，请手动复制<br/>" + url, 4800, false);
             }
         }
     </script>
@@ -92,7 +92,7 @@
                 url: "<%- theme.static_prefix.busuanzi %>busuanzi.pure.mini.js",
                 loadType: "async"
             });
-        },0);
+        }, 0);
     </script>
 <% } %>
 
@@ -105,6 +105,7 @@
         // 此处的 750 是「页面元素的最大宽度」
         var wx = document.getElementsByClassName("article-m")[0].clientWidth;
         var wy = document.getElementsByClassName("article-m")[0].clientHeight;
+
         function windowScroll() {
             // 反复修改 确保页面尺寸不改变
             wx = document.getElementsByClassName("article-m")[0].clientWidth;
@@ -116,6 +117,7 @@
             // 写入到 sessionStorage 中
             sessionStorage.setItem(location.pathname + "_read_y", p);
         }
+
         // URL 中是否包含传递的坐标信息
         setTimeout(() => {
             if (location.hash.split("#read=").length > 1) {
@@ -124,13 +126,19 @@
                 let read_y = location.hash.split("#read=")[1];
                 read_y = read_y.split(":");
                 // 组合乘积，顺滑移动至坐标
-                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
+                window.scrollTo({
+                    top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))),
+                    behavior: "smooth"
+                });
             } else {
                 // 从 sessionStorage 中获取
                 let read_y = sessionStorage.getItem(location.pathname + "_read_y") || "0:0:0";
                 read_y = read_y.split(":");
                 if (read_y[0] != "0") prompt_core("已有阅读进度，正在跳转", 4800, true);
-                window.scrollTo({top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))), behavior: "smooth"});
+                window.scrollTo({
+                    top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))),
+                    behavior: "smooth"
+                });
             }
         }, 500);
         window.onscroll = windowScroll;

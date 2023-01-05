@@ -4,9 +4,9 @@
  */
 
 ;(function (root, factory) {
-    if (typeof define === 'function' && (define.amd||define.cmd)) {
+    if (typeof define === 'function' && (define.amd || define.cmd)) {
         // AMD&CMD
-        define(function(){
+        define(function () {
             return factory(root);
         });
     } else if (typeof exports === 'object') {
@@ -17,8 +17,8 @@
         root.Browser = factory(root);
     }
 }(typeof self !== 'undefined' ? self : this, function (root) {
-    var _window = root||{};
-    var _navigator = typeof root.navigator!='undefined'?root.navigator:{};
+    var _window = root || {};
+    var _navigator = typeof root.navigator != 'undefined' ? root.navigator : {};
     var _mime = function (option, value) {
         var mimeTypes = _navigator.mimeTypes;
         for (var mt in mimeTypes) {
@@ -29,13 +29,13 @@
         return false;
     };
     var _windowsVersion = null;
-    if(typeof _navigator.userAgentData!='undefined'){
-        _navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function(ua){
+    if (typeof _navigator.userAgentData != 'undefined') {
+        _navigator.userAgentData.getHighEntropyValues(["platformVersion"]).then(function (ua) {
             if (_navigator.userAgentData.platform === "Windows") {
                 const majorPlatformVersion = parseInt(ua.platformVersion.split('.')[0]);
-                if(majorPlatformVersion>=13){
+                if (majorPlatformVersion >= 13) {
                     _windowsVersion = 11;
-                }else{
+                } else {
                     _windowsVersion = 10;
                 }
             }
@@ -43,7 +43,7 @@
     }
 
     return function (userAgent) {
-        var u = userAgent || _navigator.userAgent||'';
+        var u = userAgent || _navigator.userAgent || '';
         var _this = this;
 
         var match = {
@@ -57,7 +57,7 @@
             'Safari': u.indexOf('Safari') > -1,
             'Chrome': u.indexOf('Chrome') > -1 || u.indexOf('CriOS') > -1,
             'IE': u.indexOf('MSIE') > -1 || u.indexOf('Trident') > -1,
-            'Edge': u.indexOf('Edge') > -1||u.indexOf('Edg/') > -1||u.indexOf('EdgA') > -1||u.indexOf('EdgiOS') > -1,
+            'Edge': u.indexOf('Edge') > -1 || u.indexOf('Edg/') > -1 || u.indexOf('EdgA') > -1 || u.indexOf('EdgiOS') > -1,
             'Firefox': u.indexOf('Firefox') > -1 || u.indexOf('FxiOS') > -1,
             'Firefox Focus': u.indexOf('Focus') > -1,
             'Chromium': u.indexOf('Chromium') > -1,
@@ -74,17 +74,17 @@
             'Iceape': u.indexOf('Iceape') > -1,
             'SeaMonkey': u.indexOf('SeaMonkey') > -1,
             'Epiphany': u.indexOf('Epiphany') > -1,
-            '360': u.indexOf('QihooBrowser') > -1||u.indexOf('QHBrowser') > -1,
+            '360': u.indexOf('QihooBrowser') > -1 || u.indexOf('QHBrowser') > -1,
             '360EE': u.indexOf('360EE') > -1,
             '360SE': u.indexOf('360SE') > -1,
             'UC': u.indexOf('UCBrowser') > -1 || u.indexOf(' UBrowser') > -1 || u.indexOf('UCWEB') > -1,
             'QQBrowser': u.indexOf('QQBrowser') > -1,
             'QQ': u.indexOf('QQ/') > -1,
-            'Baidu': u.indexOf('Baidu') > -1 || u.indexOf('BIDUBrowser') > -1 || u.indexOf('baidubrowser') > -1|| u.indexOf('baiduboxapp') > -1 || u.indexOf('BaiduHD') > -1,
+            'Baidu': u.indexOf('Baidu') > -1 || u.indexOf('BIDUBrowser') > -1 || u.indexOf('baidubrowser') > -1 || u.indexOf('baiduboxapp') > -1 || u.indexOf('BaiduHD') > -1,
             'Maxthon': u.indexOf('Maxthon') > -1,
             'Sogou': u.indexOf('MetaSr') > -1 || u.indexOf('Sogou') > -1,
-            'Liebao': u.indexOf('LBBROWSER') > -1|| u.indexOf('LieBaoFast') > -1,
-            '2345Explorer': u.indexOf('2345Explorer') > -1||u.indexOf('Mb2345Browser') > -1||u.indexOf('2345chrome') > -1,
+            'Liebao': u.indexOf('LBBROWSER') > -1 || u.indexOf('LieBaoFast') > -1,
+            '2345Explorer': u.indexOf('2345Explorer') > -1 || u.indexOf('Mb2345Browser') > -1 || u.indexOf('2345chrome') > -1,
             '115Browser': u.indexOf('115Browser') > -1,
             'TheWorld': u.indexOf('TheWorld') > -1,
             'XiaoMi': u.indexOf('MiuiBrowser') > -1,
@@ -100,7 +100,7 @@
             'iQiYi': u.indexOf('IqiyiApp') > -1,
             'DingTalk': u.indexOf('DingTalk') > -1,
             'Douyin': u.indexOf('aweme') > -1,
-            'Huawei': u.indexOf('HuaweiBrowser') > -1||u.indexOf('HUAWEI/') > -1||u.indexOf('HONOR') > -1||u.indexOf('HBPC/') > -1,
+            'Huawei': u.indexOf('HuaweiBrowser') > -1 || u.indexOf('HUAWEI/') > -1 || u.indexOf('HONOR') > -1 || u.indexOf('HBPC/') > -1,
             'Vivo': u.indexOf('VivoBrowser') > -1,
             //系统或平台
             'Windows': u.indexOf('Windows') > -1,
@@ -111,7 +111,7 @@
             'Ubuntu': u.indexOf('Ubuntu') > -1,
             'FreeBSD': u.indexOf('FreeBSD') > -1,
             'Debian': u.indexOf('Debian') > -1,
-            'Windows Phone': u.indexOf('IEMobile') > -1 || u.indexOf('Windows Phone')>-1,
+            'Windows Phone': u.indexOf('IEMobile') > -1 || u.indexOf('Windows Phone') > -1,
             'BlackBerry': u.indexOf('BlackBerry') > -1 || u.indexOf('RIM') > -1,
             'MeeGo': u.indexOf('MeeGo') > -1,
             'Symbian': u.indexOf('Symbian') > -1,
@@ -122,21 +122,21 @@
             'Mobile': u.indexOf('Mobi') > -1 || u.indexOf('iPh') > -1 || u.indexOf('480') > -1,
             'Tablet': u.indexOf('Tablet') > -1 || u.indexOf('Pad') > -1 || u.indexOf('Nexus 7') > -1 || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1),
             //环境
-            'isWebview': u.indexOf('; wv)')>-1
+            'isWebview': u.indexOf('; wv)') > -1
         };
         var is360 = false;
-        if(_window.chrome){
+        if (_window.chrome) {
             var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-            if(_window.chrome.adblock2345||_window.chrome.common2345){
+            if (_window.chrome.adblock2345 || _window.chrome.common2345) {
                 match['2345Explorer'] = true;
-            }else if(_mime("type", "application/360softmgrplugin")||_mime("type", "application/mozilla-npqihooquicklogin")){
+            } else if (_mime("type", "application/360softmgrplugin") || _mime("type", "application/mozilla-npqihooquicklogin")) {
                 is360 = true;
-            }else if(chrome_version>36&&_window.showModalDialog){
+            } else if (chrome_version > 36 && _window.showModalDialog) {
                 is360 = true;
-            }else if(chrome_version>45){
+            } else if (chrome_version > 45) {
                 is360 = _mime("type", "application/vnd.chromium.remoting-viewer");
-                if(!is360&&chrome_version>=69){
-                    is360 = _mime("type", "application/hwepass2001.installepass2001")||_mime("type", "application/asx");
+                if (!is360 && chrome_version >= 69) {
+                    is360 = _mime("type", "application/hwepass2001.installepass2001") || _mime("type", "application/asx");
                 }
             }
         }
@@ -144,23 +144,23 @@
         if (match['Mobile']) {
             match['Mobile'] = !(u.indexOf('iPad') > -1);
         } else if (is360) {
-            if(_mime("type", "application/gameplugin")){
+            if (_mime("type", "application/gameplugin")) {
                 match['360SE'] = true;
-            }else if(_navigator && typeof _navigator['connection'] !== 'undefined' && typeof _navigator['connection']['saveData'] == 'undefined'){
+            } else if (_navigator && typeof _navigator['connection'] !== 'undefined' && typeof _navigator['connection']['saveData'] == 'undefined') {
                 match['360SE'] = true;
-            }else{
+            } else {
                 match['360EE'] = true;
             }
         }
-        if(match['Baidu']&&match['Opera']){
+        if (match['Baidu'] && match['Opera']) {
             match['Baidu'] = false;
-        }else if(match['iOS']){
+        } else if (match['iOS']) {
             match['Safari'] = true;
         }
         //基本信息
         var hash = {
             engine: ['WebKit', 'Trident', 'Gecko', 'Presto', 'KHTML'],
-            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi','Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban','Suning', 'iQiYi', 'DingTalk', 'Douyin'],
+            browser: ['Safari', 'Chrome', 'Edge', 'IE', 'Firefox', 'Firefox Focus', 'Chromium', 'Opera', 'Vivaldi', 'Yandex', 'Arora', 'Lunascape', 'QupZilla', 'Coc Coc', 'Kindle', 'Iceweasel', 'Konqueror', 'Iceape', 'SeaMonkey', 'Epiphany', 'XiaoMi', 'Vivo', '360', '360SE', '360EE', 'UC', 'QQBrowser', 'QQ', 'Huawei', 'Baidu', 'Maxthon', 'Sogou', 'Liebao', '2345Explorer', '115Browser', 'TheWorld', 'Quark', 'Qiyu', 'Wechat', 'WechatWork', 'Taobao', 'Alipay', 'Weibo', 'Douban', 'Suning', 'iQiYi', 'DingTalk', 'Douyin'],
             os: ['Windows', 'Linux', 'Mac OS', 'Android', 'HarmonyOS', 'Ubuntu', 'FreeBSD', 'Debian', 'iOS', 'Windows Phone', 'BlackBerry', 'MeeGo', 'Symbian', 'Chrome OS', 'WebOS'],
             device: ['Mobile', 'Tablet']
         };
@@ -183,10 +183,10 @@
         }
         //系统版本信息
         var osVersion = {
-            'Windows': function(){
+            'Windows': function () {
                 var v = u.replace(/^Mozilla\/\d.0 \(Windows NT ([\d.]+)[;)].*$/, '$1');
                 var hash = {
-                    '10':'10',
+                    '10': '10',
                     '6.4': '10',
                     '6.3': '8.1',
                     '6.2': '8',
@@ -198,30 +198,30 @@
                 };
                 return hash[v] || v;
             },
-            'Android': function(){
+            'Android': function () {
                 return u.replace(/^.*Android ([\d.]+);.*$/, '$1');
             },
-            'HarmonyOS': function(){
+            'HarmonyOS': function () {
                 var v = u.replace(/^Mozilla.*Android ([\d.]+)[;)].*$/, '$1');
                 var hash = {
-                    '10':'2',
-                    '12':'3',
+                    '10': '2',
+                    '12': '3',
                 };
                 return hash[v] || '';
             },
-            'iOS': function(){
+            'iOS': function () {
                 return u.replace(/^.*OS ([\d_]+) like.*$/, '$1').replace(/_/g, '.');
             },
-            'Debian': function(){
+            'Debian': function () {
                 return u.replace(/^.*Debian\/([\d.]+).*$/, '$1');
             },
-            'Windows Phone': function(){
+            'Windows Phone': function () {
                 return u.replace(/^.*Windows Phone( OS)? ([\d.]+);.*$/, '$2');
             },
-            'Mac OS': function(){
+            'Mac OS': function () {
                 return u.replace(/^.*Mac OS X ([\d_]+).*$/, '$1').replace(/_/g, '.');
             },
-            'WebOS': function(){
+            'WebOS': function () {
                 return u.replace(/^.*hpwOS\/([\d.]+);.*$/, '$1');
             }
         };
@@ -233,166 +233,194 @@
             }
         }
         _this.isWebview = match['isWebview'];
-        if(_this.os=='Windows'&&_windowsVersion){
+        if (_this.os == 'Windows' && _windowsVersion) {
             _this.osVersion = _windowsVersion;
         }
 
         //浏览器版本信息
         var version = {
-            'Safari': function(){
+            'Safari': function () {
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
             },
-            'Chrome': function(){
+            'Chrome': function () {
                 return u.replace(/^.*Chrome\/([\d.]+).*$/, '$1').replace(/^.*CriOS\/([\d.]+).*$/, '$1');
             },
-            'IE': function(){
+            'IE': function () {
                 return u.replace(/^.*MSIE ([\d.]+).*$/, '$1').replace(/^.*rv:([\d.]+).*$/, '$1');
             },
-            'Edge': function(){
+            'Edge': function () {
                 return u.replace(/^.*Edge\/([\d.]+).*$/, '$1').replace(/^.*Edg\/([\d.]+).*$/, '$1').replace(/^.*EdgA\/([\d.]+).*$/, '$1').replace(/^.*EdgiOS\/([\d.]+).*$/, '$1');
             },
-            'Firefox': function(){
+            'Firefox': function () {
                 return u.replace(/^.*Firefox\/([\d.]+).*$/, '$1').replace(/^.*FxiOS\/([\d.]+).*$/, '$1');
             },
-            'Firefox Focus': function(){
+            'Firefox Focus': function () {
                 return u.replace(/^.*Focus\/([\d.]+).*$/, '$1');
             },
-            'Chromium': function(){
+            'Chromium': function () {
                 return u.replace(/^.*Chromium\/([\d.]+).*$/, '$1');
             },
-            'Opera': function(){
+            'Opera': function () {
                 return u.replace(/^.*Opera\/([\d.]+).*$/, '$1').replace(/^.*OPR\/([\d.]+).*$/, '$1');
             },
-            'Vivaldi': function(){
+            'Vivaldi': function () {
                 return u.replace(/^.*Vivaldi\/([\d.]+).*$/, '$1');
             },
-            'Yandex': function(){
+            'Yandex': function () {
                 return u.replace(/^.*YaBrowser\/([\d.]+).*$/, '$1');
             },
-            'Arora': function(){
+            'Arora': function () {
                 return u.replace(/^.*Arora\/([\d.]+).*$/, '$1');
             },
-            'Lunascape': function(){
+            'Lunascape': function () {
                 return u.replace(/^.*Lunascape[\/\s]([\d.]+).*$/, '$1');
             },
-            'QupZilla': function(){
+            'QupZilla': function () {
                 return u.replace(/^.*QupZilla[\/\s]([\d.]+).*$/, '$1');
             },
-            'Coc Coc': function(){
+            'Coc Coc': function () {
                 return u.replace(/^.*coc_coc_browser\/([\d.]+).*$/, '$1');
             },
-            'Kindle': function(){
+            'Kindle': function () {
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1');
             },
-            'Iceweasel': function(){
+            'Iceweasel': function () {
                 return u.replace(/^.*Iceweasel\/([\d.]+).*$/, '$1');
             },
-            'Konqueror': function(){
+            'Konqueror': function () {
                 return u.replace(/^.*Konqueror\/([\d.]+).*$/, '$1');
             },
-            'Iceape': function(){
+            'Iceape': function () {
                 return u.replace(/^.*Iceape\/([\d.]+).*$/, '$1');
             },
-            'SeaMonkey': function(){
+            'SeaMonkey': function () {
                 return u.replace(/^.*SeaMonkey\/([\d.]+).*$/, '$1');
             },
-            'Epiphany': function(){
+            'Epiphany': function () {
                 return u.replace(/^.*Epiphany\/([\d.]+).*$/, '$1');
             },
-            '360': function(){
+            '360': function () {
                 return u.replace(/^.*QihooBrowser(HD)?\/([\d.]+).*$/, '$2');
             },
-            '360SE': function(){
-                var hash = {'86':'13.0','78':'12.0','69':'11.0','63':'10.0','55':'9.1','45':'8.1','42':'8.0','31':'7.0','21':'6.3'};
+            '360SE': function () {
+                var hash = {
+                    '86': '13.0',
+                    '78': '12.0',
+                    '69': '11.0',
+                    '63': '10.0',
+                    '55': '9.1',
+                    '45': '8.1',
+                    '42': '8.0',
+                    '31': '7.0',
+                    '21': '6.3'
+                };
                 var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                return hash[chrome_version]||'';
+                return hash[chrome_version] || '';
             },
-            '360EE': function(){
-                var hash = {'95':'21','86':'13.0','78':'12.0','69':'11.0','63':'9.5','55':'9.0','50':'8.7','30':'7.5'};
+            '360EE': function () {
+                var hash = {
+                    '95': '21',
+                    '86': '13.0',
+                    '78': '12.0',
+                    '69': '11.0',
+                    '63': '9.5',
+                    '55': '9.0',
+                    '50': '8.7',
+                    '30': '7.5'
+                };
                 var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                return hash[chrome_version]||'';
+                return hash[chrome_version] || '';
             },
-            'Maxthon': function(){
+            'Maxthon': function () {
                 return u.replace(/^.*Maxthon\/([\d.]+).*$/, '$1');
             },
-            'QQBrowser': function(){
+            'QQBrowser': function () {
                 return u.replace(/^.*QQBrowser\/([\d.]+).*$/, '$1');
             },
-            'QQ': function(){
+            'QQ': function () {
                 return u.replace(/^.*QQ\/([\d.]+).*$/, '$1');
             },
-            'Baidu': function(){
+            'Baidu': function () {
                 return u.replace(/^.*BIDUBrowser[\s\/]([\d.]+).*$/, '$1').replace(/^.*baiduboxapp\/([\d.]+).*$/, '$1');
             },
-            'UC': function(){
+            'UC': function () {
                 return u.replace(/^.*UC?Browser\/([\d.]+).*$/, '$1');
             },
-            'Sogou': function(){
+            'Sogou': function () {
                 return u.replace(/^.*SE ([\d.X]+).*$/, '$1').replace(/^.*SogouMobileBrowser\/([\d.]+).*$/, '$1');
             },
-            'Liebao': function(){
+            'Liebao': function () {
                 var version = ''
-                if(u.indexOf('LieBaoFast')>-1){
+                if (u.indexOf('LieBaoFast') > -1) {
                     version = u.replace(/^.*LieBaoFast\/([\d.]+).*$/, '$1');
                 }
-                var hash = {'57':'6.5','49':'6.0','46':'5.9','42':'5.3','39':'5.2','34':'5.0','29':'4.5','21':'4.0'};
+                var hash = {
+                    '57': '6.5',
+                    '49': '6.0',
+                    '46': '5.9',
+                    '42': '5.3',
+                    '39': '5.2',
+                    '34': '5.0',
+                    '29': '4.5',
+                    '21': '4.0'
+                };
                 var chrome_version = u.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                return version||hash[chrome_version]||'';
+                return version || hash[chrome_version] || '';
             },
-            '2345Explorer': function(){
-                var hash = {'69':'10.0','55':'9.9'};
+            '2345Explorer': function () {
+                var hash = {'69': '10.0', '55': '9.9'};
                 var chrome_version = navigator.userAgent.replace(/^.*Chrome\/([\d]+).*$/, '$1');
-                return hash[chrome_version]||u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1');
+                return hash[chrome_version] || u.replace(/^.*2345Explorer\/([\d.]+).*$/, '$1').replace(/^.*Mb2345Browser\/([\d.]+).*$/, '$1');
             },
-            '115Browser': function(){
+            '115Browser': function () {
                 return u.replace(/^.*115Browser\/([\d.]+).*$/, '$1');
             },
-            'TheWorld': function(){
+            'TheWorld': function () {
                 return u.replace(/^.*TheWorld ([\d.]+).*$/, '$1');
             },
-            'XiaoMi': function(){
+            'XiaoMi': function () {
                 return u.replace(/^.*MiuiBrowser\/([\d.]+).*$/, '$1');
             },
-            'Vivo': function(){
+            'Vivo': function () {
                 return u.replace(/^.*VivoBrowser\/([\d.]+).*$/, '$1');
             },
-            'Quark': function(){
+            'Quark': function () {
                 return u.replace(/^.*Quark\/([\d.]+).*$/, '$1');
             },
-            'Qiyu': function(){
+            'Qiyu': function () {
                 return u.replace(/^.*Qiyu\/([\d.]+).*$/, '$1');
             },
-            'Wechat': function(){
+            'Wechat': function () {
                 return u.replace(/^.*MicroMessenger\/([\d.]+).*$/, '$1');
             },
-            'WechatWork': function(){
+            'WechatWork': function () {
                 return u.replace(/^.*wxwork\/([\d.]+).*$/, '$1');
             },
-            'Taobao': function(){
+            'Taobao': function () {
                 return u.replace(/^.*AliApp\(TB\/([\d.]+).*$/, '$1');
             },
-            'Alipay': function(){
+            'Alipay': function () {
                 return u.replace(/^.*AliApp\(AP\/([\d.]+).*$/, '$1');
             },
-            'Weibo': function(){
+            'Weibo': function () {
                 return u.replace(/^.*weibo__([\d.]+).*$/, '$1');
             },
-            'Douban': function(){
+            'Douban': function () {
                 return u.replace(/^.*com.douban.frodo\/([\d.]+).*$/, '$1');
             },
-            'Suning': function(){
+            'Suning': function () {
                 return u.replace(/^.*SNEBUY-APP([\d.]+).*$/, '$1');
             },
-            'iQiYi': function(){
+            'iQiYi': function () {
                 return u.replace(/^.*IqiyiVersion\/([\d.]+).*$/, '$1');
             },
-            'DingTalk': function(){
+            'DingTalk': function () {
                 return u.replace(/^.*DingTalk\/([\d.]+).*$/, '$1');
             },
-            'Douyin': function(){
+            'Douyin': function () {
                 return u.replace(/^.*app_version\/([\d.]+).*$/, '$1');
             },
-            'Huawei': function(){
+            'Huawei': function () {
                 return u.replace(/^.*Version\/([\d.]+).*$/, '$1').replace(/^.*HuaweiBrowser\/([\d.]+).*$/, '$1').replace(/^.*HBPC\/([\d.]+).*$/, '$1');
             }
         };
@@ -404,13 +432,13 @@
             }
         }
         //修正
-        if(_this.browser == 'Chrome'&&u.match(/\S+Browser/)){
+        if (_this.browser == 'Chrome' && u.match(/\S+Browser/)) {
             _this.browser = u.match(/\S+Browser/)[0];
             _this.version = u.replace(/^.*Browser\/([\d.]+).*$/, '$1');
         }
         if (_this.browser == 'Edge') {
-            _this.engine = parseInt(_this.version)>75?'Blink':'EdgeHTML';
-        } else if (match['Chrome']&& _this.engine=='WebKit' && parseInt(version['Chrome']()) > 27) {
+            _this.engine = parseInt(_this.version) > 75 ? 'Blink' : 'EdgeHTML';
+        } else if (match['Chrome'] && _this.engine == 'WebKit' && parseInt(version['Chrome']()) > 27) {
             _this.engine = 'Blink';
         } else if (_this.browser == 'Opera' && parseInt(_this.version) > 12) {
             _this.engine = 'Blink';

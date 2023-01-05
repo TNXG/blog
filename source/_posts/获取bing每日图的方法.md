@@ -9,6 +9,7 @@ categories: [原创, 技术]
 随便扯一篇文章发出来？
 
 <!-- more -->
+
 ```php
 ini_set("display_errors", "Off");
 error_reporting(E_ALL | E_STRICT);

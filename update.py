@@ -1,12 +1,14 @@
 import json
 import os
-import sys
 import requests
+import sys
 
 commit = sys.argv[1]
 
+
 def 获取npm包最新版本(pkgname):
-    return(json.loads(requests.get('https://registry.npmjs.org/'+pkgname+'/latest').text)['version'])
+    return (json.loads(requests.get('https://registry.npmjs.org/' + pkgname + '/latest').text)['version'])
+
 
 # print('自动修改项目配置ing')
 # with open('_config.yun.yml', encoding='utf-8') as f:
