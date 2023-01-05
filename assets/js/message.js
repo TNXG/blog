@@ -51,7 +51,7 @@ async function getdata() {
     M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     D = date.getDate().toString().padStart(2, '0') + '&nbsp';
     h = date.getHours() + ':';
-    m = date.getMinutes();
+    m = (date.getMinutes() + 1 < 10 ? '0' + (date.getMinutes() + 1) : date.getMinutes() + 1);
     document.getElementById("tnxg_ghrepo_latest-date").innerHTML = Y + M + D + h + m;
 }
 
@@ -71,7 +71,7 @@ async function bloggeractivetime() {
     M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     D = date.getDate().toString().padStart(2, '0') + '&nbsp';
     h = date.getHours() + ':';
-    m = date.getMinutes();
+    m = (date.getMinutes() + 1 < 10 ? '0' + (date.getMinutes() + 1) : date.getMinutes() + 1);
     document.getElementById("bloggeractivetime").innerHTML = Y + M + D + h + m;
 }
 
@@ -91,12 +91,9 @@ function randomNum(minNum, maxNum) {
     switch (arguments.length) {
         case 1:
             return parseInt(Math.random() * minNum + 1, 10);
-            break;
         case 2:
             return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
-            break;
         default:
             return 0;
-            break;
     }
 }
