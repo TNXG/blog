@@ -621,7 +621,7 @@
             
                 <script>
                     (async () => {
-                        const res = await fetch('/assets/data/links.json');
+                        const res = await fetch('https://blog.tnxg.top/assets/data/links.json');
                         const json = await res.json();
                         console.log(json);
                         const Linkscontainer = document.getElementById('links-page');
