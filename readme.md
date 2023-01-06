@@ -33,19 +33,31 @@
 + 您需要有自己的独立域名，暂且不同意公有子域名或免费域名的友链申请(如github.io, vercel.app, eu.org, js.cool, .tk, .ml,.cf等，py除外)
 + 暂时不同意商业及非个人的网站的友链申请(py除外)。
 
-```json
-,{
-    "link":"站点链接",
-    "image":"icon图片链接（推荐使用图床，我们会进行缓存）",
-    "title":"站点名称",
-    "intro":"站点简介"
-}
-```
 
 <div align="center">
-
-填写好以上资料后将资料直接填写在[我们储存友链的Json内](https://github.com/TNXG/blog/blob/master/source/assets/data/links.json)
-
-然后PR给我
-
+阅读以上信息后，请填写以下资料，并提交PR给咱
 </div>
+
+```json
+,{
+    "title":"站点名称",
+    "intro":"站点简介",
+    "link":"站点链接(链接末尾需要携带/，比如https://blog.tnxg.top/)",
+    "image":"icon图片链接（推荐使用图床，我们会进行缓存）"
+}
+```
+请将以上信息提交到 [用来显示友链的json](https://github.com/TNXG/blog/blob/master/source/assets/data/links.json) 内
+
+然后
+
+```json
+,[
+    "站点名称",
+    "站点链接(链接末尾需要携带/，比如https://blog.tnxg.top/)",
+    "icon图片链接（推荐使用图床，我们会进行缓存）"
+]
+```
+请将以上信息提交到 [用来爬取贵站文章内容的json](https://github.com/TNXG/blog/blob/master/source/assets/data/links.json) 内
+
+请放心，咱爬取文章内容是用来给 [友链朋友圈](https://github.com/Rock-Candy-Tea/hexo-circle-of-friends) 使用，不会上传贵站文章内容到任何地方（文章内容储存在项目仓库中）
+
