@@ -1,1 +1,1 @@
-python update.py "Feat: 更新内容"
+python update.py "Fix: 更换友链信息引入方式"

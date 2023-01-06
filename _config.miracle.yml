@@ -162,7 +162,7 @@ links:
   enable: true
   json_links:
     enable: true
-    item_links: "/assets/data/links.json"
+    item_links: "https://blog.tnxg.top/assets/data/links.json"
 
 page404:
   enable: true
