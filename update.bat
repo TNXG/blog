@@ -1,1 +1,1 @@
-python update.py "Fix: 更换友链信息引入方式"
+python update.py "Fix: 修复样式错误"
