@@ -125,7 +125,7 @@
 #qexot .qexot-floor {
     border: 5px;
     right: 1.5rem;
-    font-family: "AgeFonts001";
+    font-family: "AgeFonts001" !important;
     font-size: 1.75rem;
     line-height: 2.25rem;
     z-index: 1;
@@ -146,6 +146,7 @@
     padding: 0 10px;
     font-size: xx-small;
     fill: currentColor;
+    border-bottom: none;
 }
 
 #qexot .qexot-bottom {
