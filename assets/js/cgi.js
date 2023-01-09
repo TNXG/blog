@@ -94,7 +94,7 @@ function cgi_start() {
                 document.getElementById("tnxg_cgi_apistatus_assets").innerHTML = 'AssetsService:返回异常';
             }
         })
-    fetch('https://api.twikoo.prts.top/')
+    fetch('https://api-twikoo.prts.top/')
         .then(function (response) {
             if (response.status == '200' || response.status == '304') {
                 document.getElementById("tnxg_cgi_apistatus_twikoo").innerHTML = 'Twikoo:返回正常';
@@ -102,7 +102,7 @@ function cgi_start() {
                 document.getElementById("tnxg_cgi_apistatus_twikoo").innerHTML = 'Twikoo:返回异常';
             }
         })
-    fetch('https://api.friendcircle.prts.top/all')
+    fetch('https://api-fcircle.prts.top/all')
         .then(function (response) {
             if (response.status == '200' || response.status == '304') {
                 document.getElementById("tnxg_cgi_apistatus_fc").innerHTML = 'FriendCircle:返回正常';
