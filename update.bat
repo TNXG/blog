@@ -1,1 +1,1 @@
-python update.py "Fix: 修复样式错误"
+python update.py "Fix: 修改部分api接口地址"

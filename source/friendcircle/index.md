@@ -5,8 +5,8 @@ date: 2022-1-15 01:30:00
 <div id="app"></div>
 <script>
     let UserConfig = {
-        private_api_url: 'https://api.friendcircle.prts.top/',
-        page_turning_number: 10,
+        private_api_url: 'https://api-fcircle.prts.top/',
+        page_turning_number: 15,
         error_img: 'https://assets.tnxg.whitenuo.cn/images/avatar/none.jpg',
         sort_rule: 'created'
     }
