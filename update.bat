@@ -1,1 +1,1 @@
-python update.py "Fix: 修改部分api接口地址"
+python update.py "Feat: 更新一些东西"
