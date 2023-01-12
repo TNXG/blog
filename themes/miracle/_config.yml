@@ -524,3 +524,4 @@ static_prefix:
   twikoo: https://cdn.jsdelivr.net/npm/twikoo@1.3.0/dist/
   artitalk: https://cdn.jsdelivr.net/npm/artitalk
   hpp: https://cdn.jsdelivr.net/gh/HexoPlusPlus/HexoPlusPlus@1.2.0/
+  artalk: https://cdn.jsdelivr.net/npm/artalk/dist/

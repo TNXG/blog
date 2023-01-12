@@ -1,0 +1,23 @@
+<% if (theme.comment.artalk.envid){ %>
+<div id="miracle-comments">
+  <link href="/assets/css/artalk.css" rel="stylesheet">
+  <script src="<%- theme.static_prefix.artalk %>Artalk.min.js"></script>
+  <div id="ART_Comments"></div>
+  <script>
+    var artalk = new Artalk({
+      el: '#ART_Comments',
+      server: '<%= theme.comment.artalk.envid %>',
+      site: '<%= config.title %>',
+      imgUploader: async (file) => {
+        const formData = new FormData()
+        formData.set('file', file)
+        return fetch('https://api.prts.top/v2/tnxg-blog/upload_images/', {
+            method: 'POST',
+            body: formData,
+          }).then((resp) => resp.json())
+          .then((resp) => resp.data.links.url);
+      }
+    })
+  </script>
+</div>
+<% } %>
