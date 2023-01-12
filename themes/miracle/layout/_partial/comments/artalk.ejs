@@ -8,13 +8,19 @@
       el: '#ART_Comments',
       server: '<%= theme.comment.artalk.envid %>',
       site: '<%= config.title %>',
+      //- Zkeq佬提供的图片上传方式
       imgUploader: async (file) => {
         const formData = new FormData()
+        let headers = new Headers();
         formData.set('file', file)
-        return fetch('https://api.prts.top/v2/tnxg-blog/upload_images/', {
+        headers.append('Authorization', 'Bearer 1|KFJIr9ahWLj7SYwLDaKCTtd63yoBMSEyZ27FbpAd');
+        headers.append('Accept', 'application/json');
+        return fetch('https://pic.prts.top/api/v1/upload', {
             method: 'POST',
+            headers: headers,
             body: formData,
-          }).then((resp) => resp.json())
+          })
+          .then((resp) => resp.json())
           .then((resp) => resp.data.links.url);
       }
     })

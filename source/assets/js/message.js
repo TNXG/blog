@@ -37,7 +37,7 @@ async function getdata() {
         localStorage.setItem('TNXGBlog_UserId', unique(36).toUpperCase());
     }
     ipinfo = getipinfo()
-    const con = await fetch('https://api.tnxg.prts.top/api/v1/callback', {
+    const con = await fetch('https://api.prts.top/v2/tnxg-blog/callback/', {
         method: 'POST',
         headers: {
             'content-type': 'application/x-www-form-urlencoded'
@@ -57,7 +57,7 @@ async function getdata() {
 
 function getipinfo() {
     var xml = new XMLHttpRequest();
-    xml.open('GET', 'https://api.prts.top/v1/ipinfo/', false);
+    xml.open('GET', 'https://api.prts.top/v2/ipinfo/', false);
     xml.send(null);
     json = JSON.parse(xml.response);
     return json;

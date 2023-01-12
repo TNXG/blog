@@ -1,1 +1,1 @@
-python update.py "Feat: 更换评论系统为Artalk"
+python update.py "Feat: 新玩意"
