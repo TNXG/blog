@@ -666,73 +666,27 @@
         <div class="comments">
             
             
-    <div id="miracle-comments">
-        <div id="tcomment">
-            <!-- <div style="display: flex;">
-              <a href="javascript:loadTwikoo();" id="loadCommentBtn" style="color:var(--first-text-color);border-radius: 5px;background-color:var(--sec-bkg);font-size: 1.1rem;text-decoration: none;border: none;cursor: pointer;    position: relative;vertical-align: baseline;padding: 10px;margin: 0 auto;">加载评论</a>
-            </div> -->
-            <div style="margin: 0 auto;width: 100%;text-align: center;">
-                <div class="donutSpinner" style="margin: auto;width: 25px;height: 25px;">
-                    <div></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        function loadComment() {
-            // https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.all.min.js
-            try {
-                loadScriptFile({
-                    
-                    url: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/twikoo.min.js",
-                    
-                    loadType: "async",
-                    cb: () => {
-                        twikoo.init({
-                            envId: 'https://api-twikoo.prts.top',
-                            el: '#tcomment',
-                            region: 'ap-shanghai',
-                            path: 'window.location.pathname'
-                        });
-                    }
-                });
-            } catch (e) {
-                document.getElementById("loadCommentBtn").innerText = "无法加载 Twikoo 评论";
-                console.info(e);
-            }
-
-        }
-
-        function loadTwikoo() {
-            try {
-                loadComment();
-            } catch (e) {
-                console.log(e);
-            }
-        }
-
-        var runningOnBrowser = typeof window !== "undefined";
-
-        var isBot = runningOnBrowser && !("onscroll" in window) || typeof navigator !== "undefined" && /(gle|ing|ro|msn)bot|crawl|spider|yand|duckgo/i.test(navigator.userAgent);
-
-        var supportsIntersectionObserver = runningOnBrowser && "IntersectionObserver" in window;
-
-        setTimeout(function () {
-            if (!isBot && supportsIntersectionObserver) {
-                var observer = new IntersectionObserver(function (entries) {
-                    if (entries[0].isIntersecting) {
-                        loadTwikoo();
-                        observer.disconnect();
-                    }
-                }, {threshold: [0]});
-                observer.observe(document.getElementById('miracle-comments'));
-            } else {
-                loadTwikoo();
-            }
-        }, 1);
-
-    </script>
-
+<div id="miracle-comments">
+  <link href="/assets/css/artalk.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/artalk/2.4.4/Artalk.min.js"></script>
+  <div id="ART_Comments"></div>
+  <script>
+    var artalk = new Artalk({
+      el: '#ART_Comments',
+      server: 'https://artalk.prts.top',
+      site: '天翔TNXGの空间站',
+      imgUploader: async (file) => {
+        const formData = new FormData()
+        formData.set('file', file)
+        return fetch('https://api.prts.top/v2/tnxg-blog/upload_images/', {
+            method: 'POST',
+            body: formData,
+          }).then((resp) => resp.json())
+          .then((resp) => resp.data.links.url);
+      }
+    })
+  </script>
+</div>
 
         </div>
     
