@@ -42,10 +42,6 @@
     --at-color-gradient: linear-gradient(180deg, rgba(30, 34, 36, 0), #1e2224)
 }
 
-.atk-textarea {
-    background-color: rgba(255, 255, 255, 0.8);
-}
-
 .atk-comment-wrap {
     overflow: hidden;
     position: relative;

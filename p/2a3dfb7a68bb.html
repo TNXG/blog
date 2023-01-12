@@ -650,9 +650,9 @@
                     
                         <a class="hover-with-bg" href="/tags/%E6%96%87%E7%AB%A0/"># 文章</a>
                     
-                        <a class="hover-with-bg" href="/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/"># 明日方舟</a>
-                    
                         <a class="hover-with-bg" href="/tags/%E5%8E%9F%E5%88%9B/"># 原创</a>
+                    
+                        <a class="hover-with-bg" href="/tags/%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F/"># 明日方舟</a>
                     
                 
             </div>
@@ -697,13 +697,19 @@
       el: '#ART_Comments',
       server: 'https://artalk.prts.top',
       site: '天翔TNXGの空间站',
+      //- Zkeq佬提供的图片上传方式
       imgUploader: async (file) => {
         const formData = new FormData()
+        let headers = new Headers();
         formData.set('file', file)
-        return fetch('https://api.prts.top/v2/tnxg-blog/upload_images/', {
+        headers.append('Authorization', 'Bearer 1|KFJIr9ahWLj7SYwLDaKCTtd63yoBMSEyZ27FbpAd');
+        headers.append('Accept', 'application/json');
+        return fetch('https://pic.prts.top/api/v1/upload', {
             method: 'POST',
+            headers: headers,
             body: formData,
-          }).then((resp) => resp.json())
+          })
+          .then((resp) => resp.json())
           .then((resp) => resp.data.links.url);
       }
     })
@@ -730,7 +736,7 @@
                 2023&nbsp;&nbsp;天翔TNXG
             </p>
         
-        <p>本站总计 <span class="post-count">17333</span> 字，预计需要<span class="post-count">116min 读完</span></p>
+        <p>本站总计 <span class="post-count">17873</span> 字，预计需要<span class="post-count">119min 读完</span></p>
         <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
                     href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
         <p>来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
