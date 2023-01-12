@@ -37,7 +37,7 @@ async function getdata() {
         localStorage.setItem('TNXGBlog_UserId', unique(36).toUpperCase());
     }
     ipinfo = getipinfo()
-    const con = await fetch('https://api.prts.top/v2/tnxg-blog/callback/', {
+    const con = await fetch('https://api.tnxg.prts.top/api/v1/callback', {
         method: 'POST',
         headers: {
             'content-type': 'application/x-www-form-urlencoded'
