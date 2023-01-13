@@ -1,1 +1,1 @@
-python update.py "Feat: 新建友链文件格式"
+python update.py "Fix: 修复bug"

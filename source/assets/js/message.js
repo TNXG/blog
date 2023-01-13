@@ -63,17 +63,17 @@ function getipinfo() {
     return json;
 }
 
-async function bloggeractivetime() {
-    const replacehtml = await fetch('https://qexo.prts.top/pub/status/');
-    noticejson = await replacehtml.json();
-    date = new Date(noticejson.data.last * 1000);
-    Y = date.getFullYear() + '-';
-    M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-    D = date.getDate().toString().padStart(2, '0') + '&nbsp';
-    h = date.getHours() + ':';
-    m = (date.getMinutes() + 1 < 10 ? '0' + (date.getMinutes() + 1) : date.getMinutes() + 1);
-    document.getElementById("bloggeractivetime").innerHTML = Y + M + D + h + m;
-}
+// async function bloggeractivetime() {
+//     const replacehtml = await fetch('https://qexo.prts.top/pub/status/');
+//     noticejson = await replacehtml.json();
+//     date = new Date(noticejson.data.last * 1000);
+//     Y = date.getFullYear() + '-';
+//     M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+//     D = date.getDate().toString().padStart(2, '0') + '&nbsp';
+//     h = date.getHours() + ':';
+//     m = (date.getMinutes() + 1 < 10 ? '0' + (date.getMinutes() + 1) : date.getMinutes() + 1);
+//     document.getElementById("bloggeractivetime").innerHTML = Y + M + D + h + m;
+// }
 
 function unique(size) {
     size = size || 10;
