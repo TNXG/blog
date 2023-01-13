@@ -1,1 +1,1 @@
-python update.py "Feat: 新友链"
+python update.py "Fix: 换回v1接口"
