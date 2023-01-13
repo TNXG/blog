@@ -572,64 +572,54 @@
     <div class="mg-top">
         
 <article class="page">
-    <div id="post-meta-m" style="padding-bottom:0;">
-        <div class="post-meta" id="post-meta">
-            <h3>友链</h3>
-        </div>
-        <h2 id="友链说明"><a href="#友链说明" class="headerlink" title="友链说明"></a>友链说明</h2>
-        <p>友链显示顺序为添加前后顺序~</p>
-        <p>如要申请友链，请前往<a target="_blank" rel="noopener" href="https://github.com/TNXG/blog/#friends">这里</a>申请友链或者在评论区发送
-        </p>
-        <details>
-            <summary>申请友链前必读</summary>
-            <p>
-            <ul>
-                <li>
-                    申请友链时请确保您的站点同时也有我们的站点的友链，若审批通过后移除本站链接，本站也将移除友链，并加入黑名单。
-                </li>
-                <li>审批通过的站点不会轻易删除，包括您的站点长时间无法访问。</li>
-                <li>若站点长时间无法访问，我们会删除您的友链，恢复后可再次申请</li>
-                <li>确保您的网站不存在政治敏感问题及违法内容。没有过多的广告、无恶意软件、脚本。且转载文章须注明出处。</li>
-                <li>确保站点可以以 HTTPS 访问, 允许不强制, 可以没有 HSTS。</li>
-                <li>您需要有自己的独立域名，暂且不同意公有子域名或免费域名的友链申请(如 github.io, vercel.app, eu.org,
-                    js.cool, .tk, .ml, .cf 等，py 除外)
-                </li>
-                <li>暂时不同意商业及非个人的网站的友链申请(py 除外)。</li>
-            </ul>
-            </p>
-            <p>申请友链时必须按照以下格式填写</p>
-            <pre class="line-numbers language-none"><code class="language-none">
-  &quot;url&quot;: &quot;站点链接&quot;,
-  &quot;image&quot;: &quot;icon图片链接（推荐使用图床，我们会进行缓存）&quot;,
-  &quot;title&quot;: &quot;站点名称&quot;,
-  &quot;intro&quot;: &quot;站点简介&quot;
-  <span aria-hidden="true"
-        class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-            <br>
-            <details>
-                <summary>本站信息</summary>
-                <pre class="line-numbers language-none"><code class="language-none">
-  站名: 天翔TNXGの空间站
-  链接：https:&#x2F;&#x2F;blog.tnxg.top
-  介绍: 明日尚未到来，希望凝于心上
-  图标: https:&#x2F;&#x2F;q1.qlogo.cn&#x2F;g?b&#x3D;qq&amp;nk&#x3D;2271225249&amp;s&#x3D;640
-  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-            </details>
-        </details>
-        <div class="links-page" style="padding-top:10px;" id="links-page">
-            
-            
-                <script>
-                    (async () => {
-                        const res = await fetch('https://blog.tnxg.top/assets/data/links.json');
-                        const json = await res.json();
-                        console.log(json);
-                        const Linkscontainer = document.getElementById('links-page');
-                        json.forEach(item => {
-                            const element = document.createElement('div');
-                            element.className = "links-card";
+  <div id="post-meta-m" style="padding-bottom:0;">
+    <div class="post-meta" id="post-meta">
+      <h3>友链</h3>
+    </div>
+    <h2 id="友链说明"><a href="#友链说明" class="headerlink" title="友链说明"></a>友链说明</h2>
+    <p>友链显示顺序为添加前后顺序~</p>
+    <p>如要申请友链，请前往<a target="_blank" rel="noopener" href="https://github.com/TNXG/blog/#friends">这里</a>申请友链或者在评论区发送
+    </p>
+    <details>
+      <summary>申请友链前必读</summary>
+      <p>
+      <ul>
+        <li>
+          申请友链时请确保您的站点同时也有我们的站点的友链，若审批通过后移除本站链接，本站也将移除友链，并加入黑名单。
+        </li>
+        <li>审批通过的站点不会轻易删除，包括您的站点长时间无法访问。</li>
+        <li>若站点长时间无法访问，我们会删除您的友链，恢复后可再次申请</li>
+        <li>确保您的网站不存在政治敏感问题及违法内容。没有过多的广告、无恶意软件、脚本。且转载文章须注明出处。</li>
+        <li>确保站点可以以 HTTPS 访问, 允许不强制, 可以没有 HSTS。</li>
+        <li>确保您的站点拥有rss订阅链接</li>
+        <li>您需要有自己的独立域名，暂且不同意公有子域名或免费域名的友链申请(如 github.io, vercel.app, eu.org,
+          js.cool, .tk, .ml, .cf 等，py 除外)
+        </li>
+        <li>暂时不同意商业及非个人的网站的友链申请(py 除外)。</li>
+      </ul>
+      </p>
+      <p>申请友链时必须按照以下格式填写</p>
+      <pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">json</div><div class="code-container"><code><div class="line"><span style="color: #D4D4D4">,{</span></div><div class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"title"</span><span style="color: #D4D4D4">:</span><span style="color: #CE9178">"站点名称"</span><span style="color: #D4D4D4">,</span></div><div class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"intro"</span><span style="color: #D4D4D4">:</span><span style="color: #CE9178">"站点简介"</span><span style="color: #D4D4D4">,</span></div><div class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"link"</span><span style="color: #D4D4D4">:</span><span style="color: #CE9178">"站点链接(链接末尾需要携带/，比如https://blog.tnxg.top/)"</span><span style="color: #D4D4D4">,</span></div><div class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"image"</span><span style="color: #D4D4D4">:</span><span style="color: #CE9178">"icon图片链接（推荐使用图床，我们会进行缓存）"</span><span style="color: #D4D4D4">,</span></div><div class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"rss"</span><span style="color: #D4D4D4">:</span><span style="color: #CE9178">"rss订阅链接"</span><span style="color: #D4D4D4">,</span></div><div class="line"><span style="color: #D4D4D4">    </span><span style="color: #9CDCFE">"time"</span><span style="color: #D4D4D4">: </span><span style="color: #CE9178">"申请时间(10位时间戳)"</span></div><div class="line"><span style="color: #D4D4D4">}</span></div></code></div></pre>
+      <br>
+      <details>
+        <summary>本站信息</summary>
+        <pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="code-container"><code><div class="line"><span style="color: undefined">站名: 天翔TNXGの空间站</span></div><div class="line"><span style="color: undefined">链接：https://blog.tnxg.top</span></div><div class="line"><span style="color: undefined">介绍: 明日尚未到来，希望凝于心上</span></div><div class="line"><span style="color: undefined">图标: https://q1.qlogo.cn/g?b=qq&amp;nk=2271225249&amp;s=640</span></div></code></div></pre>
+      </details>
+    </details>
+    <div class="links-page" style="padding-top:10px;" id="links-page">
+      
+      
+      <script>
+        (async () => {
+          const res = await fetch('https://blog.tnxg.top/assets/data/links.json');
+          const json = await res.json();
+          console.log(json);
+          const Linkscontainer = document.getElementById('links-page');
+          json.forEach(item => {
+            const element = document.createElement('div');
+            element.className = "links-card";
 
-                            element.innerHTML = `
+            element.innerHTML = `
         <a href="${item.link}" class="links-card-body" target="_blank" rel="noopener">
           <div class="links-card-content">
               <div class="link-avatar my-auto">
@@ -644,48 +634,46 @@
           </div>
         </a>
             `;
-                            Linkscontainer.appendChild(element);
-                        });
-                        setTimeout(function () {
-                            function query(selector) {
-                                return Array.from(document.querySelectorAll(selector));
-                            }
+            Linkscontainer.appendChild(element);
+          });
+          setTimeout(function() {
+            function query(selector) {
+              return Array.from(document.querySelectorAll(selector));
+            }
 
-                            const io = new IntersectionObserver(function (entries) {
-                                entries.forEach(function (entry) {
-                                    if (entry.isIntersecting) {
-                                        const img = entry.target;
-                                        img.srcset = img.getAttribute('data-srcset');
-                                        img.className += ' loaded'
-                                        io.unobserve(img);
-                                    }
-                                });
-                            });
+            const io = new IntersectionObserver(function(entries) {
+              entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                  const img = entry.target;
+                  img.srcset = img.getAttribute('data-srcset');
+                  img.className += ' loaded'
+                  io.unobserve(img);
+                }
+              });
+            });
 
-                            query('.lazyload-img').forEach(function (item) {
-                                io.observe(item);
-                            });
-                        }, 0)
-                    })();
-
-
-                </script>
-            
-        </div>
+            query('.lazyload-img').forEach(function(item) {
+              io.observe(item);
+            });
+          }, 0)
+        })();
+      </script>
+      
     </div>
-    <div class="article-m">
-        <div class="post-toc">
-            
-        </div>
-        <div id="article" class="markdown-body textretty">
-            
-        </div>
+  </div>
+  <div class="article-m">
+    <div class="post-toc">
+      
     </div>
+    <div id="article" class="markdown-body textretty">
+      
+    </div>
+  </div>
+  
+  <!-- Comments -->
+  <div class="comments">
     
-        <!-- Comments -->
-        <div class="comments">
-            
-            
+    
 <div id="miracle-comments">
   <link href="/assets/css/artalk.css" rel="stylesheet">
   <script src="https://cdn.staticfile.org/artalk/2.4.4/Artalk.min.js"></script>
@@ -714,10 +702,9 @@
   </script>
 </div>
 
-        </div>
-    
+  </div>
+  
 </article>
-
     </div>
     
     <footer class="text-center">
