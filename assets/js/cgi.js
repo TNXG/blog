@@ -125,7 +125,7 @@ function loc2name(loc) {
 
 function getipinfo() {
     var req = new XMLHttpRequest();
-    req.open('GET', 'https://api.prts.top/v2/ipinfo/', false);
+    req.open('GET', 'https://api.prts.top/v1/ipinfo/', false);
     req.send(null);
     return JSON.parse(req.response);
 }
