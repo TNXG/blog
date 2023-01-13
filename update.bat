@@ -1,1 +1,1 @@
-python update.py "Fix: –ﬁ∏¥”—¡¥bug"
+python update.py "Fix: ‘Ÿ¥Œ–ﬁ∏¥”—¡¥bug"
