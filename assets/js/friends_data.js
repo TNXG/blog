@@ -1,4 +1,4 @@
-var api = 'data/friends/data.json';
+var api = 'https://action.prts.top/data/friends/data.json';
 
 
 // 在页面加载后被激活
