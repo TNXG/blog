@@ -1,1 +1,1 @@
-python update.py "Fix: ĞŞ¸´Bug"
+python update.py "Feat: ĞÂÍæÒâ"
