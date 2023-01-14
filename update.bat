@@ -1,1 +1,1 @@
-python update.py "Fix: 再次修复友链bug"
+python update.py "Feat: 新的友圈方法"
