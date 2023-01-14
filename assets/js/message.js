@@ -1,6 +1,6 @@
 function tnxg_pages() {
     getdata();
-    bloggeractivetime();
+    // bloggeractivetime();
 }
 
 function tnxg_index() {
