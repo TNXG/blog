@@ -22,6 +22,8 @@ function tnxg_friends() {
             // 检测item.description字数不得超过200
             if (item.description.length > 200) {
                 item.description = item.description.substring(0, 200) + '[...]';
+                // 删除item.description中的html标签
+                item.description = item.description.replace(/<[^>]+>/g, "");
             }
             html = "<div class=\"qexot-item\">\n <p class=\"qexot-floor\">" + (i + 1) + "</p> <div class=\"qexot-top\">\n      <p class=\"qexot-tags\">" + item.author + "</p>\n  </div>\n  <div class=\"qexot-content\">\n<a class=\"tnxg_wochao\" href=\"" + item.link + "\"><div class=\"datacont\">\n    " + item.description + "\n    </div>\n</a></div>\n  <div class=\"qexot-bottom\">\n    <div class=\"qexot-info\">\n      <time class=\"qexot-datatime\" datetime=\"" + item.pubDate + "\"><i class=\"ri-calendar-todo-fill ri-lg\"></i>发表于：" + item.pubDate + "</time>\n    </div>" + item.title + "</div></div></a>"
             // 输出html到dom
