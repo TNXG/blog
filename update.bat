@@ -1,1 +1,1 @@
-python update.py "Feat: 新的友圈方法"
+python update.py "Fix: 修复Bug"
