@@ -2,7 +2,7 @@
 title: 关于
 type: "about"
 date: 2022-02-07 16:35:30
-updated: 2022-10-07 12:50:35
+updated: 2023-01-17 12:50:35
 aplayer: true
 ---
 
@@ -147,7 +147,7 @@ MurlAPI初步建立
 # 其他
 
 <details>
-<summary>About Game</summary>
+<summary>About Game - 那些我玩过和我正在玩的游戏</summary>
 
 ### 明日方舟
 
@@ -159,19 +159,43 @@ MurlAPI初步建立
 Java: TARS_TNXG
 BE: tian xiang zax6
 
-### 少女前线
+### 少女前线（已经退游）
 
 1516432
 TARS天翔
 
-### 崩坏3
+### 崩坏3（已经退游）
 
 260574680
 天翔
 
-### 原神
+### 原神（已经退游）
 
 142617967
 天翔TNXG
 
+
+### 赛马娘
+
+我玩台服，但是懒得找id了，知我是个赛马娘玩家就行
+
+### 幻塔（半退游）
+
+开服玩家，见证了这个游戏一步步变好，但是懒得找id了，知我是个幻塔玩家就行 ~~（ht煞笔海底策划不会做探索就tm别做）~~
+
+### 想玩的，将来可能会玩的（包括公测和未公测的）
+
+公主连结、卡拉彼丘、明日方舟：终末地、来自星尘、少女前线2：追放、少前：谲境、律动轨迹、尘白禁区、火环、临界指令、雾境序列、绝区零、时序残响、鸣潮、绿梦、秘银之枪、赛尔计划
+
+
+<details>
+<summary>看点笑话</summary>
+
+![](https://assets.tnxg.whitenuo.cn/images/upload/2023/01/0dfe2e4f02f9e59721c626a5afd72cdb.png)
+
+![](https://assets.tnxg.whitenuo.cn/images/upload/2023/01/0f408662d833cd2bb426955479749d4d.png)
+
+Copilot是懂Markdown生成的
+
+</details>
 </details>

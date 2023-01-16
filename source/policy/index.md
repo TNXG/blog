@@ -3,12 +3,7 @@ title: 用户条款
 date: 2022-02-07 16:00:00
 update: 2022-08-14 15:50:00
 ---
-郑重声明：<a style="color:red">「天翔TNXGの空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">
-技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>
-，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>
-和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">
-修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">
-Email</a>（<tianxiang@loyunet.cn>)告知删除。
+郑重声明：<a style="color:red">「天翔TNXGの空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">Email</a>（<tianxiang@loyunet.cn>)告知删除。
 
 # 免责声明
 
@@ -17,8 +12,7 @@ Email</a>（<tianxiang@loyunet.cn>)告知删除。
 * 我们不保证本站内容版权的正确性，通过使用该内容随之而来的风险与本站无关。
 * 因本站服务提供商（如MongoDB、腾讯云、DogeCloud、Vercel等）造成的用户数据泄露与本站无关。
 * 本站需要定期或不定期地对提供网络服务的平台或相关的设备进行检修或者维护。如因此类情况而造成网络服务在合理时间内的中断，本站无需为此承担任何责任。本站将在条件允许的情况下，尽可能事先以适当的方式进行通知，但前述通知并非本站必须履行的义务。
-*
-如果您从本站下载软件，在使用软件时要遵守该软件附带的软件许可协议中所有的许可条款。在您阅读并接受软件许可协议的各项条款之前，不得下载或安装这一软件。如果在适用的许可条款或协议中，已经禁止复制或再分发这些软件，您须遵照执行，否则因此给本站造成的任何损失均由您赔偿。
+* 如果您从本站下载软件，在使用软件时要遵守该软件附带的软件许可协议中所有的许可条款。在您阅读并接受软件许可协议的各项条款之前，不得下载或安装这一软件。如果在适用的许可条款或协议中，已经禁止复制或再分发这些软件，您须遵照执行，否则因此给本站造成的任何损失均由您赔偿。
 
 # 用户须知
 
@@ -64,3 +58,4 @@ Email</a>（<tianxiang@loyunet.cn>)告知删除。
 * 2022年2月7日
 * 2022年4月17日
 * 2022年8月10日
+* 2023年1月17日~~(感谢idea把排版整理炸了)~~
