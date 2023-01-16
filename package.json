@@ -16,7 +16,7 @@
     "@types/node": "^18.11.17",
     "deasync": "^0.1.28",
     "dplayer": "^1.27.0",
-    "eslint": "^8.30.0",
+    "eslint": "^8.32.0",
     "esno": "^0.16.3",
     "hexo": "^6.3.0",
     "hexo-blog-encrypt": "^3.1.6",

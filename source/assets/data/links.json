@@ -82,9 +82,17 @@
   {
     "title": "葱苓",
     "intro": "Dare && Do",
-    "link": "https://blog.itciraos.cn",
+    "link": "https://blog.itciraos.cn/",
     "image": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/blog.itciraos.cn.webp",
     "rss": "https://blog.itciraos.cn/atom.xml",
     "time": "1673604154"
+  },
+  {
+    "title": "Chenxi",
+    "intro": "不积跬步无以至千里",
+    "link": "https://chenxi.in/",
+    "image": "https://assets.tnxg.whitenuo.cn/images/avatar/friends/chenxi.in.jpg",
+    "rss": "https://chenxi.in/atom.xml",
+    "time": "1673882698"
   }
 ]
