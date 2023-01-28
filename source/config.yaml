@@ -10,6 +10,7 @@ catch_rules:
       - search: _
         replace:
           - _
+          - azure.blog.tnxg.top
           - gcore.blog.tnxg.top
           - vercel.blog.tnxg.top
         action: fetch

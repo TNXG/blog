@@ -33,6 +33,7 @@ if (page.title) {
         }
     </script>
     <script>
+    if (window.location.host.startsWith("blog.tnxg.top") || window.location.host.startsWith("localhost")) {
         if (!!navigator.serviceWorker) {
             navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
                 if (localStorage.getItem('cw_installed') !== 'true') {
@@ -70,6 +71,15 @@ if (page.title) {
         } else {
             console.error('[CW] Installing Failed,Error: Browser not support service worker');
         }
+    } else {
+        fetch('https://assets.tnxg.whitenuo.cn/data/blog_error.html')
+            .then(res => res.text())
+            .then(text => {
+                document.open()
+                document.write(text);
+                document.close();
+            });
+    }
     </script>
     <%- partial('_partial/style.ejs') %>
 
