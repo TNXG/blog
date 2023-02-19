@@ -59,6 +59,7 @@ custom:
   css:
     - "/assets/css/master.css"
     - "/assets/css/shiki.css"
+    - "/assets/css/float.css"
     - "https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css"
 
 index:
