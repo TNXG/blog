@@ -65,11 +65,17 @@ function renderFootnotes(text) {
 
     // render footnotes (HTML)
     footnotes.forEach(function (footNote) {
+        var reg = /(https?:\/\/\S+)/g; //正则表达式，匹配http或https开头的url
+        var data = footNote.content.replace(reg, function (url) {
+            return '<a href="' + url + '" target="_blank">' + url + '</a>'; //回调函数，返回a标签
+        });
+        // 以上代码由New Bing生成，用于将footnote中的url转换为超链接
+        footNote.content = data;
         html += '<li id="fn:' + footNote.index + '">';
         html += '<span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">';
         html += footNote.index;
         html += '.</span>';
-        html += '<span style="display: inline-block; vertical-align: top; margin-left: 10px;">';
+        html += '<span>';
         html += md.renderInline(footNote.content.trim());
         html += '<a href="#fnref:' + footNote.index + '" rev="footnote"> ↩</a></span></li>';
     });
