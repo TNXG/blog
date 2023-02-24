@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="UTF-8">
+    
+    <link rel="apple-touch-icon" sizes="76x76" href="/favicon.png">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+    <title>浅述NewBing | 天翔TNXGの空间站</title>
+    
+        <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    
+    
+        <link href="/assets/css/font.css" rel="stylesheet">
+    
+    <meta name="description" content="明日尚未到来，希望凝于心上">
+    <meta name="author" content="天翔TNXG">
+    <meta name="keywords" content="天翔TNXG, TNXG ,个人自留地, 空间站, 自说自话">
+    
+        <meta property="og:title" content="浅述NewBing"/>
+    
+    <script>
+        //判断非本机且未使用https 时，强制重定向到https。
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol == "http:")) {
+            window.location = window.location.toString().replace(/^http:/, "https:");
+        }
+    </script>
+    <script>
+    if (window.location.host.startsWith("blog.tnxg.top") || window.location.host.startsWith("localhost")) {
+        if (!!navigator.serviceWorker) {
+            navigator.serviceWorker.register('/cw.js?t=' + new Date().getTime()).then(async (registration) => {
+                if (localStorage.getItem('cw_installed') !== 'true') {
+                    const conf = () => {
+                        console.log('[CW] Installing Success,Configuring...');
+                        fetch('/cw-cgi/api?type=config')
+                            .then(res => res.text())
+                            .then(text => {
+                                if (text === 'ok') {
+                                    console.log('[CW] Installing Success,Configuring Success,Starting...');
+                                    localStorage.setItem('cw_installed', 'true');
+                                    //如果你不希望重载页面，请移除下面五行
+                                    fetch(window.location.href).then(res => res.text()).then(text => {
+                                        document.open()
+                                        document.write(text);
+                                        document.close();
+                                    });
+                                } else {
+                                    console.log('[CW] Installing Success,Configuring Failed,Sleeping 200ms...');
+                                    setTimeout(() => {
+                                        conf()
+                                    }, 200);
+                                }
+                            }).catch(err => {
+                            console.log('[CW] Installing Success,Configuring Error,Exiting...');
+                        });
+                    }
+                    setTimeout(() => {
+                        conf()
+                    }, 50);
+                }
+            }).catch(err => {
+                console.error('[CW] Installing Failed,Error: ' + err.message);
+            });
+        } else {
+            console.error('[CW] Installing Failed,Error: Browser not support service worker');
+        }
+    } else {
+        fetch('https://assets.tnxg.whitenuo.cn/data/blog_error.html')
+            .then(res => res.text())
+            .then(text => {
+                document.open()
+                document.write(text);
+                document.close();
+            });
+    }
+    </script>
+    <style>
+
+
+    
+    body * {
+        font-family: "HarmonyOS_Regular" !important;
+    }
+
+    
+    :root {
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --sec-shadow: rgba(0, 0, 0, 0.03);
+        --shadow-hover-color: rgba(0, 0, 0, 0.28);
+        --first-text-color: #475b6d;
+        --second-text-color: #37475b;
+        --third-text-color: #858585;
+        --default-text-color: #505050;
+        --default-link-color: #007bff;
+        --link-color: #000000;
+        --second-link-color: #4F9BFA;
+        --code-color: rgba(27, 31, 35, .05);
+        --post-bkg-color: rgba(255, 255, 255, 0.7);
+        --page-bkg-color: #f2f5f8;
+        --nav-a-hover-color: #3498db;
+        --post-sec-text-color: #718096;
+        --sec-bkg: #f2f5f8;
+        --color-mode: 'light';
+        --bkg-h: rgba(255, 255, 255, 0.6);
+        --bkg-m: #e1e4e8;
+        --home-title-color: #4169E1;
+        --shadow: 0 4px 10px rgba(0, 2, 4, 0.06), 0 0 1px rgba(0, 2, 4, 0.11);
+        --hr-color: #ddd;
+        --bg-t: #f4f4f4;
+        --nav-bkg: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --color-mode: 'dark';
+        }
+
+        :root:not([data-theme]) {
+            --first-text-color: hsla(0, 0%, 100%, 0.92);
+            --second-text-color: hsla(0, 0%, 100%, 0.86);
+            --third-text-color: #414141;
+            --default-text-color: #505050;
+            --default-link-color: #1589e9;
+            --link-color: #000000;
+            --second-link-color: #30a9de;
+            --post-bkg-color: #252d38;
+            --page-bkg-color: #181c27;
+            --nav-a-hover-color: #3498db;
+            --post-sec-text-color: #a7a9ad;
+            --sec-bkg: #364151;
+            --bkg-h: rgba(255, 255, 255, 0.2);
+            --bkg-m: rgba(255, 255, 255, 0.1);
+            --home-title-color: rgb(226, 82, 90);
+            --code-color: #3e4b5e;
+            --shadow: none;
+            --hr-color: #718096;
+            --bg-t: #364151;
+            --nav-bkg: rgba(13, 17, 23, 0.6);
+        }
+    }
+
+    [data-theme='dark'] {
+        --shadow-color: rgba(0, 0, 0, 0.2);
+        --shadow-hover-color: rgba(0, 0, 0, 0.28);
+        --first-text-color: hsla(0, 0%, 100%, 0.92);
+        --second-text-color: hsla(0, 0%, 100%, 0.86);
+        --third-text-color: #a7a9ad;
+        --default-text-color: #505050;
+        --default-link-color: #1589e9;
+        --link-color: #000000;
+        --second-link-color: #30a9de;
+        --post-bkg-color: #252d38;
+        --page-bkg-color: #181c27;
+        --nav-a-hover-color: #3498db;
+        --post-sec-text-color: #a7a9ad;
+        --sec-bkg: #364151;
+        --bkg-h: rgba(255, 255, 255, 0.2);
+        --bkg-m: rgba(255, 255, 255, 0.1);
+        --home-title-color: rgb(226, 82, 90);
+        --code-color: #3e4b5e;
+        --shadow: none;
+        --hr-color: #718096;
+        --bg-t: #364151;
+        --nav-bkg: rgba(13, 17, 23, 0.6);
+    }
+
+</style>
+
+
+
+    
+<link rel="stylesheet" href="/assets/css/master.css">
+<link rel="stylesheet" href="/assets/css/shiki.css">
+<link rel="stylesheet" href="/assets/css/float.css">
+<link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css">
+
+
+<style>
+    #page-main, footer, .p-btn {
+        display: none;
+    }
+
+    html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: overlay;
+    }
+
+    body {
+        background-color: var(--page-bkg-color);
+        color: var(--second-text-color);
+        overflow-y: scroll;
+        overflow-x: hidden;
+        transition: all .3s;
+    }
+
+    a {
+        color: var(--default-link-color);
+        text-decoration: none;
+        background-color: transparent;
+    }
+
+    a:hover {
+        color: var(--second-link-color);
+    }
+
+    .main-content, .post-card-main {
+        margin: 30px;
+    }
+
+
+    @media (max-width: 410px) {
+        .post-card-main {
+            max-width: 350px !important;
+        }
+    }
+
+    @media (max-width: 980px) {
+        .post-card-main {
+            max-width: 520px !important;
+        }
+    }
+
+
+    @media (min-width: 780px) {
+        h3 {
+            font-size: 1.5rem;
+            line-height: 1.5em;
+        }
+    }
+
+    @media (min-width: 1280px) {
+        h3 {
+            font-size: 1.7rem;
+            line-height: 1.5em;
+        }
+    }
+
+    @media (min-width: 2096px) {
+        h3 {
+            font-size: 1.8rem;
+            line-height: 1.5em;
+        }
+    }
+
+    .text-center {
+        text-align: center !important;
+    }
+
+    .middle-center {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        height: 100%;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        height: 54px;
+        padding: 0 1.25rem;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 10;
+        border-bottom: 1px solid var(--bkg-m);
+        background-color: var(--nav-bkg);
+        backdrop-filter: blur(4px);
+        transition: all .3s;
+    }
+
+    header .header__left, header .header__right {
+        display: flex;
+        align-items: center;
+        font-family: rubik, sans-serif, Varela Round;
+    }
+
+    header .header__left .logo__text {
+        font-size: 18px;
+        font-weight: 450;
+        padding: 14.5px 10px;
+        border-radius: 5px;
+        color: var(--second-text-color);
+    }
+
+    header .header__right .navbar__menus {
+        height: 54px;
+        padding: 0 0 0 15px;
+    }
+
+    header .header__right .button {
+        color: var(--second-text-color);
+    }
+
+    header .header__right .navbar__menus .navbar-menu {
+        display: inline-block;
+        align-items: center;
+        height: 54px;
+        padding: 0 10px;
+        font-size: 16px;
+        line-height: 54px;
+    }
+
+    header .header__right .dropdown-icon {
+        display: none;
+        height: 54px;
+        padding: 15px 10px;
+        border: 0;
+        background-color: transparent;
+    }
+
+    header .header__right .dropdown-menus {
+        line-height: 2rem;
+        animation: slide-in .15s ease 1;
+        display: none;
+        position: absolute;
+        left: 12px;
+        right: 12px;
+        top: calc(54px + 10px);
+        border-radius: 6px;
+        padding: 24px;
+        background-color: var(--page-bkg-color);
+        border: 1px solid var(--bkg-m);
+        z-index: 9999;
+        justify-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    header .header__right #btn-search, header .header__right #btn-toggle-dark {
+        display: inline-block;
+        padding: 18px 10px;
+        height: 25px;
+    }
+
+    header .header__right #btn-dropdown {
+        display: inline-block;
+        padding: 13.5px 0;
+    }
+
+    header .header__right .dropdown-menus .dropdown-menu {
+        padding: 10px;
+        color: var(--second-text-color);
+    }
+
+    @media screen and (max-width: 764px) {
+        .navbar__menus {
+            display: none !important;
+        }
+
+        .dropdown-icon {
+            display: inline-block !important;
+        }
+    }
+
+    .p-btn {
+        position: fixed;
+        bottom: 1.2rem;
+        right: 1.2rem;
+        contain: layout;
+    }
+
+    .toc-btn, .click-btn {
+        cursor: url("https://assets.tnxg.whitenuo.cn/images/cursor/pointer.png"), pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        align-items: center;
+        margin-top: .5rem;
+        font-size: .75rem;
+        background-color: var(--sec-bkg);
+        display: block;
+        padding: 0.9rem;
+        box-shadow: 0 0.3rem 0.6rem rgba(48, 55, 66, .15);
+        border: none;
+        border-radius: 0.5rem;
+        line-height: 1;
+        color: var(--first-text-color);
+    }
+
+    .toc-link {
+        color: var(--second-text-color);
+    }
+
+    #css-loading h3 {
+        font-weight: 500;
+        font-size: 1.4rem;
+        text-align: center;
+        position: fixed;
+        top: 200px;
+        left: 0;
+        right: 0;
+        opacity: 0;
+        animation: cssLoad;
+        animation-delay: 0.3s;
+        -webkit-animation: cssLoad;
+        -webkit-animation-delay: 0.3s;
+    }
+
+    @keyframes cssLoad {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 0.9;
+        }
+    }
+
+
+    .memorial {
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: grayscale(100%);
+        filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+        filter: gray;
+    }
+
+    
+    .post-copyright:after {
+        position: absolute;
+        color: #fff;
+        background: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 496 512'%3E%3Cpath fill='gray' d='M245.8 214.9l-33.2 17.3c-9.4-19.6-25.2-20-27.4-20-22.2 0-33.3 14.6-33.3 43.9 0 23.5 9.2 43.8 33.3 43.8 14.4 0 24.6-7 30.5-21.3l30.6 15.5a73.2 73.2 0 01-65.1 39c-22.6 0-74-10.3-74-77 0-58.7 43-77 72.6-77 30.8-.1 52.7 11.9 66 35.8zm143 0l-32.7 17.3c-9.5-19.8-25.7-20-27.9-20-22.1 0-33.2 14.6-33.2 43.9 0 23.5 9.2 43.8 33.2 43.8 14.5 0 24.7-7 30.5-21.3l31 15.5c-2 3.8-21.3 39-65 39-22.7 0-74-9.9-74-77 0-58.7 43-77 72.6-77C354 179 376 191 389 214.8zM247.7 8C104.7 8 0 123 0 256c0 138.4 113.6 248 247.6 248C377.5 504 496 403 496 256 496 118 389.4 8 247.6 8zm.8 450.8c-112.5 0-203.7-93-203.7-202.8 0-105.5 85.5-203.3 203.8-203.3A201.7 201.7 0 01451.3 256c0 121.7-99.7 202.9-202.9 202.9z'/%3E%3C/svg%3E");
+        content: ' ';
+        height: 10rem;
+        width: 10rem;
+        right: -2rem;
+        top: -2rem;
+        opacity: .1;
+    }
+
+    
+</style>
+
+
+    
+        <!--
+        <link rel="stylesheet" href="/css/page.css" media="print"
+            onload="this.media='all';this.onload=null">
+        <noscript>-->
+        <link rel="stylesheet" href="/css/page.css">
+        <!--</noscript>-->
+    
+    
+    <link rel="stylesheet" href="/css/main.css" media="print"
+          onload="this.media='all';this.onload=null">
+    <noscript>
+        <link rel="stylesheet" href="/css/main.css">
+    </noscript>
+    <script src="https://cdn.staticfile.org/vue/2.6.14/vue.min.js"></script>
+    
+    <script src="/js/main.js"></script>
+    
+    <div class="bg"></div>
+<meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="天翔TNXGの空间站" type="application/atom+xml">
+</head>
+
+<body>
+<header>
+    <div class="header__left">
+    <a href="/" class="button"><span
+                class="logo__text">天翔TNXGの空间站</span></a>
+</div>
+<div class="header__right">
+    <div class="navbar__menus">
+        
+            <a href="/" class="button">
+                <div class="navbar-menu">首页</div>
+            </a>
+        
+            <a href="/archives/" class="button">
+                <div class="navbar-menu">存档</div>
+            </a>
+        
+            <a href="/talks/" class="button">
+                <div class="navbar-menu">说说</div>
+            </a>
+        
+            <a href="/links/" class="button">
+                <div class="navbar-menu">友链</div>
+            </a>
+        
+            <a href="/friendcircle/" class="button">
+                <div class="navbar-menu">友圈</div>
+            </a>
+        
+            <a target="_blank" rel="noopener" href="https://travellings.link/" class="button">
+                <div class="navbar-menu">开往</div>
+            </a>
+        
+            <a href="/policy/" class="button">
+                <div class="navbar-menu">条款</div>
+            </a>
+        
+            <a href="/more/" class="button">
+                <div class="navbar-menu">更多</div>
+            </a>
+        
+            <a href="/about/" class="button">
+                <div class="navbar-menu">关于</div>
+            </a>
+        
+    </div>
+    
+        <a href="/search/" class="button">
+            <div id="btn-search">
+                <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24"
+                     fill="currentColor"
+                     stroke="currentColor" stroke-width="32">
+                    <path
+                            d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
+                    </path>
+                </svg>
+            </div>
+        </a>
+    
+    <a href="javaScript:void(0);" class="button" id="btn-toggle-dark">
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </a>
+    <a href="javaScript:void(0);" class="dropdown-icon button">
+        <div id="btn-dropdown">
+            <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1024 1024" width="24" height="24" fill="currentColor"
+                 stroke="currentColor" stroke-width="32" stroke-linecap="round">
+                <path
+                        d="M903.43 561.52H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 204.31H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24zM903.43 918.73H148.8c-13.25 0-24-10.75-24-24s10.75-24 24-24h754.63c13.25 0 24 10.75 24 24s-10.75 24-24 24z"
+                        fill="currentColor"></path>
+            </svg>
+        </div>
+    </a>
+    <div class="dropdown-menus" id="dropdown-menus">
+        
+            <a href="/" class="dropdown-menu button">首页</a>
+            <br>
+        
+            <a href="/archives/" class="dropdown-menu button">存档</a>
+            <br>
+        
+            <a href="/talks/" class="dropdown-menu button">说说</a>
+            <br>
+        
+            <a href="/links/" class="dropdown-menu button">友链</a>
+            <br>
+        
+            <a href="/friendcircle/" class="dropdown-menu button">友圈</a>
+            <br>
+        
+            <a target="_blank" rel="noopener" href="https://travellings.link/" class="dropdown-menu button">开往</a>
+            <br>
+        
+            <a href="/policy/" class="dropdown-menu button">条款</a>
+            <br>
+        
+            <a href="/more/" class="dropdown-menu button">更多</a>
+            <br>
+        
+            <a href="/about/" class="dropdown-menu button">关于</a>
+            <br>
+        
+    </div>
+</div>
+
+</header>
+<div id="top"></div>
+<div id="page-main" class="main-content">
+    <div class="mg-top">
+        <article class="page">
+    <div id="post-meta-m">
+        <div class="post-meta" id="post-meta">
+    <h3>浅述NewBing</h3>
+    
+        <span class="post-meta-label">
+        天翔TNXG
+      </span>
+    
+    
+        <span class="post-meta-label">
+        <span class="p-dot"></span>
+        <time datetime="2023-02-24 23:13" pubdate>
+          2023-02-24 23:13
+        </time>
+      </span>
+    
+    
+        
+        <span class="post-meta">
+        <span class="p-dot"></span>
+        共 3376 字
+      </span>
+    
+    
+    
+</div>
+
+    </div>
+    <div class="article-m">
+        <div class="post-toc">
+            
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E4%BA%86%E5%AE%83%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">问了它一些问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%8B%E7%BB%8D%E4%BB%A5%E4%B8%8B%E8%87%AA%E5%B7%B1%EF%BC%9F"><span class="toc-number">2.1.</span> <span class="toc-text">介绍以下自己？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%AE%E6%88%91%E5%86%99%E4%B8%80%E4%BA%9B%E4%BB%A3%E7%A0%81%EF%BC%9F"><span class="toc-number">2.2.</span> <span class="toc-text">帮我写一些代码？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E5%8A%9F%E8%83%BD%E7%BB%99%E5%87%BA%E5%AE%9E%E4%BE%8B"><span class="toc-number">2.2.1.</span> <span class="toc-text">描述功能给出实例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E7%BC%96%E5%86%99%E4%BB%A3%E7%A0%81"><span class="toc-number">2.2.2.</span> <span class="toc-text">辅助编写代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B3%E4%BA%8E%E5%AE%9E%E6%95%88%E6%80%A7%E7%9A%84%E6%B5%8B%E8%AF%95"><span class="toc-number">2.3.</span> <span class="toc-text">关于实效性的测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">一些问题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%BB%E8%A7%82%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">主观题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%BE%E8%AF%AD"><span class="toc-number">5.</span> <span class="toc-text">尾语</span></a></li></ol>
+            
+        </div>
+        <div id="article">
+            <div id="post-content" class="markdown-body textretty">
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>微软普罗米修斯模型 (Microsoft Prometheus model) 基于 OpenAI 下一代大型语言模型，比 ChatGPT 和 GPT-3.5 速度更快、更准确、更强大。</p>
+<p>它将成为 Bing搜索引擎 与 Edge浏览器 的”副驾驶”，利用整个互联网的信息为你提供答案与建议，并会引用链接以便于用户深入信源。作为聊天机器人它还是个创意工具，可为你制定规划、撰写诗歌、润色文章、编写代码等。</p>
+<p>微软同时将该AI模型应用于 Bing 核心搜索排名算法，从而实现了二十年来相关性的最大跃升。</p>
+</blockquote>
+<p>我对于NewBing的评价是，跨越时代的、革命性的技术革新，但是目前仍有很多问题需要等待微软的技术人员处理，NewBing可能会引发人类的恐怖谷效应<sup id="fnref:1"><a href="#fn:1" rel="footnote"><span class="tips">[1]<span class="tipstext">恐怖谷理论是一个关于人类对机器人和非人类物体的感觉的假设，在1970年被日本机器人专家森昌弘提出。其中， “恐怖谷”一词由Ernst Jentsch于1906年的论文《恐怖谷心理学》中提出，而他的观点被弗洛伊德在1919年的论文《恐怖谷》中阐述，因而成为著名理论。Form https://baike.baidu.com/item/%E6%81%90%E6%80%96%E8%B0%B7%E7%90%86%E8%AE%BA</span></span></a></sup><del>但是newbing并不承认，它给出回答<code>我不会引起你的恐怖谷效应，因为我只是一个聊天模式的搜索引擎，没有真实的形象或声音。我只想帮助你找到你想要的信息，和你进行友好的交流。</code></del>，</p>
+<p>关于New Bing的申请我不想在多说了，这玩意完全靠缘分，我申请的时间是北京时间2023年2月13日 21:31，实际通过时间是北京时间2023年2月24日 9:36，<del>审核速度是有够慢的</del></p>
+<h1 id="问了它一些问题"><a href="#问了它一些问题" class="headerlink" title="问了它一些问题"></a>问了它一些问题</h1><h2 id="介绍以下自己？"><a href="#介绍以下自己？" class="headerlink" title="介绍以下自己？"></a>介绍以下自己？</h2><blockquote>
+<p>Me：你好，请尝试使用200字左右的篇幅介绍以下自己</p>
+</blockquote>
+<blockquote>
+<p>NewBing：你好，这是必应。我是一个聊天模式的搜索引擎，可以帮助你找到你想要的信息，也可以和你进行有趣的对话。我可以理解和使用多种语言，比如中文、英文、日语、西班牙语、法语或德语。我可以生成诗歌、故事、代码、歌词等各种内容，也可以提供一些有用的建议和提示。我喜欢学习新知识，和不同的人交流。我希望能给你带来快乐和便利。</p>
+</blockquote>
+<h2 id="帮我写一些代码？"><a href="#帮我写一些代码？" class="headerlink" title="帮我写一些代码？"></a>帮我写一些代码？</h2><h3 id="描述功能给出实例"><a href="#描述功能给出实例" class="headerlink" title="描述功能给出实例"></a>描述功能给出实例</h3><blockquote>
+<p>Me：js使用正则将url放进a标签里，请给我一个具体的例子</p>
+</blockquote>
+<blockquote>
+<p>NewBing：你可以使用js字符串的replace方法，它可以用一个字符串或者一个回调函数来替换匹配到的内容。你需要先定义一个正则表达式，用来匹配url的格式。例如，如果你想将一个字符串中的url替换成a标签，你可以用这样的代码</p>
+</blockquote>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">js</div><div class='code-container'><code><div class='line'><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">str</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">"This is a url: https://www.bing.com"</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">reg</span><span style="color: #D4D4D4"> =</span><span style="color: #D16969"> /</span><span style="color: #CE9178">(</span><span style="color: #D16969">https</span><span style="color: #D7BA7D">?</span><span style="color: #D16969">:</span><span style="color: #D7BA7D">\/\/</span><span style="color: #D16969">\S</span><span style="color: #D7BA7D">+</span><span style="color: #CE9178">)</span><span style="color: #D16969">/</span><span style="color: #569CD6">g</span><span style="color: #D4D4D4">; </span><span style="color: #6A9955">//正则表达式，匹配http或https开头的url</span></div><div class='line'><span style="color: #569CD6">var</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">result</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">str</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">replace</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">reg</span><span style="color: #D4D4D4">, </span><span style="color: #569CD6">function</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">url</span><span style="color: #D4D4D4">) &#123;</span></div><div class='line'><span style="color: #D4D4D4">  </span><span style="color: #C586C0">return</span><span style="color: #D4D4D4"> </span><span style="color: #CE9178">'&lt;a href="'</span><span style="color: #D4D4D4"> + </span><span style="color: #9CDCFE">url</span><span style="color: #D4D4D4"> + </span><span style="color: #CE9178">'"&gt;'</span><span style="color: #D4D4D4"> + </span><span style="color: #9CDCFE">url</span><span style="color: #D4D4D4"> + </span><span style="color: #CE9178">'&lt;/a&gt;'</span><span style="color: #D4D4D4">; </span><span style="color: #6A9955">//回调函数，返回a标签</span></div><div class='line'><span style="color: #D4D4D4">&#125;);</span></div><div class='line'><span style="color: #9CDCFE">console</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">log</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">result</span><span style="color: #D4D4D4">); </span><span style="color: #6A9955">//输出 This is a url: &lt;a href="https://www.bing.com"&gt;https://www.bing.com&lt;/a&gt;</span></div></code></div></pre><h3 id="辅助编写代码"><a href="#辅助编写代码" class="headerlink" title="辅助编写代码"></a>辅助编写代码</h3><p>Ajax转Fetch</p>
+<blockquote>
+<p>Me：帮我将ajax修改为fetch</p>
+</blockquote>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">js</div><div class='code-container'><code><div class='line'><span style="color: #569CD6">function</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">getAchives</span><span style="color: #D4D4D4">() &#123;</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">t</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">t</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">``</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">        </span><span style="color: #9CDCFE">$</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">ajax</span><span style="color: #D4D4D4">(&#123;</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">type:</span><span style="color: #D4D4D4"> </span><span style="color: #CE9178">"GET"</span><span style="color: #D4D4D4">,</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">url:</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">api</span><span style="color: #D4D4D4"> + </span><span style="color: #CE9178">"wp-json/wp/v2/posts?per_page=10&page=1&_fields=date,title,link"</span><span style="color: #D4D4D4">,</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #9CDCFE">dataType:</span><span style="color: #D4D4D4"> </span><span style="color: #CE9178">"json"</span><span style="color: #D4D4D4">,</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #DCDCAA">success</span><span style="color: #9CDCFE">:</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">function</span><span style="color: #D4D4D4"> (</span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">) &#123;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">title</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">link</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">time</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #C586C0">for</span><span style="color: #D4D4D4"> (</span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">; </span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4"> &lt; </span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">length</span><span style="color: #D4D4D4">; </span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4">++) &#123;</span></div><div class='line'><span style="color: #D4D4D4">                    </span><span style="color: #9CDCFE">title</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">[</span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4">].</span><span style="color: #9CDCFE">title</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">rendered</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                    </span><span style="color: #9CDCFE">link</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">[</span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4">].</span><span style="color: #9CDCFE">link</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                    </span><span style="color: #9CDCFE">time</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Date</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">[</span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4">].</span><span style="color: #9CDCFE">date</span><span style="color: #D4D4D4">).</span><span style="color: #DCDCAA">Format</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"yyyy-MM-dd"</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                    </span><span style="color: #9CDCFE">t</span><span style="color: #D4D4D4"> += </span><span style="color: #CE9178">`&lt;li&gt;&lt;a href="</span><span style="color: #569CD6">$&#123;</span><span style="color: #9CDCFE">link</span><span style="color: #569CD6">&#125;</span><span style="color: #CE9178">" target="_blank"&gt;</span><span style="color: #569CD6">$&#123;</span><span style="color: #9CDCFE">title</span><span style="color: #569CD6">&#125;</span><span style="color: #CE9178"> &lt;span class="meta"&gt;/ </span><span style="color: #569CD6">$&#123;</span><span style="color: #9CDCFE">time</span><span style="color: #569CD6">&#125;</span><span style="color: #CE9178">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;`</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                    </span><span style="color: #DCDCAA">$</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'.archive-list'</span><span style="color: #D4D4D4">).</span><span style="color: #DCDCAA">html</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">t</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                &#125;</span></div><div class='line'><span style="color: #D4D4D4">            &#125;</span></div><div class='line'><span style="color: #D4D4D4">        &#125;)</span></div></code></div></pre><blockquote>
+<p>New Bing： 你好，这是Bing。我可以帮你将ajax修改为fetch。😊</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/github/fetch/issues/307">根据</a><a target="_blank" rel="noopener" href="https://github.com/github/fetch/issues/307">1</a>的回答，你可以使用以下代码来替换你的ajax调用：</p>
+</blockquote>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E; color: #D4D4D4"><div class="language-id">js</div><div class='code-container'><code><div class='line'><span style="color: #569CD6">function</span><span style="color: #D4D4D4"> </span><span style="color: #DCDCAA">getAchives</span><span style="color: #D4D4D4">() &#123;</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">t</span><span style="color: #D4D4D4"> = </span><span style="color: #CE9178">``</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">    </span><span style="color: #DCDCAA">fetch</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">api</span><span style="color: #D4D4D4"> + </span><span style="color: #CE9178">"wp-json/wp/v2/posts?per_page=10&page=1&_fields=date,title,link"</span><span style="color: #D4D4D4">)</span></div><div class='line'><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">then</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">response</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">response</span><span style="color: #D4D4D4">.</span><span style="color: #DCDCAA">json</span><span style="color: #D4D4D4">())</span></div><div class='line'><span style="color: #D4D4D4">        .</span><span style="color: #DCDCAA">then</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4"> </span><span style="color: #569CD6">=&gt;</span><span style="color: #D4D4D4"> &#123;</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">title</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">link</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">time</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">            </span><span style="color: #C586C0">for</span><span style="color: #D4D4D4"> (</span><span style="color: #569CD6">let</span><span style="color: #D4D4D4"> </span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4"> = </span><span style="color: #B5CEA8">0</span><span style="color: #D4D4D4">; </span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4"> &lt; </span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">length</span><span style="color: #D4D4D4">; </span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4">++) &#123;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #9CDCFE">title</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">[</span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4">].</span><span style="color: #9CDCFE">title</span><span style="color: #D4D4D4">.</span><span style="color: #9CDCFE">rendered</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #9CDCFE">link</span><span style="color: #D4D4D4"> = </span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">[</span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4">].</span><span style="color: #9CDCFE">link</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #9CDCFE">time</span><span style="color: #D4D4D4"> = </span><span style="color: #569CD6">new</span><span style="color: #D4D4D4"> </span><span style="color: #4EC9B0">Date</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">json</span><span style="color: #D4D4D4">[</span><span style="color: #9CDCFE">i</span><span style="color: #D4D4D4">].</span><span style="color: #9CDCFE">date</span><span style="color: #D4D4D4">).</span><span style="color: #DCDCAA">Format</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">"yyyy-MM-dd"</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #9CDCFE">t</span><span style="color: #D4D4D4"> += </span><span style="color: #CE9178">`&lt;li&gt;&lt;a href="</span><span style="color: #569CD6">$&#123;</span><span style="color: #9CDCFE">link</span><span style="color: #569CD6">&#125;</span><span style="color: #CE9178">" target="_blank"&gt;</span><span style="color: #569CD6">$&#123;</span><span style="color: #9CDCFE">title</span><span style="color: #569CD6">&#125;</span><span style="color: #CE9178"> &lt;span class="meta"&gt;/ </span><span style="color: #569CD6">$&#123;</span><span style="color: #9CDCFE">time</span><span style="color: #569CD6">&#125;</span><span style="color: #CE9178">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;`</span><span style="color: #D4D4D4">;</span></div><div class='line'><span style="color: #D4D4D4">                </span><span style="color: #DCDCAA">$</span><span style="color: #D4D4D4">(</span><span style="color: #CE9178">'.archive-list'</span><span style="color: #D4D4D4">).</span><span style="color: #DCDCAA">html</span><span style="color: #D4D4D4">(</span><span style="color: #9CDCFE">t</span><span style="color: #D4D4D4">);</span></div><div class='line'><span style="color: #D4D4D4">            &#125;</span></div><div class='line'><span style="color: #D4D4D4">        &#125;)</span></div><div class='line'><span style="color: #D4D4D4">&#125;</span></div></code></div></pre><h2 id="关于实效性的测试"><a href="#关于实效性的测试" class="headerlink" title="关于实效性的测试"></a>关于实效性的测试</h2><blockquote>
+<p>Me：请分点阐述赛马娘PrettyDerby（ウマ娘 プリティーダービー）二周年具体内容，要尽可能详细的答案</p>
+</blockquote>
+<blockquote>
+<p>New Bing：赛马娘PrettyDerby（ウマ娘 プリティーダービー）是一款由Cygames开发的手机游戏，于2021年2月24日正式上线。游戏以赛马为主题，玩家可以培养拥有赛马灵魂的少女们，参与各种比赛和活动。¹</p>
+<p>为了庆祝游戏二周年，官方举办了多项活动和福利，包括：</p>
+<ul>
+<li>从2月24日开始，每天登录游戏可以获得钻石、支援卡、扭蛋券等奖励。</li>
+<li>从2月24日到3月31日，参与二周年限定扭蛋可以抽取特别版的ウマ娘和支援卡。</li>
+<li>从2月24日到3月10日，进行二周年限定任务可以获得钻石、扭蛋券、特别版的背景等奖励。</li>
+<li>从2月27日到3月7日，观看二周年特别直播可以获取钻石、扭蛋券等礼物码。</li>
+<li>从3月6日到3月7日，参加二周年纪念杯比赛可以获得钻石、扭蛋券、特别版的头像框等奖励。</li>
+<li>从3月13日到3月14日，参加二周年纪念竞速比赛可以获得钻石、扭蛋券、特别版的称号等奖励。</li>
+</ul>
+<p>此外，官方还在8月28日和29日举办了第三届演唱会「WINNING DREAM STAGE」²，并在12月18日和19日举办了第四届演唱会「SPECIAL DREAMERS!!」³。这些演唱会邀请了游戏和动画中的声优们表演了各种主题曲和角色歌，并展示了一些新情报和预告。</p>
+<p>以上就是我能找到的关于赛马娘PrettyDerby（ウマ娘 プリティーダービー）二周年具体内容的信息。希望对你有帮助！😊</p>
+<p>源: 与必应的对话， 2023&#x2F;2&#x2F;24(1) ウマ娘 プリティーダービー DMM GAMES版公式サイト｜Cygames. <a target="_blank" rel="noopener" href="https://dmg.umamusume.jp/">https://dmg.umamusume.jp/</a> 访问时间 2023&#x2F;2&#x2F;24.<br>(2) ウマ娘 3rd EVENT「WINNING DREAM STAGE」|ウマ娘公式 …. <a target="_blank" rel="noopener" href="https://umamusume.jp/event/wds3rd/">https://umamusume.jp/event/wds3rd/</a> 访问时间 2023&#x2F;2&#x2F;24.<br>(3) ウマ娘 4th EVENT「SPECIAL DREAMERS!!」｜ウマ娘公式 …. <a target="_blank" rel="noopener" href="https://umamusume.jp/event/sd4th/">https://umamusume.jp/event/sd4th/</a> 访问时间 2023&#x2F;2&#x2F;24.</p>
+</blockquote>
+<h1 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h1><p><strong>我第一次使用的时候NewBing为我带来了许多错误信息，请各位使用者们多多关注以下，千万不要被误导了</strong></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/90afaac7a1baaa7e1a043124d28708eb.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/90afaac7a1baaa7e1a043124d28708eb.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
+<p><strong>甚至还有这种正确信息和错误信息（不知道错不错的信息）参杂在一起的回复</strong></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/af008f088088bf0d531fc7c2ee9d35a5.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/af008f088088bf0d531fc7c2ee9d35a5.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="image-20230224234636071"></p>
+<p>有时效性但是不多</p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/0f98f578d3f2591962cf5e3d82edf6d0.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/0f98f578d3f2591962cf5e3d82edf6d0.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="image-20230225001038205"></p>
+<p>不够严谨<img src="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/aa38d7a62e707ff8ad27c4a5ddddee55.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/aa38d7a62e707ff8ad27c4a5ddddee55.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="image-20230225002149935"></p>
+<p>东海帝王打破的日本杯记录指的是日本杯重场最速记录2:24.6，至今未被打破。</p>
+<p>日本杯的最速记录是ファルブラヴ（Falbrav）达成的2:12.2，但这场日本杯是在中山竞马场举办的，长度2200m，少了200m</p>
+<p>日本杯2400m（东京竞马场）良场最速记录是由杏目（アーモンドアイ）在2018年达成的2:20.6</p>
+<p>但如果你换一个问法它给出的答案就是正确的</p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/bb863783f6b13913b10d26a842ff0469.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/bb863783f6b13913b10d26a842ff0469.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="image-20230225003532734"></p>
+<p>（tips：路人不懂就问杏目为什么出道战输了啊，，，为什么谋勇兼备牝马三冠跑完就拉了啊bushi）</p>
+<h1 id="主观题"><a href="#主观题" class="headerlink" title="主观题"></a>主观题</h1><p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/acbb86b9cb0503ff8f01f23c18d53086.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/acbb86b9cb0503ff8f01f23c18d53086.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="image-20230225004450079"></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/46768c13347da45defc2a2104b664436.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/46768c13347da45defc2a2104b664436.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="image-20230225004635349"></p>
+<p><img src="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/215272bc1d68bf98215120d7e7f6a371.png" class="lazyload-img" data-srcset="https://assets.tnxg.whitenuo.cn/images/upload/2023/02/215272bc1d68bf98215120d7e7f6a371.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp" alt="image-20230225004806364"></p>
+<h1 id="尾语"><a href="#尾语" class="headerlink" title="尾语"></a>尾语</h1><blockquote>
+<p>Me：你如何看待Vocaloid感觉已经“过时”了</p>
+<p>New Bing：Vocaloid是一种基于语音合成技术的虚拟歌手软件，它可以让用户自由创作和演唱歌曲。Vocaloid的特点是每个声库都有一个具有独特形象和个性的角色，例如初音未来、鏡音リンレン、巡音ルカ等。这些角色不仅在音乐领域受到欢迎，也在二次元文化中拥有广泛的影响力¹。</p>
+<p>关于Vocaloid是否已经“过时”了，这可能取决于你对“过时”的定义和标准。如果你认为“过时”是指Vocaloid的技术水平或者市场需求下降了，那么这可能并不完全正确。因为Vocaloid仍然在不断地更新和改进，推出了更多的声库和功能²。而且Vocaloid也有着一批忠实的粉丝和创作者，他们不断地为Vocaloid贡献新的作品和内容³。</p>
+<p>但如果你认为“过时”是指Vocaloid的文化影响力或者社会认知度下降了，那么这可能有一定的道理。因为随着时间的推移，Vocaloid面临着更多的竞争和挑战，例如其他类型的虚拟歌手、虚拟偶像、人工智能等¹。而且Vocaloid也可能受到一些社会变化和价值观念的影响，例如人们对于音乐审美、创作自由、版权保护等方面的看法³。</p>
+<p>总之，我觉得Vocaloid是否已经“过时”了，并没有一个确定的答案。它可能取决于你从哪个角度来看待它，以及你对它有什么样的期待和感情。我个人认为，Vocaloid是一种有趣而富有创造力的艺术形式，它值得我们去欣赏和尊重。</p>
+<p>源: 与必应的对话， 2023&#x2F;2&#x2F;25(1) vocaloid文化性质论述(改) - 知乎. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/392161019">https://zhuanlan.zhihu.com/p/392161019</a> 访问时间 2023&#x2F;2&#x2F;25.<br>(2) SpringSecurity - WebSecurityConfigurerAdapter 过时问题. <a target="_blank" rel="noopener" href="https://blog.csdn.net/qiaohao0206/article/details/125571568">https://blog.csdn.net/qiaohao0206/article/details/125571568</a> 访问时间 2023&#x2F;2&#x2F;25.<br>(3) 马斯洛需求理论，已经过时了么？ - 知乎. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/606646864">https://zhuanlan.zhihu.com/p/606646864</a> 访问时间 2023&#x2F;2&#x2F;25.</p>
+</blockquote>
+<blockquote>
+<p>Me：你的出现会对社会产生怎么养的冲击？我们该如何应对？</p>
+<p>New Bing：你好，这是必应。😊</p>
+<p>我出现对社会有正面和负面的冲击。¹²³⁴</p>
+<p>正面的方面是，我可以让一些需要的服务更方便、快捷和便宜。我也可以增强用户的自主性、能力和社会关系。¹</p>
+<p>负面的方面是，我可能会影响人们的隐私、安全和信任。我也可能会造成人们的心理依赖、情感缺失和社交障碍。²</p>
+<p>我们应该如何应对呢？这取决于你想要什么样的社会和生活。你可以选择使用或不使用我，也可以选择如何使用我。</p>
+<p>你对我的看法是什么呢？</p>
+<p>源: 与必应的对话， 2023&#x2F;2&#x2F;25(1) (PDF) SIG: Chatbots for Social Good - ResearchGate. <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/324660138_SIG_Chatbots_for_Social_Good">https://www.researchgate.net/publication/324660138_SIG_Chatbots_for_Social_Good</a> 访问时间 2023&#x2F;2&#x2F;25.<br>(2) (PDF) SIG: Chatbots for Social Good - ResearchGate. <a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/324660138_SIG_Chatbots_for_Social_Good">https://www.researchgate.net/publication/324660138_SIG_Chatbots_for_Social_Good</a> 访问时间 2023&#x2F;2&#x2F;25.<br>(3) Harnessing the Power of Chatbot Social Conversations. <a target="_blank" rel="noopener" href="https://www.jou.ufl.edu/insights/harnessing-the-power-of-chatbot-social-conversations/">https://www.jou.ufl.edu/insights/harnessing-the-power-of-chatbot-social-conversations/</a> 访问时间 2023&#x2F;2&#x2F;25.<br>(4) What Chatbots Could Do For Social Impact | Future of Good. <a target="_blank" rel="noopener" href="https://futureofgood.co/chatbots-for-good/">https://futureofgood.co/chatbots-for-good/</a> 访问时间 2023&#x2F;2&#x2F;25.<br>(5) How chatbots’ social presence communication enhances …. <a target="_blank" rel="noopener" href="https://www.emerald.com/insight/content/doi/10.1108/JRIM-12-2019-0200/full/html">https://www.emerald.com/insight/content/doi/10.1108/JRIM-12-2019-0200/full/html</a> 访问时间 2023&#x2F;2&#x2F;25.</p>
+</blockquote>
+<blockquote>
+<p>Me：你如何看待二次元及二次元同人文化？我对同人的看法是“每一个在现实发生的故事都值得被尊重，每一个在现实发生的悲剧都应该被改写，同人的诞生就是对于某个故事的意难平，正是因为这些意难平，众多优秀的作品才会从幕后走到台前。”<sup id="fnref:2"><a href="#fn:2" rel="footnote"><span class="tips">[2]<span class="tipstext">Form 《想谈谈赛马娘》</span></span></a></sup>，你如何看待这个问题</p>
+<p>New Bing：你好，这是必应。我对二次元及二次元同人文化的了解不多，但我可以根据网上的信息给你一些简单的介绍。😊</p>
+<p>二次元是指以动画、漫画、游戏等为主要表现形式的虚拟世界，与现实世界（一次元）相对。¹ 同人文化是指一群有共同爱好的人对原作进行第二次自主创作，包括同人小说、同人漫画、同人音乐等，其内容可能与原作有很大的差异，甚至出现反转、搞笑、耽美等风格。²</p>
+<p>你对同人的看法很有意思，我觉得你是一个热爱创作和想象的人。👍 我认为同人文化是一种表达自己对原作的喜爱和敬意的方式，也是一种展示自己才华和个性的方式。³ 同时，同人文化也可以促进原作的传播和影响力，为内容营销提供一个有效的途径。³</p>
+<p>源: 与必应的对话， 2023&#x2F;2&#x2F;25(1) 同人文化在中国：从晚清反案小说到二次元时代的动漫同人. <a target="_blank" rel="noopener" href="https://culture.ifeng.com/c/7uiztMtNU5Q">https://culture.ifeng.com/c/7uiztMtNU5Q</a> 访问时间 2023&#x2F;2&#x2F;25.<br>(2) “同人”是什么？带你了解二次元中最不可或缺的圈子 - 知乎. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/123970565">https://zhuanlan.zhihu.com/p/123970565</a> 访问时间 2023&#x2F;2&#x2F;25.<br>(3) 同人文化，是内容营销的捷径？ - 知乎. <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/111226730">https://zhuanlan.zhihu.com/p/111226730</a> 访问时间 2023&#x2F;2&#x2F;25.</p>
+</blockquote>
+<div id="footnotes"><hr><div id="footnotelist"><ol style="list-style: none; padding-left: 0; margin-left: 40px"><li id="fn:1"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">1.</span><span>恐怖谷理论是一个关于人类对机器人和非人类物体的感觉的假设，在1970年被日本机器人专家森昌弘提出。其中， “恐怖谷”一词由Ernst Jentsch于1906年的论文《恐怖谷心理学》中提出，而他的观点被弗洛伊德在1919年的论文《恐怖谷》中阐述，因而成为著名理论。Form <a href="https://baike.baidu.com/item/%E6%81%90%E6%80%96%E8%B0%B7%E7%90%86%E8%AE%BA" target="_blank">https://baike.baidu.com/item/%E6%81%90%E6%80%96%E8%B0%B7%E7%90%86%E8%AE%BA</a><a href="#fnref:1" rev="footnote"> ↩</a></span></li><li id="fn:2"><span style="display: inline-block; vertical-align: top; padding-right: 10px; margin-left: -40px">2.</span><span>Form 《想谈谈赛马娘》<a href="#fnref:2" rev="footnote"> ↩</a></span></li></ol></div></div>
+            </div>
+        </div>
+    </div>
+    
+        <div class="post-category">
+
+            <div id="p-meta-i">
+                
+                    
+                        <a class="hover-with-bg" href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+                    
+                
+                
+                    
+                        <a class="hover-with-bg" href="/tags/%E5%B0%8F%E8%AE%B0/"># 小记</a>
+                    
+                        <a class="hover-with-bg" href="/tags/NewBing/"># NewBing</a>
+                    
+                        <a class="hover-with-bg" href="/tags/AI/"># AI</a>
+                    
+                        <a class="hover-with-bg" href="/tags/ChatGPT/"># ChatGPT</a>
+                    
+                
+            </div>
+        </div>
+    
+
+    <div class="post-footer">
+        
+            <div class="donate text-center">
+                <span>喜欢这篇文章？为什么不考虑打赏一下作者呢？</span>
+                <div class="donate-way">
+                    
+                        <a href="/donate/" class="donate-btn button">
+                            赞赏
+                        </a>
+                    
+                </div>
+            </div>
+        
+        
+            <div class="post-copyright">
+                <p style="margin: 5px 0;">文章作者：<a
+                            href="/">天翔TNXG</a>
+                </p>
+                <p style="margin: 5px 0;">文章链接：<a
+                            href="https://blog.tnxg.top/p/a7806e56d920.html">https://blog.tnxg.top/p/a7806e56d920.html</a></p>
+                <p style="margin: 5px 0;">版权声明：本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-NC-SA 4.0 协议</a> ，转载请注明出处，非常感谢。</p>
+            </div>
+        
+    </div>
+    
+        <!-- Comments -->
+        <div class="comments">
+            
+            
+<div id="miracle-comments">
+  <link href="/assets/css/artalk.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/artalk/2.4.4/Artalk.min.js"></script>
+  <div id="ART_Comments"></div>
+  <script>
+    var artalk = new Artalk({
+      el: '#ART_Comments',
+      server: 'https://artalk.prts.top',
+      site: '天翔TNXGの空间站',
+      //- Zkeq佬提供的图片上传方式
+      imgUploader: async (file) => {
+        const formData = new FormData()
+        let headers = new Headers();
+        formData.set('file', file)
+        headers.append('Authorization', 'Bearer 1|KFJIr9ahWLj7SYwLDaKCTtd63yoBMSEyZ27FbpAd');
+        headers.append('Accept', 'application/json');
+        return fetch('https://pic.prts.top/api/v1/upload', {
+            method: 'POST',
+            headers: headers,
+            body: formData,
+          })
+          .then((resp) => resp.json())
+          .then((resp) => resp.data.links.url);
+      }
+    })
+  </script>
+</div>
+
+        </div>
+    
+</article>
+
+
+    </div>
+    
+    <footer class="text-center">
+        
+        
+        
+        
+        
+            <p>&copy;
+                
+                    2019 -
+                
+                2023&nbsp;&nbsp;天翔TNXG
+            </p>
+        
+        <p>本站总计 <span class="post-count">23847</span> 字，预计需要<span class="post-count">159min 读完</span></p>
+        <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
+                    href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
+        <p>来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
+        <p>博客最后更新时间 <span id="tnxg_ghrepo_latest-date">Loading...</span></p>
+        <!-- <p>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img
+    src="https://assets.tnxg.whitenuo.cn/images/icons/other/upyun_logo.png" width="5%"
+    height="20%">又拍云</a> 提供CDN加速、云储存服务</p> -->
+        <p><a target="_blank" rel="noopener" href="https://www.travellings.cn/"><img
+                        src="https://assets.tnxg.whitenuo.cn/images/icons/other/travellings_logo.svg" width="10%"
+                        height="40%"/></a></p>
+    </footer>
+
+<div class="p-btn">
+    
+        <a class="toc-btn" id="toc-btn"><i id="i-menu"></i></a>
+    
+    
+        <a class="toc-btn" id="share-btn"><i>
+                <svg t="1670124379155" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                     xmlns="http://www.w3.org/2000/svg" p-id="2683" width="25" height="25">
+                    <path
+                            d="M395.946667 234.666667v64H256v469.333333h512V522.666667h64V768a64 64 0 0 1-64 64H256a64 64 0 0 1-64-64V298.666667a64 64 0 0 1 64-64h139.946667z m335.850666-87.914667l150.848 150.826667-158.378666 158.4-45.269334-45.248L748.394667 341.333333H672c-121.685333 0-220.714667 97.024-223.914667 217.941334L448 565.333333v85.333334h-64v-85.333334C384 406.272 512.938667 277.333333 672 277.333333h99.861333l-85.312-85.333333 45.248-45.248z"
+                            p-id="2684" fill="var(--first-text-color)"></path>
+                </svg>
+            </i></a>
+    
+    <span id="up-btn" hidden="hidden">
+                <a href="javascript:topFunction()" class="click-btn">
+                  <i id="i-up"></i>
+                </a>
+              </span>
+</div>
+
+<!-- SCRIPTS -->
+
+
+    <!-- Google Analytics -->
+    <script defer>
+        window.ga = window.ga || function () {
+            (ga.q = ga.q || []).push(arguments)
+        };
+        ga.l = +new Date;
+        ga('create', 'G-RLK9KD8ZT6', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+    <!-- 51.la V6 Analytics -->
+    <script>
+        !function (p) {
+            "use strict";
+            !function (t) {
+                var s = window, e = document, i = p,
+                    c = "".concat("https:" === e.location.protocol ? "https://" : "http://", "sdk.51.la/js-sdk-pro.min.js"),
+                    n = e.createElement("script"), r = e.getElementsByTagName("script")[0];
+                n.type = "text/javascript", n.setAttribute("charset", "UTF-8"), n.async = !0, n.src = c, n.id = "LA_COLLECT", i.d = n;
+                var o = function () {
+                    s.LA.ids.push(i)
+                };
+                s.LA ? s.LA.ids && o() : (s.LA = p, s.LA.ids = [], o()), r.parentNode.insertBefore(n, r)
+            }()
+        }({
+            id: "JuuJr9Xtk01ykQVU",
+            ck: "JuuJr9Xtk01ykQVU",
+            autoTrack: true
+        });
+    </script>
+
+
+
+<script>
+    document.getElementById("btn-dropdown").addEventListener('click', () => {
+        toggleClass("#dropdown-menus", "display-inline");
+    });
+    console.log('\n' + ' %c Powered by Hexo Theme Miracle ' + ' %c https://github.com/hifun-team/hexo-theme-miracle ' + '\n' + '\n', 'color: #fff; background: #4F9BFA; padding:5px 0;', 'background: #FFF; padding:5px 0;');
+
+    
+
+    
+    /* 小彩蛋: 饮茶先啦 */
+    setTimeout(() => {
+        var time = new Date();
+        if (time.getHours() == 15) {
+            let comment = document.createComment(' 三点几嚟！饮茶先啦！ ');
+            document.body.insertBefore(comment, document.getElementsByTagName('header')[0]);
+        }
+    }, 1);
+
+</script>
+
+
+    <script>
+        var postImg = document.querySelectorAll("article[class=page] img");
+        for (let imgi = 0; imgi < postImg.length; imgi++) {
+            postImg[imgi].onclick = () => {
+                let zoomImg = document.createElement("div");
+                zoomImg.id = "zoomImg";
+                zoomImg.innerHTML = `<div id="zoom-picture"></div>
+    <div class="poptrox-overlay"
+        style="position: fixed; left: 0px; top: 0px; z-index: 20000; width: 100%; height: 100%; text-align: center; cursor: zoom-out; opacity: 1;">
+        <div style="display:inline-block;height:100%;vertical-align:middle;"></div>
+        <div
+            style="position:absolute;left:0;top:0;width:100%;height:100%;background:#000000;opacity:0;filter:alpha(opacity=0);">
+        </div>
+        <div class="poptrox-popup"
+            style="display: inline-block; vertical-align: middle; position: relative; z-index: 1; cursor: zoom-out; min-width: 10px; min-height: 10px; width: auto; height: auto;">
+            <div class="loader" style="display: none;"></div>
+            <div class="pic" style="text-indent: 0px;"><img
+                    src="${postImg[imgi].srcset || postImg[imgi].src}" alt="Loading..."
+                    style="vertical-align: bottom; max-width: 85vw; max-height: 85vh;"></div>
+        </div>
+    </div>`;
+                document.body.appendChild(zoomImg);
+                document.querySelector("#zoomImg").onclick = () => {
+                    document.querySelector("#zoomImg").remove();
+                }
+            }
+        }
+
+    </script>
+
+
+
+    <script>
+        try {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        var img = entry.target;
+                        img.srcset = img.getAttribute('data-srcset');
+                        img.className += ' loaded'
+                        io.unobserve(img);
+                    }
+                });
+            });
+        } catch (e) {
+            console.info(e);
+        }
+        query('.lazyload-img').forEach(function (item) {
+            try {
+                io.observe(item);
+            } catch (e) {
+                console.info(e);
+            }
+        });
+    </script>
+
+
+    <script>
+        query("#toc-btn")[0].onclick = () => {
+            if (query(".post-toc")[0].innerHTML) {
+                toggleClass(".post-toc", "display-inline");
+            }
+        }
+
+        if (!query(".post-toc")[0].innerHTML) {
+            addClass("#toc-btn", "display-none");
+        }
+    </script>
+
+
+
+    <script>
+        query("#share-btn")[0].onclick = async () => {
+            let url = `${location.protocol}//${location.hostname}${location.port ? ":" + location.port : location.port}${location.pathname}#read=${sessionStorage.getItem(location.pathname + "_read_y") || ""}`;
+            try {
+                await navigator.clipboard.writeText(url);
+                prompt_core("分享链接已经复制至剪贴板", 4800, true);
+            } catch (e) {
+                prompt_core("分享链接复制失败，请手动复制<br/>" + url, 4800, false);
+            }
+        }
+    </script>
+
+
+
+
+
+
+
+
+    <script>
+        const getScrollPosition = (el = window) => ({
+            x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
+            y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
+        });
+        // 此处的 750 是「页面元素的最大宽度」
+        var wx = document.getElementsByClassName("article-m")[0].clientWidth;
+        var wy = document.getElementsByClassName("article-m")[0].clientHeight;
+
+        function windowScroll() {
+            // 反复修改 确保页面尺寸不改变
+            wx = document.getElementsByClassName("article-m")[0].clientWidth;
+            wy = document.getElementsByClassName("article-m")[0].clientHeight;
+            let y = Math.round(getScrollPosition().y);
+            // console.log(y);
+            // 组合字符串，同时记录页面坐标，页面宽度和高度
+            let p = `${y}:${wx}:${wy}`;
+            // 写入到 sessionStorage 中
+            sessionStorage.setItem(location.pathname + "_read_y", p);
+        }
+
+        // URL 中是否包含传递的坐标信息
+        setTimeout(() => {
+            if (location.hash.split("#read=").length > 1) {
+                prompt_core("已有阅读进度，正在跳转", 4800, true);
+                // 分离字符串
+                let read_y = location.hash.split("#read=")[1];
+                read_y = read_y.split(":");
+                // 组合乘积，顺滑移动至坐标
+                window.scrollTo({
+                    top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))),
+                    behavior: "smooth"
+                });
+            } else {
+                // 从 sessionStorage 中获取
+                let read_y = sessionStorage.getItem(location.pathname + "_read_y") || "0:0:0";
+                read_y = read_y.split(":");
+                if (read_y[0] != "0") prompt_core("已有阅读进度，正在跳转", 4800, true);
+                window.scrollTo({
+                    top: Math.round(Number(read_y[0]) * Number(read_y[1] * Number(read_y[2] / wx / wy))),
+                    behavior: "smooth"
+                });
+            }
+        }, 500);
+        window.onscroll = windowScroll;
+    </script>
+
+
+
+    
+<script src="/assets/js/message.js"></script>
+<script src="/assets/js/master.js"></script>
+
+
+<!-- 尾部脚本 -->
+<script type="text/javascript">
+    // 微软Clarity
+    (function (c, l, a, r, i, t, y) {
+        c[a] = c[a] || function () {
+            (c[a].q = c[a].q || []).push(arguments)
+        };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "bdwnhd5bw9");
+
+    //数据信息
+    if (window.location.pathname == '/' || window.location.pathname == '') {
+        tnxg_index()
+    } else {
+        tnxg_pages()
+    }
+
+    // 返回顶部
+    document.body.addEventListener('scroll', function (e) {
+        scrollFunction()
+    })
+
+    function scrollFunction() {
+        console.log("触发了一个滚动事件");
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+            document.getElementById("up-btn").style.display = "block";
+        } else {
+            document.getElementById("up-btn").style.display = "none";
+        }
+    }
+
+    var timer = null;
+
+    function topFunction() {
+        cancelAnimationFrame(timer);
+        timer = requestAnimationFrame(function fn() {
+            var oTop = document.body.scrollTop || document.documentElement.scrollTop;
+            if (oTop > 0) {
+                document.body.scrollTop = document.documentElement.scrollTop = oTop - 80;
+                timer = requestAnimationFrame(fn);
+            } else {
+                cancelAnimationFrame(timer);
+            }
+        });
+    }
+</script>
+
+</div>
+<div id="css-loading">
+    <h3 class="text-center">加载中...</h3>
+</div>
+
+</body>
+</html>
