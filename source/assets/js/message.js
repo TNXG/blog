@@ -1,6 +1,5 @@
 function tnxg_pages() {
     getdata();
-    // bloggeractivetime();
 }
 
 function tnxg_index() {
@@ -36,7 +35,8 @@ async function getdata() {
     if (!(localStorage.getItem('TNXGBlog_UserId'))) {
         localStorage.setItem('TNXGBlog_UserId', unique(36).toUpperCase());
     }
-    ipinfo = getipinfo()
+    const replacehtml = await fetch('https://api.prts.top/v1/ipinfo/');
+    ipinfo = await replacehtml.json();
     const con = await fetch('https://api.tnxg.prts.top/api/v1/callback', {
         method: 'POST',
         headers: {
@@ -50,30 +50,10 @@ async function getdata() {
     Y = date.getFullYear() + '-';
     M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
     D = date.getDate().toString().padStart(2, '0') + '&nbsp';
-    h = date.getHours() + ':';
+    h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
     m = (date.getMinutes() + 1 < 10 ? '0' + (date.getMinutes() + 1) : date.getMinutes() + 1);
     document.getElementById("tnxg_ghrepo_latest-date").innerHTML = Y + M + D + h + m;
 }
-
-function getipinfo() {
-    var xml = new XMLHttpRequest();
-    xml.open('GET', 'https://api.prts.top/v1/ipinfo/', false);
-    xml.send(null);
-    json = JSON.parse(xml.response);
-    return json;
-}
-
-// async function bloggeractivetime() {
-//     const replacehtml = await fetch('https://qexo.prts.top/pub/status/');
-//     noticejson = await replacehtml.json();
-//     date = new Date(noticejson.data.last * 1000);
-//     Y = date.getFullYear() + '-';
-//     M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-//     D = date.getDate().toString().padStart(2, '0') + '&nbsp';
-//     h = date.getHours() + ':';
-//     m = (date.getMinutes() + 1 < 10 ? '0' + (date.getMinutes() + 1) : date.getMinutes() + 1);
-//     document.getElementById("bloggeractivetime").innerHTML = Y + M + D + h + m;
-// }
 
 function unique(size) {
     size = size || 10;
