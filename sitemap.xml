@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.tnxg.top/categories/index.html</loc>
+    
+    <lastmod>2023-03-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.tnxg.top/friendcircle/index.html</loc>
     
     <lastmod>2023-03-11</lastmod>
@@ -92,6 +101,15 @@
   </url>
   
   <url>
+    <loc>https://blog.tnxg.top/donate/bill/index.html</loc>
+    
+    <lastmod>2023-03-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.tnxg.top/blog-cgi/index.html</loc>
     
     <lastmod>2023-03-11</lastmod>
@@ -102,33 +120,6 @@
   
   <url>
     <loc>https://blog.tnxg.top/board/index.html</loc>
-    
-    <lastmod>2023-03-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.tnxg.top/categories/index.html</loc>
-    
-    <lastmod>2023-03-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.tnxg.top/donate/bill/index.html</loc>
-    
-    <lastmod>2023-03-11</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.tnxg.top/p/09dc7c8016e3.html</loc>
     
     <lastmod>2023-03-11</lastmod>
     
@@ -165,6 +156,15 @@
   
   <url>
     <loc>https://blog.tnxg.top/assets/data/monument.json</loc>
+    
+    <lastmod>2023-03-11</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.tnxg.top/p/09dc7c8016e3.html</loc>
     
     <lastmod>2023-03-11</lastmod>
     
