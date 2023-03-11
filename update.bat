@@ -1,1 +1,1 @@
-python update.py "Fix: 日常修订内容"
+python update.py "Feat: 使用最新版Artalk"
