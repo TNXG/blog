@@ -10,7 +10,6 @@ catch_rules:
       - search: _
         replace:
           - _
-          - azure.blog.tnxg.top
           - gcore.blog.tnxg.top
           - vercel.blog.tnxg.top
         action: fetch
@@ -158,14 +157,3 @@ catch_rules:
         action: fetch
         fetch:
           expire: 1000*60*60*24*365 #CDN默认缓存一年
-
-  - rule: (http|https)\:\/\/(.*)\/prism\/(.*)\/themes\/prism\-prism\-vsc\-dark\-plus.min\.css$ # 匹配xx/prism/xxx/themes/prism-prism-vsc-dark-plus.min.css
-    transform_rules:
-      - search: (http|https)\:\/\/(.*)\/prism\/(.*)\/themes\/prism\-prism\-vsc\-dark\-plus.min\.css$ # 寻找 xx/prism/xxx/themes/prism-prism-vsc-dark-plus.min.css的内容
-        replace: https://cdn.staticfile.org/prism-themes/1.9.0/prism-vsc-dark-plus.css
-        action: fetch
-        fetch:
-          engine: fetch
-          status: 200
-          preflight: false
-          expire: 1000*60*60*24
