@@ -70,7 +70,9 @@ top_bars:
         url: "/friendcircle/"
       - title: "说说"
         url: "/talks/"
-    noswup: true
+    noswup: false
+
+swup: true
 
 sidebar:
   social: # 社交地址
