@@ -128,15 +128,6 @@
   </url>
   
   <url>
-    <loc>https://blog.tnxg.top/p/09dc7c8016e3.html</loc>
-    
-    <lastmod>2023-04-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.tnxg.top/assets/data/girls.json</loc>
     
     <lastmod>2023-04-02</lastmod>
@@ -165,6 +156,15 @@
   
   <url>
     <loc>https://blog.tnxg.top/assets/data/monument.json</loc>
+    
+    <lastmod>2023-04-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.tnxg.top/p/09dc7c8016e3.html</loc>
     
     <lastmod>2023-04-02</lastmod>
     
