@@ -52,20 +52,6 @@ const handle = async (req) => {
             })
         }))
     }
-
-    // 天翔TNXG云存储处理函数
-    if (req.url.includes('assets.tnxg.whitenuo.cn')) {
-        console.log('[TNXG_SW]检测到网络请求：' + req.url);
-        // 天翔TNXG云存储图片WebP处理
-        if (req.headers.get('accept').includes('webp')) {
-            if (req.url.includes('.jpg') || req.url.includes('.png') || req.url.includes('.gif') || req.url.includes('.jpeg')) {
-                let webpReq = new Request(req.url + '?fmt=webp', req);
-                console.log('[TNXG_SW]检测到TNXG桶的图片请求，转换WebP：' + req.url + '?fmt=webp');
-                return fetch(webpReq);
-            }
-        }
-    }
-
     // 主站分流函数
     if (domain == 'blog.tnxg.top' || domain == 'localhost') {
         const 获取完整地址 = (path) => {
@@ -90,13 +76,25 @@ const handle = async (req) => {
             return 站点镜像源;
         }
 
-        return 分流地址 = 并发请求(获取分流地址(获取完整地址(urlPath)))
+        return 并发请求(获取分流地址(获取完整地址(urlPath)))
             .then(res => res.arrayBuffer())
             .then(buffer =>
                 new Response(buffer, {
                     headers: { "Content-Type": "text/html;charset=utf-8" }
                 })
             );
+    }
+    // 天翔TNXG云存储处理函数
+    if (req.url.includes('assets.tnxg.whitenuo.cn')) {
+        console.log('[TNXG_SW]检测到网络请求：' + req.url);
+        // 天翔TNXG云存储图片WebP处理
+        if (req.headers.get('accept').includes('webp')) {
+            if (req.url.includes('.jpg') || req.url.includes('.png') || req.url.includes('.gif') || req.url.includes('.jpeg')) {
+                let webpReq = new Request(req.url + '?fmt=webp', req);
+                console.log('[TNXG_SW]检测到TNXG桶的图片请求，转换WebP：' + req.url + '?fmt=webp');
+                return fetch(webpReq);
+            }
+        }
     }
     // 其余请求直接返回
     return fetch(req)
