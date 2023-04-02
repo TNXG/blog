@@ -8,6 +8,31 @@ const handle = async (req) => {
     const urlPath = urlObj.pathname;
     const domain = urlObj.hostname;
 
+    self.db = {
+        read: (key, config) => {
+            if (!config) { config = { type: "text" } }
+            return new Promise((resolve, reject) => {
+                caches.open(CACHE_NAME).then(cache => {
+                    cache.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
+                        if (!res) resolve(null)
+                        res.text().then(text => resolve(text))
+                    }).catch(() => {
+                        resolve(null)
+                    })
+                })
+            })
+        },
+        write: (key, value) => {
+            return new Promise((resolve, reject) => {
+                caches.open(CACHE_NAME).then(function (cache) {
+                    cache.put(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`), new Response(value));
+                    resolve()
+                }).catch(() => {
+                    reject()
+                })
+            })
+        }
+    }
     // 对数组内所有地址进行请求，返回第一个成功的请求结果并打断其他请求
     const 并发请求 = async (urls, url) => {
         let controller = new AbortController();
@@ -83,7 +108,7 @@ const handle = async (req) => {
         return 并发请求(mirror, mirror[0])
             .then(res => res.json()) //JSON Parse
             .then(async res => {
-                localStorage.setItem('tnxg_blog_version', res.version) //写入
+                await db.write('tnxg_blog_version', res.version)  //写入
                 return;
             })
     }
@@ -98,7 +123,7 @@ const handle = async (req) => {
 
     // 主站分流函数
     if (domain == 'blog.tnxg.top' || domain == 'localhost') {
-        分流地址 = 获取分流地址('tnxg-blog', localStorage.getItem('tnxg_blog_version'), 获取完整地址(urlPath));
+        分流地址 = 获取分流地址('tnxg-blog', db.read('tnxg_blog_version'), 获取完整地址(urlPath));
         console.log('[TNXG_SW]检测到主站请求：' + urlStr + '，分流选择分流');
         return 并发请求(分流地址);
     }
