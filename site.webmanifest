@@ -1,0 +1,9 @@
+{
+  "name": "天翔TNXGの空间站",
+  "short_name": "天翔TNXGの空间站",
+  "theme_color": "#66ccff",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/"
+}
