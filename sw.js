@@ -63,20 +63,42 @@ const handle = async (req) => {
         };
         return path;
     };
-    const 获取分流地址 = (path) => {
+    const 获取分流地址 = (packagename, blogversion, path) => {
         const 站点镜像源 = [
             `https://blog.tnxg.top`,
             `https://vercel.blog.tnxg.top`,
-            `https://gcore.blog.tnxg.top`,
+            `https://npm.elemecdn.com/${packagename}@${blogversion}`,
         ]
         for (var i in 站点镜像源) {
             站点镜像源[i] += path;
         }
         return 站点镜像源;
     }
+    const mirror = [
+        `https://registry.npmmirror.com/tnxg-blog/latest`,
+        `https://registry.npmjs.org/tnxg-blog/latest`,
+        `https://mirrors.cloud.tencent.com/npm/tnxg-blog/latest`
+    ]
+    const 保存最新版本号 = async (mirror) => { //改为最新版本写入数据库
+        return 并发请求(mirror, mirror[0])
+            .then(res => res.json()) //JSON Parse
+            .then(async res => {
+                localStorage.setItem('tnxg_blog_version', res.version) //写入
+                return;
+            })
+    }
+
+    setInterval(async () => {
+        await 保存最新版本号(mirror) //定时更新,一分钟一次
+    }, 60 * 1000);
+
+    setTimeout(async () => {
+        await 保存最新版本号(mirror)//打开五秒后更新,避免堵塞
+    }, 5000)
+
     // 主站分流函数
     if (domain == 'blog.tnxg.top' || domain == 'localhost') {
-        分流地址 = 获取分流地址(获取完整地址(urlPath));
+        分流地址 = 获取分流地址('tnxg-blog', localStorage.getItem('tnxg_blog_version'), 获取完整地址(urlPath));
         console.log('[TNXG_SW]检测到主站请求：' + urlStr + '，分流选择分流');
         return 并发请求(分流地址);
     }
