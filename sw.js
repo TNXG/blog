@@ -102,10 +102,10 @@ const handle = async (req) => {
     return fetch(req)
 }
 
-importScripts('https://npm.elemecdn.com/workbox-cdn@5.1.3/workbox/workbox-sw.js');
+importScripts('https://assets.tnxg.whitenuo.cn/proxy/npm/workbox-cdn@5.1.3/workbox/workbox-sw.js');
 
 workbox.setConfig({
-    modulePathPrefix: 'https://npm.elemecdn.com/workbox-cdn@5.1.3/workbox/'
+    modulePathPrefix: 'https://assets.tnxg.whitenuo.cn/proxy/npm/workbox-cdn@5.1.3/workbox/'
 });
 
 //关闭日志
