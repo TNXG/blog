@@ -5,8 +5,6 @@
 <%- partial('../_third-party/cdn',{ cdntype: 'body' }) %>
 
 <% if(hexo_env('cmd') !== 'server'){ %>
-    <!-- Service Worker -->
-    <%- partial('../_third-party/sw') %>
     <!-- baidu push -->
     <%- partial('../_third-party/seo/baidu-push') %>
 <% } %>

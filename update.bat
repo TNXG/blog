@@ -1,1 +1,1 @@
-﻿python update.py "Feat: 新主题"
+﻿python update.py "Fix: 修复sw错误"
