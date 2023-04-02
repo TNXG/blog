@@ -4,6 +4,10 @@ tags: ["抱怨", "评测"]
 categories: ["技术"]
 date: 2020-10-06 00:19:21
 updated: 2022-02-07 14:50:30
+cover: ['https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220406001853.png']
+banner:
+  type: img
+  bgurl: 'https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220406001853.png'
 ---
 
 

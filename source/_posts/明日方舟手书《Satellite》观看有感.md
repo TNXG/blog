@@ -4,6 +4,10 @@ tags: ["文章", "原创", "明日方舟"]
 categories: [文章]
 date: 2021-02-24 23:17:05
 updated: 2022-02-07 14:50:30
+cover: ['https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220406001257.png']
+banner:
+  type: img
+  bgurl: https://assets.tnxg.whitenuo.cn/images/upload/2022/04/20220406001257.png
 ---
 
 原石天灾下的人类显得如此渺小。渺小到，连自己最珍贵的人也无法保护

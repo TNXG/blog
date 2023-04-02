@@ -4,6 +4,10 @@ date: 2023-02-24 23:13:17
 updated: 2023-02-24 23:13:17
 tags: [小记, NewBing, AI, ChatGPT]
 categories: [技术]
+cover: ['https://assets.tnxg.whitenuo.cn/images/upload/2023/02/acbb86b9cb0503ff8f01f23c18d53086.png']
+banner:
+    type: img
+    bgurl: 'https://assets.tnxg.whitenuo.cn/images/upload/2023/02/acbb86b9cb0503ff8f01f23c18d53086.png'
 ---
 
 # 前言

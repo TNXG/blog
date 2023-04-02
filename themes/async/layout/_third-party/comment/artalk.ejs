@@ -1,0 +1,32 @@
+<div class="trm-card trm-scroll-animation comment-container" data-scroll data-scroll-offset="50">
+  <% if(page.comments) { %>
+  <% let comment=theme.comment%>
+  <% if(comment.artalk.enable) { %>
+  <link href="<%- theme.assets.plugin.artalk%>Artalk.min.css" rel="stylesheet">
+  <script src="<%- theme.assets.plugin.artalk %>Artalk.min.js"></script>
+  <div id="ART_Comments"></div>
+  <script data-swup-reload-script>
+    var artalk = new Artalk({
+      el: '#ART_Comments',
+      server: '<%= theme.comment.artalk.envid %>',
+      site: '<%= config.title %>',
+      //- Zkeq佬提供的图片上传方式
+      imgUploader: async (file) => {
+        const formData = new FormData()
+        let headers = new Headers();
+        formData.set('file', file)
+        headers.append('Authorization', 'Bearer 1|KFJIr9ahWLj7SYwLDaKCTtd63yoBMSEyZ27FbpAd');
+        headers.append('Accept', 'application/json');
+        return fetch('https://pic.prts.top/api/v1/upload', {
+            method: 'POST',
+            headers: headers,
+            body: formData,
+          })
+          .then((resp) => resp.json())
+          .then((resp) => resp.data.links.url);
+      }
+    })
+  </script>
+  <% } %>
+  <% } %>
+</div>

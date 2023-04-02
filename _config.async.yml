@@ -1,0 +1,220 @@
+# 主题模式 ThemeMode
+theme:
+  switch: true
+  default: "auto"
+
+# favicon图标设置
+favicon:
+  logo: "/favicon.png"
+  icon16: "/favicon.png"
+  icon32: "/favicon.png"
+  appleTouchIcon: "/favicon.png"
+  webmanifest: "/site.webmanifest"
+  visibilitychange: false
+
+# 静态资源CDN
+assets:
+  third_party_provider: https://npm.elemecdn.com
+  plugin:
+    artalk: "https://cdn.staticfile.org/artalk/2.5.0/"
+  icons:
+    type: font
+    js: "https://at.alicdn.com/t/font_383361_cfn4m13f4v.js"
+
+cdn:
+  css:
+    - "https://npm.elemecdn.com/remixicon@3.0.0/fonts/remixicon.css"
+    - "/assets/css/master.css"
+    - "/assets/css/shiki.css"
+    - "/assets/css/float.css"
+    - ""
+  js:
+    head:
+      - "/assets/js/message.js"
+      - "/assets/js/master.js"
+    base:
+      - "https://cdn.staticfile.org/jquery/3.6.4/jquery.min.js"
+    async:
+    defer:
+
+user:
+  name: "天翔TNXG"
+  first_name: "TNXG"
+  last_name: "天翔"
+  email: "tnxg@outlook.jp"
+  domain: "https://blog.tnxg.top"
+  avatar: "https://q1.qlogo.cn/g?b=qq&nk=2271225249&s=640"
+  describe: "明日尚未到来，希望凝于心上"
+  ruleText: "<li>申请友链时请确保您的站点同时也有我们的站点的友链，若审批通过后移除本站链接，本站也将移除友链，并加入黑名单。</li></br><li>审批通过的站点不会轻易删除，包括您的站点长时间无法访问。</li></br><li>若站点长时间无法访问，我们会删除您的友链，恢复后可再次申请</li></br><li>确保您的网站不存在政治敏感问题及违法内容。没有过多的广告、无恶意软件、脚本。且转载文章须注明出处。</li></br><li>确保站点可以以 HTTPS 访问, 允许不强制, 可以没有 HSTS。</li></br><li>确保您的站点拥有rss订阅链接</li></br><li>您需要有自己的独立域名，暂且不同意公有子域名或免费域名的友链申请(如 github.io, vercel.app, eu.org, js.cool, .tk, .ml, .cf 等，py 除外)</li></br><li>暂时不同意商业及非个人的网站的友链申请(py 除外)。"
+
+top_bars:
+  - title: "首页"
+    url: "/"
+  - title: "存档"
+    url: "/archives/"
+
+  - title: "友链"
+    url: "/links/"
+
+  - title: "开往"
+    url: "https://travellings.link/"
+
+  - title: "关于"
+    url: "/about/"
+  - title: "更多"
+    url: "/more/"
+    children:
+      - title: "条款"
+        url: "/policy/"
+      - title: "友圈"
+        url: "/friendcircle/"
+      - title: "说说"
+        url: "/talks/"
+    noswup: true
+
+sidebar:
+  social: # 社交地址
+    - name: "github"
+      icon: "remixicon ri-github-fill"
+      url: "https://github.com/TNXG"
+    - name: "telegram"
+      icon: "remixicon ri-telegram-line"
+      url: "https://t.me/tianxiang_tnxg"
+    - name: "twitter"
+      icon: "remixicon ri-twitter-fill"
+      url: "https://twitter.com/tianxiang_tnxg"
+    - name: "Line"
+      icon: "remixicon ri-line-fill"
+      url: "https://line.me/ti/p/1OKT2KBJcM"
+    - name: "QQ"
+      icon: "remixicon ri-qq-fill"
+      url: "https://jq.qq.com/?_wv=1027&k=Tiurz2y3"
+    - name: "E-mail"
+      icon: "remixicon ri-mail-fill"
+      url: "mailto:tnxg@outlook.jp"
+
+  info: # 个人信息
+    - key: "日期"
+      val: 火星
+    - key: 年龄
+      val: 18
+  typedTextPrefix: ""
+  typedText: ["明日尚未到来，希望凝于心上"]
+
+banner:
+  index:
+    type: "img"
+    bgurl: "https://api.prts.top/v1/img/wallpaper/?type=cdn"
+    bannerTitle: "天翔TNXGの空间站"
+    bannerText: "Loading..."
+
+comment:
+  type: artalk
+  artalk:
+    enable: true
+    envid: "https://artalk.prts.top"
+
+footer:
+  powered:
+    enable: true
+  beian:
+    enable: false
+  copyrightYear: 2019
+  live_time:
+    enable: true
+    prefix: "footer.tips"
+    start_time: "2019-08-12T12:00:00"
+  custom_text:
+
+reward:
+  enable: true
+  comment: "I'm so cute. Please give me money."
+  methods:
+    - name: "支付宝"
+      path: "https://assets.tnxg.whitenuo.cn/images/donate/alipay-qrcode.png"
+    - name: "微信"
+      path: "https://assets.tnxg.whitenuo.cn/images/donate/wechatpay-qrcode.png"
+    - name: "QQ"
+      path: "https://assets.tnxg.whitenuo.cn/images/donate/qqpay-qrcode.png"
+
+toc:
+  enable: true
+  list_number: true
+  max_depth: 3
+  min_depth: 1
+
+lazyload:
+  enable: true
+
+archive:
+  type: "more" # less more
+
+creative_commons:
+  license: "by-nc-sa"
+  language: "deed.zh"
+  post: true
+  clipboard: false
+
+cover:
+  type: "date"
+
+notice_outdate:
+  enable: true
+  style: flat
+  limit_day: 180
+  position: top
+
+# error_img:
+#   flink: /img/friend_404.gif
+#   post_page: /img/404.jpg
+
+rightside:
+  readmode: true
+  aside: true
+
+datetime_foramt:
+  post_card:
+    date: YYYY/MM/DD
+    time: HH:mm
+  post_info:
+    date: YYYY/MM/DD
+    time: HH:mm
+  archive:
+    date: YYYY/MM/DD
+    time: HH:mm
+
+highlight:
+  theme: false
+
+sw: true
+
+# icons:
+#     # 主题切换图标
+#     sun: remixicon ri-sun-line
+#     moon: remixicon ri-moon-line
+#     # 首页视频播放
+#     play: remixicon ri-play-circle-line
+#     # 邮箱
+#     email: remixicon ri-mail-line
+#     # 分类进入图标
+#     next: remixicon ri-skip-right-line
+#     # 文章详情 日期
+#     calendar: remixicon ri-calendar-2-line
+#     # 文章详情 时间
+#     clock: remixicon ri-time-line
+#     # 文章详情 作者
+#     user: remixicon ri-user-5-line
+#     # 返回顶部 v1.1.3+
+#     back_top: remixicon skip-up-line
+#     # 查询 v1.1.5+
+#     search: remixicon search-2-line
+#     # 关闭 v1.1.5+
+#     close: remixicon close-line
+#     # 打赏 v1.1.7+
+#     reward: remixicon hand-coin-line
+#     # 用户信息和文章目录切换 v1.2.10+
+#     user_tag: remixicon file-user-line
+#     toc_tag: remixicon folder-open-line
+#     # 右下角固定按钮 v1.2.11+
+#     read: remixicon book-open-line
+#     arrows: remixicon arrow-up-line

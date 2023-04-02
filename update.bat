@@ -1,1 +1,1 @@
-﻿python update.py "Fix: 修复文章问题"
+﻿python update.py "Feat: 新主题"

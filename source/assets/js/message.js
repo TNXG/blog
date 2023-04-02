@@ -22,13 +22,18 @@ async function getnotice() {
 }
 
 async function gethitokoto() {
-    console.log("天翔TNXGの空间站::获取一言数据中")
+    console.log("天翔TNXGの空间站::获取一言数据中");
     const replacehtml = await fetch('/assets/data/hitokoto.json');
     noticejson = await replacehtml.json();
     datalength = noticejson.length;
-    random = randomNum(0, datalength - 1)
-    returndata = noticejson[random]
-    document.getElementById("tnxg_hitokoto").innerHTML = `${returndata.content}(${returndata.from})`;
+    random = randomNum(0, datalength - 1);
+    returndata = noticejson[random];
+    // async_theme
+    returndata = `${returndata.content}(${returndata.from})`;
+    // jquery写入class名为trm-banner-text的div当中的trm-label trm-mb-20
+    $(".trm-banner-text").find(".trm-label.trm-mb-20").html(returndata);
+    // mirai_theme
+    // document.getElementById("tnxg_hitokoto").innerHTML = `${returndata.content}(${returndata.from})`;
 }
 
 async function getdata() {

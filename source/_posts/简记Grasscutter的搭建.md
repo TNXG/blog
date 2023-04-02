@@ -4,6 +4,10 @@ date: 2022-05-01 00:15:17
 update: 2022-05-01 00:15:17
 tags: [原神, 私服, 抓包, 教程]
 categories: [游戏, 原创, 教程]
+cover: ['https://assets.tnxg.whitenuo.cn/images/upload/2022/05/20220501000338.jpg']
+banner:
+  type: img
+  bgurl: 'https://assets.tnxg.whitenuo.cn/images/upload/2022/05/20220501000338.jpg'
 ---
 
 ![](https://assets.tnxg.whitenuo.cn/images/upload/2022/05/20220501000338.jpg)

@@ -11,6 +11,8 @@ author: "天翔TNXG"
 language: "zh-CN"
 timezone: "Asia/Shanghai"
 
+theme: async
+
 #ImagesUrl
 images:
   enable: true
@@ -90,8 +92,6 @@ updated_option: "mtime"
 
 per_page: 10
 pagination_dir: page
-
-theme: miracle
 
 feed:
   enable: true

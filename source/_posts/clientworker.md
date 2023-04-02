@@ -4,6 +4,10 @@ date: 2022-07-21 20:22:00
 updated: 2022-07-21 20:22:00
 tags: [白嫖, JS]
 categories: [原创, 技术]
+cover: ['https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png']
+banner: 
+  type: img
+  bgurl: 'https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png'
 ---
 
 ![](https://assets.tnxg.whitenuo.cn/images/upload/2022/07/70d49e280638dd9c2c13eb318e796bc0.png)

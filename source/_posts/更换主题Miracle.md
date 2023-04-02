@@ -2,12 +2,11 @@
 title: 更换主题Miracle
 date: 2022-10-13 05:25:40
 updated: 2022-10-15 13:44:54
-tags:
-
-- 原创
-- 小记
-- 总结
-
+tags: [原创, 小记, 总结]
+cover: ['https:/assets.tnxg.whitenuo.cn/images/upload/2022/10/9ddfa1cd417c722ee5c7e9304f0eda8f.png']
+banner:
+    type: img
+    bgurl: 'https:/assets.tnxg.whitenuo.cn/images/upload/2022/10/9ddfa1cd417c722ee5c7e9304f0eda8f.png'
 ---
 
 其实早就有了更换主题的心思了，但是奈何页面修改太多想必迁移也是一种很麻烦的事情，但是思前想后最终还是把主题给更换了

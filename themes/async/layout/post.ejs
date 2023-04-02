@@ -1,0 +1,10 @@
+<% let banner = page.banner || {}; %>
+<%- partial(theme.layout.main,  {
+    banner: partial(theme.layout.banner,  {
+        ...theme.banner.default,
+        bannerText: 'NEWS LETTER',
+        ...banner,
+        bannerTitle: page.title
+    }),
+    content: partial(theme.layout.page_post)
+}) %>
