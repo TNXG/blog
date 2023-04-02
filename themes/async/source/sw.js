@@ -49,40 +49,36 @@ const handle = async (req) => {
                             reject(res)
                         }
                     })
+                    .catch(e => reject(e))
             })
         }))
     }
+    const 获取完整地址 = (path) => {
+        path = path.split('?')[0].split('#')[0];
+        if (path.match(/\/$/)) {
+            path += 'index'
+        };
+        if (!path.match(/\.[a-zA-Z]+$/)) {
+            path += '.html'
+        };
+        return path;
+    };
+    const 获取分流地址 = (path) => {
+        const 站点镜像源 = [
+            `https://blog.tnxg.top`,
+            `https://vercel.blog.tnxg.top`,
+            `https://gcore.blog.tnxg.top`,
+        ]
+        for (var i in 站点镜像源) {
+            站点镜像源[i] += path;
+        }
+        return 站点镜像源;
+    }
     // 主站分流函数
     if (domain == 'blog.tnxg.top' || domain == 'localhost') {
-        const 获取完整地址 = (path) => {
-            path = path.split('?')[0].split('#')[0];
-            if (path.match(/\/$/)) {
-                path += 'index'
-            };
-            if (!path.match(/\.[a-zA-Z]+$/)) {
-                path += '.html'
-            };
-            return path;
-        };
-        const 获取分流地址 = (path) => {
-            const 站点镜像源 = [
-                `https://blog.tnxg.top`,
-                `https://vercel.blog.tnxg.top`,
-                `https://gcore.blog.tnxg.top`,
-            ]
-            for (var i in 站点镜像源) {
-                站点镜像源[i] += path;
-            }
-            return 站点镜像源;
-        }
-
-        return 并发请求(获取分流地址(获取完整地址(urlPath)))
-            .then(res => res.arrayBuffer())
-            .then(buffer =>
-                new Response(buffer, {
-                    headers: { "Content-Type": "text/html;charset=utf-8" }
-                })
-            );
+        分流地址 = 获取分流地址(获取完整地址(urlPath));
+        console.log('[TNXG_SW]检测到主站请求：' + urlStr + '，分流选择分流');
+        return 并发请求(分流地址);
     }
     // 天翔TNXG云存储处理函数
     if (req.url.includes('assets.tnxg.whitenuo.cn')) {
