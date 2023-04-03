@@ -3,7 +3,7 @@
   <% let comment=theme.comment%>
   <% if(comment.artalk.enable) { %>
   <link href="<%- theme.assets.plugin.artalk%>Artalk.min.css" rel="stylesheet">
-  <script src="<%- theme.assets.plugin.artalk %>Artalk.min.js"></script>
+  <script src="<%- theme.assets.plugin.artalk %>Artalk.min.js" data-swup-reload-script="true"></script>
   <div id="ART_Comments"></div>
   <script data-swup-reload-script>
     var artalk = new Artalk({
