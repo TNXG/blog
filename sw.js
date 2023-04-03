@@ -1,4 +1,16 @@
 // 添加监听器 / AddEventListener
+const CACHE_NAME = 'TNXG_BLOG_CACHE';
+let cachelist = [];
+self.addEventListener('install', async function (installEvent) {
+    self.skipWaiting();
+    installEvent.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(function (cache) {
+                console.log('[TNXG_SW]Opened cache');
+                return cache.addAll(cachelist);
+            })
+    );
+});
 self.addEventListener('fetch', async event => {
     event.respondWith(handle(event.request))
 });
@@ -109,6 +121,7 @@ const handle = async (req) => {
             .then(res => res.json()) //JSON Parse
             .then(async res => {
                 await db.write('tnxg_blog_version', res.version)  //写入
+                console.log('[TNXG_SW]更新最新版本号：' + res.version)
                 return;
             })
     }
@@ -118,13 +131,13 @@ const handle = async (req) => {
     }, 60 * 1000);
 
     setTimeout(async () => {
-        await 保存最新版本号(mirror)//打开五秒后更新,避免堵塞
-    }, 5000)
+        await 保存最新版本号(mirror)//打开十秒后更新,避免堵塞
+    }, 10000)
 
     // 主站分流函数
     if (domain == 'blog.tnxg.top' || domain == 'localhost') {
-        分流地址 = 获取分流地址('tnxg-blog', db.read('tnxg_blog_version'), 获取完整地址(urlPath));
-        console.log('[TNXG_SW]检测到主站请求：' + urlStr + '，分流选择分流');
+        分流地址 = 获取分流地址('tnxg-blog', await db.read('tnxg_blog_version'), 获取完整地址(urlPath));
+        console.log('[TNXG_SW]检测到主站请求：' + urlStr);
         return 并发请求(分流地址);
     }
     // 天翔TNXG云存储处理函数
