@@ -12,13 +12,13 @@
     "version": "6.3.0"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^0.35.2",
+    "@antfu/eslint-config": "^0.38.4",
     "@types/node": "^18.11.17",
     "deasync": "^0.1.28",
     "dplayer": "^1.27.0",
     "eslint": "^8.32.0",
     "esno": "^0.16.3",
-    "hexo": "^6.3.0",
+    "hexo": "^7.0.0-rc1",
     "hexo-blog-encrypt": "^3.1.6",
     "hexo-browsersync": "^0.3.0",
     "hexo-generator-archive": "^2.0.0",
@@ -42,7 +42,7 @@
     "lint-staged": "^13.1.0",
     "markdown-it": "^13.0.1",
     "tsup": "^6.5.0",
-    "typescript": "^4.9.4",
+    "typescript": "^5.0.3",
     "yarn": "^1.22.19"
   }
 }
