@@ -9,7 +9,7 @@
     "server": "hexo server"
   },
   "hexo": {
-    "version": "6.3.0"
+    "version": "7.0.0-rc1"
   },
   "dependencies": {
     "@antfu/eslint-config": "^0.38.4",
@@ -44,5 +44,8 @@
     "tsup": "^6.5.0",
     "typescript": "^5.0.3",
     "yarn": "^1.22.19"
+  },
+  "devDependencies": {
+    "hexo-renderer-less": "^4.0.0"
   }
 }
