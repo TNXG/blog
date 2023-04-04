@@ -90,6 +90,21 @@ const handle = async (req) => {
             })
         }))
     }
+    // 主站api函数
+    // 拦截所有路径为域名/sw-req/的请求
+    if (req.url.includes('/sw-req/')) {
+        console.log('[TNXG_SW]检测到SW请求：' + req.url);
+        let res = new Response('{"code":200,"msg":"TNXG_SW"}', {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        // 拦截所有路径为域名/api?getip的请求
+        if (req.url.includes('/api?getip')) {
+            return fetch('https://api.ip.sb/geoip')
+        }
+        return res;
+    }
     const 获取完整地址 = (path) => {
         path = path.split('?')[0].split('#')[0];
         if (path.match(/\/$/)) {
@@ -122,13 +137,8 @@ const handle = async (req) => {
             .then(async res => {
                 await db.write('tnxg_blog_version', res.version)  //写入
                 console.log('[TNXG_SW]更新最新版本号：' + res.version)
-                return;
             })
     }
-
-    setInterval(async () => {
-        await 保存最新版本号(mirror) //定时更新,一分钟一次
-    }, 60 * 1000);
 
     setTimeout(async () => {
         await 保存最新版本号(mirror)//打开十秒后更新,避免堵塞
@@ -233,7 +243,7 @@ routing.registerRoute(
     })
 );
 
-//本站其他文件 
+//本站其他文件
 routing.registerRoute(
     ({ url }) => {
         return url.hostname === location.hostname
