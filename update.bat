@@ -1,1 +1,1 @@
-python update.py "Fix: 修复ServiceWorker的问题"
+python update.py "Fix: 修复ServiceWorker的问题2"
