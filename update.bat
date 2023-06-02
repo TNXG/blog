@@ -1,1 +1,1 @@
-python update.py "Fix: 修复文章内容、修缮博客"
+python update.py "Fix: 修复ServiceWorker的问题"
