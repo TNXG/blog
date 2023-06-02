@@ -1,1 +1,1 @@
-О╩©python update.py "Fix: Д©╝Е╓█Ф√┤Г╚═И≈╝И╒≤"
+python update.py "Fix: пч╦╢ндубдзхщ║╒пчии╡╘©м"

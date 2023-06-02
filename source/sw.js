@@ -91,6 +91,7 @@ const handle = async (req) => {
         }))
     }
     // 主站api函数
+
     // 拦截所有路径为域名/sw-req/的请求
     if (req.url.includes('/sw-req/')) {
         console.log('[TNXG_SW]检测到SW请求：' + req.url);
@@ -105,6 +106,24 @@ const handle = async (req) => {
         }
         return res;
     }
+
+    // 网络请求处理函数
+    if (req.url.includes('hdslb.com')) {
+        path = req.url.match(/\/$/)
+        const 站点镜像源 = [
+            `https://i0.hdslb.com`,
+            `https://i1.hdslb.com/`,
+            `https://i2.hdslb.com/`,
+            `https://s1.hdslb.com/`,
+            `https://s2.hdslb.com`,
+            `https://s3.hdslb.com/`,
+        ]
+        for (var i in 站点镜像源) {
+            站点镜像源[i] += path;
+        }
+        return 并发请求(站点镜像源);;
+    }
+
     const 获取完整地址 = (path) => {
         path = path.split('?')[0].split('#')[0];
         if (path.match(/\/$/)) {
@@ -119,7 +138,8 @@ const handle = async (req) => {
         const 站点镜像源 = [
             `https://blog.tnxg.top`,
             `https://vercel.blog.tnxg.top`,
-            `https://npm.elemecdn.com/${packagename}@${blogversion}`,
+            'https://cloudflare.blog.tnxg.top'
+                `https://npm.elemecdn.com/${packagename}@${blogversion}`,
         ]
         for (var i in 站点镜像源) {
             站点镜像源[i] += path;
