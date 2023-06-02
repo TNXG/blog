@@ -22,7 +22,9 @@ const handle = async (req) => {
 
     self.db = {
         read: (key, config) => {
-            if (!config) { config = { type: "text" } }
+            if (!config) {
+                config = {type: "text"}
+            }
             return new Promise((resolve, reject) => {
                 caches.open(CACHE_NAME).then(cache => {
                     cache.match(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`)).then(function (res) {
@@ -49,7 +51,7 @@ const handle = async (req) => {
     const 并发请求 = async (urls, url) => {
         let controller = new AbortController();
         const PauseProgress = async (res) => {
-            return new Response(await (res).arrayBuffer(), { status: res.status, headers: res.headers });
+            return new Response(await (res).arrayBuffer(), {status: res.status, headers: res.headers});
         };
         if (!Promise.any) {
             Promise.any = function (promises) {
@@ -121,25 +123,27 @@ const handle = async (req) => {
         for (var i in 站点镜像源) {
             站点镜像源[i] += path;
         }
-        return 并发请求(站点镜像源);;
+        return 并发请求(站点镜像源);
     }
 
     const 获取完整地址 = (path) => {
         path = path.split('?')[0].split('#')[0];
         if (path.match(/\/$/)) {
             path += 'index'
-        };
+        }
+        ;
         if (!path.match(/\.[a-zA-Z]+$/)) {
             path += '.html'
-        };
+        }
+        ;
         return path;
     };
     const 获取分流地址 = (packagename, blogversion, path) => {
         const 站点镜像源 = [
             `https://blog.tnxg.top`,
             `https://vercel.blog.tnxg.top`,
-            'https://cloudflare.blog.tnxg.top'
-                `https://npm.elemecdn.com/${packagename}@${blogversion}`,
+            'https://cloudflare.blog.tnxg.top',
+            `https://npm.elemecdn.com/${packagename}@${blogversion}`,
         ]
         for (var i in 站点镜像源) {
             站点镜像源[i] += path;
@@ -195,9 +199,9 @@ workbox.setConfig({
 //关闭日志
 self.__WB_DISABLE_DEV_LOGS = true;
 
-const { core, precaching, routing, strategies, expiration } = workbox;
-const { CacheFirst, NetworkFirst, NetworkOnly, StaleWhileRevalidate } = strategies;
-const { ExpirationPlugin } = expiration;
+const {core, precaching, routing, strategies, expiration} = workbox;
+const {CacheFirst, NetworkFirst, NetworkOnly, StaleWhileRevalidate} = strategies;
+const {ExpirationPlugin} = expiration;
 
 const cacheSuffixVersion = '_20200610';
 
@@ -265,7 +269,7 @@ routing.registerRoute(
 
 //本站其他文件
 routing.registerRoute(
-    ({ url }) => {
+    ({url}) => {
         return url.hostname === location.hostname
     },
     new NetworkFirst({
