@@ -111,7 +111,8 @@ const handle = async (req) => {
 
     // 网络请求处理函数
     if (req.url.includes('hdslb.com')) {
-        path = req.url.match(/\/$/)
+        // 获取路径
+        const path = req.url.replace(req.url.match(/:\/\/(.[^/]+)/)[1], '');
         const 站点镜像源 = [
             `https://i0.hdslb.com`,
             `https://i1.hdslb.com/`,
