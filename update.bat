@@ -1,1 +1,1 @@
-python update.py "Fix: 修复ServiceWorker的问题3"
+python update.py "Feat: 全新的后端架构"

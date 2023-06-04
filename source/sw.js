@@ -23,7 +23,7 @@ const handle = async (req) => {
     self.db = {
         read: (key, config) => {
             if (!config) {
-                config = {type: "text"}
+                config = { type: "text" }
             }
             return new Promise((resolve, reject) => {
                 caches.open(CACHE_NAME).then(cache => {
@@ -51,7 +51,7 @@ const handle = async (req) => {
     const 并发请求 = async (urls, url) => {
         let controller = new AbortController();
         const PauseProgress = async (res) => {
-            return new Response(await (res).arrayBuffer(), {status: res.status, headers: res.headers});
+            return new Response(await (res).arrayBuffer(), { status: res.status, headers: res.headers });
         };
         if (!Promise.any) {
             Promise.any = function (promises) {
@@ -111,6 +111,9 @@ const handle = async (req) => {
 
     // 网络请求处理函数
     if (req.url.includes('hdslb.com')) {
+        if (req.url.includes("HarmonyOS")) {
+            return fetch(req)
+        }
         // 获取路径;
         const path = req.url.replace(/(https|http)?:\/\/(.[^/]+)/, '');
         const 站点镜像源 = [
@@ -170,7 +173,7 @@ const handle = async (req) => {
     }, 10000)
 
     // 主站分流函数
-    if (domain == 'blog.tnxg.top' || domain == 'localhost') {
+    if (domain == 'blog.tnxg.top') {
         分流地址 = 获取分流地址('tnxg-blog', await db.read('tnxg_blog_version'), 获取完整地址(urlPath));
         console.log('[TNXG_SW]检测到主站请求：' + urlStr);
         return 并发请求(分流地址);
@@ -200,9 +203,9 @@ workbox.setConfig({
 //关闭日志
 self.__WB_DISABLE_DEV_LOGS = true;
 
-const {core, precaching, routing, strategies, expiration} = workbox;
-const {CacheFirst, NetworkFirst, NetworkOnly, StaleWhileRevalidate} = strategies;
-const {ExpirationPlugin} = expiration;
+const { core, precaching, routing, strategies, expiration } = workbox;
+const { CacheFirst, NetworkFirst, NetworkOnly, StaleWhileRevalidate } = strategies;
+const { ExpirationPlugin } = expiration;
 
 const cacheSuffixVersion = '_20200610';
 
@@ -270,7 +273,7 @@ routing.registerRoute(
 
 //本站其他文件
 routing.registerRoute(
-    ({url}) => {
+    ({ url }) => {
         return url.hostname === location.hostname
     },
     new NetworkFirst({
