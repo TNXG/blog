@@ -155,7 +155,7 @@ const handle = async (req) => {
         return 站点镜像源;
     }
     const mirror = [
-        `https://registry.npmmirror.com/tnxg-blog/latest`,
+        `https://tnxg-proxy.deno.dev/https://registry.npmjs.org/tnxg-blog/latest`,
         `https://registry.npmjs.org/tnxg-blog/latest`,
         `https://mirrors.cloud.tencent.com/npm/tnxg-blog/latest`
     ]
