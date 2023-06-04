@@ -21,7 +21,7 @@ images:
 lazyload:
   enable: true
   onlypost: false
-  loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"
+  loadingImage: "https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif"
 
 async: true
 

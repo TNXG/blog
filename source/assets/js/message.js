@@ -1,3 +1,5 @@
+window.randomNum = randomNum;
+
 function tnxg_pages() {
     getdata();
 }
@@ -26,7 +28,7 @@ async function gethitokoto() {
     const replacehtml = await fetch('/assets/data/hitokoto.json');
     noticejson = await replacehtml.json();
     datalength = noticejson.length;
-    random = randomNum(0, datalength - 1)
+    random = randomNum(0, 32)
     returndata = noticejson[random]
     document.getElementById("tnxg_hitokoto").innerHTML = `${returndata.content}(${returndata.from})`;
 }

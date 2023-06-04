@@ -1,1 +1,1 @@
-python update.py "Fix: 修复部分分流地址缓存问题"
+python update.py "Feat: 重置了Artalk的图片上传功能"

@@ -1,29 +1,36 @@
 <% if (theme.comment.artalk.envid){ %>
-<div id="miracle-comments">
-  <link href="<%- theme.static_prefix.artalk %>Artalk.min.css" rel="stylesheet">
-  <script src="<%- theme.static_prefix.artalk %>Artalk.min.js"></script>
-  <div id="ART_Comments"></div>
-  <script>
-    var artalk = new Artalk({
-      el: '#ART_Comments',
-      server: '<%= theme.comment.artalk.envid %>',
-      site: '<%= config.title %>',
-      //- Zkeq佬提供的图片上传方式
-      imgUploader: async (file) => {
-        const formData = new FormData()
-        let headers = new Headers();
-        formData.set('file', file)
-        headers.append('Authorization', 'Bearer 1|KFJIr9ahWLj7SYwLDaKCTtd63yoBMSEyZ27FbpAd');
-        headers.append('Accept', 'application/json');
-        return fetch('https://pic.prts.top/api/v1/upload', {
-            method: 'POST',
-            headers: headers,
-            body: formData,
-          })
-          .then((resp) => resp.json())
-          .then((resp) => resp.data.links.url);
-      }
-    })
-  </script>
-</div>
+    <div id="miracle-comments">
+        <link href="<%- theme.static_prefix.artalk %>Artalk.min.css" rel="stylesheet">
+        <script src="<%- theme.static_prefix.artalk %>Artalk.min.js"></script>
+        <div id="ART_Comments"></div>
+        <script>
+            var artalk = new Artalk({
+                el: '#ART_Comments',
+                server: '<%= theme.comment.artalk.envid %>',
+                site: '<%= config.title %>',
+                imgUploader: async (file) => {
+                    const formData = new FormData()
+                    formData.set('file', file)
+                    const ext = file.name.split('.').pop()
+                    const imagekit = new ImageKit({
+                        publicKey: "public_W1xgQMB6rCKVq7cQjMLlbb/TmuQ=",
+                        urlEndpoint: "https://ik.imagekit.io/tokaiteio/",
+                        authenticationEndpoint: "https://api-blog.tnxg.top/upimg_sign"
+                    });
+                    imagekit.upload({
+                            file: file,
+                            fileName: randomNum(0, 32) + ext,
+                            tags: ["blog-user"],
+                        }, function (err, result) {
+                            let url = imagekit.url({
+                                src: result.url
+                            }).split('?')[0];
+                            url = url.replace(/https:\/\/ik\.imagekit\.io\/tokaiteio\/(.*)/, 'https://assets.tnxg.whitenuo.cn/images/unauthorize/$1');
+                            document.querySelector('.atk-textarea').value += `![${file.name}](${url})`;
+                        }
+                    )
+                }
+            })
+        </script>
+    </div>
 <% } %>

@@ -56,6 +56,7 @@ custom:
     - "/assets/js/message.js"
     - "/assets/js/master.js"
     - "https://npm.elemecdn.com/msg-alert@1.0.0-beta.4/dist/msg-alert.js"
+    - "https://npm.elemecdn.com/imagekit-javascript@1.3.0/dist/imagekit.min.js"
 
   css:
     - "/assets/css/master.css"
