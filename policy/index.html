@@ -648,7 +648,7 @@
             
         </div>
         <div id="article" class="markdown-body textretty">
-            <p>郑重声明：<a style="color:red">「天翔TNXGの空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">Email</a>（<a href="mailto:&#116;&#x69;&#x61;&#110;&#120;&#105;&#x61;&#110;&#103;&#64;&#x6c;&#x6f;&#x79;&#117;&#110;&#101;&#x74;&#x2e;&#99;&#110;">&#116;&#x69;&#x61;&#110;&#120;&#105;&#x61;&#110;&#103;&#64;&#x6c;&#x6f;&#x79;&#117;&#110;&#101;&#x74;&#x2e;&#99;&#110;</a>)告知删除。</p>
+            <p>郑重声明：<a style="color:red">「天翔TNXGの空间站」</a>是一个基于<a style="color:red">内容分享</a>，<a style="color:red">技术教程</a>，本博客大部分文字均属<a style="color:red">原创</a>和<a style="color:red">抄袭</a>，部分文字和图片均来自网络收集整理，<a style="color:red">版权归原作者</a>，限用于<a style="color:red">学习</a>和<a style="color:red">研究</a>目的；如果原作者禁止<a style="color:red">转载</a>、<a style="color:red">修改</a>、<a style="color:red">引用</a>，请给我<a style="color:red">留言</a>或者<a style="color:red">Email</a>（<a href="mailto:&#x74;&#x69;&#x61;&#110;&#120;&#x69;&#97;&#x6e;&#x67;&#x40;&#108;&#x6f;&#x79;&#117;&#110;&#101;&#x74;&#x2e;&#99;&#x6e;">&#x74;&#x69;&#x61;&#110;&#120;&#x69;&#97;&#x6e;&#x67;&#x40;&#108;&#x6f;&#x79;&#117;&#110;&#101;&#x74;&#x2e;&#99;&#x6e;</a>)告知删除。</p>
 <h1 id="免责声明"><a href="#免责声明" class="headerlink" title="免责声明"></a>免责声明</h1><ul>
 <li>本博客所插入图片视频音乐等媒体均来自互联网，与博文内容相关，以便更好表达文章内容。如果侵犯到了您的权益，请联系博主删除。</li>
 <li>本博客所有评论内容仅代表评论者个人意见，与本站无关，请各位评论者评论时遵守当地及中国的法律法规。</li>
@@ -699,33 +699,41 @@
         <div class="comments">
             
             
-<div id="miracle-comments">
-  <link href="https://cdn.staticfile.org/artalk/2.5.0/Artalk.min.css" rel="stylesheet">
-  <script src="https://cdn.staticfile.org/artalk/2.5.0/Artalk.min.js"></script>
-  <div id="ART_Comments"></div>
-  <script>
-    var artalk = new Artalk({
-      el: '#ART_Comments',
-      server: 'https://artalk.prts.top',
-      site: '天翔TNXGの空间站',
-      //- Zkeq佬提供的图片上传方式
-      imgUploader: async (file) => {
-        const formData = new FormData()
-        let headers = new Headers();
-        formData.set('file', file)
-        headers.append('Authorization', 'Bearer 1|KFJIr9ahWLj7SYwLDaKCTtd63yoBMSEyZ27FbpAd');
-        headers.append('Accept', 'application/json');
-        return fetch('https://pic.prts.top/api/v1/upload', {
-            method: 'POST',
-            headers: headers,
-            body: formData,
-          })
-          .then((resp) => resp.json())
-          .then((resp) => resp.data.links.url);
-      }
-    })
-  </script>
-</div>
+    <div id="miracle-comments">
+        <link href="https://cdn.staticfile.org/artalk/2.5.0/Artalk.min.css" rel="stylesheet">
+        <script src="https://cdn.staticfile.org/artalk/2.5.0/Artalk.min.js"></script>
+        <div id="ART_Comments"></div>
+        <script>
+            var artalk = new Artalk({
+                el: '#ART_Comments',
+                server: 'https://artalk.prts.top',
+                site: '天翔TNXGの空间站',
+                imgUploader: async (file) => {
+                    const formData = new FormData()
+                    formData.set('file', file)
+                    const ext = file.name.split('.').pop()
+                    const imagekit = new ImageKit({
+                        publicKey: "public_W1xgQMB6rCKVq7cQjMLlbb/TmuQ=",
+                        urlEndpoint: "https://ik.imagekit.io/tokaiteio/",
+                        authenticationEndpoint: "https://api-blog.tnxg.top/upimg_sign"
+                    });
+                    imagekit.upload({
+                            file: file,
+                            fileName: randomNum(0, 32) + ext,
+                            tags: ["blog-user"],
+                        }, function (err, result) {
+                            let url = imagekit.url({
+                                src: result.url
+                            }).split('?')[0];
+                            url = url.replace(/https:\/\/ik\.imagekit\.io\/tokaiteio\/(.*)/, 'https://assets.tnxg.whitenuo.cn/images/unauthorize/$1');
+                            document.querySelector('.atk-textarea').value += `![${file.name}](${url})`;
+                        }
+                    )
+                }
+            })
+        </script>
+    </div>
+
 
         </div>
     
@@ -983,6 +991,7 @@
 <script src="/assets/js/message.js"></script>
 <script src="/assets/js/master.js"></script>
 <script src="https://npm.elemecdn.com/msg-alert@1.0.0-beta.4/dist/msg-alert.js"></script>
+<script src="https://npm.elemecdn.com/imagekit-javascript@1.3.0/dist/imagekit.min.js"></script>
 
 
 <!-- 尾部脚本 -->

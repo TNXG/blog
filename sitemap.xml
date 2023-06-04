@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.tnxg.top/blog-cgi/index.html</loc>
-    
-    <lastmod>2023-06-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.tnxg.top/board/index.html</loc>
     
     <lastmod>2023-06-04</lastmod>
@@ -128,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://blog.tnxg.top/p/09dc7c8016e3.html</loc>
+    <loc>https://blog.tnxg.top/blog-cgi/index.html</loc>
     
     <lastmod>2023-06-04</lastmod>
     
@@ -165,6 +156,15 @@
   
   <url>
     <loc>https://blog.tnxg.top/assets/data/monument.json</loc>
+    
+    <lastmod>2023-06-04</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.tnxg.top/p/09dc7c8016e3.html</loc>
     
     <lastmod>2023-06-04</lastmod>
     

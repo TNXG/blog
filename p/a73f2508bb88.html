@@ -682,7 +682,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_ invoke__">ini_set</span>(<span class="string">&quot;display_errors&quot;</span>, <span class="string">&quot;Off&quot;</span>);</span><br><span class="line"><span class="title function_ invoke__">error_reporting</span>(E_ALL | E_STRICT);</span><br><span class="line"><span class="comment">// 删除警告信息</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$str</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="string">&#x27;https://www.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=8&#x27;</span>);</span><br><span class="line"><span class="variable">$str</span> = <span class="title function_ invoke__">json_decode</span>(<span class="variable">$str</span>, <span class="literal">true</span>);</span><br><span class="line"><span class="variable">$num</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;num&#x27;</span>];</span><br><span class="line"><span class="comment">// 从官方api返回最近每日图的信息，并获取参数$num</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">empty</span>(<span class="variable">$num</span>)) &#123;</span><br><span class="line">    <span class="variable">$a</span> = <span class="number">0</span>;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="number">7</span> &gt;= <span class="variable">$num</span> &amp;&amp; <span class="variable">$num</span> &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="variable">$a</span> = <span class="variable">$num</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable">$a</span> = <span class="number">0</span>;</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// 如果$num为空则赋值0，否则则按num传入值对$num进行赋值(大于等于7或小于等于0)</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$con</span> = <span class="variable">$str</span>[<span class="string">&#x27;images&#x27;</span>][<span class="variable">$a</span>][<span class="string">&#x27;url&#x27;</span>];</span><br><span class="line"><span class="variable">$url</span> = <span class="string">&quot;https://cn.bing.com&quot;</span> . <span class="variable">$con</span>;</span><br><span class="line"><span class="comment">// 获取随机图信息</span></span><br><span class="line"></span><br><span class="line"><span class="variable">$type</span> = <span class="variable">$_GET</span>[<span class="string">&#x27;type&#x27;</span>];</span><br><span class="line"><span class="keyword">switch</span> (<span class="variable">$type</span>) &#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;json&#x27;</span>:</span><br><span class="line">        <span class="title function_ invoke__">header</span>(<span class="string">&#x27;Content-type:text/json&#x27;</span>);</span><br><span class="line">        <span class="keyword">die</span>(<span class="title function_ invoke__">json_encode</span>([<span class="string">&#x27;url&#x27;</span> =&gt; <span class="variable">$url</span>]));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;url&#x27;</span>:</span><br><span class="line">        <span class="keyword">die</span>(<span class="title function_ invoke__">header</span>(<span class="string">&quot;Location: <span class="subst">$url</span>&quot;</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">        <span class="title function_ invoke__">header</span>(<span class="string">&quot;content-type:image/jpeg&quot;</span>);</span><br><span class="line">        <span class="variable">$images</span> = <span class="title function_ invoke__">file_get_contents</span>(<span class="variable">$url</span>);</span><br><span class="line">        <span class="keyword">die</span>(<span class="variable">$images</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 获取参数type并赋值$type，按照赋值内容返回相对应的格式</span></span><br></pre></td></tr></table></figure>
 
 <p>详细信息及实现方法已经写在代码注释里了，可以参考着玩一玩（大雾）</p>
-<p><img src="https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png" class="lazyload-img" data-srcset="https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif?fmt=webp"></p>
+<p><img src="https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png" class="lazyload-img" data-srcset="https://i0.hdslb.com/bfs/album/3f6cedace0a8e58f1de4b64f7d85e21ed687718f.png" srcset="https://assets.tnxg.whitenuo.cn/images/face/Q_Matikanetannhauser_dance.gif"></p>
 
             </div>
         </div>
@@ -738,33 +738,41 @@
         <div class="comments">
             
             
-<div id="miracle-comments">
-  <link href="https://cdn.staticfile.org/artalk/2.5.0/Artalk.min.css" rel="stylesheet">
-  <script src="https://cdn.staticfile.org/artalk/2.5.0/Artalk.min.js"></script>
-  <div id="ART_Comments"></div>
-  <script>
-    var artalk = new Artalk({
-      el: '#ART_Comments',
-      server: 'https://artalk.prts.top',
-      site: '天翔TNXGの空间站',
-      //- Zkeq佬提供的图片上传方式
-      imgUploader: async (file) => {
-        const formData = new FormData()
-        let headers = new Headers();
-        formData.set('file', file)
-        headers.append('Authorization', 'Bearer 1|KFJIr9ahWLj7SYwLDaKCTtd63yoBMSEyZ27FbpAd');
-        headers.append('Accept', 'application/json');
-        return fetch('https://pic.prts.top/api/v1/upload', {
-            method: 'POST',
-            headers: headers,
-            body: formData,
-          })
-          .then((resp) => resp.json())
-          .then((resp) => resp.data.links.url);
-      }
-    })
-  </script>
-</div>
+    <div id="miracle-comments">
+        <link href="https://cdn.staticfile.org/artalk/2.5.0/Artalk.min.css" rel="stylesheet">
+        <script src="https://cdn.staticfile.org/artalk/2.5.0/Artalk.min.js"></script>
+        <div id="ART_Comments"></div>
+        <script>
+            var artalk = new Artalk({
+                el: '#ART_Comments',
+                server: 'https://artalk.prts.top',
+                site: '天翔TNXGの空间站',
+                imgUploader: async (file) => {
+                    const formData = new FormData()
+                    formData.set('file', file)
+                    const ext = file.name.split('.').pop()
+                    const imagekit = new ImageKit({
+                        publicKey: "public_W1xgQMB6rCKVq7cQjMLlbb/TmuQ=",
+                        urlEndpoint: "https://ik.imagekit.io/tokaiteio/",
+                        authenticationEndpoint: "https://api-blog.tnxg.top/upimg_sign"
+                    });
+                    imagekit.upload({
+                            file: file,
+                            fileName: randomNum(0, 32) + ext,
+                            tags: ["blog-user"],
+                        }, function (err, result) {
+                            let url = imagekit.url({
+                                src: result.url
+                            }).split('?')[0];
+                            url = url.replace(/https:\/\/ik\.imagekit\.io\/tokaiteio\/(.*)/, 'https://assets.tnxg.whitenuo.cn/images/unauthorize/$1');
+                            document.querySelector('.atk-textarea').value += `![${file.name}](${url})`;
+                        }
+                    )
+                }
+            })
+        </script>
+    </div>
+
 
         </div>
     
@@ -1023,6 +1031,7 @@
 <script src="/assets/js/message.js"></script>
 <script src="/assets/js/master.js"></script>
 <script src="https://npm.elemecdn.com/msg-alert@1.0.0-beta.4/dist/msg-alert.js"></script>
+<script src="https://npm.elemecdn.com/imagekit-javascript@1.3.0/dist/imagekit.min.js"></script>
 
 
 <!-- 尾部脚本 -->
