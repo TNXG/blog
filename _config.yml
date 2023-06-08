@@ -70,7 +70,8 @@ prismjs:
   line_number: false
 
 # 打开 shiki
-shiki_twoslash:
+syntax_highlighter: "shiki"
+shiki:
   enable: true
   theme: "dark-plus"
 

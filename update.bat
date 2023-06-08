@@ -1,1 +1,1 @@
-python update.py "Feat: 重置了Artalk的图片上传功能"
+python update.py "Fix: 修复代码高亮"
