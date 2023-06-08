@@ -663,7 +663,7 @@
         
         <span class="post-meta">
         <span class="p-dot"></span>
-        共 2521 字
+        共 2526 字
       </span>
     
     
@@ -687,7 +687,10 @@
 
 <p>当然这篇博文是基于Windows的环境下搭建的，不负责Linux</p>
 <p>你需要先在电脑中安装以下软件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Python ≈ 3.8</span><br><span class="line">Java ≈ 17</span><br><span class="line">CMD</span><br><span class="line">Mongodb</span><br></pre></td></tr></table></figure>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E" tabindex="0"><code><span class="line"><span style="color: #D4D4D4">Python ≈ 3.8</span></span>
+<span class="line"><span style="color: #D4D4D4">Java ≈ 17</span></span>
+<span class="line"><span style="color: #D4D4D4">CMD</span></span>
+<span class="line"><span style="color: #D4D4D4">Mongodb</span></span></code></pre>
 
 <h1 id="下载安装Python"><a href="#下载安装Python" class="headerlink" title="下载安装Python"></a>下载安装Python</h1><p><a target="_blank" rel="noopener" href="https://assets.prts.top/d/aliyun/%E4%BE%9D%E8%B5%96/python/python3.8.8.exe">python3.8.8.exe</a></p>
 <p>在这里下载安装就可以了，虽然我不太确定py39能不能正常使用，但我觉得应该可以（）</p>
@@ -705,7 +708,8 @@
 <p>尝试使用命令开启Mongodb<code>mongod --dbpath &quot;../db&quot;</code>，如果命令提示符中出现大量json数据则代表开启成功 <del>或许开启失败也是一堆json数据，但我目前还没有遇见过</del></p>
 <p>如果嫌每次启动都输入命令麻烦当然可以写个启动脚本</p>
 <p>依旧是在Mongodb的根目录下，输入</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="built_in">cd</span> bin &gt; <span class="built_in">start</span>.bat</span><br><span class="line"><span class="built_in">echo</span> mongod --dbpath &quot;../db&quot; &gt;&gt; <span class="built_in">start</span>.bat</span><br></pre></td></tr></table></figure>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E" tabindex="0"><code><span class="line"><span style="color: #D4D4D4">echo cd </span><span style="color: #9CDCFE">bin</span><span style="color: #D4D4D4"> &gt; start.bat</span></span>
+<span class="line"><span style="color: #D4D4D4">echo </span><span style="color: #9CDCFE">mongod</span><span style="color: #D4D4D4"> --</span><span style="color: #9CDCFE">dbpath</span><span style="color: #D4D4D4"> </span><span style="color: #CE9178">&quot;../db&quot;</span><span style="color: #D4D4D4"> &gt;&gt; start.bat</span></span></code></pre>
 
 <p>这两条命令会在目录下生成生成一个<code>start.bat</code>以后点击start.bat就可以开启Mongodb服务</p>
 <h1 id="配置Python"><a href="#配置Python" class="headerlink" title="配置Python"></a>配置Python</h1><p>这个还算比较简单，直接运行<code>pip install mitmproxy</code>就可以了</p>
@@ -730,7 +734,8 @@
 <h2 id="开放服务器"><a href="#开放服务器" class="headerlink" title="开放服务器"></a>开放服务器</h2><p>依旧是在<code>Grasscutter-Server</code>文件夹中，cmd输入</p>
 <p><code>java -jar grasscutter.jar -handbook</code>你会看见在根目录下多了个<code>GM handbook.txt</code>的文件！这个文件是必须的！</p>
 <p>然后继续执行</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="built_in">start</span> java -jar grasscutter.jar &gt; <span class="built_in">start</span>.bat</span><br><span class="line"><span class="built_in">echo</span> <span class="built_in">start</span> mitmdump -s proxy.py --ssl-insecure &gt;&gt; <span class="built_in">start</span>.bat</span><br></pre></td></tr></table></figure>
+<pre class="shiki dark-plus" style="background-color: #1E1E1E" tabindex="0"><code><span class="line"><span style="color: #D4D4D4">echo start </span><span style="color: #9CDCFE">java</span><span style="color: #D4D4D4"> -</span><span style="color: #9CDCFE">jar</span><span style="color: #D4D4D4"> grasscutter.</span><span style="color: #9CDCFE">jar</span><span style="color: #D4D4D4"> &gt; start.bat</span></span>
+<span class="line"><span style="color: #D4D4D4">echo start </span><span style="color: #9CDCFE">mitmdump</span><span style="color: #D4D4D4"> -</span><span style="color: #9CDCFE">s</span><span style="color: #D4D4D4"> proxy.</span><span style="color: #9CDCFE">py</span><span style="color: #D4D4D4"> --</span><span style="color: #9CDCFE">ssl</span><span style="color: #D4D4D4">-</span><span style="color: #9CDCFE">insecure</span><span style="color: #D4D4D4"> &gt;&gt; start.bat</span></span></code></pre>
 
 <p>如果cmd没有任何报错，恭喜你成功了，你的服务器被开放了！</p>
 <p>现在你可以尝试使用<code>account create 用户名 用户id</code> 来创建你的游戏账号，并测试服务端是否正常</p>
@@ -1131,7 +1136,7 @@
                 2023&nbsp;&nbsp;天翔TNXG
             </p>
         
-        <p>本站总计 <span class="post-count">27268</span> 字，预计需要<span class="post-count">182min 读完</span></p>
+        <p>本站总计 <span class="post-count">27272</span> 字，预计需要<span class="post-count">182min 读完</span></p>
         <p>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme by <a
                     href="https://github.com/hifun-team/hexo-theme-miracle" target="_blank">Miracle</a></p>
         <p>来自 <span id="tnxg_addr">Loading...</span> 的朋友你好！欢迎浏览我的博客！</p>
