@@ -25,17 +25,24 @@ aplayer: true
 <figure><embed src="https://wakatime.com/share/@TNXG/d02e03cf-37e4-4415-9226-87ff79d40804.svg"></embed></figure>
 
 # 联系方式
-[QQ](https://jq.qq.com/?_wv=1027&k=hc3OKNED) | [GitHub](https://github.com/TNXG) | [E-Mail](mailto:tianxiang_tnxg@outlook.com) | [网易云音乐](https://music.163.com/user/home?id=515522946) | [哔哩哔哩](https://space.bilibili.com/175424674) | [Telegram](https://t.me/tianxiang_tnxg) | [Twitter](https://twitter.com/tianxiang_tnxg)
+[QQ](https://jq.qq.com/?_wv=1027&k=hc3OKNED) | [GitHub](https://github.com/TNXG) | [E-Mail](mailto:tnxg@outlook.jp) | [网易云音乐](https://music.163.com/user/home?id=515522946) | [哔哩哔哩](https://space.bilibili.com/175424674) | [Telegram](https://t.me/tianxiang_tnxg) | [Twitter](https://twitter.com/tianxiang_tnxg)
 
 # 关于站点
->来看看站点的构成？（白嫖大王.jpg）
-
-![](https://assets.tnxg.whitenuo.cn/images/upload/%E5%8D%9A%E5%AE%A2%E7%BB%84%E6%88%90.png)
-
-~~图片过时了~~
 
 >本站编年史
 
+<details>
+<summary>2023</summary>
+
+### 2023-7-13
+对于博客过时信息进行了更新
+
+### 2023-6-4
+使用Python+Flask重写了博客后端
+
+### 2023-6-3
+重写博客ServiceWorker
+</details>
 <details>
 <summary>2022</summary>
 
@@ -177,7 +184,15 @@ TARS天翔
 
 ### 赛马娘
 
-我玩台服，但是懒得找id了，知我是个赛马娘玩家就行
+日服：いゆくるず（326246156）
+![](https://assets.tnxg.whitenuo.cn/images/cover/games/uma/JP_Card-1.png)
+![](https://assets.tnxg.whitenuo.cn/images/cover/games/uma/JP_Card-2.png)
+
+
+繁中服：いゆくるず（582892006783）
+![](https://assets.tnxg.whitenuo.cn/images/cover/games/uma/TC_Card-1.jpg)
+![](https://assets.tnxg.whitenuo.cn/images/cover/games/uma/TC_Card-2.jpg)
+
 
 ### 幻塔（半退游）
 

@@ -176,7 +176,7 @@ page404:
 
 static_prefix:
   twikoo: "https://assets.tnxg.whitenuo.cn/static/twikoo/1.6.8/"
-  artalk: "https://cdn.staticfile.org/artalk/2.5.0/"
+  artalk: "https://cdn.staticfile.org/artalk/2.5.5/"
 
 lazyload:
   enable: true

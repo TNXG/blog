@@ -1,1 +1,1 @@
-python update.py "Fix: 修复代码高亮"
+python update.py "Fix: 升级部分代码、修改过时信息"

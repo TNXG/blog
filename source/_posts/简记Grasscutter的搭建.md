@@ -10,7 +10,7 @@ categories: [游戏, 原创, 教程]
 
 # 前言
 
-tip:本文仅作技术分享，从而带来的任何问题我们暂不负责，若本文侵犯了贵方的权益请联系[天翔TNXG](mailto:tianxiang_tnxg@outlook.com)
+tip:本文仅作技术分享，从而带来的任何问题我们暂不负责，若本文侵犯了贵方的权益请联系[天翔TNXG](mailto:tnxg@outlook.jp)
 
 上一次见到关于MitmProxy的项目是关于明日方舟的G和私服，没想到这么快就轮到原神了，这还是令我有点惊讶的
 

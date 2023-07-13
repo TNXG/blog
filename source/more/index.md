@@ -11,7 +11,6 @@ updated: 2023-01-15 02:00:00
     - [主页](/albums/)
     - [旧主页](/albums/old_index.html)
     - [二次元图集](/albums/acg.html)
-- [BlogCGI(年久失修)](/blog-cgi/)
 - [留言板](/board/)
 - [分类](/categories/)
 - 投喂

@@ -3,13 +3,11 @@ const CACHE_NAME = 'TNXG_BLOG_CACHE';
 let cachelist = [];
 self.addEventListener('install', async function (installEvent) {
     self.skipWaiting();
-    installEvent.waitUntil(
-        caches.open(CACHE_NAME)
-            .then(function (cache) {
-                console.log('[TNXG_SW]Opened cache');
-                return cache.addAll(cachelist);
-            })
-    );
+    installEvent.waitUntil(caches.open(CACHE_NAME)
+        .then(function (cache) {
+            console.log('[TNXG_SW]Opened cache');
+            return cache.addAll(cachelist);
+        }));
 });
 self.addEventListener('fetch', async event => {
     event.respondWith(handle(event.request))
@@ -23,7 +21,7 @@ const handle = async (req) => {
     self.db = {
         read: (key, config) => {
             if (!config) {
-                config = { type: "text" }
+                config = {type: "text"}
             }
             return new Promise((resolve, reject) => {
                 caches.open(CACHE_NAME).then(cache => {
@@ -35,8 +33,7 @@ const handle = async (req) => {
                     })
                 })
             })
-        },
-        write: (key, value) => {
+        }, write: (key, value) => {
             return new Promise((resolve, reject) => {
                 caches.open(CACHE_NAME).then(function (cache) {
                     cache.put(new Request(`https://LOCALCACHE/${encodeURIComponent(key)}`), new Response(value));
@@ -51,7 +48,7 @@ const handle = async (req) => {
     const 并发请求 = async (urls, url) => {
         let controller = new AbortController();
         const PauseProgress = async (res) => {
-            return new Response(await (res).arrayBuffer(), { status: res.status, headers: res.headers });
+            return new Response(await (res).arrayBuffer(), {status: res.status, headers: res.headers});
         };
         if (!Promise.any) {
             Promise.any = function (promises) {
@@ -81,7 +78,7 @@ const handle = async (req) => {
                 })
                     .then(PauseProgress)
                     .then(res => {
-                        if (res.status == 200) {
+                        if (res.status == 200 || res.status == 304 || res.status == 404) {
                             controller.abort()
                             resolve(res)
                         } else {
@@ -93,6 +90,19 @@ const handle = async (req) => {
         }))
     }
     // 主站api函数
+    fetch('https://6.ipw.cn/')
+        .then(response => {
+            if (response.status === 200) {
+                console.log('客户端具有 IPv6 地址');
+                const setIPv6 = true
+            } else {
+                console.log('客户端不具有 IPv6 地址');
+                const setIPv6 = false
+            }
+        })
+        .catch(error => {
+            console.log('请求出错:', error);
+        });
 
     // 拦截所有路径为域名/sw-req/的请求
     if (req.url.includes('/sw-req/')) {
@@ -203,25 +213,22 @@ workbox.setConfig({
 //关闭日志
 self.__WB_DISABLE_DEV_LOGS = true;
 
-const { core, precaching, routing, strategies, expiration } = workbox;
-const { CacheFirst, NetworkFirst, NetworkOnly, StaleWhileRevalidate } = strategies;
-const { ExpirationPlugin } = expiration;
+const {core, precaching, routing, strategies, expiration} = workbox;
+const {CacheFirst, NetworkFirst, NetworkOnly, StaleWhileRevalidate} = strategies;
+const {ExpirationPlugin} = expiration;
 
 const cacheSuffixVersion = '_20200610';
 
 core.setCacheNameDetails({
-    prefix: 'bycg',
-    suffix: cacheSuffixVersion
+    prefix: 'bycg', suffix: cacheSuffixVersion
 });
 
 self.addEventListener('activate', (event) => {
-    event.waitUntil(
-        caches.keys().then((keys) => {
-            return Promise.all(keys.map((key) => {
-                if (!key.includes(cacheSuffixVersion)) return caches.delete(key);
-            }));
-        })
-    );
+    event.waitUntil(caches.keys().then((keys) => {
+        return Promise.all(keys.map((key) => {
+            if (!key.includes(cacheSuffixVersion)) return caches.delete(key);
+        }));
+    }));
 });
 
 
@@ -231,58 +238,33 @@ core.clientsClaim();
 /**
  * 缓存第三方引用
  */
-routing.registerRoute(
-    /.*(cdn.jsdelivr.net|at.alicdn.com)/,
-    new CacheFirst({
-        cacheName: 'static-cdn' + cacheSuffixVersion,
-        fetchOptions: {
-            mode: 'cors',
-            credentials: 'omit'
-        },
-        plugins: [
-            new ExpirationPlugin({
-                maxAgeSeconds: 30 * 24 * 60 * 60,
-                purgeOnQuotaError: true
-            })
-        ]
-    })
-);
+routing.registerRoute(/.*(cdn.jsdelivr.net|at.alicdn.com)/, new CacheFirst({
+    cacheName: 'static-cdn' + cacheSuffixVersion, fetchOptions: {
+        mode: 'cors', credentials: 'omit'
+    }, plugins: [new ExpirationPlugin({
+        maxAgeSeconds: 30 * 24 * 60 * 60, purgeOnQuotaError: true
+    })]
+}));
 
 //不作缓存
-routing.registerRoute(
-    /\/sw.js/,
-    new NetworkOnly()
-);
+routing.registerRoute(/\/sw.js/, new NetworkOnly());
 
 
 //缓存图片
-routing.registerRoute(
-    /.*\.(?:png|jpg|jpeg|svg|gif|webp)/,
-    new CacheFirst({
-        cacheName: 'static-image' + cacheSuffixVersion,
-    })
-);
+routing.registerRoute(/.*\.(?:png|jpg|jpeg|svg|gif|webp)/, new CacheFirst({
+    cacheName: 'static-image' + cacheSuffixVersion,
+}));
 
 //缓存js css
-routing.registerRoute(
-    /.*\.(css|js)$/,
-    new CacheFirst({
-        cacheName: 'static-js-css' + cacheSuffixVersion,
-    })
-);
+routing.registerRoute(/.*\.(css|js)$/, new CacheFirst({
+    cacheName: 'static-js-css' + cacheSuffixVersion,
+}));
 
 //本站其他文件
-routing.registerRoute(
-    ({ url }) => {
-        return url.hostname === location.hostname
-    },
-    new NetworkFirst({
-        cacheName: 'static-other' + cacheSuffixVersion,
-        plugins: [
-            new ExpirationPlugin({
-                maxEntries: 50,
-                purgeOnQuotaError: true
-            })
-        ]
-    })
-);
+routing.registerRoute(({url}) => {
+    return url.hostname === location.hostname
+}, new NetworkFirst({
+    cacheName: 'static-other' + cacheSuffixVersion, plugins: [new ExpirationPlugin({
+        maxEntries: 50, purgeOnQuotaError: true
+    })]
+}));
