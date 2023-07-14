@@ -90,20 +90,6 @@ const handle = async (req) => {
         }))
     }
     // 主站api函数
-    fetch('https://6.ipw.cn/')
-        .then(response => {
-            if (response.status === 200) {
-                console.log('客户端具有 IPv6 地址');
-                const setIPv6 = true
-            } else {
-                console.log('客户端不具有 IPv6 地址');
-                const setIPv6 = false
-            }
-        })
-        .catch(error => {
-            console.log('请求出错:', error);
-        });
-
     // 拦截所有路径为域名/sw-req/的请求
     if (req.url.includes('/sw-req/')) {
         console.log('[TNXG_SW]检测到SW请求：' + req.url);
