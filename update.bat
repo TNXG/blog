@@ -1,1 +1,1 @@
-python update.py "Fix: 升级部分代码、修改过时信息"
+python update.py "Fix: 修复sw线程堵塞"
